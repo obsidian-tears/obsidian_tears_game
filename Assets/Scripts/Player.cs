@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public enum PlayerType {Fighter, Wizard, Rogue, Barbarian}
+public enum PlayerType { Fighter, Wizard, Rogue, Barbarian }
 public class Player : MonoBehaviour
 {
 
@@ -18,8 +18,9 @@ public class Player : MonoBehaviour
     [SerializeField] MySignal playerHealthSignal;
     [SerializeField] MySignal battleSignal;
     [SerializeField] VectorValue playerPosition;
+    [SerializeField] GameObject pauseMenu;
     [SerializeField] PlayerType playerType = PlayerType.Fighter;
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +39,21 @@ public class Player : MonoBehaviour
         change = change.normalized;
         playerPosition.initialValue.x = transform.position.x;
         playerPosition.initialValue.y = transform.position.y;
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            if (pauseMenu.activeInHierarchy)
+            {
+                pauseMenu.SetActive(false);
+                Time.timeScale = 1;
+            }
+            else
+            {
+                Time.timeScale = 0;
+                pauseMenu.SetActive(true);
+            }
+        }
+
     }
 
     void FixedUpdate()
@@ -55,8 +71,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void OnMonsterSignal() {
-        if (animator.GetBool("moving")) {
+    public void OnMonsterSignal()
+    {
+        if (animator.GetBool("moving"))
+        {
             // check for potion effects, magic armor, etc. 
             battleSignal.Raise();
         }
