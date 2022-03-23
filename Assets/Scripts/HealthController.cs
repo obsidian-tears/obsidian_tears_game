@@ -13,15 +13,17 @@ public class HealthController : MonoBehaviour
     [SerializeField] Slider healthSlider;
     [SerializeField] Slider magicSlider;
     [SerializeField] TextMeshProUGUI levelText;
+    [SerializeField] TextMeshProUGUI goldText;
 
     void Start()
     {
        UpdateHealthAndMagic();
-       levelText.text = playerStats.level.value.ToString();
     }
 
     public void UpdateHealthAndMagic() {
        healthSlider.value = currentHealth.value / playerStats.maxHealth.value;
        magicSlider.value = currentMagic.value / playerStats.maxMagic.value;
+       goldText.text = "$" + Mathf.FloorToInt(playerStats.gold.value).ToString();
+       levelText.text = playerStats.level.value.ToString();
     }
 }

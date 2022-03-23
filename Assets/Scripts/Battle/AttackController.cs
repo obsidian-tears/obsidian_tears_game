@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Runtime.InteropServices;
 public class AttackController : MonoBehaviour
 {
     [SerializeField] FloatValue currentHealth;
@@ -11,16 +11,21 @@ public class AttackController : MonoBehaviour
     [SerializeField] Stats playerStats;
     [SerializeField] CurrentEnemy currentEnemy;
     [SerializeField] MySignal playerSignal;
+
+    [DllImport("__Internal")] private static extern void GameOver();
+
     void Start()
     {
         currentEnemyHealth = currentEnemy.enemy.maxHealth;
         currentEnemyMagic = currentEnemy.enemy.maxMagic;
         playerSignal.Raise();
     }
-    public float Attack()
+    public float Attack(bool critical)
     {
-        currentEnemyHealth -= playerStats.strength.value;
-        return playerStats.strength.value;
+        float rand = Random.Range(-0.2f, 0.2f);
+        float damage = Mathf.Ceil(rand*playerStats.strength.value + playerStats.strength.value * (critical ? 2 : 1));
+        currentEnemyHealth -= damage;
+        return damage;
     }
 
     public float Spell(Spell spell)
@@ -29,18 +34,27 @@ public class AttackController : MonoBehaviour
         return spell.spellPower;
     }
 
-    public BattleState CheckBattleEnd() {
-        if (currentEnemyHealth <= 0) {
+    public BattleState CheckBattleEnd()
+    {
+        if (currentEnemyHealth <= 0)
+        {
             return BattleState.PlayerWon;
-        } else if (currentHealth.value <= 0) {
+        }
+        else if (currentHealth.value <= 0)
+        {
+            #if UNITY_WEBGL == true && UNITY_EDITOR == false
+                GameOver();
+            #endif
             return BattleState.PlayerLost;
-        } else return BattleState.Busy;
+        }
+        else return BattleState.Busy;
     }
 
     public float EnemyAttack()
     {
-        currentHealth.value -= currentEnemy.enemy.strength;
+        float damage = Mathf.Ceil(currentEnemy.enemy.strength);
+        currentHealth.value -= damage;
         playerSignal.Raise();
-        return currentEnemy.enemy.strength;
+        return damage;
     }
 }

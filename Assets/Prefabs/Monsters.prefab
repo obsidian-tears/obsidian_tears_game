@@ -1,0 +1,128 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5509634565286575639
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5509634565286575632}
+  - component: {fileID: 5509634565286575633}
+  - component: {fileID: 5509634565286575635}
+  - component: {fileID: 6382635299486106991}
+  m_Layer: 0
+  m_Name: Monsters
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5509634565286575632
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5509634565286575639}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5509634565286575633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5509634565286575639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0db12642190ca2c4c99b343dd15ed6de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initProb: 0.2
+  monsters:
+  - {fileID: 11400000, guid: 228229ed630a7e442851cfaf60c942ad, type: 2}
+  - {fileID: 11400000, guid: 096b14f9b2235174d91e67bc4ba3029e, type: 2}
+  signal: {fileID: 11400000, guid: acc0e6e918154bb48ae4259c833710d5, type: 2}
+  active: 0
+  probability: 0
+  battleTransition: {fileID: 4479846611584565221, guid: 3d7924d73d4cbdc4e83211654fb61860, type: 3}
+  currentEnemy: {fileID: 11400000, guid: 18b217b04b207c3449539ca20a0357b6, type: 2}
+--- !u!114 &5509634565286575635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5509634565286575639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a3fb9a42cc26844fb637c0749ccd0e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  signal: {fileID: 11400000, guid: 0f903ff79c11796468c971f1ad0026a7, type: 2}
+  signalEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5509634565286575633}
+        m_TargetAssemblyTypeName: MonsterArea, Assembly-CSharp
+        m_MethodName: OnBattleSignal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!60 &6382635299486106991
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5509634565286575639}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 47.890125, y: 15.7538}
+      - {x: 75.715996, y: 16.755657}
+      - {x: 74.92987, y: -20.975494}
+      - {x: 48.310223, y: -21.474579}
+      - {x: 46.866302, y: -46.96587}
+      - {x: 75.25454, y: -46.5166}
+      - {x: 104.95093, y: 17.01812}
+      - {x: 76.95285, y: 61.588444}
+      - {x: -77.58743, y: 59.577663}
+      - {x: -88.50775, y: -45.569153}
+      - {x: -54.9881, y: -50.7094}
+      - {x: -42.08652, y: -48.491768}
+      - {x: -42.19711, y: -24.19066}
+      - {x: -71.444244, y: -24.02919}
+      - {x: -73.548416, y: 17.076658}
+      - {x: -43.870872, y: 16.534739}
+      - {x: -43.79945, y: 42.645744}
+      - {x: 74.793175, y: 44.093998}
+      - {x: 46.94405, y: 42.933617}
