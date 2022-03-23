@@ -42,20 +42,23 @@ public class MonsterArea : MonoBehaviour
 
     public void OnBattleSignal()
     {
-        float randVal = Random.value;
-        float tempProb = 0.0f;
-        // choose the monster to battle
-        foreach (RegionalMonster regionalMonster in monsters)
+        if (active)
         {
-            tempProb += regionalMonster.probability;
-            currentEnemy.enemy = regionalMonster.enemy;
-            if (randVal < tempProb)
+            float randVal = Random.value;
+            float tempProb = 0.0f;
+            // choose the monster to battle
+            foreach (RegionalMonster regionalMonster in monsters)
             {
-                break;
+                tempProb += regionalMonster.probability;
+                currentEnemy.enemy = regionalMonster.enemy;
+                if (randVal < tempProb)
+                {
+                    break;
+                }
             }
+            // navigate to battle scene
+            StartCoroutine(StartBattleTransitionCo());
         }
-        // navigate to battle scene
-        StartCoroutine(StartBattleTransitionCo());
     }
 
     public IEnumerator StartBattleTransitionCo()

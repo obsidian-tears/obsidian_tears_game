@@ -6,5 +6,5 @@ using UnityEngine;
 public class LearningTrack : ScriptableObject
 {
     public List<Spell> spells;
-    public List<int> levels;
+    public List<int> spellLevels;
 }

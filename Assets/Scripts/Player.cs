@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         transform.position = new Vector3(playerPosition.initialValue.x, playerPosition.initialValue.y, transform.position.z);
+        playerHealthSignal.Raise();
     }
 
     // Update is called once per frame

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
+// using System.Runtime.InteropServices;
 
 public enum BattleState { Start, PlayerSpell, PlayerItem, EnemyMove, Busy, PlayerWon, PlayerLost }
 public class BattleSystem : MonoBehaviour
@@ -23,7 +24,9 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] VectorValue playerPosition;
     [SerializeField] VectorValue respawnPosition;
     [SerializeField] LevelManager levelManager;
+    // [DllImport("__Internal")] private static extern void GiveGold(int goldAmount);
     float transitionWait = 1.0f;
+    float textPause = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,7 +55,7 @@ public class BattleSystem : MonoBehaviour
     {
         battleScene.EnableBattleScene();
         yield return dialogBox.TypeDialog($"A dangerous {currentEnemy.enemy.enemyName} approaches!");
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(textPause);
         PlayerTurn();
     }
 
@@ -67,12 +70,12 @@ public class BattleSystem : MonoBehaviour
     IEnumerator EnemyTurn()
     {
         state = BattleState.EnemyMove;
-        yield return new WaitForSecondsRealtime(1.0f);
+        yield return new WaitForSecondsRealtime(textPause);
         yield return dialogBox.TypeDialog($"{currentEnemy.enemy.enemyName} attacks!");
-        yield return new WaitForSecondsRealtime(1.0f);
+        yield return new WaitForSecondsRealtime(textPause);
         float damageDone = attackController.EnemyAttack();
         yield return dialogBox.TypeDialog($"{currentEnemy.enemy.enemyName} does {damageDone} damage.");
-        yield return new WaitForSecondsRealtime(1.0f);
+        yield return new WaitForSecondsRealtime(textPause);
         yield return HandleBattleEnd();
         PlayerTurn();
     }
@@ -81,23 +84,30 @@ public class BattleSystem : MonoBehaviour
     {
         state = BattleState.Busy;
         dialogBox.DisableActionSelector();
-        yield return new WaitForSecondsRealtime(1.0f);
+        yield return new WaitForSecondsRealtime(textPause);
         yield return dialogBox.TypeDialog($"You attack!");
-        yield return new WaitForSecondsRealtime(1.0f);
-        float damageDone = attackController.Attack();
+        yield return new WaitForSecondsRealtime(textPause);
+        bool critical = (UnityEngine.Random.value < 0.05);
+        float damageDone = attackController.Attack(critical);
+        if (critical) {
+            yield return dialogBox.TypeDialog($"Critical hit!");
+            yield return new WaitForSecondsRealtime(textPause);
+        }
         yield return dialogBox.TypeDialog($"You deal {damageDone} damage.");
-        yield return new WaitForSecondsRealtime(1.0f);
+        yield return new WaitForSecondsRealtime(textPause);
         yield return HandleBattleEnd();
         yield return EnemyTurn();
     }
-    IEnumerator UseSpell() {
-            state = BattleState.Busy;
-            float damage = spellBox.CastSpell(selectedSpellIndex);
-            if (damage < 0.0) yield break;
-            spellBox.DisableSpellSelector();
-            yield return dialogBox.TypeDialog($"{damage} damage done.");
-            yield return HandleBattleEnd();
-            yield return EnemyTurn();
+    IEnumerator UseSpell()
+    {
+        state = BattleState.Busy;
+        float damage = spellBox.CastSpell(selectedSpellIndex);
+        if (damage < 0.0) yield break;
+        spellBox.DisableSpellSelector();
+        yield return dialogBox.TypeDialog($"{damage} damage done.");
+        yield return new WaitForSecondsRealtime(textPause);
+        yield return HandleBattleEnd();
+        yield return EnemyTurn();
     }
     void ChooseSpell()
     {
@@ -220,8 +230,14 @@ public class BattleSystem : MonoBehaviour
         if (newState == BattleState.PlayerWon)
         {
             yield return dialogBox.TypeDialog("You win!");
+            yield return new WaitForSecondsRealtime(textPause);
             yield return dialogBox.TypeDialog($"You gained {currentEnemy.enemy.xp} and {currentEnemy.enemy.gold} gold.");
+            yield return new WaitForSecondsRealtime(textPause);
             playerStats.gold.value += currentEnemy.enemy.gold;
+
+// #if UNITY_WEBGL == true && UNITY_EDITOR == false
+                // GiveGold(currentEnemy.enemy.gold);
+// #endif
             playerStats.xp.value += currentEnemy.enemy.xp;
             BattleResult result = levelManager.getLevel(playerStats.playerType, playerStats.level.value, playerStats.xp.value);
             if (result.dLevel > 0)
@@ -235,16 +251,23 @@ public class BattleSystem : MonoBehaviour
                 playerStats.maxMagic.value += result.dMaxMagic;
 
                 yield return dialogBox.TypeDialog($"You leveled up to level {playerStats.level.value}!");
+                yield return new WaitForSecondsRealtime(textPause);
                 yield return dialogBox.TypeDialog($"You gained {result.dAgility} agility.");
+                yield return new WaitForSecondsRealtime(textPause);
                 yield return dialogBox.TypeDialog($"You gained {result.dStrength} strength.");
+                yield return new WaitForSecondsRealtime(textPause);
                 yield return dialogBox.TypeDialog($"You gained {result.dMagicPower} magic power.");
+                yield return new WaitForSecondsRealtime(textPause);
                 yield return dialogBox.TypeDialog($"You gained {result.dMaxHealth} health points.");
+                yield return new WaitForSecondsRealtime(textPause);
                 yield return dialogBox.TypeDialog($"You gained {result.dMaxMagic} magic points.");
+                yield return new WaitForSecondsRealtime(textPause);
 
                 if (result.newSpell)
                 {
                     spellBox.AddSpell(result.newSpell);
                     yield return dialogBox.TypeDialog($"You learned the spell {result.newSpell.spellName}.");
+                    yield return new WaitForSecondsRealtime(textPause);
                 }
             }
             yield return EndBattleTransitionCo();
@@ -252,6 +275,7 @@ public class BattleSystem : MonoBehaviour
         else if (newState == BattleState.PlayerLost)
         {
             yield return dialogBox.TypeDialog("You lost...");
+            yield return new WaitForSecondsRealtime(textPause);
             playerStats = respawnStats;
             playerPosition = respawnPosition;
             yield return EndBattleTransitionCo();

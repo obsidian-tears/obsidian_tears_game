@@ -31,19 +31,19 @@ public class LevelManager : MonoBehaviour
     BattleResult getLevel(LearningTrack learningTrack, int currentLevel, int xp, float xStrength,
                             float xAgility, float xMagicPower, float xMaxHealth, float xMaxMagic)
     {
-        int dLevel = 1;
+        int dLevel = Mathf.Max(0, Mathf.FloorToInt(xp - (currentLevel*25*Mathf.Pow(1.5f, currentLevel-1))));
         Spell newSpell = null;
         if (dLevel > 0)
         {
-            int levelIndex = fighterTrack.levels.IndexOf(currentLevel + dLevel);
+            int levelIndex = fighterTrack.spellLevels.IndexOf(currentLevel + dLevel);
             newSpell = levelIndex >= 0 ? fighterTrack.spells[levelIndex] : null;
         }
         int newLevel = currentLevel + dLevel;
-        float dStrength = newLevel * xStrength;
-        float dAgility = newLevel * xAgility;
-        float dMagicPower = newLevel * xMagicPower;
-        float dMaxMagic = newLevel * xMaxMagic;
-        float dMaxHealth = newLevel * xMaxHealth;
+        float dStrength = Mathf.Floor(newLevel * xStrength); 
+        float dAgility = Mathf.Floor(newLevel * xAgility);
+        float dMagicPower = Mathf.Floor(newLevel * xMagicPower);
+        float dMaxMagic = Mathf.Floor(newLevel * xMaxMagic);
+        float dMaxHealth = Mathf.Floor(newLevel * xMaxHealth);
         return new BattleResult(level: dLevel, strength: dStrength, agility: dAgility, magicPower: dMagicPower,
                             maxMagic: dMaxMagic, maxHealth: dMaxHealth, spell: newSpell);
     }
