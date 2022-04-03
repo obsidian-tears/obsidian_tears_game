@@ -7,4 +7,5 @@ public class LearningTrack : ScriptableObject
 {
     public List<Spell> spells;
     public List<int> spellLevels;
+    public LevelsXp levelsExp;
 }
