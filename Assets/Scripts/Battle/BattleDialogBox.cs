@@ -148,6 +148,8 @@ public class BattleDialogBox : MonoBehaviour
             }
         }
     }
+
+    public bool selectorEnabled => actionSelector.activeInHierarchy;
     public void EnableActionSelector()
     {
         actionSelector.SetActive(true);

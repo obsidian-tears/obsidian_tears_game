@@ -213,15 +213,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d334878da2351b44c99047f612b5fa0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lettersPerSecond: 30
+  canvas: {fileID: 0}
+  inkJSONAsset: {fileID: 0}
   dialogText: {fileID: 1281157666}
   actionSelector: {fileID: 158906096}
+  dialogBox: {fileID: 0}
   actionTexts:
   - {fileID: 76646927}
   - {fileID: 1334302823}
   - {fileID: 1190623841}
   - {fileID: 286125985}
   selectedColor: {r: 0, g: 0.18741083, b: 1, a: 1}
-  lettersPerSecond: 30
+  buttonPrefab: {fileID: 0}
 --- !u!1 &45785132
 GameObject:
   m_ObjectHideFlags: 0
@@ -2248,6 +2252,7 @@ MonoBehaviour:
   currentEnemyHealth: 0
   currentEnemyMagic: 0
   playerStats: {fileID: 11400000, guid: 11649d9fcd2808243b094e80f8344954, type: 2}
+  playerInventory: {fileID: 11400000, guid: 438a18f2474e305478c7cc44b1c8c061, type: 2}
   currentEnemy: {fileID: 11400000, guid: 18b217b04b207c3449539ca20a0357b6, type: 2}
   playerSignal: {fileID: 11400000, guid: 3bef31abdf14f6547af9900c8fb9e388, type: 2}
 --- !u!114 &1310204768

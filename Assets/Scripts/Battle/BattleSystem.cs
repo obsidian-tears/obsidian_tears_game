@@ -56,13 +56,13 @@ public class BattleSystem : MonoBehaviour
         battleScene.EnableBattleScene();
         yield return dialogBox.TypeDialog($"A dangerous {currentEnemy.enemy.enemyName} approaches!");
         yield return new WaitForSeconds(textPause);
-        PlayerTurn();
+        yield return PlayerTurn();
     }
 
-    void PlayerTurn()
+    IEnumerator PlayerTurn()
     {
         state = BattleState.Start;
-        StartCoroutine(dialogBox.TypeDialog("Choose an action..."));
+        yield return StartCoroutine(dialogBox.TypeDialog("Choose an action..."));
         dialogBox.EnableActionSelector();
         selectedActionIndex = 0;
         dialogBox.UpdateActionSelection(selectedActionIndex);
@@ -77,7 +77,7 @@ public class BattleSystem : MonoBehaviour
         yield return dialogBox.TypeDialog($"{currentEnemy.enemy.enemyName} does {damageDone} damage.");
         yield return new WaitForSecondsRealtime(textPause);
         yield return HandleBattleEnd();
-        PlayerTurn();
+        yield return PlayerTurn();
     }
 
     IEnumerator Attack()
@@ -89,7 +89,8 @@ public class BattleSystem : MonoBehaviour
         yield return new WaitForSecondsRealtime(textPause);
         bool critical = (UnityEngine.Random.value < 0.05);
         float damageDone = attackController.Attack(critical);
-        if (critical) {
+        if (critical)
+        {
             yield return dialogBox.TypeDialog($"Critical hit!");
             yield return new WaitForSecondsRealtime(textPause);
         }
@@ -109,18 +110,18 @@ public class BattleSystem : MonoBehaviour
         yield return HandleBattleEnd();
         yield return EnemyTurn();
     }
-    void ChooseSpell()
+    IEnumerator ChooseSpell()
     {
         state = BattleState.PlayerSpell;
-        StartCoroutine(dialogBox.TypeDialog("Cast a spell..."));
+        yield return StartCoroutine(dialogBox.TypeDialog("Cast a spell..."));
         spellBox.EnableSpellSelector();
         selectedSpellIndex = 0;
         spellBox.UpdateSpellSelection(selectedSpellIndex);
     }
-    void ChooseItem()
+    IEnumerator ChooseItem()
     {
         state = BattleState.PlayerItem;
-        StartCoroutine(dialogBox.TypeDialog("Use an item..."));
+        yield return StartCoroutine(dialogBox.TypeDialog("Use an item..."));
         itemBox.EnableItemSelector();
         selectedItemIndex = 0;
         itemBox.UpdateItemSelection(selectedItemIndex);
@@ -129,6 +130,7 @@ public class BattleSystem : MonoBehaviour
     // Hard coded for 4 actions: 0=Fight, 1=Item, 2=Spell, 3=Run
     void HandleActionSelection()
     {
+        if (!dialogBox.selectorEnabled) return;
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             if (selectedActionIndex == 2) return;
@@ -164,12 +166,12 @@ public class BattleSystem : MonoBehaviour
             else if (selectedActionIndex == 1)
             {
                 // ITEM
-                ChooseItem();
+                StartCoroutine(ChooseItem());
             }
             else if (selectedActionIndex == 2)
             {
                 // SPELL
-                ChooseSpell();
+                StartCoroutine(ChooseSpell());
             }
             else
             {
@@ -193,7 +195,7 @@ public class BattleSystem : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             spellBox.DisableSpellSelector();
-            PlayerTurn();
+            StartCoroutine(PlayerTurn());
         }
         else if (Input.GetKeyDown(KeyCode.Return))
         {
@@ -215,13 +217,13 @@ public class BattleSystem : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             itemBox.DisableItemSelector();
-            PlayerTurn();
+            StartCoroutine(PlayerTurn());
         }
         else if (Input.GetKeyDown(KeyCode.Return))
         {
             itemBox.UseItem(selectedItemIndex);
             itemBox.DisableItemSelector();
-            PlayerTurn();
+            StartCoroutine(PlayerTurn());
         }
     }
     IEnumerator HandleBattleEnd()
@@ -231,13 +233,13 @@ public class BattleSystem : MonoBehaviour
         {
             yield return dialogBox.TypeDialog("You win!");
             yield return new WaitForSecondsRealtime(textPause);
-            yield return dialogBox.TypeDialog($"You gained {currentEnemy.enemy.xp} and {currentEnemy.enemy.gold} gold.");
+            yield return dialogBox.TypeDialog($"You gained {currentEnemy.enemy.xp} xp and {currentEnemy.enemy.gold} gold.");
             yield return new WaitForSecondsRealtime(textPause);
             playerStats.gold.value += currentEnemy.enemy.gold;
 
-// #if UNITY_WEBGL == true && UNITY_EDITOR == false
-                // GiveGold(currentEnemy.enemy.gold);
-// #endif
+            // #if UNITY_WEBGL == true && UNITY_EDITOR == false
+            // GiveGold(currentEnemy.enemy.gold);
+            // #endif
             playerStats.xp.value += currentEnemy.enemy.xp;
             BattleResult result = levelManager.getLevel(playerStats.playerType, playerStats.level.value, playerStats.xp.value);
             if (result.dLevel > 0)
