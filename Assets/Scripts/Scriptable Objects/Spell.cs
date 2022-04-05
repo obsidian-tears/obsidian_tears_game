@@ -9,5 +9,6 @@ public class Spell : ScriptableObject
     public string spellDescription;
     public int spellLevel;
     public float spellPower;
+    public float spellCost;
     public bool canUseInBattle;
 }

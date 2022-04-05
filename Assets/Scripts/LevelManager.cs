@@ -31,7 +31,7 @@ public class LevelManager : MonoBehaviour
     BattleResult getLevel(LearningTrack learningTrack, int currentLevel, int xp, float xStrength,
                             float xAgility, float xMagicPower, float xMaxHealth, float xMaxMagic)
     {
-        int dLevel = Mathf.Max(0, Mathf.FloorToInt(xp - (currentLevel*25*Mathf.Pow(1.5f, currentLevel-1))));
+        int dLevel = learningTrack.levelsExp.xp.Count >= currentLevel && xp >= learningTrack.levelsExp.xp[currentLevel-1] ? 1 : 0;
         Spell newSpell = null;
         if (dLevel > 0)
         {
@@ -39,7 +39,7 @@ public class LevelManager : MonoBehaviour
             newSpell = levelIndex >= 0 ? fighterTrack.spells[levelIndex] : null;
         }
         int newLevel = currentLevel + dLevel;
-        float dStrength = Mathf.Floor(newLevel * xStrength); 
+        float dStrength = Mathf.Floor(newLevel * xStrength);
         float dAgility = Mathf.Floor(newLevel * xAgility);
         float dMagicPower = Mathf.Floor(newLevel * xMagicPower);
         float dMaxMagic = Mathf.Floor(newLevel * xMaxMagic);
