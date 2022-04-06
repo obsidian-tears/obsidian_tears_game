@@ -54,8 +54,7 @@ public class BattleSystem : MonoBehaviour
     public IEnumerator SetupBattle()
     {
         battleScene.EnableBattleScene();
-        yield return dialogBox.TypeDialog($"A dangerous {currentEnemy.enemy.enemyName} approaches!");
-        yield return new WaitForSeconds(textPause);
+        yield return StartCoroutine(dialogBox.TypeDialog($"A dangerous {currentEnemy.enemy.enemyName} approaches!"));
         yield return PlayerTurn();
     }
 

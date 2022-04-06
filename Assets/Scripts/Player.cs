@@ -20,11 +20,13 @@ public class Player : MonoBehaviour
     [SerializeField] VectorValue playerPosition;
     [SerializeField] GameObject pauseMenu;
     [SerializeField] PlayerType playerType = PlayerType.Fighter;
+    [SerializeField] bool inBattle;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        inBattle = false;
         myRigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         transform.position = new Vector3(playerPosition.initialValue.x, playerPosition.initialValue.y, transform.position.z);
@@ -34,6 +36,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (inBattle) return;
         change = Vector3.zero;
         change.x = Input.GetAxisRaw("Horizontal");
         change.y = Input.GetAxisRaw("Vertical");
@@ -76,6 +79,7 @@ public class Player : MonoBehaviour
     {
         if (animator.GetBool("moving"))
         {
+            inBattle = true;
             // check for potion effects, magic armor, etc. 
             battleSignal.Raise();
         }
