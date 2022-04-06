@@ -9,7 +9,6 @@ public class ItemBox : MonoBehaviour
     [SerializeField] Color selectedColor;
     [SerializeField] GameObject itemSlotTemplate;
     List<ItemSlot> itemSlots = new List<ItemSlot>();
-    //change to new object
 
     void Start()
     {

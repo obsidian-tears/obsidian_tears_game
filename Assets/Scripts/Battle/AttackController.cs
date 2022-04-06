@@ -38,6 +38,7 @@ public class AttackController : MonoBehaviour
         if (currentMagic.value < spell.spellCost) return -1f;
         currentMagic.value -= spell.spellCost;
         currentEnemyHealth -= spell.spellPower;
+        playerSignal.Raise();
         return spell.spellPower;
     }
 
