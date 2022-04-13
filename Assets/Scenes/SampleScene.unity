@@ -2881,6 +2881,8 @@ MonoBehaviour:
   buttonPrefab: {fileID: 0}
   selectedColor: {r: 0, g: 0, b: 0, a: 0}
   lettersPerSecond: 0
+  answerBox: {fileID: 0}
+  inkJSONAsset: {fileID: 0}
 --- !u!1001 &424680475
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -137436,8 +137438,8 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.5, y: 1}
+  m_DrawMode: 1
+  m_Size: {x: 0.5, y: 1.05}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -137452,7 +137454,7 @@ Transform:
   m_GameObject: {fileID: 1466502501}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.375, y: 1.9375, z: 1}
   m_Children:
   - {fileID: 519420032}
   - {fileID: 1783097625}
@@ -137479,9 +137481,9 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
     oldSize: {x: 1.1875, y: 1.9375}
-    newSize: {x: 0.5, y: 1}
+    newSize: {x: 0.5, y: 1.05}
     adaptiveTilingThreshold: 0.5
-    drawMode: 0
+    drawMode: 1
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
@@ -137510,6 +137512,7 @@ MonoBehaviour:
   playerPosition: {fileID: 11400000, guid: 91ca56e9adcc7c5499c22b8f84c247b0, type: 2}
   pauseMenu: {fileID: 792501609}
   playerType: 0
+  inBattle: 0
 --- !u!95 &1466502507
 Animator:
   serializedVersion: 3
