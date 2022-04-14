@@ -2882,7 +2882,7 @@ MonoBehaviour:
   selectedColor: {r: 0, g: 0, b: 0, a: 0}
   lettersPerSecond: 0
   answerBox: {fileID: 0}
-  inkJSONAsset: {fileID: 0}
+  dialogAsset: {fileID: 0}
 --- !u!1001 &424680475
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -140572,6 +140572,8 @@ GameObject:
   - component: {fileID: 2063299020}
   - component: {fileID: 2063299022}
   - component: {fileID: 2063299021}
+  - component: {fileID: 2063299024}
+  - component: {fileID: 2063299023}
   m_Layer: 0
   m_Name: npc2
   m_TagString: Untagged
@@ -140670,6 +140672,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2063299023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063299019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 240cc04a67fc20846a8bd1bd1bcef157, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 0
+  playerInRange: 0
+  enterSignal: {fileID: 11400000, guid: c278cd009b303264696d8c69e40c1885, type: 2}
+  exitSignal: {fileID: 11400000, guid: 284623b10c039534ba500c3972cb5651, type: 2}
+--- !u!114 &2063299024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063299019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8367a44bd0a5ba4448542c0283255ce4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textAsset: {fileID: 4900000, guid: f3e8623d0b1652249819d7f9de292c4f, type: 3}
+  dialogSignal: {fileID: 0}
+  playerInRange: 0
 --- !u!1 &2068182219
 GameObject:
   m_ObjectHideFlags: 0
