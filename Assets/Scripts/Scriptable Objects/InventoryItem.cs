@@ -15,6 +15,7 @@ public class InventoryItem : ScriptableObject
     public ItemType type;
     public EquipmentType subType;
     public int numberHeld;
+    public int value;
     public bool isUsable;
     public bool isEquipable;
     public bool isKeyItem;

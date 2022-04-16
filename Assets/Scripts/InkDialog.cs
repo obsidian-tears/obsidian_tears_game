@@ -19,6 +19,7 @@ public class InkDialog : MonoBehaviour
     public static event Action<Story> OnCreateStory;
 
     [SerializeField] private DialogAsset dialogAsset; // ink dialog tree 
+    [SerializeField] private MySignal leaveDialogSignal;
     /*
     1. create story. 
     2. create callback to start story
@@ -32,13 +33,13 @@ public class InkDialog : MonoBehaviour
     {
         story = new Story(dialogAsset.value.text);
         if (OnCreateStory != null) OnCreateStory(story); // does something. instantiates story?
-        RefreshView();
+        StartCoroutine(RefreshView());
     }
 
     // This is the main function called every time the story changes. It does a few things:
     // Destroys all the old content and choices.
     // Continues over all the lines of text, then displays all the choices. If there are no choices, the story is finished!
-    void RefreshView()
+    IEnumerator RefreshView()
     {
         // Remove all the UI on screen
         RemoveChildren();
@@ -52,7 +53,7 @@ public class InkDialog : MonoBehaviour
             // This removes any white space from the text.
             text = text.Trim();
             // Display the text on screen!
-            StartCoroutine(CreateContentView(text));
+            yield return StartCoroutine(CreateContentView(text));
         }
         // Display all the choices, if there are any!
         if (story.currentChoices.Count > 0)
@@ -60,11 +61,12 @@ public class InkDialog : MonoBehaviour
             for (int i = 0; i < story.currentChoices.Count; i++)
             {
                 Choice choice = story.currentChoices[i];
+                print(choice.text.Trim());
                 Button button = CreateChoiceView(choice.text.Trim());
                 // Tell the button what to do when we press it
                 button.onClick.AddListener(delegate
                 {
-                    OnClickChoiceButton(choice);
+                    StartCoroutine(OnClickChoiceButton(choice));
                 });
             }
         }
@@ -77,16 +79,17 @@ public class InkDialog : MonoBehaviour
                 RemoveChildren();
                 dialogAsset.value = null;
                 this.gameObject.SetActive(false);
-            // TODO: leave dialog
+                leaveDialogSignal.Raise();
+                // TODO: leave dialog
             });
         }
     }
 
     // // When we click the choice button, tell the story to choose that choice!
-    void OnClickChoiceButton(Choice choice)
+    IEnumerator OnClickChoiceButton(Choice choice)
     {
         story.ChooseChoiceIndex(choice.index);
-        RefreshView();
+        yield return StartCoroutine(RefreshView());
         //TODO: store the choices and pass back to a function that updates server
     }
 
