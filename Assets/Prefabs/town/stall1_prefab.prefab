@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9065000204367125885}
   - component: {fileID: 9065000204367125884}
   - component: {fileID: 9065000204367125887}
-  - component: {fileID: 9065000204367125886}
+  - component: {fileID: 9065000203992292778}
   m_Layer: 0
   m_Name: stall1_prefab
   m_TagString: Untagged
@@ -137,7 +137,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10.703578, y: 2.0723295}
   m_EdgeRadius: 0
---- !u!114 &9065000204367125886
+--- !u!114 &9065000203992292778
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,11 +146,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 9065000204367125882}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87e1df291e4f95346bd35e4ee25618bc, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d3c986fe0eff9544b28431212d59541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: {fileID: 11400000, guid: 084fcbf4366f64048b0ba576eebd7de7, type: 2}
-  currentMagic: {fileID: 11400000, guid: 8bb59036194fea048a54de09679e6c1c, type: 2}
-  playerStats: {fileID: 11400000, guid: 11649d9fcd2808243b094e80f8344954, type: 2}
-  playerSignal: {fileID: 11400000, guid: 3bef31abdf14f6547af9900c8fb9e388, type: 2}
-  inRange: 0
+  active: 0
+  playerInRange: 0
+  enterSignal: {fileID: 11400000, guid: c278cd009b303264696d8c69e40c1885, type: 2}
+  exitSignal: {fileID: 11400000, guid: 284623b10c039534ba500c3972cb5651, type: 2}
+  shopInventory: {fileID: 11400000, guid: 2e59d68c08969284eb476b43406b5c06, type: 2}
+  currentInventory: {fileID: 11400000, guid: 36d1e96242150e7448a966357c26df21, type: 2}
+  shopSignal: {fileID: 11400000, guid: 735537d5b1656554abbbedb109ad0eee, type: 2}
