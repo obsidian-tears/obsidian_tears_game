@@ -1,0 +1,710 @@
+﻿/*
+Quest Machine
+Copyright © Pixel Crushers
+RELEASE NOTES
+-------------
+
+Version 1.2.26:
+[April 9, 2022]
+- Fixed: QuestJournal/QuestGiver.ResetToOriginalState() clears deleted static quests list.
+- Fixed: Quest HUD sorting issue with external extension methods.
+- Fixed: Internal dictionary management bug in PlanToQuestBuilder.
+- Invector: Updated common integration package to stop player if running while entering dialogue or opening journal UI.
+- Love/Hate: Fixed harmless error that could be reported when editing a Love/Hate Deed Quest Action.
+- Opsive Character Controllers: Updated for version 2.4.7.
+- Opsive Ultimate Inventory System: Updated for version 1.2.7.
+
+
+Version 1.2.25.1:
+[March 25, 2022]
+- Dialogue System: Updated integration package.
+
+
+Version 1.10.25:
+[March 23, 2022]
+- Improved: Added option to show Track toggle button in quest details panel. (For improved joystick control.)
+- Improved: Procedural generator Action > Completion Conditions > Message observers Sender/Target ID now allows chained dialogue w/multiple NPCs.
+- Improved: Quest HUD can now show quests under headings by group.
+- Fixed: QuestCondition.isChecking property setter.
+- Fixed: Message Events > Messages To Listen For > Parameter can now be blank to serve as wild card.
+- Fixed: Spawned entities restored from saved game now count toward spawner max count.
+- Fixed: In Unity 2020+, removing a quest from Quests list would remove two quests from list.
+- Fixed: If UIPanel.monitorSelection is false, selectPreviousOnDisable is not observed.
+- Corgi Platformer Engine: Added support.
+- Opsive Character Controllers: Can now use {0} in ability message text to show Quest Giver ID.
+
+
+Version 1.2.24.1:
+[February 8, 2022]
+- Fixed: New Input System package compatibility issue.
+
+
+Version 1.2.24:
+[February 7, 2022]
+- Improved: Return To NPC wizard now shows popup to ask whether to change quest state on "Discuss" or "Discussed' message.
+- Improved: Added utility component ShowCursorWhileEnabled.
+- Fixed: TimerManager now observes disabled domain reloading.
+- HUD Navigation System: Added component to toggle HUD element's visibility when quest tracking is toggled.
+- Invector: Updated bridge to pause player using new Invector methods.
+- uMMORPG Remastered: Added support.
+- uSurvival: Can now procedurally generate quests to fetch uSurvival items.
+
+
+Version 1.2.23:
+[January 9, 2022]
+- Fixed: Procedural quest generator now correctly handles action conditions that require counter to be "at most" a goal value.
+- Fixed: QuestJournalButton add component menu item name was incorrect.
+- Fixed: Wrapped SubsystemRegistration methods in #if UNITY_EDITOR to prevent error message in builds in certain Unity versions.
+- Improved: UI panels that enforce button focus for key/joystick navigation now re-select previous selection after opening & closing other UIs.
+- Save System: Now handles case where saver's ApplyData removes other savers from scene while loading saved game.
+- Emerald AI: Fixed name of Emerald AI Kill quest action.
+- Emerald AI: Updated [EmeraldAIFaction] attribute for Emerald AI 3.1 change.
+- TopDown Engine: Improved player pause/input disabling during Quest Machine UIs.
+
+
+Version 1.2.22:
+[December 17, 2021]
+- Changed: Quest Machine prefab's canvas uses Canvas Scaler that scales to screen size.
+- Changed: Added QuestIndicatorManager checkbox Check Single Player Journal (default ticked).
+- Fixed: QuestGiver data retrieval methods now automatically find player journal from player GameObject.
+- Fixed: DomainType, PlayerEntityType now support disabled domain reloading.
+- Fixed: Input Device Manager inspector could report error with mixed input modes when an input definition was invalid.
+- Improved: UIPanel waitForShowAnimation property is now public.
+- Save System: SaveSystemMethods methods are now virtual.
+- Save System: SpawnedObjectManager can now save unique saver data on spawned entities of the same type.
+- Save System: Added overrideable method SceneTransitionManager.OnLoading.
+- Opsive Ultimate Inventory System: If omitting inventory owner name, now checks all GameObjects tagged Player.
+- Emerald AI: Updated for 3.1.
+- Inventory Engine: Updated for 3.0.
+
+
+Version 1.2.21:
+[October 31, 2021]
+- Improved: SetQuestState action now has option to set all quest node states to same state.
+- Fixed: Warning when loading saved quest journals with active quest nodes that reference other quests in journal.
+- Fixed: Always Face Camera switches to new main camera if cached main camera reference is disabled.
+- Fixed: Input Device Manager can now translate KeyCode.Return when using new Input System package.
+- Fixed: UIPanel no longer deactivates GameObject on start if state is set to Closed but deactivateOnHidden is false.
+- Corgi Engine: Now supports Character Persistence component on player GameObject.
+- Dialogue System: Fixed missing barrel assignment in demo scene.
+- Invector: InvectorStatsSaver component now also saves stamina.
+- Opsive Ultimate Inventory System: Updated for UIS 1.2; fixed potential null reference exception in UISItemAmountQuestCondition.
+
+
+Version 1.2.20:
+[October 8, 2021]
+- Improved: Localize UI component can now localize TextMeshPro components in addition to TextMeshProUGUI.
+- Fixed: Abandoning quest could cause journal UI to report non-fatal error.
+- Fixed: InputDeviceManager when using Input System now ignores keycodes for mouse buttons.
+- Demo: Changed Knight.OnInteract to QuestGeneratorEntity.StartDialogueWithPlayer so he can generate infinite quests.
+- Save System: Added version info to saved games.
+- Save System: DiskSavedGameDataStorer Added dropdown to use persistentDataPath, dataPath, or custom location.
+- Save System: DiskSavedGameDataStorer now saves to intermediate file first in case writing to file fails.
+- Save System: DiskSavedGameDataStorer will now rebuild saveinfo.data (catalog) automatically if missing.
+- Save System: DiskSavedGameDataStorer change -- will now throw exception if fails to write to disk.
+- Emerald AI: Updated for Emerald AI 3.0.
+- Opsive Ultimate Inventory System: Add/Remove Item actions can specify item collection to operate on.
+- Super Text Mesh: Added support.
+
+
+Version 1.2.19:
+[September 6, 2021]
+- Fixed: Execution order issue when Quest Journal is on Quest Machine GameObject.
+
+
+Version 1.2.18:
+[August 26, 2021]
+- Added: Set Quest Tracking Action.
+- Added: Quest Indicator Saver component.
+- Improved: Quest.SetState(), if quest is complete and QuestMachineConfiguration.untrackCompletedQuests is true, untracks quest.
+- Improved: Setting Quest.showInTrackHUD automatically updates UIs without having to call QuestMachineMessage.RefreshUIs().
+- Improved: Added UILocalizationManager checkbox to set TextTable.useDefaultLanguageForBlankTranslations.
+- Improved: LocalizeUI will use default translation if current language setting is invalid.
+- Fixed: Addressed potential 'not all objects cleaned up' message from QuestGeneratorEntity when exiting play mode in editor.
+- Fixed: UnityUIQuestHUD now hides entire panel when completing last tracked quest if 'Hide If No Tracked Quests' is ticked.
+- Fixed: Quest Journal saved game loading issue in certain conditions.
+- Save System: Saver components now show warning if GameObject has multiple savers and Key values are blank.
+- Save System: Added SaveSystemMethods.ResetGameState().
+- Save System: No longer adds JsonDataSerializer or PlayerPrefsSavedGameDataStorer if application is quitting.
+- Save System: Fixed bug with AnimatorSaver when using BinaryDataSerializer.
+- Dialogue System: Fixed issue with Lua functions and scenes with multiple questers.
+- Dialogue System: When only non-offerable quests are available, quest giver now shows quest's Offer Conditions Not Met Text instead of generic No Quests text.
+- Opsive Character Controllers: Updated for 2.3.5.
+- Opsive Ultimate Inventory System: Fixed bug that made it mandatory to assign counter to UIS Item Amount quest condition.
+
+
+Version 1.2.17:
+[June 20, 2021]
+- Fixed: Message system issue that would send same message to listeners that registered for message due to that message being received earlier in quest.
+- Fixed: Input Device Manager could report error using new Input System with disabled domain reloading.
+- Fixed: Assigning a Text Table asset to a string field would unnecessarily add a UILocalizationManager GameObject at design time if the scene didn't already have one.
+
+
+Version 1.2.16:
+[June 6, 2021]
+- Changed: GameObjectUtility.GameObjectHardFind and GameObjectUtility.FindObjectsOfTypeAlsoInactive (used by 
+  Set GameObject Active action) search all open scenes by default, not just active scene.
+- Improved: When clicking prefab or GameObject that has Quest Giver, docked Quest Editor window no longer steals focus.
+- Improved: UnityUIQuestJournalUI.AddQuestGroupToUI() is now virtual.
+- Improved: InputDeviceManager New Input System integration handles translation of KeyCode.Alpha# and KeyCode.Keypad#.
+- Improved: UIScrollbarEnabler will now update scroll rect even if no scrollbar is assigned.
+- Fixed: Bug re-ran actions of previously-completed quest nodes when loading saved games.
+- Fixed: Quest Giver didn't always show available quest indicator on scene start.
+- Fixed: With journal UI "Show completed quest" unticked and "Show first Quest Details on open" ticked, now shows 
+  first non-completed quest even if completed quest is first in list.
+- Fixed: Issue when copy-pasting nodes that had custom quest actions/conditions/content that weren't in a namespace.
+- Fixed: Handles case where quest asset's cooldownSecondsRemaining was inadvertently set to 1, resulting in quest not offerable.
+- Fixed: UIButtonKeyTrigger didn't reset pressed state.
+- Fixed: UILocalizationManager didn't apply localization to inactive GameObjects when option to apply to inactive was ticked.
+- Fixed: Removed obsolete warning in Unity 2021 'StandaloneInputModule.forceModuleActive' is obsolete.
+- TopDown Engine: Added integration.
+
+
+Version 1.2.15:
+[April 12, 2021]
+- Added: Unity UI Quest Journal UI 'Show Completed Quests' checkbox.
+- Changed: If quest has no journal content, journal UI doesn't show it.
+- Improved: Can now assign UIs to Quest Machine fields with basic drag-and-drop.
+- Improved: Quest HUD show/hide options.
+- Improved: Can drag-and-drop GameObject into Activate GameObject action.
+- Improved: Quest content, conditions, and actions dropdown menus are now sorted alphabetically.
+- Improved: {DOMAIN} tag is now replaced in quest generator counter & message requirements.
+- Improved: Error handling when editor looks for custom quest action/condition/content types and an assembly has a non-loadable type.
+- Improved: Added template script for generator requirement functions.
+- Improved: UIs now add runtimeText of unrecognized quest content types.
+- Fixed: Copy-paste bug.
+- Fixed: Generation when goal action's minimum requirement was higher than number of entities in domain.
+- Text Table: No longer counts empty field as having text for a language.
+- Save System: Added MultiEnabledSaver.
+- Save System: AnimatorSaver now also saves trigger parameter values.
+- Save System: Fixed: Doesn't delete non-cross-scene data when loading additively.
+- Save System: Fixed: Calls BeforeSceneChange() on scene objects UnloadAdditiveScene().
+- Adventure Creator: Updated for 1.73.
+- Dialogue System: Fixed UI issue where previous conversation's hide animation would conflict with showing quest conversation; 
+  Conversation quest action can now specify starting entry ID.
+- Invector: Removed QuestMachinePausePlayer dependency on vThirdPersonController.
+- Ultimate Character Controller: Updated for 2.3.2. Updates to Lua functions.
+- uSurvival: Fixed reward for example scene quest.
+
+
+Version 1.2.14:
+[January 25, 2021]
+- Improved: Quest journal UI now sorts groups and quests alphabetically by default.
+- Improved: Added UnityUIQuestJournalUI.Show(QuestJournal, Quest) to open UI on specific quest.
+- Improved: Refactored UnityUIQuestJournalUI for easier subclassing.
+- Improved: Added QuestGiver methods to return offerable, active quests.
+- Improved: Reduced calls to AssetDatabase.SaveAssets and AssetDatabase.Refresh to speed up editing in large projects.
+- Improved: Can now copy/paste counters. (Right-click for copy/paste context menu.)
+- Fixed: Message System bug when removing and re-adding the same message listener in the same frame.
+- Fixed: If dialogue content is taller than UI, auto-scrolls to top when showing content.
+- Dialogue System: Added DialogueSystemQuestGiver component that can show a DS conversation if there are no quests to discuss.
+- Invector: Inventory-related actions/conditions now check USE_INVECTOR_INVENTORY scripting define symbol.
+- Localization: UILocalizationManager now also updates LocalizeUI components on inactive GameObjects.
+- Save System: LoadScene() logs message when Debug is ticked.
+
+
+Version 1.2.13:
+[November 30, 2020]
+- Improved: Passthrough nodes now have a down arrow icon to distinguish from condition nodes.
+- Fixed: Journal and HUD UIs no longer need to start in the inactive position in the Quest Machine GameObject.
+- Fixed: Quest Editor window didn't automatically update when player picks up quest.
+- Fixed: When deleting quest from Quest Giver's Quests list, could log EndLayoutGroup: BeginLayoutGroup must be called first.
+- Save System: Added Scene Portal OnUsePortal() UnityEvent.
+- Dialogue System: Bridge Lua functions could report unnecessary warnings.
+- ORK: Fixed variable check condition.
+- Opsive: Updated savers for Opsive controllers and Ultimate Inventory System.
+
+
+Version 1.2.12:
+[November 9, 2020]
+- Added: QuestMachine.GiveQuest()/GiveQuestToQuester() convenience methods.
+- Added: Give Quest To Quester action.
+- Improved: Quest properties are now accessible from gear menu > Quest Properties in addition to clicking blank canvas space.
+- Fixed: Quest Database > Show Quest Relations issue now shows parent relations.
+- Fixed: Always Face Camera component issue with z-axis when Only Y-Axis is ticked.
+- Save System: Added SaveSystem.ResetGameState().
+- Dialogue System: Lua functions now register in Awake.
+- Opsive Controllers: Updated integration.
+- ORK Framework: Updated and fixed save data issue.
+
+
+Version 1.2.11:
+[October 11, 2020]
+- Added: Scene events. Use UnityEvents in the inspector to hook up scene behavior in your quests.
+- Save System: Fixed potential timing issue with AutoSaveLoad and DiskSavedGameDataStorer.
+
+
+Version 1.2.10:
+[September 14, 2020]
+- CHANGED: QuestJournal Remember Completed Quests checkbox is now observed. You may want to tick it on your player/quester QuestJournals.
+- Added: QuestGiver/QuestJournal/QuestListContainer Add New Quests Since Saved Game checkbox.
+- Improved: When QuestGiver only has unofferable quests, now shows unofferable text if available; otherwise shows no quests to offer text.
+- Improved: Added Quest HUD Hide If No Tracked Quests checkbox.
+- Improved: InputDeviceManager improved mouse movement tracking to determine when to switch to mouse mode.
+- Fixed: Bug where node's actions could be run twice when parent changes to True state.
+- Fixed: Timing issue in which active quests assigned to QuestJournal at design time might not appear in HUD until UIs are repainted.
+- Fixed: "Return to X." journal entry in generated quests now has period at end.
+- Dialogue System: Added Allow Original UI During Conversations; added custom lua functions to "..." dropdown menus.
+- Save System: Added option to automatically unload any additively-loaded scenes when changing scenes.
+- Save System: Fixed AutoSaveLoad save issue when quitting application.
+- Invector: Updated for 2.5.3.
+- Opsive Character Controllers: Updated interaction script to work with UCC multiplayer.
+- Opsive Ultimate Inventory System: Added support.
+- ORK: Fixed inspector bug in ORK Icon quest content; ORK Give Exp action can now give rewards to any stat type.
+- Rewired: InputDeviceManagerRewired now recognizes negative button input as well as positive.
+
+
+Version 1.2.9:
+[August 10, 2020]
+- Added: QuestGiver/QuestJournal/QuestListContainer Add New Quests Since Saved Game checkbox.
+- Improved: InputDeviceManager has option for keyboard input to switch to keyboard mode.
+- Improved: EnableOnStart now has public property for component to enable.
+- Fixed: Timing issue in which active quests assigned to QuestJournal at design time might not appear in HUD until UIs are repainted.
+- Fixed: Bug where node's actions could be run twice when parent changes to True state.
+- Fixed: When deleting the last quest in QuestJournal/QuestListContainer Quests list, quest inspector now clears.
+- Dialogue System: Added Allow Original UI During Conversations checkbox.
+- Invector: Updated for 2.5.3.
+- Opsive Controllers: Updated interaction script to work with UCC multiplayer.
+- ORK: ORK Give Exp action can now give rewards to any stat type; fixed inspector bug in ORK Icon quest content.
+
+
+Version 1.2.8:
+[July 6, 2020]
+- Changed: UnityUIQuestJournalUI > Abandon Quest Name Text now points to a flexible field that can be UI Text or TextMeshProUGUI.
+- Changed: Default UI prefabs keep Content Size Fitter components disabled at design time and use a small script to enable them at runtime to prevent scene dirty in most Unity versions.
+- Improved: Spawner-spawned entities with Spawned Object components (managed by Spawned Object Manager) now reattach to their spawner when loading save data.
+- Fixed: UIButtonKeyTrigger feature to visually simulate button click would not work if time was paused.
+- Fixed: Editor message 'Some objects were not cleaned up when closing the scene' when exiting play mode in certain circumstances.
+- Invector: Improved HasItemCount condition to use vItemManager.onAddItem etc. events instead of timed polling; Add/Remove item quest action updated.
+- PlayMaker: PlayMakerGlobalVariableSaver can now save arrays.
+
+
+Version 1.2.7:
+[May 30, 2020]
+- NOTE: Minimum Unity version is now 2018.4.
+- UI improvements and fixes:
+	- Copy/paste nodes.
+	- Multiselect nodes and drag/delete/arrange.
+	- Optimized node rendering and fixed window clipping.
+- Added: Tags {QUESTID} and {QUEST}.
+- Improved: Welcome window has checkboxes to enable support for Physics2D, new Input System, and TextMesh Pro.
+- Improved: Added Conditions Events to Quest Control component.
+- Improved: Added DeselectPreviousOnPointerEnter component.
+- Improved: Added InputDeviceManager.isInput Allowed.
+- Fixed: Enabled disabled UI mask in dialogue UI.
+- Text Tables: Added ability to import text table into another.
+- Save System: Changed: Savers' Save Across Scene Changes checkbox is now ticked by default.
+- Save System: DestructibleSaver.RecordDestruction is now public.
+- Save System: Added saveDataApplied C# event; added OnDataApplied() event to SaveSystemEvents.
+- Save System: Improved singleton management.
+- Save System: Fixed: LoadEnded event is always called when scene loads ends, not just if events were assigned at design time.
+- Adventure Creator: Updated for 1.71.
+- Compass Navigator Pro: Added QuestTrackingPOI to toggle quest-related POIs on and off.
+- Emerald AI: Updated for 2.4.0.1.
+- ORK: Updated inventory/quest counter monitoring to handle party configurations more flexibly.
+
+
+Version 1.2.6:
+[April 15, 2020]
+- Improved: Quest Journal UI > Show Details On Focus now also works when navigating to quest name with joystick/keyboard.
+- Improved: Added UIButtonKeyTrigger.monitorInput property, option to visually simulate pressed state.
+- Fixed: Scroll mask on Quest Journal UI prefab.
+- Fixed: PositionSaver on NavMeshAgents didn't restore rotation.
+- Save System: Added support for async saving; SaveSystem.SaversRestartGame() is now public.
+- Emerald AI: Updated integration for v2.4.
+- Opsive character controllers: Updated integration for version 2.2 (available on opsive.com).
+- ORK Framework: Added ORKEventsOnPausePlayer, ORKIconQuestContent.
+- uMMORPG: Updated integration for 1.189.
+- uSurvival: Updated integration for v1.74.
+
+
+Version 1.2.5:
+[March 10, 2020]
+- Added 'Generate Abandonable Quests' checkbox to Quest Generator Entity.
+- Added: Link Quest Content to link to other quest content.
+- Added: Journal UI option to auto-select first quest.
+- Added: Save All Info If Waiting To Start checkbox to save quest's counters & node states even if state is Waiting To Start.
+- Added: {GREETER} tag.
+- Changed: If player completes quest and another becomes offerable, dialogue UI shows it instead of closing.
+- Fixed: 'Show Quest Relations' button: open editor window if not already open.
+- Fixed: Quest database inspector's Add All Quests In Scene and Add Images buttons weren't marking database changes to be saved to disk.
+- Improved: Added Any Key checkbox to UIButtonKeyTrigger.
+- Save System: Added MultiActiveSaver component.
+- Save System: When loading game, PersistentDataManager now initializes new quest states to their initial database state.
+- Text Table: Changed: Now  uses default field's value if value for a specific language is blank.
+- Text Table: Fixed right-clicking context menu would select wrong field row.
+- Adventure Creator: Updated for 1.70.4.
+- Dialogue System: Fixed issue where integration's Lua functions could unregister themselves after changing scenes.
+- uMMORPG: Updated for 1.187; fixed GetPlayerClass().
+- uRPG: Updated for 1.20.
+- uSurvival: Updated for 1.72.
+
+
+Version 1.2.4:
+[December 25, 2019]
+- Updated to handle Disabled Domain Reloading.
+- Changed: When a quest is abandoned, the Abandoned actions are executed even if 'Remember If Abandoned' is unticked.
+- Added: Option to show quest dependency graph in Quest Editor window when inspecting quest database.
+- Added: Examples of more checks in Demo quests.
+- Save System: Added SpawnedObjectManager option to call ApplyData on respawned objects' savers.
+- Text Table: Right-click context menu would select wrong field row.
+- Dialogue System: Added CanOfferQuest() Lua function.
+- HUD Navigation System: Added support.
+- Invector: Has Items Quest Condition now checks all items, not just equippables.
+- Super Text Mesh: Added native support.
+
+
+Version 1.2.3:
+[November 23, 2019]
+- Added: JSON export/import in Quest Editor.
+- Improved: Quest content, conditions, and action submenus now trim "Quest Content" from menu items for cleaner menus.
+- Improved: Exposed UIPanel.deactivateOnHidden property.
+- Fixed: When counter name used text table, name was not shown in counter list.
+- Save System: Scene Portal now prevents multiple triggerings if interacting GameObject has multiple colliders.
+- Dialogue System: Moved integration folder into Plugins/Pixel Crushers/Quest Machine/Third Party Support.
+- Inventory Pro: Added support for procedurally-generated fetch item quests.
+- ORK: Updated for 2.27.0.
+
+
+Version 1.2.2:
+[October 23, 2019]
+- Changed: Reverted QuestMachineConfiguration execution order to default value.
+- Added: Method to start dialogue with a specific quest.
+- Improved: Alert UI now has Leave Last Content Visible While Hiding checkbox.
+- Improved: Alert UI ensures Main Panel is active whenever showing an alert.
+- Improved: Dialogue "Greet" message sent before cataloguing quests in case message changes a quest state.
+- Fixed: Typo in QuestMachine.GetQuestInstance() that used quest ID instead of quester ID to look for quest journal.
+- Fixed: Setting localized language back to blank string now sets it to the default language.
+- Emerald AI: Updated for Emerald AI 2.3.0.2.
+- uMMORPG: Fixed Add/Remove Item action. Updated for uMMORPG 1.179.
+- uSurvival: Updated for uSurvival 1.67.
+
+
+Version 1.2.1:
+[September 21, 2019]
+- Fixed: Activate GameObject Quest Action (was broken in version 1.2.0).
+- Fixed: IdentifiableQuestListContainer did not automatically find QuestEntity if present.
+- Fixed: Node borders were not appearing in Unity 2019.3 when unselected.
+- Improved: Entities now inherit drive values and urgency functions from parents.
+- Improved: QuestGeneratorEntity now chooses from weighted random selection of top urgent facts instead of single most urgent fact.
+- Improved: QuestGeneratorEntity does not generate a quest if there are no urgent facts.
+
+
+Version 1.2.0:
+[August 21, 2019]
+- CHANGED: Minimum version is now Unity 2017.4.1f1.
+- Improved: Set GameObject Active quest action can now activate GameObjects even if root parent is inactive.
+- Improved: UIPanel.OnHidden method is now virtual.
+- Improved: Menu item to set USE_PHYSICS2D now applies to all build targets, not just current.
+- Fixed: Text of procedurally generated quests showed total count of target entities in domain instead of count required for quest.
+- Save System: DiskSavedGameDataStorer methods are now virtual.
+- Save System: DiskSavedGameDataStorer WebGL build error message.
+- Save System: Bug in Position Saver with Multiscene ticked.
+- Inventory Engine: Optimized item lookups.
+- Inventory Pro: Fixed Add Item quest action; specify negative amount to remove items.
+- uMMORPG: Added XP and gold reward systems; if NPC has QuestGeneratorEntity, uses its StartDialogue instead of QuestGiver component.
+
+
+Version 1.1.12:
+[July 25, 2019]
+- Fixed: {QUESTER} tag using QuestMachineID incorrectly returned ID instead of Display Name.
+- Improved: Added quest.greeterID / {GREETERID} when talking to quest giver.
+- Improved: Text table editor allows big entry area to appear along with search panel; remembers search panel settings.
+- Dialogue System: Removed unnecessary warning message.
+- Save System: In WebGL, Disk Saved Game Data Storer custom editor reports unavailable instead of error.
+
+
+Version 1.1.11:
+[July 23, 2019]
+- Added: Quest option 'No Repeat If Successful'.
+- Improved: Disappear Event's onDisappeared event is now public.
+- Improved: QuestMachine.GetQuestInstance now searches quest journals before other quest containers.
+- Fixed: SetQuestStateQuestAction/SetQuestNodeStateQuestAction no longer change state if state is already at specified value.
+- Dialogue System: Misc. fixes to getting and setting quest states in conversations.
+
+
+Version 1.1.10:
+[July 1, 2019]
+- Text Tables: Improved performance in very large tables; added PlayMaker actions; GetFieldText() replaces "\n" with newlines.
+- Save System: DiskSavedGameDataStorer inspector now has button to delete saved games; SaveSystemTestMenu is now reskinnable.
+- Invector: Added utility script &  example to connect journal UI to Invector's inventory UI; removed "Add shotgun" action from example's Start node; added UpdateQuestUIsOnStart component.
+- uMMORPG: Now saves quest givers' states.
+
+
+Version 1.1.9:
+[June 8, 2019]
+- Fixed: Inspector headings in 2019.1.
+- Fixed: Input Device Manager System.IndexOutOfRangeException when first importing asset if project's Input Manager is not ready.
+- Save System:
+	- Improved: Added SaveSystem methods LoadAdditiveScene, UnloadAdditiveScene.
+	- Improved: Savers can now implement optional ApplyDataImmediate and OnRestartGame methods.
+	- Fixed: Moved DiskSavedGameDataStorer initialization code from Start to Awake so other scripts can check for saved games in their own Start methods.
+- Dialogue System: 
+	- Fixed: In Pesky Rabbits demo conversation, QuestID was incorrectly set to harvestCarrots instead of peskyRabbits.
+	- Added QuestBuilderWithDialogueSystem class which adds methods to add conversation content and DS markup text content.
+- Invector: Fixed auto equip issue when loading saved games or changing scenes.
+- uMMORPG: Fixed bug in removing items in Add/Remove Item quest action.
+
+
+Version 1.1.8:
+[May 17, 2019]
+- Added: Quest Journal checkbox Only Track One Quest At A Time.
+- Improved: QuestBuilder class can now work with an existing quest object.
+- Fixed: Bug in add node wizards that made node's Internal Name uneditable.
+- Text Tables:
+	- Added right-click context menu to insert/delete fields.
+	- CSV import retains in order from file, now handles blank lines gracefully.
+	- Editor window remembers last tab.
+- Save System: Eliminated message on Destructible Saver about missing Save System when exiting playmode.
+- Adventure Creator: Updated for AC 1.67.
+- Dialogue System: 
+	- Added: Add Lua function to set Quest Machine indicator states.
+	- Improved: Conversation Quest Action first tries to find actor by Quest Machine ID. Then checks Dialogue Actor component and GameObject name.
+- Invector: Updated for latest versions.
+- Love/Hate: Added LoveHate Traits To Drives component.
+
+
+Version 1.1.7:
+[April 14, 2019]
+- Added: QuestMachineID component to assign IDs to GameObjects other than QuestEntity, QuestGiver, and QuestJournal.
+- Improved: Group buttons are now supported for quest reward selection.
+- Improved: Generated quests turn-in dialogue show rewards that player receives.
+- Fixed: When completing quest and only one quest left on giver, back button closed instead of going back.
+- Dialogue System: Fixed string comparison bug in Lua Variable Quest Condition.
+- uSurvival: Updated for version 1.43; added ServerSpawner.
+
+
+Version 1.1.6:
+[March 31, 2019]
+- Fixed: Custom reward systems using older 2-parameter signature were not working.
+- Improved: Quest journal UI now uses quest journal's image, optionally display name.
+- Text Tables:
+	- Fixed: Adding new field showed blank line until refresh.
+	- Added: Sort & search features.
+- Save System: Added Restore State On Start checkbox to savers; Added DeleteSavedGameInSlot method to SaveSystemMethods.
+- ORK Framework: Updated reward systems.
+- uMMORPG: Updated for version 1.165.
+
+
+Version 1.1.5:
+[March 18, 2019]
+- CHANGED: The format of save data for hand-written quests changed; one byte was added to record HUD track status; not compatible with older saved game files.
+- Added Quest Editor Wizards: Message Requirement, Counter Condition Requirement, Return to QuestGiver.
+- QuestEntity.id now correctly returns ID, not display name.
+- Spawner now observes random selection weights for prefabs.
+- Isolated Spawner's instantiate and destroy methods to more easily override.
+- QuestGeneratorEntity can now specify order in which to apply reward systems.
+- Reward systems now support probability.
+- Reward systems can now access reward multipliers defined on entity types.
+- Quest generator Action > Required Value is now used as minimum value.
+- Text Table: Performance improvement when editing large tables.
+- UI: Panels remember last selection instead of reverting to first selectable. Added UIPanel.monitorSelection bool to temporarily disable this functionality.
+- Save System:
+	- Position Saver now updates NavMeshAgent if present.
+	- Assign Unique Keys menu item now also disambiguates existing duplicates.
+	- Fixed error message "Some objects were not cleaned up" when stopping playmode when Save System doesn't have data serializer or data storer.
+- Compass Navigator Pro: Updated for version 4.3.2.
+- Dialogue System: 
+	- When starting a conversation, Lua variables QUESTGIVER/ID, QUESTER/ID, QUESTID are now set.
+	- BarkQuestAction > String can now play a sequence.
+- Opsive Character Controllers: Updated support for version 2.1.1; fixed bugs in saving inventory & attributes.
+- ORK Framework: Updated support for version 2.23.0.
+- Emerald AI: Updated support for version 2.2.
+- uMMORPG: Updated for version 1.162.
+- uSurvival: Updated for version 1.140.
+
+
+Version 1.1.4:
+[February 10, 2019]
+- Changed: Shortened folder names.
+- Added: InputDeviceMethods utility component to access InputDeviceManager in inspector.
+- Fixed: QuestListContainer more gracefully handles loading of invalid save data (e.g., if quest changed since save).
+- Fixed: MessageSystem no longer throws error if sending message from object that's being destroyed.
+- Fixed: RuntimeTypeUtility API change to address iOS issue.
+- Dialogue System: Added Bark Quest Action.
+
+
+Version 1.1.3:
+[January 29, 2019]
+- Changed: When quest becomes successful|failed|abandoned, it sets any active nodes inactive.
+- Updated assembly definition files to include Wrappers; renamed Common to PixelCrushers.
+- Added: Quest Editor has now Arrange Nodes feature.
+- Added: Quest Editor gear menu now shows quest list for easier quest switching.
+- Added: Quest Editor gear menu can now move all loose text to a Text Table asset.
+- Improved: QuestGiver.StartDialogueWithPlayer() finds GameObject with QuestJournal if multiple GameObjects are tagged Player.
+- Improved: New quest counters' max value now initialized to 999; shows warning if min & max values are invalid.
+- Improved: Editors now handle issues with outdated third party assemblies more gracefully.
+- Improved: Can now assign requirement function assets to procedural quest generator action assets.
+- Improved: Can now drag scene object into Instantiate Prefab Quest Action's Location field.
+- Improved: QuestSubasset.quest and questNode properties are now public.
+- Improved: Moved UI art assets used by Quest Machine prefab from Demo folder to Prefabs folder.
+- Fixed: QuestCondition.SetTrue() now calls StopChecking().
+- Fixed: MessageSystem bug when removing listeners while sending a message.
+- Fixed: UIPanel timing bug when animations cause outgoing panel to overlap incoming panel.
+- Fixed: When parent node becomes true, it only sets child nodes active if the quest is still active.
+- Fixed: Can no longer parent a node to itself in Quest Editor.
+- Save System: Calling LoadGame() w/Save System > Save Current Scene unticked now also updates internal saved game cache.
+- Save System: ScenePortal.UsePortal() is now virtual.
+- TextTable: Large text areas now word wrapped.
+- Articy: Improvements to importing quests; nodes are auto-arranged; input pins are new imported as condition quest nodes; when creating templates, folders are created if they don't exist.
+- Dialogue System: Can now show other text (e.g., "no quests") as conversation; added PlaySequenceQuestAction; bridge now forwards UpdateTracker messages to Quest Machine UIs.
+- Opsive Character Controllers: Added support.
+- ORK Framework: Updated for 2.21.0.
+- uMMORPG: Updated for 1.155.
+- uSurvival: Updated for 1.34.
+
+
+Version 1.1.2:
+[December 16, 2018]
+- CHANGED: FactionUrgencyFunction now returns positive affinity, not negative.
+- Improved: Quest Editor now shows current quest state at runtime.
+- Improved: Quest Editor window gracefully handles if editor resources files are missing.
+- Added: Message System Logger component to log Message System activity only for specific GameObjects.
+- articy:draft: Fixed import of Conditions.
+- Dialogue System: Fixed Text Tables tags now usable in conversations.
+- Dialogue System: Added DialogueSystemTextQuestContent to use markup tags in Quest Machine UIs.
+- ORK Framework: Updated support for ORK 2.2.0.
+- Rucksack: Added support.
+- uSurvival: Item count condition can now be AtLeast or AtMost.
+
+
+Version 1.1.1:
+[December 2, 2018]
+- Fixed: UI animation monitor no longer reports error if animator is destroyed while waiting.
+- uMMORPG: Updated for uMMORPG 1.148.
+
+
+Version 1.1.0:
+[November 26, 2018]
+- Added: Drive alignment urgency function.
+- Improved: Generated quest actions can now send messages when active and completed.
+- Fixed: Generated actions with effects that modeled the player's inventory domain weren't being chosen.
+- Fixed bug generating actions that manipulate the generator's world model of the player's inventory.
+- Fixed: Added EntityType Images section to quest database assets to specify images used in procedural quests.
+- Fixed: QuestGeneratorEntity now disallows parallel processes for same entity to prevent duplicate quests.
+
+
+Version 1.0.9:
+[November 10, 2018]
+- CHANGED: Quests now also activate counter listeners if state is WaitingToStart and has autostart or offer conditions.
+- Improved: Added cooldown update frequency to Quest Giver to automatically update quest cooldowns & quest indicators.
+- Improved: UI panel show/hide animations can now use Animation component as well as Animator.
+- Fixed: Float conversion in .NET4 is now culture invariant.
+- Fixed: Can no longer delete Start node.
+- Compass Navigator Pro: Updated support package.
+- Emerald AI: Updated EmeraldAISaver to properly play dead state.
+- Invector character controllers: Added support.
+
+
+Version 1.0.8:
+[October 26, 2018]
+- CHANGED: If using Physics2D in Unity 2018+, you must set scripting define symbol USE_PHYSICS2D.
+- Added: QuestGeneratorEntity.StartDialogue methods that generate quest first if necessary.
+- Added: Can now adjust drive values at runtime.
+- Added: Quest Journal UI options to always expand groups, show details when hovering on quest name.
+- Added: Quest Journal UI quest name can now show quest's icon.
+- Added: EntityType Saver.
+- Fixed: Removed null reference error an urgency function is unassigned.
+- Fixed: Trigger Event and Collision Event components now handle >32 tags.
+- Fixed: Quest Journal > UI Settings > Journal UI incorrectly accepted Dialogue UI type.
+- Improved: Editor windows now gracefully ignore unreadable third party DLLs.
+- Improved: Added Assign Unique Key menu item for Saver components.
+- Improved: Animator Saver now saves parameter values.
+- articy:draft: 
+	- Articy condition nodes correctly link to true and false result nodes.
+	- Links to the same node now actually link to the same node instead of duplicates of the node.
+- Dialogue System for Unity: 
+	- Fixed: Now only replaces tags if Process QM Tags is ticked.
+	- Fixed: GiveQuest() Lua function finds Quest Journal even if ID is blank.
+    - Fixed: Now shows regular Quest Machine UI if content has no Dialogue System Conversation content.
+- ORK Framework: Fixed bug in GetQuestNodeStateStep.
+- Inventory Engine: Added integration.
+- uSurvival: Added integration.
+
+
+Version 1.0.7:
+- Improved: When quest giver has multiple quests, can now navigate back to quest list in same dialogue to view other quests.
+- Added: Animator Quest Action.
+- Added: Animator Saver.
+- Fixed: Removed editor warning in EditorNote.cs.
+
+
+Version 1.0.6:
+- Fixed: Quest generators now comply with max quest limit even if multiple GenerateQuest() processes start simultaneously.
+- Fixed: QuestMachine.instance wasn't being assigned properly.
+- Fixed: MessageArgsEvent is now serializable in inspector.
+- Save System: Added Binary Data Serializer.
+- Save System: Added saveStarted, saveEnded, loadStarted, loadEnded events; SaveSystemEvents component.
+- Save System: Fixed index error in DiskSavedGameDataStorer.
+- Dialogue System: Now allows mix-and-match quests that use Dialogue System conversations and quests that don't.
+- uMMORPG: Added conditions & actions.
+- Added unitypackage containing optional Assembly Definition files.
+
+
+Version 1.0.5:
+- Improved: Now tracks times accepted on quester, not quest giver, to better support multiplayer.
+- Added: QuestGiver & QuestListContainer.ResetToOriginalState() methods.
+- Fixed: QuestStateSerializer now gracefully handles bad tag lists.
+- articy:draft: Added support.
+- Dialogue System for Unity: Updated for Dialogue System for Unity 2.x.
+- Inventory Pro: Added support.
+- uMMORPG: Added support.
+
+
+Version 1.0.4:
+- Improved: Save System now uses nonallocating (no GC) methods when loading.
+- Fixed: Quests that listen for messages now accept any message parameter when parameter conditions is blank.
+- Fixed: Button content appeared as icon content.
+- Emerald AI: Added support.
+- ORK Framework: Added support.
+
+
+Version 1.0.3:
+- Added: Compass Navigator Pro support.
+- Fixed: Setting node from active to inactive to active didn't restart condition checking.
+- Fixed: Node deletion didn't delete subassets. Opening quest in editor window will clean up unused subassets. Also added gear menu Debug > Delete Unused Subassets.
+
+
+Version 1.0.2:
+- Updated for Unity 2017.3 support.
+- Changed: (PlayMaker) Actions that used FsmGameObject now use FsmOwnerDefault; will need to be reassigned.
+- Changed: QuestGeneratorEntity Dialogue For Rewards format changed.
+- Added: Step-by-step quest generator tutorial to manual.
+- Added: QuestMachine.GetQuestCounter method.
+- Added: QuestControl.SendToMessageSystem and Message Events format Message:Param:[Value] to pass values.
+- Added: QuestGiver.StartDialogueWithPlayer; QuestGiver.StartDialogue now also finds player by tag if no player is specified.
+- Added: QuestGiver.GiveQuestToQuester and GiveAllQuestsToQuester methods.
+- Improved: Quest generator can now choose smaller target amounts than the total number of targets known.
+- Fixed: Counter conditions now also check counter's value as soon as condition becomes active, not just when counter value changes.
+- Fixed: Counter condition to check that value is less than goal wasn't registering true.
+- Fixed: Spawner didn't stop spawning at max count.
+- Fixed: Abandoned repeatable quests weren't able to be picked up again.
+- Fixed: Tags for min & max counter values & reference window.
+- Fixed: Alert UI and HUD no longer steal Unity UI focus.
+- Fixed: UIPanel.OnVisible now gracefully handles missing EventSystem.
+- Fixed: Loading a saved game no longer re-executes quests' main actions.
+- Fixed: Journal no longer shows quests whose state is WaitingToStart.
+- Fixed: NPCs no longer offer a generated quest if the player already has a generated quest for the same action and target.
+- Fixed: Demo player is now tagged Player.
+- Improved: SaveSystem can specify frames to wait before applying saved data.
+- Improved: SaveSystem can encrypt saved games in PlayerPrefs.
+- Fixed: TextTable editor now updates dropdown in Fields section properly when renaming a language.
+- Added: Dialogue System support.
+
+
+Version 1.0.1:
+- Changed: Quest Giver optional UI content is now handled differently in inspector.
+- Added: QuestListContainer events, QuestListEvents component.
+- Fixed: Setup issues in Quick Start scene.
+- Fixed: When quests become offerable & active, giver updates indicator UIs properly now.
+- Fixed: Indicator UI prefab - swapped ? and !.
+- Fixed: Using joystick, close button didn't autofocus in dialogue with no quests.
+- Added: DMMap support.
+- Added: Love/Hate support.
+- Added: PlayMaker support.
+- Added: Rewired support.
+
+
+Version 1.0:
+- Initial release.
+*/
