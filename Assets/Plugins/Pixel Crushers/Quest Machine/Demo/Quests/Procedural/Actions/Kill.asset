@@ -1,0 +1,167 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0593ab854c792944fb2f38bf5f0699b2, type: 3}
+  m_Name: Kill
+  m_EditorClassIdentifier: 
+  m_description: 
+  m_motives:
+  - m_text:
+      m_text: There's grave danger. We must step forward for the safety of our people.
+        Enter {DOMAIN} and {kill} {TARGETDESCRIPTOR}.
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_driveValues:
+    - m_drive: {fileID: 11400000, guid: 672886392fdddae4d8fc34c8caaf939b, type: 2}
+      m_value: 100
+    - m_drive: {fileID: 11400000, guid: 8de83a3e3645f3d4994b22ae0ad51bb7, type: 2}
+      m_value: -100
+  m_displayName:
+    m_text: Kill
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_actionText:
+    m_activeText:
+      m_dialogueText:
+        m_text: '{Kill} {TARGETDESCRIPTOR}.'
+        m_stringAsset: {fileID: 0}
+        m_textTable: {fileID: 0}
+        m_textTableFieldID: 0
+      m_journalText:
+        m_text: '{Kill} {TARGETDESCRIPTOR}: {#COUNTERNAME}/{#COUNTERGOAL} killed.'
+        m_stringAsset: {fileID: 0}
+        m_textTable: {fileID: 0}
+        m_textTableFieldID: 0
+      m_hudText:
+        m_text: '{#COUNTERNAME}/{#COUNTERGOAL} killed'
+        m_stringAsset: {fileID: 0}
+        m_textTable: {fileID: 0}
+        m_textTableFieldID: 0
+      m_alertText:
+        m_text: 
+        m_stringAsset: {fileID: 0}
+        m_textTable: {fileID: 0}
+        m_textTableFieldID: 0
+    m_completedText:
+      m_dialogueText:
+        m_text: '{Good job}! You have {killed} {TARGETDESCRIPTOR}.'
+        m_stringAsset: {fileID: 0}
+        m_textTable: {fileID: 0}
+        m_textTableFieldID: 0
+      m_journalText:
+        m_text: You {killed} {TARGETDESCRIPTOR}.
+        m_stringAsset: {fileID: 0}
+        m_textTable: {fileID: 0}
+        m_textTableFieldID: 0
+      m_hudText:
+        m_text: 
+        m_stringAsset: {fileID: 0}
+        m_textTable: {fileID: 0}
+        m_textTableFieldID: 0
+      m_alertText:
+        m_text: 
+        m_stringAsset: {fileID: 0}
+        m_textTable: {fileID: 0}
+        m_textTableFieldID: 0
+    m_successText:
+      m_text: Thanks for {killing} {TARGETDESCRIPTOR}.
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+  m_requirements:
+  - m_not: 0
+    m_domainSpecifier:
+      m_domainSpecifierType: 0
+      m_domainType: {fileID: 0}
+    m_entitySpecifier:
+      m_entitySpecifierType: 0
+      m_entityType: {fileID: 0}
+    m_min: 1
+    m_max: 65535
+    m_requirementFunction: {fileID: 0}
+  m_effects:
+  - m_operation: 1
+    m_domainSpecifier:
+      m_domainSpecifierType: 0
+      m_domainType: {fileID: 0}
+    m_entitySpecifier:
+      m_entitySpecifierType: 0
+      m_entityType: {fileID: 0}
+    m_count: 1
+  m_completion:
+    m_mode: 1
+    m_senderID:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_targetID:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_message:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_parameter:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_baseCounterName:
+      m_text: Killed
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_initialValue: 0
+    m_minValue: 0
+    m_maxValue: 100
+    m_requiredValue: 1
+    m_counterValueMode: 0
+    m_updateMode: 1
+    m_messageEventList:
+    - m_senderSpecifier: 0
+      m_senderID:
+        m_text: 
+        m_stringAsset: {fileID: 0}
+        m_textTable: {fileID: 0}
+        m_textTableFieldID: 0
+      m_targetSpecifier: 0
+      m_targetID:
+        m_text: 
+        m_stringAsset: {fileID: 0}
+        m_textTable: {fileID: 0}
+        m_textTableFieldID: 0
+      m_message:
+        m_text: Kill
+        m_stringAsset: {fileID: 0}
+        m_textTable: {fileID: 0}
+        m_textTableFieldID: 0
+      m_parameter:
+        m_text: '{TARGETENTITY}'
+        m_stringAsset: {fileID: 0}
+        m_textTable: {fileID: 0}
+        m_textTableFieldID: 0
+      m_operation: 2
+      m_literalValue: 1
+  m_sendMessageOnActive:
+    m_text: 
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_sendMessageOnCompletion:
+    m_text: 
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0

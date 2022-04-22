@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 765aa6d0f28b2be4e8f092ea85f74278, type: 3}
+  m_Name: Example Deed Template Library
+  m_EditorClassIdentifier: 
+  factionDatabase: {fileID: 11400000, guid: 6f8d7a44452302c4ab7bbbeb2d00d895, type: 2}
+  deedTemplates:
+  - tag: Flatter
+    description: Flatter the target with sweet words
+    impact: 5
+    aggression: 0
+    traits:
+    - 0
+    - 5
+    - 5
+    requiresSight: 0
+    radius: 0
+  - tag: Insult
+    description: Insult the target with mean words
+    impact: -5
+    aggression: -1
+    traits:
+    - 0
+    - 5
+    - -5
+    requiresSight: 0
+    radius: 0
+  - tag: Give
+    description: Give a gift to the target
+    impact: 10
+    aggression: -10
+    traits:
+    - 0
+    - 5
+    - 10
+    requiresSight: 0
+    radius: 0
+  - tag: Steal
+    description: Steal items from the target
+    impact: -20
+    aggression: 40
+    traits:
+    - -50
+    - 20
+    - -20
+    requiresSight: 0
+    radius: 0
