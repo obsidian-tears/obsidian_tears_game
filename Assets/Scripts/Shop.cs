@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Shop : Interactable
 {
+    // TODO: either this or potioncart can be deleted
     [SerializeField] Inventory shopInventory;
     [SerializeField] Inventory currentInventory;
     [SerializeField] MySignal shopSignal;

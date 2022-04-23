@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+// TODO: break this down to a script that will change text to reflect a variable given a signal.
 public class FractionController : MonoBehaviour
 {
     [SerializeField] FloatValue currentValue;

@@ -8,6 +8,7 @@ using Ink.Runtime;
 
 public class InkDialog : MonoBehaviour
 {
+    //TODO: see how we can integrate this with love/hate to make responses to chosen dialog paths
     [SerializeField] TextMeshProUGUI dialogText;
     [SerializeField] Button buttonPrefab;
     [SerializeField] Color selectedColor;
@@ -20,6 +21,7 @@ public class InkDialog : MonoBehaviour
 
     [SerializeField] private DialogAsset dialogAsset; // ink dialog tree 
     [SerializeField] private MySignal leaveDialogSignal;
+
     /*
     1. create story. 
     2. create callback to start story

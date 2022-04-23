@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO: change this so players can choose how to allocate points when leveling up.
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] LearningTrack fighterTrack;

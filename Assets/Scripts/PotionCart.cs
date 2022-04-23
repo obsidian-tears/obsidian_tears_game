@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PotionCart : MonoBehaviour
 {
+    // TODO: this can be replaced by the generic shop script that 
+    // sets shop inventory, shopkeeper dialog, and signals the shop dialog to open
     [SerializeField] FloatValue currentHealth;
     [SerializeField] FloatValue currentMagic;
     [SerializeField] Stats playerStats;

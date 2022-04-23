@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO: maybe we keep all UI (dialog and menus, etc) as signals communicating directly with the game object scripts
+// TODO: rework with updated inventory
 public class EquipmentPanel : MonoBehaviour
 {
     [SerializeField] Inventory equipment;

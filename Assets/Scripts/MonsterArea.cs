@@ -6,11 +6,13 @@ using UnityEngine.SceneManagement;
 public class MonsterArea : MonoBehaviour
 {
     public float initProb = 0.1f;
-    public List<RegionalMonster> monsters;
+    // TODO: replace monsters with list of enemies and corresponding list of probabilities. 
+    // alternatively make a serialized custom class that contains an enemy and a probability
+    public List<RegionalMonster> monsters; 
     public MySignal signal;
     [SerializeField] bool active;
     [SerializeField] float probability;
-    [SerializeField] GameObject battleTransition;
+    [SerializeField] GameObject battleTransition; // TODO: move this to the scene manager
     [SerializeField] CurrentEnemy currentEnemy;
     float transitionWait = 1.0f;
 

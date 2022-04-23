@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO: reevaluate if we need this after updating the level manager.
 public class BattleResult
 {
     public BattleResult(int level, float strength, float agility, float magicPower, float maxMagic, float maxHealth, Spell spell)

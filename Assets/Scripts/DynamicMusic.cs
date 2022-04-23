@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO: change this to AudioController. Controllers can be scripts on empty game objects.
 public class DynamicMusic : MonoBehaviour
 {
     [SerializeField] AudioSource source;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// TODO: make this more generic as a script that takes a string (scene name) and sets a scenenamevariable and sends the signal to navigate.
 public class MainMenu : MonoBehaviour
 {
     // Update is called once per frame

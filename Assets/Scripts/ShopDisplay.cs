@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ShopDisplay : MonoBehaviour
 {
+    // TODO: enable custom shopkeeper dialog
     [SerializeField] SelectedItem selectedItem;
     [SerializeField] MySignal stopShop;
     [SerializeField] Stats playerStats;

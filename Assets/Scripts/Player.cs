@@ -1,43 +1,82 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
-public enum PlayerType { Fighter, Wizard, Rogue, Barbarian }
+public enum PlayerType
+{
+    Fighter,
+    Wizard,
+    Rogue,
+    Barbarian
+}
+
 public class Player : MonoBehaviour
 {
+    [SerializeField]
+    float speed = 3f;
 
-    [SerializeField] float speed = 3f;
     Rigidbody2D myRigidbody;
-    Vector3 change;
-    public Animator animator;
-    public FloatValue maxHealth;
-    public FloatValue currentHealth;
-    public FloatValue maxMagic;
-    public FloatValue currentMagic;
-    [SerializeField] MySignal playerHealthSignal;
-    [SerializeField] MySignal battleSignal;
-    [SerializeField] MySignal dialogSignal;
-    [SerializeField] VectorValue playerPosition;
-    [SerializeField] GameObject pauseMenu;
-    [SerializeField] PlayerType playerType = PlayerType.Fighter;
-    [SerializeField] bool frozen;
 
+    Vector3 change;
+
+    public Animator animator;
+
+    /* 
+    TODO: Move to Player Stats
+    */
+    public FloatValue maxHealth;
+
+    public FloatValue maxMagic;
+
+    public FloatValue currentHealth;
+
+    public FloatValue currentMagic;
+
+    /* 
+    End TODO 
+    */
+    [SerializeField]
+    MySignal playerHealthSignal;
+
+    [SerializeField]
+    MySignal battleSignal;
+
+    [SerializeField]
+    VectorValue playerPosition;
+
+    /*
+    TODO: move this to a menu/dialog controller
+    */
+    [SerializeField]
+    GameObject pauseMenu;
+
+    /*
+    End TODO 
+    */
+    [SerializeField]
+    MySignal dialogSignal;
+
+    [SerializeField]
+    BoolValue frozen;
 
     // Start is called before the first frame update
     void Start()
     {
-        frozen = false;
+        frozen.value = false;
         myRigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        transform.position = new Vector3(playerPosition.initialValue.x, playerPosition.initialValue.y, transform.position.z);
+        transform.position =
+            new Vector3(playerPosition.initialValue.x,
+                playerPosition.initialValue.y,
+                transform.position.z);
         playerHealthSignal.Raise();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (frozen) return;
+        if (frozen.value) return;
         change = Vector3.zero;
         change.x = Input.GetAxisRaw("Horizontal");
         change.y = Input.GetAxisRaw("Vertical");
@@ -58,18 +97,20 @@ public class Player : MonoBehaviour
                 pauseMenu.SetActive(true);
             }
         }
-
     }
 
     void FixedUpdate()
     {
-        if (frozen) {
+        if (frozen.value)
+        {
             animator.SetBool("moving", false);
             return;
         }
         if (change != Vector3.zero)
         {
-            myRigidbody.MovePosition(transform.position + change * speed * Time.deltaTime);
+            myRigidbody
+                .MovePosition(transform.position +
+                change * speed * Time.deltaTime);
             animator.SetFloat("moveX", change.x);
             animator.SetFloat("moveY", change.y);
             animator.SetBool("moving", true);
@@ -84,22 +125,28 @@ public class Player : MonoBehaviour
     {
         if (animator.GetBool("moving"))
         {
-            frozen = true;
-            // check for potion effects, magic armor, etc. 
+            frozen.value = true;
+
+            // check for potion effects, magic armor, etc.
             battleSignal.Raise();
         }
     }
 
-    public void OnDialog() {
-        if (!frozen) {
+    public void OnDialog()
+    {
+        if (!frozen.value)
+        {
             dialogSignal.Raise();
         }
     }
 
-    public void Freeze() {
-        frozen = true;
+    public void Freeze()
+    {
+        frozen.value = true;
     }
-    public void Unfreeze() {
-        frozen = false;
+
+    public void Unfreeze()
+    {
+        frozen.value = false;
     }
 }

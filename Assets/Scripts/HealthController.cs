@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+// TODO: break this up into a slider controller and several texts listening to values 
 public class HealthController : MonoBehaviour
 {
     [SerializeField] FloatValue currentHealth;

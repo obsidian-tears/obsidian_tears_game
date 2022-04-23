@@ -7,6 +7,7 @@ public class Effect {
 
 }
 
+// TODO: add current health and current magic here? Seems to make sense.
 [CreateAssetMenu(fileName = "New Stats", menuName = "Player/Stats")]
 public class Stats : ScriptableObject
 {
