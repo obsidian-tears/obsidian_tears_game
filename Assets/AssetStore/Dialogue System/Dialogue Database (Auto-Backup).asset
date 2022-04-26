@@ -54,13 +54,13 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
+    spritePortrait: {fileID: 8496569970787458414, guid: 3083620aa4432804691a11528aadcca3, type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 2
     fields:
     - title: Name
-      value: NPC
+      value: Dave
       type: 0
       typeString: 
     - title: Pictures
@@ -76,7 +76,7 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
+    spritePortrait: {fileID: 21300000, guid: e1ee4bd806083c749a2d834773f07eb2, type: 3}
     alternatePortraits: []
     spritePortraits: []
   items: []
@@ -91,7 +91,7 @@ MonoBehaviour:
     - title: Initial Value
       value: 
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Description
       value: 
       type: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   - id: 1
     fields:
     - title: Title
-      value: Dave Initial Conversation
+      value: Dave
       type: 0
       typeString: 
     - title: Description
@@ -192,8 +192,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 195
-        y: 46
+        x: 204
+        y: 45
         width: 160
         height: 30
     - id: 1
@@ -237,13 +237,13 @@ MonoBehaviour:
       - originConversationID: 1
         originDialogueID: 1
         destinationConversationID: 1
-        destinationDialogueID: 2
+        destinationDialogueID: 3
         isConnector: 0
         priority: 2
       - originConversationID: 1
         originDialogueID: 1
         destinationConversationID: 1
-        destinationDialogueID: 3
+        destinationDialogueID: 2
         isConnector: 0
         priority: 2
       - originConversationID: 1
@@ -252,14 +252,14 @@ MonoBehaviour:
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: CurrentQuestState("ExploreForest") == "unassigned"
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 196
+        x: 200
         y: 125
         width: 160
         height: 30
@@ -308,8 +308,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 200
-        y: 224
+        x: 201
+        y: 226
         width: 160
         height: 30
     - id: 3
@@ -351,14 +351,14 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: GiveQuest("Dave","ExploreForest")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 12
-        y: 225
+        x: 19
+        y: 226
         width: 160
         height: 30
     - id: 4
@@ -406,8 +406,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 408
-        y: 225
+        x: 395
+        y: 224
         width: 160
         height: 30
     entryGroups: []

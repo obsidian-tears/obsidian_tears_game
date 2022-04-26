@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dbbc84c70300ba489dc1fe1961516ec, type: 3}
+  m_Name: QM DS Lua Function Info
+  m_EditorClassIdentifier: 
+  conditionFunctions:
+  - functionName: CanOfferQuest
+    parameters: 0300000004000000
+    returnValue: 1
+  - functionName: HasQuest
+    parameters: 04000000
+    returnValue: 1
+  - functionName: GetQuestNodeState
+    parameters: 0400000002000000
+    returnValue: 3
+  - functionName: GetQuestNodeNumberState
+    parameters: 0400000001000000
+    returnValue: 3
+  - functionName: GetQuestCounterValue
+    parameters: 0400000002000000
+    returnValue: 2
+  - functionName: CanOfferQuestToQuester
+    parameters: 030000000400000003000000
+    returnValue: 1
+  - functionName: QuesterHasQuest
+    parameters: 0400000003000000
+    returnValue: 1
+  - functionName: GetQuesterQuestState
+    parameters: 0400000003000000
+    returnValue: 3
+  - functionName: GetQuesterQuestNodeState
+    parameters: 040000000200000003000000
+    returnValue: 3
+  - functionName: GetQuesterQuestNodeNumberState
+    parameters: 040000000100000003000000
+    returnValue: 3
+  - functionName: GetQuesterQuestCounterValue
+    parameters: 040000000200000003000000
+    returnValue: 2
+  scriptFunctions:
+  - functionName: GiveQuest
+    parameters: 0300000004000000
+    returnValue: 0
+  - functionName: GiveAllQuests
+    parameters: 03000000
+    returnValue: 0
+  - functionName: SetQuestState
+    parameters: 0400000002000000
+    returnValue: 0
+  - functionName: SetQuestNodeState
+    parameters: 040000000200000002000000
+    returnValue: 0
+  - functionName: SetQuestNodeNumberState
+    parameters: 040000000100000002000000
+    returnValue: 0
+  - functionName: SetQuestCounterValue
+    parameters: 040000000200000001000000
+    returnValue: 0
+  - functionName: GiveQuestToQuester
+    parameters: 030000000400000003000000
+    returnValue: 0
+  - functionName: GiveAllQuestsToQuester
+    parameters: 0300000003000000
+    returnValue: 0
+  - functionName: SetQuesterQuestState
+    parameters: 040000000200000003000000
+    returnValue: 0
+  - functionName: SetQuesterQuestNodeState
+    parameters: 04000000020000000200000003000000
+    returnValue: 0
+  - functionName: SetQuesterQuestNodeNumberState
+    parameters: 04000000010000000200000003000000
+    returnValue: 0
+  - functionName: SetQuesterQuestCounterValue
+    parameters: 04000000020000000100000003000000
+    returnValue: 0
+  - functionName: SetQuestIndicator
+    parameters: 040000000300000002000000
+    returnValue: 0
