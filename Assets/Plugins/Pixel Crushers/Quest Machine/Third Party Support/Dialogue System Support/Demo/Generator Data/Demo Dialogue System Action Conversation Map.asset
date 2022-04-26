@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6991638f33bfca340a834c26573e7d7b, type: 3}
+  m_Name: Demo Dialogue System Action Conversation Map
+  m_EditorClassIdentifier: 
+  m_records:
+  - m_action: {fileID: 11400000, guid: 05078b661c903b744a6a50221f953d0a, type: 2}
+    m_motiveConversations:
+    - m_conversation: Kill/Motive/For Safety
+    m_activeStateConversation: Kill/Active
+    m_turnInConversation: Kill/Turn In
+  - m_action: {fileID: 11400000, guid: 47100ee7091067e47995e0709f4a7729, type: 2}
+    m_motiveConversations:
+    - m_conversation: Polymorph/Motive/For Safety
+    m_activeStateConversation: Polymorph/Active
+    m_turnInConversation: Turn In
+  - m_action: {fileID: 11400000, guid: fd9b87324deccb14da4a5340d60141db, type: 2}
+    m_motiveConversations: []
+    m_activeStateConversation: Find Wand/Active
+    m_turnInConversation: Turn In

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 // using System.Runtime.InteropServices;
 
 public enum BattleState { Start, PlayerSpell, PlayerItem, EnemyMove, Busy, PlayerWon, PlayerLost }
@@ -24,12 +25,22 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] VectorValue playerPosition;
     [SerializeField] VectorValue respawnPosition;
     [SerializeField] LevelManager levelManager;
+    public UnityEvent onRunAway;
+    public UnityEvent onPlayerWin;
+    public UnityEvent onPlayerLose;
     // [DllImport("__Internal")] private static extern void GiveGold(int goldAmount);
     float transitionWait = 1.0f;
     float textPause = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
+        if (onRunAway == null)
+            onRunAway = new UnityEvent();
+        if (onPlayerWin == null)
+            onPlayerWin = new UnityEvent();
+        if (onPlayerLose == null)
+            onPlayerLose = new UnityEvent();
+
         state = BattleState.Busy;
         StartCoroutine(SetupBattle());
     }
@@ -175,7 +186,8 @@ public class BattleSystem : MonoBehaviour
             else
             {
                 // RUN
-                StartCoroutine(EndBattleTransitionCo());
+                onRunAway.Invoke();
+                ////StartCoroutine(EndBattleTransitionCo());
             }
         }
     }
@@ -271,7 +283,8 @@ public class BattleSystem : MonoBehaviour
                     yield return new WaitForSecondsRealtime(textPause);
                 }
             }
-            yield return EndBattleTransitionCo();
+            onPlayerWin.Invoke();
+            ////yield return EndBattleTransitionCo();
         }
         else if (newState == BattleState.PlayerLost)
         {
@@ -279,10 +292,15 @@ public class BattleSystem : MonoBehaviour
             yield return new WaitForSecondsRealtime(textPause);
             playerStats = respawnStats;
             playerPosition = respawnPosition;
-            yield return EndBattleTransitionCo();
+            onPlayerLose.Invoke();
+            ////yield return EndBattleTransitionCo();
         }
     }
-    IEnumerator EndBattleTransitionCo()
+
+    /*Note from Isaac: I created a scriptable object called "SceneManager" that can be called from events to load scenes, including load previous scenes. Doing 
+         * so from events is better practice than naming scenes through strings within code, so I commented out the places where scene transitions have been taking place
+         * and changed them to be handled in the respective UnityEvents. The scenes still load asynchronously so the transitions still work for now*/
+    /*IEnumerator EndBattleTransitionCo()
     {
         Time.timeScale = 0;
         if (endTransition)
@@ -293,5 +311,5 @@ public class BattleSystem : MonoBehaviour
         Time.timeScale = 1;
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("SampleScene");
         while (!asyncOperation.isDone) yield return null;
-    }
+    }*/
 }
