@@ -18,7 +18,10 @@ public class Player : MonoBehaviour
     [SerializeField] MySignal playerHealthSignal;
     [SerializeField] MySignal battleSignal;
     [SerializeField] MySignal dialogSignal;
-    [SerializeField] VectorValue playerPosition;
+    /*Note from Isaac: I've removed the playerPosition object from this script and all its references (I just commented it out) to replace its use with the save system I've implemented.
+     * The player instead has a PositionSaver component that saves the player's position on scene changes and when the game is actually saved/exited. This avoids having to constantly
+     * change player position in Update calls*/
+    //[SerializeField] VectorValue playerPosition;
     [SerializeField] GameObject pauseMenu;
     [SerializeField] PlayerType playerType = PlayerType.Fighter;
     [SerializeField] bool frozen;
@@ -30,7 +33,7 @@ public class Player : MonoBehaviour
         frozen = false;
         myRigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        transform.position = new Vector3(playerPosition.initialValue.x, playerPosition.initialValue.y, transform.position.z);
+        //transform.position = new Vector3(playerPosition.initialValue.x, playerPosition.initialValue.y, transform.position.z);
         playerHealthSignal.Raise();
     }
 
@@ -42,8 +45,8 @@ public class Player : MonoBehaviour
         change.x = Input.GetAxisRaw("Horizontal");
         change.y = Input.GetAxisRaw("Vertical");
         change = change.normalized;
-        playerPosition.initialValue.x = transform.position.x;
-        playerPosition.initialValue.y = transform.position.y;
+        //playerPosition.initialValue.x = transform.position.x;
+        //playerPosition.initialValue.y = transform.position.y;
 
         if (Input.GetKeyDown(KeyCode.Return))
         {

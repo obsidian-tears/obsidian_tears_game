@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Pixel Crushers. All rights reserved.
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace PixelCrushers
 {
@@ -11,6 +12,8 @@ namespace PixelCrushers
     [AddComponentMenu("")] // Use wrapper instead.
     public class ScenePortal : MonoBehaviour
     {
+
+        private bool useTriggerForPortal = false;
 
         [Tooltip("Only objects with this tag can use the portal.")]
         [SerializeField]
@@ -65,21 +68,33 @@ namespace PixelCrushers
 
         protected void LoadScene()
         {
+            PlayerPrefs.SetString("PreviousScene", SceneManager.GetActiveScene().name);
             SaveSystem.LoadScene(string.IsNullOrEmpty(spawnpointNameInDestinationScene) ? destinationSceneName : destinationSceneName + "@" + spawnpointNameInDestinationScene);
+        }
+
+        public void setDestinationToPreviousScene()
+        {
+            destinationSceneName = PlayerPrefs.GetString("PreviousScene");
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            if (!other.CompareTag(requiredTag)) return;
-            UsePortal();
+            if (useTriggerForPortal)
+            {
+                if (!other.CompareTag(requiredTag)) return;
+                UsePortal();
+            }
         }
 
 #if USE_PHYSICS2D || !UNITY_2018_1_OR_NEWER
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (!other.CompareTag(requiredTag)) return;
-            UsePortal();
+            if (useTriggerForPortal)
+            {
+                if (!other.CompareTag(requiredTag)) return;
+                UsePortal();
+            }
         }
 
 #endif
