@@ -2124,6 +2124,7 @@ GameObject:
   - component: {fileID: 1310204761}
   - component: {fileID: 1310204767}
   - component: {fileID: 1310204768}
+  - component: {fileID: 1310204769}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2162,9 +2163,9 @@ MonoBehaviour:
   onRunAway:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 92a1c377e416c7440870439b7c942859, type: 2}
-        m_TargetAssemblyTypeName: SceneManagerObject, Assembly-CSharp
-        m_MethodName: LoadPreviousScene
+      - m_Target: {fileID: 1310204769}
+        m_TargetAssemblyTypeName: PixelCrushers.ScenePortal, Assembly-CSharp-firstpass
+        m_MethodName: UsePortal
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2177,9 +2178,9 @@ MonoBehaviour:
   onPlayerWin:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 92a1c377e416c7440870439b7c942859, type: 2}
-        m_TargetAssemblyTypeName: SceneManagerObject, Assembly-CSharp
-        m_MethodName: LoadPreviousScene
+      - m_Target: {fileID: 1310204769}
+        m_TargetAssemblyTypeName: PixelCrushers.ScenePortal, Assembly-CSharp-firstpass
+        m_MethodName: UsePortal
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2192,9 +2193,9 @@ MonoBehaviour:
   onPlayerLose:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 92a1c377e416c7440870439b7c942859, type: 2}
-        m_TargetAssemblyTypeName: SceneManagerObject, Assembly-CSharp
-        m_MethodName: LoadPreviousScene
+      - m_Target: {fileID: 1310204769}
+        m_TargetAssemblyTypeName: PixelCrushers.ScenePortal, Assembly-CSharp-firstpass
+        m_MethodName: UsePortal
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2334,6 +2335,36 @@ MonoBehaviour:
   wizardTrack: {fileID: 11400000, guid: ccaec14ad46432a43ae50147cedcc7c6, type: 2}
   rogueTrack: {fileID: 11400000, guid: 064e4513266db5447af4cbb0524005a9, type: 2}
   barbarianTrack: {fileID: 11400000, guid: 5dd014bec7fcb2e4d84edd7fb07478c3, type: 2}
+--- !u!114 &1310204769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310204760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7203074dfbd78bc4fa51314c98bf4720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_requiredTag: Player
+  m_destinationSceneName: 
+  m_spawnpointNameInDestinationScene: 
+  m_onUsePortal:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1310204769}
+        m_TargetAssemblyTypeName: PixelCrushers.ScenePortal, Assembly-CSharp-firstpass
+        m_MethodName: setDestinationToPreviousScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1321252236
 GameObject:
   m_ObjectHideFlags: 0
