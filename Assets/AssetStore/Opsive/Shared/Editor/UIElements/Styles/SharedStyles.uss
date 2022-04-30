@@ -1,0 +1,228 @@
+.horizontal-layout
+{
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+.vertical-layout
+{
+	flex-direction: column;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.flex-grow
+{
+    flex-grow: 1;
+	overflow: hidden;
+}
+
+.flex-shrink
+{
+    flex-shrink: 1;
+}
+
+.horizontal-layout-list
+{
+    flex-grow: 1;
+    flex-direction: row;
+}
+
+.flex-list
+{
+    flex-grow: 1;
+}
+
+#filter-window
+{
+	position: absolute;
+    border-width: 1px;
+    border-color: rgb(76, 76, 76);
+}
+
+#tab-toolbar
+{
+	flex-direction: row;
+	justify-content: center;
+	margin-bottom: 4px;
+    flex-shrink: 0;
+}
+
+.selected-dark-tab-button
+{
+	background-color: rgb(36, 36, 36);
+}
+
+.selected-light-tab-button
+{
+	background-color: rgb(222, 222, 222);
+}
+
+.right-justified-content
+{
+    justify-content: flex-end;
+}
+
+.list-item-focus-light
+{
+    background-color: rgb(61, 128, 223);
+}
+
+.list-item-focus-light:hover
+{
+    background-color: rgb(61, 128, 223);
+}
+
+.list-item-focus-dark
+{
+    background-color: rgb(62, 95, 150);
+}
+
+.list-item-focus-dark:hover
+{
+    background-color: rgb(62, 95, 150);
+}
+
+/* || Header || */
+.header-attribute{
+    -unity-font-style: bold;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 2px;
+}
+
+.header
+{
+    -unity-text-align: middle-center;
+    flex: 0 0 auto;
+    overflow: hidden;
+    white-space: nowrap;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+}
+
+.header-light
+{
+    background-color: rgb(170, 170, 170);
+    border-color: rgb(140, 140, 140);
+}
+
+.header-dark
+{
+    background-color: rgb(66, 66, 66);
+    border-color: rgb(36, 36, 36);
+}
+
+.header-text
+{
+    -unity-font-style: bold;
+    font-size: 15px;
+}
+
+.base-field
+{
+	margin-left: 3px;
+}
+
+#radio-checkmark
+{
+    width: 14px;
+    height: 14px;
+    flex: 0 0 auto;
+    align-self: center;
+}
+
+RadioToggle > VisualElement:checked > .dark-radio-checkmark
+{
+    background-image: url("../Icons/RadioButtonSelectedDark.png");
+}
+
+RadioToggle > VisualElement > .dark-radio-checkmark
+{
+    background-image: url("../Icons/RadioButtonDark.png");
+}
+
+RadioToggle > VisualElement:checked > .light-radio-checkmark
+{
+    background-image: url("../Icons/RadioButtonSelectedLight.png");
+}
+
+RadioToggle > VisualElement > .light-radio-checkmark
+{
+    background-image: url("../Icons/RadioButtonLight.png");
+}
+
+/* || Object Identifier & NameId Map || */
+.name-id-map-list-element
+{
+    flex-direction: row;
+}
+
+.name-id-map-list-element_warning
+{
+    width: 18px;
+}
+
+.name-id-map-list-element_id
+{
+    margin-right: 0;
+}
+
+.name-id-map-list-element_id > IntegerInput
+{
+    width: 90px;
+}
+
+.name-id-map-list-element_button
+{
+    margin: 0 5 0 0;
+    padding: 0 1 0 1;
+    font-size: 10px;
+}
+
+.name-id-map-list-element_name
+{
+    flex-grow: 1;
+}
+
+.delete-dark-icon
+{
+    padding-left: 8px;
+    padding-right: 8px;
+    background-image: url("../../Icons/DeleteDarkIcon.png");
+}
+
+.delete-light-icon
+{
+    padding-left: 8px;
+    padding-right: 8px;
+    background-image: url("../../Icons/DeleteLightIcon.png");
+}
+
+.info-dark-icon
+{
+    padding-left: 8px;
+    padding-right: 8px;
+    background-image: url("../../Icons/InfoDarkIcon.png");
+}
+
+.info-light-icon
+{
+    padding-left: 8px;
+    padding-right: 8px;
+    background-image: url("../../Icons/InfoLightIcon.png");
+}
+
+.duplicate-dark-icon
+{
+    padding-left: 8px;
+    padding-right: 8px;
+    background-image: url("../../Icons/DuplicateDarkIcon.png");
+}
+
+.duplicate-light-icon
+{
+    padding-left: 8px;
+    padding-right: 8px;
+    background-image: url("../../Icons/DuplicateLightIcon.png");
+}
