@@ -310,6 +310,7 @@ namespace PixelCrushers
             {
                 m_instance = this;
                 if (transform.parent != null) transform.SetParent(null);
+                //Isaac is temporarily commenting this out just to see what would happen....
                 DontDestroyOnLoad(gameObject);
             }
             else
