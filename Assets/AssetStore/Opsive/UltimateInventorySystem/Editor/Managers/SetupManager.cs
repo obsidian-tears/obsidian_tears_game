@@ -610,7 +610,8 @@ namespace Opsive.UltimateInventorySystem.Editor.Managers
                     var itemView = GameObject.Instantiate(itemViewPrefab, pickupCanvas.transform).GetComponent<ItemView>();
 
                     visualListener.ItemView = itemView;
-                    pickup.m_SelectIndicators = new[] { pickupCanvas.gameObject };
+                    if(pickupCanvas != null)
+                        pickup.m_SelectIndicators = new[] { pickupCanvas.gameObject };
                 }
             }
 
