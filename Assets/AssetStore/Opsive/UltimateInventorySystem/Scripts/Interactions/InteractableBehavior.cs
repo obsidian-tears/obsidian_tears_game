@@ -74,7 +74,7 @@ namespace Opsive.UltimateInventorySystem.Interactions
         /// <param name="interactor">The interactor.</param>
         public virtual void OnSelect(IInteractor interactor)
         {
-            for (int i = 0; i < m_SelectIndicators.Length; i++) { m_SelectIndicators[i].SetActive(true); }
+            ////for (int i = 0; i < m_SelectIndicators.Length; i++) { m_SelectIndicators[i].SetActive(true); }
         }
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace Opsive.UltimateInventorySystem.Interactions
         /// <param name="interactor">The interactor.</param>
         public virtual void OnDeselect(IInteractor interactor)
         {
-            for (int i = 0; i < m_SelectIndicators.Length; i++) { m_SelectIndicators[i].SetActive(false); }
+            ////for (int i = 0; i < m_SelectIndicators.Length; i++) { m_SelectIndicators[i].SetActive(false); }
         }
 
         /// <summary>

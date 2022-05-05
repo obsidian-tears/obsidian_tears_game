@@ -7,21 +7,21 @@ public class EventOnKeyPress : MonoBehaviour
 {
     /*Use this script when you want pressing a button to call a UnityEvent (which is different than an event).*/
 
-    public KeyCode useKey;
+    public string useButton;
 
-    public UnityEvent onKeyPress;
+    public UnityEvent onButtonPress;
 
     void Start()
     {
-        if (onKeyPress == null)
-            onKeyPress = new UnityEvent();
+        if (onButtonPress == null)
+            onButtonPress = new UnityEvent();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(useKey))
+        if (Input.GetButtonDown(useButton))
         {
-            onKeyPress.Invoke();
+            onButtonPress.Invoke();
         }
     }
 }
