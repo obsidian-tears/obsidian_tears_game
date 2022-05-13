@@ -1,5 +1,31 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8421663553872234672
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d698a1fd1ac5a849995694240aaa4a6, type: 3}
+  m_Name: UISAddCurrencyQuestAction
+  m_EditorClassIdentifier: 
+  currencyName:
+    m_text: Silver
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  currencyOwnerName:
+    m_text: 
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  amount:
+    m_valueType: 0
+    m_literalValue: 20
+    m_counterIndex: 0
 --- !u!114 &-7398126592020573144
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -249,7 +275,7 @@ MonoBehaviour:
     m_canvasRect:
       serializedVersion: 2
       x: 200
-      y: 20
+      y: 19
       width: 120
       height: 48
   - m_id:
@@ -297,8 +323,8 @@ MonoBehaviour:
     m_childIndexList: 03000000
     m_canvasRect:
       serializedVersion: 2
-      x: 200
-      y: 92
+      x: 199
+      y: 108
       width: 120
       height: 48
   - m_id:
@@ -332,6 +358,7 @@ MonoBehaviour:
       - m_contentList: []
     - m_actionList:
       - {fileID: 766207999242368604}
+      - {fileID: -8421663553872234672}
       m_categorizedContentList:
       - m_contentList: []
       - m_contentList: []
@@ -344,8 +371,8 @@ MonoBehaviour:
     m_childIndexList: 
     m_canvasRect:
       serializedVersion: 2
-      x: 200
-      y: 246
+      x: 199
+      y: 278
       width: 120
       height: 35
   - m_id:
@@ -392,8 +419,8 @@ MonoBehaviour:
     m_childIndexList: 02000000
     m_canvasRect:
       serializedVersion: 2
-      x: 200
-      y: 167
+      x: 199
+      y: 192
       width: 120
       height: 48
   m_goalEntityTypeName: 
@@ -462,7 +489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_contentID: -1
   m_bodyText:
-    m_text: 'Quest Completed: Explore the Forest'
+    m_text: 'Quest Completed: {QUEST}'
     m_stringAsset: {fileID: 0}
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
@@ -498,7 +525,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_contentID: -1
   m_bodyText:
-    m_text: 'Quest Added: Explore the  Forest'
+    m_text: 'Quest Added: {QUEST}'
     m_stringAsset: {fileID: 0}
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
@@ -516,7 +543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_contentID: -1
   m_bodyText:
-    m_text: 'Quest Updated: Explore the Forest'
+    m_text: 'Quest Updated: {QUEST}'
     m_stringAsset: {fileID: 0}
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
