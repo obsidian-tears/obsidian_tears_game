@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Shop : Interactable
 {
-    [SerializeField] Inventory shopInventory;
-    [SerializeField] Inventory currentInventory;
+    [SerializeField] InventoryObject shopInventory;
+    [SerializeField] InventoryObject currentInventory;
     [SerializeField] MySignal shopSignal;
 
     void Start()

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EquipmentPanel : MonoBehaviour
 {
-    [SerializeField] Inventory equipment;
+    [SerializeField] InventoryObject equipment;
     [SerializeField] InventorySlot inventorySlotTemplate;
     [SerializeField] GameObject helmetSection;
     [SerializeField] GameObject armorSection;

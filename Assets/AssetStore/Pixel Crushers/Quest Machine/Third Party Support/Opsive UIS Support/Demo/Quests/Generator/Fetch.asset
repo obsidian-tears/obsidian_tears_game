@@ -1,0 +1,163 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 660aa2e8a76438342ac8a8b8bcbabb5c, type: 3}
+  m_Name: Fetch
+  m_EditorClassIdentifier: 
+  m_description: 
+  m_motives:
+  - m_text:
+      m_text: I could really use some {TARGETENTITY}. Please bring me {TARGETDESCRIPTOR}.
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_driveValues:
+    - m_drive: {fileID: 11400000, guid: 672886392fdddae4d8fc34c8caaf939b, type: 2}
+      m_value: 10
+  m_displayName:
+    m_text: Fetch
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_actionText:
+    m_activeText:
+      m_dialogueText:
+        m_text: Please bring me {TARGETDESCRIPTOR}.
+        m_stringAsset: {fileID: 0}
+        m_textTable: {fileID: 0}
+        m_textTableFieldID: 0
+      m_journalText:
+        m_text: Get {TARGETDESCRIPTOR}.
+        m_stringAsset: {fileID: 0}
+        m_textTable: {fileID: 0}
+        m_textTableFieldID: 0
+      m_hudText:
+        m_text: '{#COUNTERNAME}/{#COUNTERGOAL} Collected'
+        m_stringAsset: {fileID: 0}
+        m_textTable: {fileID: 0}
+        m_textTableFieldID: 0
+      m_alertText:
+        m_text: 
+        m_stringAsset: {fileID: 0}
+        m_textTable: {fileID: 0}
+        m_textTableFieldID: 0
+    m_completedText:
+      m_dialogueText:
+        m_text: Thank you for the {TARGETDESCRIPTOR}.
+        m_stringAsset: {fileID: 0}
+        m_textTable: {fileID: 0}
+        m_textTableFieldID: 0
+      m_journalText:
+        m_text: I fetched {TARGETDESCRIPTOR}.
+        m_stringAsset: {fileID: 0}
+        m_textTable: {fileID: 0}
+        m_textTableFieldID: 0
+      m_hudText:
+        m_text: 
+        m_stringAsset: {fileID: 0}
+        m_textTable: {fileID: 0}
+        m_textTableFieldID: 0
+      m_alertText:
+        m_text: 
+        m_stringAsset: {fileID: 0}
+        m_textTable: {fileID: 0}
+        m_textTableFieldID: 0
+    m_successText:
+      m_text: Thank you for the {TARGETDESCRIPTOR}.
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+  m_requirements: []
+  m_effects:
+  - m_operation: 1
+    m_domainSpecifier:
+      m_domainSpecifierType: 0
+      m_domainType: {fileID: 0}
+    m_entitySpecifier:
+      m_entitySpecifierType: 0
+      m_entityType: {fileID: 0}
+    m_count: 1
+  - m_operation: 0
+    m_domainSpecifier:
+      m_domainSpecifierType: 2
+      m_domainType: {fileID: 0}
+    m_entitySpecifier:
+      m_entitySpecifierType: 0
+      m_entityType: {fileID: 0}
+    m_count: 1
+  m_completion:
+    m_mode: 1
+    m_senderID:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_targetID:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_message:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_parameter:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_baseCounterName:
+      m_text: Collected
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_initialValue: 0
+    m_minValue: 0
+    m_maxValue: 100
+    m_requiredValue: 1
+    m_counterValueMode: 0
+    m_updateMode: 1
+    m_messageEventList:
+    - m_senderSpecifier: 0
+      m_senderID:
+        m_text: 
+        m_stringAsset: {fileID: 0}
+        m_textTable: {fileID: 0}
+        m_textTableFieldID: 0
+      m_targetSpecifier: 0
+      m_targetID:
+        m_text: 
+        m_stringAsset: {fileID: 0}
+        m_textTable: {fileID: 0}
+        m_textTableFieldID: 0
+      m_message:
+        m_text: Get
+        m_stringAsset: {fileID: 0}
+        m_textTable: {fileID: 0}
+        m_textTableFieldID: 0
+      m_parameter:
+        m_text: '{TARGETENTITY}'
+        m_stringAsset: {fileID: 0}
+        m_textTable: {fileID: 0}
+        m_textTableFieldID: 0
+      m_operation: 2
+      m_literalValue: 1
+  m_sendMessageOnActive:
+    m_text: 
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_sendMessageOnCompletion:
+    m_text: 
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0

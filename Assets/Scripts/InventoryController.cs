@@ -6,7 +6,7 @@ using TMPro;
 public class InventoryController : MonoBehaviour
 {
     int selectedPageIndex;
-    [SerializeField] Inventory displayInventory;
+    [SerializeField] InventoryObject displayInventory;
     [SerializeField] PlayerInventory inventory;
     [SerializeField] SelectedItem selectedItem;
     [SerializeField] GameObject equipmentPanel;
@@ -98,7 +98,7 @@ public class InventoryController : MonoBehaviour
         equipItemSignal.Raise();
     }
 
-    void SwitchInventory(Inventory newInventory)
+    void SwitchInventory(InventoryObject newInventory)
     {
         displayInventory = newInventory;
         DestroyInventory();
@@ -111,7 +111,7 @@ public class InventoryController : MonoBehaviour
             GameObject.Destroy(transform.gameObject);
         }
     }
-    void PopulateInventory(Inventory newInventory)
+    void PopulateInventory(InventoryObject newInventory)
     {
         foreach (InventoryItem item in newInventory.myInventory)
         {
