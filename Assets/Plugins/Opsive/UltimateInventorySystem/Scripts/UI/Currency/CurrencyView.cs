@@ -46,7 +46,7 @@ namespace Opsive.UltimateInventorySystem.UI.Currency
                 m_Image.sprite = newValue.Currency?.Icon;
             }
             
-            m_Text.text = newValue.Amount.ToString();
+            m_Text.text = "$" + newValue.Amount.ToString();
         }
 
         /// <summary>
