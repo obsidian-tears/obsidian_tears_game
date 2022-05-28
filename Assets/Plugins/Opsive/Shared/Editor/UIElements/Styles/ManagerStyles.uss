@@ -1,0 +1,192 @@
+#contentTitle
+{
+	font-size: 20px;
+}
+
+.manager-content-container
+{
+	margin-top: 1px;
+	top: -20px;
+	padding-top: 20px;
+}
+
+/* || Menu || */
+#menu
+{
+	flex-direction: column;
+	flex-grow: 1;
+	flex-shrink: 0;
+	flex-basis: 0;
+    width: 145px;
+    max-width: 145px;
+    border-right-width: 1px;
+}
+
+#menu-button
+{
+	font-size: 14px;
+	-unity-text-align: middle-right;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	padding-right: 2px;
+}
+
+.light-menu-background
+{
+	border-color: rgb(55, 55, 55);
+	background-color: rgb(211, 211, 211);
+}
+
+.dark-menu-background
+{
+	border-color: rgb(40, 40, 40);
+	background-color: rgb(65, 65, 65);
+}
+
+.selected-light-menu-button-background
+{
+	background-color: rgb(63, 126, 221);
+}
+
+.selected-dark-menu-button-background
+{
+	background-color: rgb(63, 94, 151);
+}
+
+/* || Utility Manager Classes || */
+.link-cursor
+{
+    cursor: link;
+}
+
+/* || Integrations Manager || */
+#integrations-container
+{
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+#integrations-box
+{
+	margin: 3px;
+	padding: 2px;
+	width: 270px;
+	height: 100px;
+}
+
+#integrations-title
+{
+	-unity-font-style: bold;
+	font-size: 13px;
+	margin-left: 4px;
+	padding-bottom: 4px;
+}
+
+/* || Box || */
+.light-box-background, .dark-box-background
+{
+	border-width: 1px;
+	padding: 1px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	border-radius: 1px;
+}
+
+.light-box-background
+{
+	border-color: rgb(55, 55, 55);
+	background-color: rgb(208, 208, 208);
+}
+
+.dark-box-background
+{
+	border-color: rgb(40, 40, 40);
+	background-color: rgb(60, 60, 60);
+}
+
+/* || Panels || */
+#leftPanel
+{
+	flex-direction: column;
+	flex-grow: 1;
+	flex-shrink: 0;
+	flex-basis: 0;
+    width: 290px;
+    max-width: 290px;
+    padding: 3px;
+}
+
+#contentPanel
+{
+    padding: 3px;
+}
+
+/* || TabToolbar || */
+#tabToolbar
+{
+	flex-direction: row;
+	justify-content: center;
+	margin-bottom: 4px;
+}
+
+.selected-dark-tab-button
+{
+	-unity-background-image-tint-color: rgb(180, 180, 180);
+}
+
+.selected-light-tab-button
+{
+	-unity-background-image-tint-color: rgb(210, 210, 210);
+}
+
+/* || Warning Popup Window || */
+.warning-popup-window
+{
+	border-width: 2px;
+	border-color: #000000;
+}
+
+.warning-popup-window__message
+{
+	margin: 10px;
+	white-space: normal;
+}
+
+.warning-popup-window__button-container
+{
+	flex-direction: row;
+	flex-grow: 1;
+	justify-content: space-between;
+	margin: 10px 75px;
+	min-height: 20px;
+	height: 20px;
+}
+
+.warning-popup-window__button-container > Button
+{
+	width: 75px;
+	min-height: 20px;
+}
+
+/* || Extra final touches || */
+#contentPanel ReorderableList
+{
+	max-height: 300px;
+}
+
+TabToolbar
+{
+	min-height: 20px;
+}
+
+#contentPanel TabToolbar
+{
+	flex-wrap: wrap;
+}
+
+#ManagerMoreOptionButton{
+	top: 0px;
+	right: 5px;
+	position: absolute;
+	align-self: flex-end;
+}

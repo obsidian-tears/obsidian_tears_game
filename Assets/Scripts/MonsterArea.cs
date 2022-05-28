@@ -57,12 +57,16 @@ public class MonsterArea : MonoBehaviour
                 }
             }
             // navigate to battle scene
-            StartCoroutine(StartBattleTransitionCo());
+            ////StartCoroutine(StartBattleTransitionCo());
         }
     }
 
-    public IEnumerator StartBattleTransitionCo()
+    /*Note from Isaac: I created a scriptable object called "SceneManager" that can be called from events to load scenes, including load previous scenes. Doing 
+         * so from events is better practice than naming scenes through strings within code, so I commented out the places where scene transitions have been taking place
+         * and changed them to be handled in the respective UnityEvents. The scenes still load asynchronously so the transitions still work for now*/
+    /*public IEnumerator StartBattleTransitionCo()
     {
+        Debug.Log("Wrong place to load scene");
         Time.timeScale = 0;
         if (battleTransition)
         {
@@ -70,9 +74,10 @@ public class MonsterArea : MonoBehaviour
         }
         yield return new WaitForSecondsRealtime(transitionWait);
         Time.timeScale = 1;
+        
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("Battle");
         while (!asyncOperation.isDone) yield return null;
-    }
+    }*/
     void Start()
     {
         probability = initProb;

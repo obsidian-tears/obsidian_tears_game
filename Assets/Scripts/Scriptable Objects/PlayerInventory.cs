@@ -4,12 +4,12 @@ using UnityEngine;
 
 public abstract class PlayerInventory : ScriptableObject
 {
-    public Inventory equipment;
-    public Inventory armorInventory;
-    public Inventory potionsInventory;
-    public Inventory weaponsInventory;
-    public Inventory keyInventory;
-    public Inventory otherInventory;
+    public InventoryObject equipment;
+    public InventoryObject armorInventory;
+    public InventoryObject potionsInventory;
+    public InventoryObject weaponsInventory;
+    public InventoryObject keyInventory;
+    public InventoryObject otherInventory;
     public int weaponSlots;
     public int otherSlots;
 

@@ -9,7 +9,7 @@ public class ShopDisplay : MonoBehaviour
     [SerializeField] MySignal stopShop;
     [SerializeField] Stats playerStats;
     [SerializeField] PlayerInventory playerInventory;
-    [SerializeField] Inventory shopInventory;
+    [SerializeField] InventoryObject shopInventory;
     [SerializeField] Text itemName;
     [SerializeField] Text itemPrice;
     [SerializeField] Text itemDesc;

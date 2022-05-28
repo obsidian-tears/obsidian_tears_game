@@ -1,0 +1,142 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0593ab854c792944fb2f38bf5f0699b2, type: 3}
+  m_Name: FindWand
+  m_EditorClassIdentifier: 
+  m_description: This action finds the Polymorph Wand inside a breakable barrel. When
+    activated, it sends a message to activate the barrel so the player can find it
+    and retrieve the wand.
+  m_motives: []
+  m_displayName:
+    m_text: Find a Wand in
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_actionText:
+    m_activeText:
+      m_dialogueText:
+        m_text: Break open {TARGETDESCRIPTOR} and get a Polymorph Wand.
+        m_stringAsset: {fileID: 0}
+        m_textTable: {fileID: 0}
+        m_textTableFieldID: 0
+      m_journalText:
+        m_text: Break open {TARGETDESCRIPTOR} and get a Polymorph Wand.
+        m_stringAsset: {fileID: 0}
+        m_textTable: {fileID: 0}
+        m_textTableFieldID: 0
+      m_hudText:
+        m_text: Find Wand
+        m_stringAsset: {fileID: 0}
+        m_textTable: {fileID: 0}
+        m_textTableFieldID: 0
+      m_alertText:
+        m_text: 
+        m_stringAsset: {fileID: 0}
+        m_textTable: {fileID: 0}
+        m_textTableFieldID: 0
+    m_completedText:
+      m_dialogueText:
+        m_text: 
+        m_stringAsset: {fileID: 0}
+        m_textTable: {fileID: 0}
+        m_textTableFieldID: 0
+      m_journalText:
+        m_text: 
+        m_stringAsset: {fileID: 0}
+        m_textTable: {fileID: 0}
+        m_textTableFieldID: 0
+      m_hudText:
+        m_text: 
+        m_stringAsset: {fileID: 0}
+        m_textTable: {fileID: 0}
+        m_textTableFieldID: 0
+      m_alertText:
+        m_text: 
+        m_stringAsset: {fileID: 0}
+        m_textTable: {fileID: 0}
+        m_textTableFieldID: 0
+    m_successText:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+  m_requirements:
+  - m_not: 0
+    m_domainSpecifier:
+      m_domainSpecifierType: 0
+      m_domainType: {fileID: 0}
+    m_entitySpecifier:
+      m_entitySpecifierType: 0
+      m_entityType: {fileID: 0}
+    m_min: 1
+    m_max: 65535
+    m_requirementFunction: {fileID: 0}
+  m_effects:
+  - m_operation: 1
+    m_domainSpecifier:
+      m_domainSpecifierType: 0
+      m_domainType: {fileID: 0}
+    m_entitySpecifier:
+      m_entitySpecifierType: 0
+      m_entityType: {fileID: 0}
+    m_count: 1
+  - m_operation: 0
+    m_domainSpecifier:
+      m_domainSpecifierType: 2
+      m_domainType: {fileID: 0}
+    m_entitySpecifier:
+      m_entitySpecifierType: 3
+      m_entityType: {fileID: 11400000, guid: de077a999233d1347be49a2dfc5e134e, type: 2}
+    m_count: 1
+  m_completion:
+    m_mode: 0
+    m_senderID:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_targetID:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_message:
+      m_text: Get
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_parameter:
+      m_text: Wand
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_baseCounterName:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_initialValue: 0
+    m_minValue: 0
+    m_maxValue: 100
+    m_requiredValue: 1
+    m_counterValueMode: 0
+    m_updateMode: 0
+    m_messageEventList: []
+  m_sendMessageOnActive:
+    m_text: Activate Wand Barrel
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_sendMessageOnCompletion:
+    m_text: 
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0

@@ -5,7 +5,7 @@ using UnityEngine;
 public class ItemBox : MonoBehaviour
 {
     [SerializeField] GameObject itemSelector;
-    [SerializeField] Inventory playerInventory;
+    [SerializeField] InventoryObject playerInventory;
     [SerializeField] Color selectedColor;
     [SerializeField] GameObject itemSlotTemplate;
     List<ItemSlot> itemSlots = new List<ItemSlot>();
