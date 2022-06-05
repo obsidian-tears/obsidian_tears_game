@@ -7,7 +7,7 @@ public enum PlayerType { Fighter, Wizard, Rogue, Barbarian }
 public class Player : MonoBehaviour
 {
 
-    [SerializeField] float speed = 3f;
+    [HideInInspector] [SerializeField] public float speed = 3f;
     Rigidbody2D myRigidbody;
     Vector3 change;
     public Animator animator;

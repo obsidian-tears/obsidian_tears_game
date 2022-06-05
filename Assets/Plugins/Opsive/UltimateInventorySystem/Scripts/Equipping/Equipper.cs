@@ -259,15 +259,18 @@ namespace Opsive.UltimateInventorySystem.Equipping
             var slot = m_Slots[index];
 
             if (slot.Category != null && slot.Category.InherentlyContains(item) == false) { return false; }
+            //Isaac changed the below lines in the sytem, because we currently don't want objects spawning on equip. Uncomment that to make that system work.
+            
             var itemObject = CreateItemObject(item);
 
             if (itemObject == null) { return false; }
 
             slot.SetItemObject(itemObject);
-            
+
             if (slot.IsSkinnedEquipment) {
                 SkinItemObject(itemObject, slot);
             } else {
+                
                 PositionItemObject(itemObject, slot);
             }
 
