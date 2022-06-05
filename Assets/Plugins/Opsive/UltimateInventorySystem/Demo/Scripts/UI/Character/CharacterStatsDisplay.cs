@@ -8,7 +8,9 @@ namespace Opsive.UltimateInventorySystem.Demo.UI.Menus.Main.Inventory
 {
     using CharacterControl;
     using CharacterControl.Player;
+    using Opsive.UltimateInventorySystem.Core;
     using Opsive.UltimateInventorySystem.Demo.Events;
+    using Opsive.UltimateInventorySystem.Equipping;
     using Opsive.UltimateInventorySystem.UI.CompoundElements;
     using UnityEngine;
     using EventHandler = Opsive.Shared.Events.EventHandler;
@@ -19,14 +21,18 @@ namespace Opsive.UltimateInventorySystem.Demo.UI.Menus.Main.Inventory
     /// </summary>
     public class CharacterStatsDisplay : MonoBehaviour
     {
+        public Equipper equipper;
+
         [Tooltip("The max Hp text.")]
         [SerializeField] protected Text m_MaxHpValueText;
+        [Tooltip("The max Mp text.")]
+        [SerializeField] protected Text m_MaxMpValueText;
         [Tooltip("The attack text.")]
         [SerializeField] protected Text m_AttackValueText;
         [Tooltip("The defense text.")]
         [SerializeField] protected Text m_DefenseValueText;
-
-        protected CharacterStats m_CharacterStats;
+        [Tooltip("The speed text.")]
+        [SerializeField] protected Text m_SpeedValueText;
 
         private void Start()
         {
@@ -38,21 +44,21 @@ namespace Opsive.UltimateInventorySystem.Demo.UI.Menus.Main.Inventory
         /// </summary>
         private void Initialize()
         {
-            m_CharacterStats = FindObjectOfType<PlayerCharacter>().CharacterStats;
-
-            EventHandler.RegisterEvent(m_CharacterStats, DemoEventNames.c_CharacterStats_OnChanged, Draw);
+            //Draw();
         }
 
         /// <summary>
         /// Draw the stats.
         /// </summary>
-        public void Draw()
+        public void Draw(int healthMax, int magicMax, int attackTotal, int defenseTotal, int speedTotal)
         {
-            if (m_CharacterStats == null) { Initialize(); }
 
-            m_MaxHpValueText.text = m_CharacterStats.MaxHp.ToString();
-            m_AttackValueText.text = m_CharacterStats.Attack.ToString();
-            m_DefenseValueText.text = m_CharacterStats.Defense.ToString();
+            m_MaxHpValueText.text = healthMax.ToString();
+            m_MaxMpValueText.text = magicMax.ToString();
+            m_AttackValueText.text = attackTotal.ToString();
+            m_DefenseValueText.text = defenseTotal.ToString();
+            m_SpeedValueText.text = speedTotal.ToString();
+
         }
     }
 }
