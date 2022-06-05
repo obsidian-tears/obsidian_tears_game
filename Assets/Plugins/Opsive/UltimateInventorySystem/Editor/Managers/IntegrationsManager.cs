@@ -155,7 +155,7 @@ namespace Opsive.UltimateInventorySystem.Editor.Managers
         /// </summary>
         public override void BuildVisualElements()
         {
-            m_TabToolbar = new TabToolbar(new string[]
+            /*m_TabToolbar = new TabToolbar(new string[]
             {
                 "Integration Inspectors",
                 "Available Integrations"
@@ -172,7 +172,7 @@ namespace Opsive.UltimateInventorySystem.Editor.Managers
             m_IntegrationsReqest.SendWebRequest();
             m_IntegrationContent.schedule.Execute(DownloadIntegrations).Every(10).Until(() => { return m_IntegrationsReqest == null || m_IntegrationsReqest.isDone; });
 
-            UpdateContent();
+            UpdateContent();*/
         }
 
         /// <summary>

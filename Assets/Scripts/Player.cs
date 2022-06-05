@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
      * change player position in Update calls*/
     //[SerializeField] VectorValue playerPosition;
     [SerializeField] GameObject pauseMenu;
-    [SerializeField] PlayerType playerType = PlayerType.Fighter;
+    //[SerializeField] PlayerType playerType = PlayerType.Fighter;
     [SerializeField] bool frozen;
 
 
