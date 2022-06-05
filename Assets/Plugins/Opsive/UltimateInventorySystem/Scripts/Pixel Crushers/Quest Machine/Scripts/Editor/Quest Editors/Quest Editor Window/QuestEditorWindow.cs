@@ -16,7 +16,7 @@ namespace PixelCrushers.QuestMachine
     public class QuestEditorWindow : EditorWindow
     {
 
-        [MenuItem("Tools/Pixel Crushers/Quest Machine/Quest Editor", false, 1)]
+        [MenuItem("Obsidian Tears/Quest System/Quest Editor", false, 1)]
         public static void ShowWindow()
         {
             m_instance = GetWindow<QuestEditorWindow>();
@@ -428,11 +428,11 @@ namespace PixelCrushers.QuestMachine
 
         public void DrawTitleImage()
         {
-            if (instance == null || QuestEditorStyles.titleImage == null) return;
+            /*if (instance == null || QuestEditorStyles.titleImage == null) return;
             var width = QuestEditorStyles.titleImage.width / 2;
             var height = QuestEditorStyles.titleImage.height / 2;
             var rect = new Rect(instance.position.width - width, instance.position.height - height, width, height);
-            GUI.DrawTexture(rect, QuestEditorStyles.titleImage);
+            GUI.DrawTexture(rect, QuestEditorStyles.titleImage);*/
         }
 
         public void DrawNoSelection()

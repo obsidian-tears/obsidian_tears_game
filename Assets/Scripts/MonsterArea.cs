@@ -12,7 +12,7 @@ public class MonsterArea : MonoBehaviour
     [SerializeField] float probability;
     [SerializeField] GameObject battleTransition;
     [SerializeField] CurrentEnemy currentEnemy;
-    float transitionWait = 1.0f;
+    //float transitionWait = 1.0f;
 
     public void OnTriggerEnter2D(Collider2D collider)
     {

@@ -77,7 +77,7 @@ namespace Opsive.UltimateInventorySystem.Editor.Managers
         /// <summary>
         /// Initializes the Main Manager.
         /// </summary> 
-        [MenuItem("Tools/Opsive/Ultimate Inventory System/Main Manager", false, 0)]
+        //[MenuItem("Tools/Obsidian Tears/Inventory System/Inventory Manager", false, 0)]
         public static InventoryMainWindow ShowWindow()
         {
             var window = EditorWindow.GetWindow<InventoryMainWindow>(false, "Inventory Manager");
@@ -88,7 +88,7 @@ namespace Opsive.UltimateInventorySystem.Editor.Managers
         /// <summary>
         /// Initializes the Main Manager and shows the Item Categories Manager.
         /// </summary> 
-        [MenuItem("Tools/Opsive/Ultimate Inventory System/Item Categories Manager", false, 11)]
+        [MenuItem("Obsidian Tears/Inventory System/Inventory Manager", false, 11)]
         public static void ShowItemCategoriesManagerWindow()
         {
             var window = ShowWindow();
@@ -98,7 +98,7 @@ namespace Opsive.UltimateInventorySystem.Editor.Managers
         /// <summary>
         /// Initializes the Main Manager and shows the Item Definitions Manager.
         /// </summary> 
-        [MenuItem("Tools/Opsive/Ultimate Inventory System/Item Definitions Manager", false, 12)]
+        //[MenuItem("Tools/Opsive/Ultimate Inventory System/Item Definitions Manager", false, 12)]
         public static void ShowItemDefinitionsManagerWindow()
         {
             var window = ShowWindow();
@@ -108,7 +108,7 @@ namespace Opsive.UltimateInventorySystem.Editor.Managers
         /// <summary>
         /// Initializes the Main Manager and shows the Crafting Categories Manager.
         /// </summary> 
-        [MenuItem("Tools/Opsive/Ultimate Inventory System/Crafting Categories Manager", false, 13)]
+        //[MenuItem("Tools/Opsive/Ultimate Inventory System/Crafting Categories Manager", false, 13)]
         public static void ShowCraftingCategoriesManagerWindow()
         {
             var window = ShowWindow();
@@ -118,7 +118,7 @@ namespace Opsive.UltimateInventorySystem.Editor.Managers
         /// <summary>
         /// Initializes the Main Manager and shows the Crafting Recipes Manager.
         /// </summary> 
-        [MenuItem("Tools/Opsive/Ultimate Inventory System/Crafting Recipes Manager", false, 14)]
+        //[MenuItem("Tools/Opsive/Ultimate Inventory System/Crafting Recipes Manager", false, 14)]
         public static void ShowCraftingRecipliesManagerWindow()
         {
             var window = ShowWindow();
@@ -128,7 +128,7 @@ namespace Opsive.UltimateInventorySystem.Editor.Managers
         /// <summary>
         /// Initializes the Main Manager and shows the Currencies Manager.
         /// </summary> 
-        [MenuItem("Tools/Opsive/Ultimate Inventory System/Currencies Manager", false, 15)]
+        //[MenuItem("Tools/Opsive/Ultimate Inventory System/Currencies Manager", false, 15)]
         public static void ShowCurrenciesManagerWindow()
         {
             var window = ShowWindow();
@@ -138,7 +138,7 @@ namespace Opsive.UltimateInventorySystem.Editor.Managers
         /// <summary>
         /// Initializes the Main Manager and shows the Currencies Manager.
         /// </summary> 
-        [MenuItem("Tools/Opsive/Ultimate Inventory System/UI Designer", false, 16)]
+        //[MenuItem("Tools/Opsive/Ultimate Inventory System/UI Designer", false, 16)]
         public static void ShowUIDesignerWindow()
         {
             var window = ShowWindow();
@@ -148,7 +148,7 @@ namespace Opsive.UltimateInventorySystem.Editor.Managers
         /// <summary>
         /// Initializes the Main Manager and shows the Integrations Manager.
         /// </summary> 
-        [MenuItem("Tools/Opsive/Ultimate Inventory System/Integrations Manager", false, 26)]
+        //[MenuItem("Tools/Opsive/Ultimate Inventory System/Integrations Manager", false, 26)]
         public static void ShowIntegrationsManagerWindow()
         {
             var window = ShowWindow();
@@ -218,9 +218,16 @@ namespace Opsive.UltimateInventorySystem.Editor.Managers
 
             for (int i = 0; i < m_Managers.Length; ++i) {
                 // If there isn't a database then the button should start disabled.
-                if (m_Database == null && m_RequiredDatabaseManagers.Contains(i)) {
+                if (m_Database == null && m_RequiredDatabaseManagers.Contains(i))
+                {
                     m_MenuButtons[i].SetEnabled(false);
+                    
                 }
+                if(i == 0 || i == 1 || i == 7 || i == 9)
+                {
+                    m_MenuButtons[i].RemoveFromHierarchy();
+                }
+                
             }
 
             if (m_MenuSelection < 0 || m_MenuSelection >= m_Managers.Length) {
@@ -242,6 +249,7 @@ namespace Opsive.UltimateInventorySystem.Editor.Managers
             for (int i = 0; i < m_Managers.Length; ++i) {
                 if (m_Managers[i].GetType().GetCustomAttributes(typeof(RequireDatabase), true).Length > 0) {
                     m_RequiredDatabaseManagers.Add(i);
+                    
                 }
             }
             
