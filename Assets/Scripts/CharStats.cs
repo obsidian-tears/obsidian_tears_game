@@ -52,8 +52,6 @@ public class CharStats : MonoBehaviour
         attackTotal = attackBase + equipper.GetEquipmentStatInt("Attack");
         defenseTotal = defenseBase + equipper.GetEquipmentStatInt("Defense");
         speedTotal = speedBase + equipper.GetEquipmentStatInt("Speed");
-
-        Debug.Log(equipper.GetEquipmentStatInt("Speed"));
         statsDisplay.Draw(healthMax, magicMax, attackTotal, defenseTotal, speedTotal);
     }
 }
