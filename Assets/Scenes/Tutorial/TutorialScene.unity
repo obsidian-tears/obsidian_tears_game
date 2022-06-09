@@ -133487,11 +133487,11 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 1ddadf35c367b0a4f9f41b54fa42e2c8, type: 2}
     - target: {fileID: 5509634565286575635, guid: a21fed0a3e58feb46bd2b650eee10b59, type: 3}
       propertyPath: signalEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5509634565286575635, guid: a21fed0a3e58feb46bd2b650eee10b59, type: 3}
       propertyPath: signalEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5509634565286575635, guid: a21fed0a3e58feb46bd2b650eee10b59, type: 3}
       propertyPath: signalEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
@@ -133504,7 +133504,7 @@ PrefabInstance:
     - target: {fileID: 5509634565286575635, guid: a21fed0a3e58feb46bd2b650eee10b59, type: 3}
       propertyPath: signalEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1812814754}
+      objectReference: {fileID: 1812814762}
     - target: {fileID: 5509634565286575635, guid: a21fed0a3e58feb46bd2b650eee10b59, type: 3}
       propertyPath: signalEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
@@ -133527,7 +133527,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5509634565286575635, guid: a21fed0a3e58feb46bd2b650eee10b59, type: 3}
       propertyPath: signalEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SendToMessageSystem
+      value: UsePortal
       objectReference: {fileID: 0}
     - target: {fileID: 5509634565286575635, guid: a21fed0a3e58feb46bd2b650eee10b59, type: 3}
       propertyPath: signalEvent.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
@@ -133539,7 +133539,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5509634565286575635, guid: a21fed0a3e58feb46bd2b650eee10b59, type: 3}
       propertyPath: signalEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: PixelCrushers.QuestMachine.QuestControl, Assembly-CSharp-firstpass
+      value: PixelCrushers.ScenePortal, Assembly-CSharp-firstpass
       objectReference: {fileID: 0}
     - target: {fileID: 5509634565286575635, guid: a21fed0a3e58feb46bd2b650eee10b59, type: 3}
       propertyPath: signalEvent.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
@@ -133551,7 +133551,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5509634565286575635, guid: a21fed0a3e58feb46bd2b650eee10b59, type: 3}
       propertyPath: signalEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
-      value: Explored:Forest
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5509634565286575635, guid: a21fed0a3e58feb46bd2b650eee10b59, type: 3}
       propertyPath: signalEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
@@ -134754,49 +134754,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5509634565286575632, guid: a21fed0a3e58feb46bd2b650eee10b59, type: 3}
   m_PrefabInstance: {fileID: 1433256184}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1812814754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 388047932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d18230d3a29b2a418e94d126c53f276, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_questID:
-    m_text: 
-    m_stringAsset: {fileID: 0}
-    m_textTable: {fileID: 0}
-    m_textTableFieldID: 0
-  m_questNodeID:
-    m_text: 
-    m_stringAsset: {fileID: 0}
-    m_textTable: {fileID: 0}
-    m_textTableFieldID: 0
-  m_counterName:
-    m_text: 
-    m_stringAsset: {fileID: 0}
-    m_textTable: {fileID: 0}
-    m_textTableFieldID: 0
-  m_conditionalEvent:
-    questID:
-      m_text: 
-      m_stringAsset: {fileID: 0}
-      m_textTable: {fileID: 0}
-      m_textTableFieldID: 0
-    requiredQuestState: 0
-    questNodeID:
-      m_text: 
-      m_stringAsset: {fileID: 0}
-      m_textTable: {fileID: 0}
-      m_textTableFieldID: 0
-    requiredQuestNodeState: 0
-    onConditionMet:
-      m_PersistentCalls:
-        m_Calls: []
 --- !u!114 &1812814762
 MonoBehaviour:
   m_ObjectHideFlags: 0
