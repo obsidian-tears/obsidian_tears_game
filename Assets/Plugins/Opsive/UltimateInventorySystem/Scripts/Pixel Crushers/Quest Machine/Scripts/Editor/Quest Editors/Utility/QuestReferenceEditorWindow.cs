@@ -14,7 +14,7 @@ namespace PixelCrushers.QuestMachine
     public class QuestReferenceEditorWindow : EditorWindow
     {
 
-        [MenuItem("Tools/Pixel Crushers/Quest Machine/Quest Reference", false, 3)]
+        [MenuItem("Obsidian Tears/Quest System/Quest References", false, 3)]
         public static void ShowWindow()
         {
             GetWindow<QuestReferenceEditorWindow>();

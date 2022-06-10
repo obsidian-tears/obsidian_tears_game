@@ -30,7 +30,7 @@ namespace Opsive.UltimateInventorySystem.Editor.Managers
         /// </summary>
         public override void BuildVisualElements()
         {
-            var centeredContent = new VisualElement();
+            /*var centeredContent = new VisualElement();
             centeredContent.style.alignSelf = Align.Center;
             centeredContent.style.flexGrow = 1;
 
@@ -66,7 +66,7 @@ namespace Opsive.UltimateInventorySystem.Editor.Managers
             version.text = string.Format("Ultimate Inventory System version {0}.", Utility.AssetInfo.Version);
             version.style.paddingLeft = 2;
             version.style.paddingBottom = 2;
-            m_ManagerContentContainer.Add(version);
+            m_ManagerContentContainer.Add(version);*/
         }
 
         /// <summary>
