@@ -9,7 +9,7 @@ namespace PixelCrushers.QuestMachine.Wrappers
     public static class QuestAssetMenuUtility
     {
 
-        [MenuItem("Assets/Create/Pixel Crushers/Quest Machine/Quest", false, 0)]
+        [MenuItem("Assets/Create/Obsidian Tears/Quest", false, 0)]
         public static void CreateAsset()
         {
             var quest = AssetUtility.CreateAsset<Quest>("Quest");

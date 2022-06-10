@@ -9,7 +9,7 @@ namespace PixelCrushers.QuestMachine.Wrappers
     /// This wrapper class keeps references intact if you switch between the 
     /// compiled assembly and source code versions of the original class.
     /// </summary>
-    [CreateAssetMenu(menuName = "Pixel Crushers/Quest Machine/Quest Database")]
+    [CreateAssetMenu(menuName = "Obsidian Tears/Databases/Quest Database")]
     public class QuestDatabase : PixelCrushers.QuestMachine.QuestDatabase
     {
     }

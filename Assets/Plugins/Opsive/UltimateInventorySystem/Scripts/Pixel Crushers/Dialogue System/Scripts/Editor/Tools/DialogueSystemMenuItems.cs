@@ -125,7 +125,7 @@ namespace PixelCrushers.DialogueSystem
 
         #region Assets
 
-        [MenuItem("Assets/Create/Pixel Crushers/Dialogue System/Dialogue Database", false, 0)]
+        [MenuItem("Assets/Create/Obsidian Tears/Databases/Dialogue Database", false, 0)]
         public static void CreateDialogueDatabase()
         {
             CreateAsset(CreateDialogueDatabaseInstance(), "Dialogue Database");

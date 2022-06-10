@@ -77,21 +77,15 @@ MonoBehaviour:
         Opsive.UltimateInventorySystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
       m_ValueHashes: 0d00eb255b713f72086efd3934ebab2af446621ba8823c4a00874d3281651b554558847146869dbad091b7f8f85e8471df23e6ba4934ccf84459e79ef550e43ba1bfe96bea49dfe97c5ef5abd4bde96b8304dae91513f0ab
       m_ValuePositions: 000000000800000009000000090000000d0000000d00000011000000110000001500000015000000190000001d0000001d00000021000000250000002500000029000000290000002d000000310000003100000035000000
-      m_Values: 42757950726963650101000000a355d9a802000000280000000000000005000000010000000200000028000000020000000500000003000000
-      m_UnityObjects:
-      - {fileID: 11400000, guid: 3cc32aed2b1f41f45aa73c5596f8dbe7, type: 2}
-      - {fileID: 11400000, guid: 930f200b127e2884b906886b26992bf7, type: 2}
-      - {fileID: 11400000, guid: 3cc32aed2b1f41f45aa73c5596f8dbe7, type: 2}
-      - {fileID: 11400000, guid: 930f200b127e2884b906886b26992bf7, type: 2}
+      m_Values: 42757950726963650101000000a355d9a80200000028000000ffffffff05000000ffffffff0200000028000000ffffffff05000000ffffffff
+      m_UnityObjects: []
       m_Version: 3.1
     - m_ObjectType: Opsive.UltimateInventorySystem.Core.AttributeSystem.Attribute`1[[Opsive.UltimateInventorySystem.Exchange.CurrencyAmounts,
         Opsive.UltimateInventorySystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
       m_ValueHashes: 0d00eb255b713f72086efd3934ebab2af446621ba8823c4a00874d3281651b554558847146869dbad091b7f84459e79ef550e43ba1bfe96bea49dfe97c5ef5ab
       m_ValuePositions: 00000000090000000a0000000a0000000e0000000e000000120000001200000016000000160000001a0000001e0000001e000000220000002200000026000000
-      m_Values: 53656c6c50726963650101000000d31c00c1010000009600000000000000010000009600000001000000
-      m_UnityObjects:
-      - {fileID: 11400000, guid: 3cc32aed2b1f41f45aa73c5596f8dbe7, type: 2}
-      - {fileID: 11400000, guid: 3cc32aed2b1f41f45aa73c5596f8dbe7, type: 2}
+      m_Values: 53656c6c50726963650101000000d31c00c10100000096000000ffffffff0100000096000000ffffffff
+      m_UnityObjects: []
       m_Version: 3.1
     - m_ObjectType: Opsive.UltimateInventorySystem.Core.AttributeSystem.Attribute`1[[UnityEngine.GameObject,
         UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
@@ -123,5 +117,19 @@ MonoBehaviour:
     m_ItemDefinitionID: 4101995387
     m_ItemDefinition: {fileID: 11400000}
     m_ItemAttributeCollection:
-      m_AttributeCollectionData: []
+      m_AttributeCollectionData:
+      - m_ObjectType: Opsive.UltimateInventorySystem.Core.AttributeSystem.Attribute`1[[Opsive.UltimateInventorySystem.Core.DataStructures.ItemAmounts,
+          Opsive.UltimateInventorySystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
+        m_ValueHashes: 0d00eb255b713f72086efd3934ebab2af446621ba8823c4a6a0d994035481f3faedf32ad
+        m_ValuePositions: 000000000500000006000000060000000a0000000a0000000e0000000e00000012000000
+        m_Values: 536c6f7473010000000076e59f4e00000000
+        m_UnityObjects: []
+        m_Version: 3.1
+      - m_ObjectType: Opsive.UltimateInventorySystem.Core.AttributeSystem.Attribute`1[[System.Int32,
+          mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]
+        m_ValueHashes: 0d00eb255b713f72086efd3934ebab2af446621ba8823c4a424b280f861dc27b
+        m_ValuePositions: 000000000600000007000000070000000b0000000b0000000f00000013000000
+        m_Values: 41747461636b010000000070bf4e97000000000f000000
+        m_UnityObjects: []
+        m_Version: 3.1
   m_EditorIcon: {fileID: 3366042427789280657, guid: 50fc8ea05e8ba3c4abe0062bb85830c6, type: 3}

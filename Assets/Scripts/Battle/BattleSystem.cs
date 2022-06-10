@@ -29,7 +29,7 @@ public class BattleSystem : MonoBehaviour
     public UnityEvent onPlayerWin;
     public UnityEvent onPlayerLose;
     // [DllImport("__Internal")] private static extern void GiveGold(int goldAmount);
-    float transitionWait = 1.0f;
+    //float transitionWait = 1.0f;
     float textPause = 0.5f;
     // Start is called before the first frame update
     void Start()
