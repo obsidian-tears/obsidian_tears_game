@@ -223,7 +223,7 @@ namespace Opsive.UltimateInventorySystem.Editor.Managers
                     m_MenuButtons[i].SetEnabled(false);
                     
                 }
-                if(i == 0 || i == 1 || i == 7 || i == 9)
+                if(i == 0 || i == 7 || i == 9)
                 {
                     m_MenuButtons[i].RemoveFromHierarchy();
                 }
