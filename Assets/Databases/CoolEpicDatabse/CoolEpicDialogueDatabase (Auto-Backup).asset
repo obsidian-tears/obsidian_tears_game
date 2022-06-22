@@ -123,6 +123,28 @@ MonoBehaviour:
     spritePortrait: {fileID: 21300000, guid: 13c3a9beb5b3c5e4e820deaf3f2416e4, type: 3}
     alternatePortraits: []
     spritePortraits: []
+  - id: 5
+    fields:
+    - title: Name
+      value: Old Man Kerns
+      type: 0
+      typeString: 
+    - title: Pictures
+      value: '[]'
+      type: 3
+      typeString: CustomFieldType_Files
+    - title: Description
+      value: Creepy old dude in town
+      type: 0
+      typeString: 
+    - title: IsPlayer
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    portrait: {fileID: 0}
+    spritePortrait: {fileID: 21300000, guid: 64be5c9597c596c41ac6494c3aacc9da, type: 3}
+    alternatePortraits: []
+    spritePortraits: []
   - id: 6
     fields:
     - title: Name
@@ -142,7 +164,7 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
-    spritePortrait: {fileID: 21300000, guid: d5cd06e26dcae6c47898246c030c7c84, type: 3}
+    spritePortrait: {fileID: 21300000, guid: 465404bb071b8c945ab6cbc73b5ded9e, type: 3}
     alternatePortraits: []
     spritePortraits: []
   items: []
@@ -678,12 +700,6 @@ MonoBehaviour:
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
-      - originConversationID: 2
-        originDialogueID: 0
-        destinationConversationID: 2
-        destinationDialogueID: 7
-        isConnector: 0
-        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -801,6 +817,12 @@ MonoBehaviour:
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
+      - originConversationID: 2
+        originDialogueID: 2
+        destinationConversationID: 2
+        destinationDialogueID: 11
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -808,8 +830,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 249
-        y: 122
+        x: 251.85715
+        y: 126.285706
         width: 160
         height: 30
     - id: 3
@@ -918,8 +940,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 344.5357
-        y: 192
+        x: 354.2918
+        y: 200.53659
         width: 160
         height: 30
     - id: 5
@@ -1032,55 +1054,6 @@ MonoBehaviour:
         y: 322.42
         width: 160
         height: 30
-    - id: 7
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 3
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 2
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 243
-        y: 63
-        width: 160
-        height: 30
     - id: 8
       fields:
       - title: Title
@@ -1126,15 +1099,16 @@ MonoBehaviour:
         destinationDialogueID: 9
         isConnector: 0
         priority: 2
-      conditionsString: 
-      userScript: 
+      conditionsString: CurrentQuestState("Quin 1") == "unassigned"
+      userScript: GiveQuest( "Quin", "Quin 1"); SetQuestNodeState("Quin 1", "PreQuestSuccess",
+        "success")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 358.4646
-        y: 381.15784
+        x: 359.60098
+        y: 382.2942
         width: 160
         height: 30
     - id: 9
@@ -1235,9 +1209,58 @@ MonoBehaviour:
         y: 257
         width: 160
         height: 30
+    - id: 11
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 3
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: sfjdsklfjsdlf
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 2
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 601.2242
+        y: 166.15915
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.5500004
+    canvasScrollPosition: {x: 154.77455, y: 6.045956}
+    canvasZoom: 0.7900002
   - id: 3
     fields:
     - title: Title
@@ -2066,8 +2089,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: '*Grumble Grumble* There goes that no-good visitor. He''ll trade us
-          out to the monsters any day now. *Grumble Grumble*'
+        value: '*Grumble Grumble* There goes that no-good outsider. He''ll trade
+          us out to the monsters any day now. *Grumble Grumble*'
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -2089,13 +2112,13 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 153
+        x: 154.31577
         y: 87
         width: 160
         height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasZoom: 0.7600002
   - id: 5
     fields:
     - title: Title
@@ -2111,7 +2134,7 @@ MonoBehaviour:
       type: 5
       typeString: CustomFieldType_Actor
     - title: Conversant
-      value: 5
+      value: 6
       type: 5
       typeString: CustomFieldType_Actor
     overrideSettings:
@@ -2155,7 +2178,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 5
+        value: 6
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -2206,7 +2229,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: 5
+        value: 6
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
@@ -2261,7 +2284,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: 5
+        value: 6
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
@@ -2317,7 +2340,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: 5
+        value: 6
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
@@ -2356,8 +2379,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0.87603664}
-    canvasZoom: 0.94000006
+    canvasScrollPosition: {x: 0, y: 4.85437}
+    canvasZoom: 1.03
   syncInfo:
     syncActors: 0
     syncItems: 0
