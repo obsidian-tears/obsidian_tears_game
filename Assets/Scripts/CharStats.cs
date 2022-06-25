@@ -12,13 +12,21 @@ public class CharStats : MonoBehaviour
     public Equipper equipper;
     public CharacterStatsDisplay statsDisplay;
 
+    public string characterName;
+
+    public int level;
+    public int xp;
+    public int xpToLevelUp;
+
     public int healthBase;
+    public int healthTotal;
     [ReadOnly] public int healthMax;
-    [ReadOnly] public int healthTotal;
+    
 
     public int magicBase;
+    public int magicTotal;
     [ReadOnly] public int magicMax;
-    [ReadOnly] public int magicTotal;
+    
 
 
     public int attackBase;
@@ -29,6 +37,8 @@ public class CharStats : MonoBehaviour
 
     public int speedBase;
     [ReadOnly] public int speedTotal;
+
+    public string[] characterEffects;
 
 
 
@@ -46,13 +56,41 @@ public class CharStats : MonoBehaviour
     /// </summary>
     public void UpdateStats()
     {
+        //This is a player
+        if(equipper != null && statsDisplay != null)
+        {
+            healthMax = healthBase + equipper.GetEquipmentStatInt("MaxHp");
+            magicMax = magicBase + equipper.GetEquipmentStatInt("MaxMp");
+            attackTotal = attackBase + equipper.GetEquipmentStatInt("Attack");
+            defenseTotal = defenseBase + equipper.GetEquipmentStatInt("Defense");
+            speedTotal = speedBase + equipper.GetEquipmentStatInt("Speed");
+            statsDisplay.Draw(healthMax, magicMax, attackTotal, defenseTotal, speedTotal);
+        }
 
-        healthMax = healthBase + equipper.GetEquipmentStatInt("MaxHp");
-        magicMax = magicBase + equipper.GetEquipmentStatInt("MaxMp");
-        attackTotal = attackBase + equipper.GetEquipmentStatInt("Attack");
-        defenseTotal = defenseBase + equipper.GetEquipmentStatInt("Defense");
-        speedTotal = speedBase + equipper.GetEquipmentStatInt("Speed");
-        statsDisplay.Draw(healthMax, magicMax, attackTotal, defenseTotal, speedTotal);
+        //This is an enemy
+        else
+        {
+            healthMax = healthBase;
+            healthTotal = healthMax;
+            magicMax = magicBase;
+            magicTotal = magicMax;
+            attackTotal = attackBase;
+            defenseTotal = defenseBase;
+            speedTotal = speedBase;
+        }
+    }
+
+    //Returns true if the player is dead after taking damage
+    public bool TakeDamage(int dmg)
+    {
+        healthTotal -= dmg;
+
+        if (healthTotal <= 0)
+        {
+            return true;
+        }
+        else
+            return false;
     }
 }
 
