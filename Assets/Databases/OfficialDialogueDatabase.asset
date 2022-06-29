@@ -2390,7 +2390,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 43
+        x: 39.90721
         y: 88
         width: 160
         height: 30
@@ -2487,7 +2487,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 5
+        originDialogueID: 3
+        destinationConversationID: 5
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: uisAddItem("Iron Sword", 1, "", ""); SendMessageSystem("Herl",
         "gave");uisAddItem("Pendant of Memories", 1, "", "")
@@ -2498,6 +2504,55 @@ MonoBehaviour:
         serializedVersion: 2
         x: 43
         y: 188
+        width: 160
+        height: 30
+    - id: 4
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 6
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Can you help me find the Obelisk?
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 5
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 46.09279
+        y: 236.96909
         width: 160
         height: 30
     entryGroups: []
@@ -6201,7 +6256,7 @@ MonoBehaviour:
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
-      conditionsString: CurrentQuestState("Tana's Keys") == "unassigned'
+      conditionsString: CurrentQuestState("Main Quest 2") == "unassigned"
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -7078,7 +7133,7 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: GiveQuest("Tana", "Tana's Keys")
+      userScript: GiveQuest("Tana", "Main Quest 2")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -7383,8 +7438,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 176.3811, y: 0}
-    canvasZoom: 0.81649935
+    canvasScrollPosition: {x: 439.2892, y: 0}
+    canvasZoom: 0.7264995
   - id: 10
     fields:
     - title: Title
