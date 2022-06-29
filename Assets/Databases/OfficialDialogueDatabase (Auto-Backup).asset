@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 935899b62f48ae5498594680ed17d133, type: 3}
-  m_Name: OfficialDialogueDatabase
+  m_Name: OfficialDialogueDatabase (Auto-Backup)
   m_EditorClassIdentifier: 
   version: 
   author: 
@@ -1225,8 +1225,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: A long time ago my grandfather hid a stash of healing potions in the
-          graveyard. Thought it was funny... If you find it, you can keep it!
+        value: A long time ago my grandfather hid a stash of healing potions where
+          the river runs south out of town. If you find it, you can keep it!
         type: 0
         typeString: 
       - title: Sequence
@@ -1256,7 +1256,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 359.60098
-        y: 375.07767
+        y: 382.2942
         width: 160
         height: 30
     - id: 9
@@ -1304,8 +1304,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 362.58832
-        y: 434.2506
+        x: 358.4646
+        y: 431.15784
         width: 160
         height: 30
     - id: 10
@@ -1358,8 +1358,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 157.52238, y: 156.99905}
-    canvasZoom: 0.97
+    canvasScrollPosition: {x: 19.804922, y: 124.63175}
+    canvasZoom: 0.8800001
   - id: 3
     fields:
     - title: Title
@@ -6575,124 +6575,7 @@ MonoBehaviour:
         value: 'OH I''d love to!
 
 
-          All I have are writing instruments and
-          books. Not much good against monsters.'
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 9
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 9
-        originDialogueID: 15
-        destinationConversationID: 9
-        destinationDialogueID: 16
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 465.3922
-        y: 198.39241
-        width: 160
-        height: 30
-    - id: 16
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 10
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: But as Lore Master I do have...a unique artifact in my possesion.
-          I will give it to you in exchange for three keys hidden in this village
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 9
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 9
-        originDialogueID: 16
-        destinationConversationID: 9
-        destinationDialogueID: 17
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 465.3922
-        y: 248.39241
-        width: 160
-        height: 30
-    - id: 17
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 10
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: 'Each is hidden in a chest. I had hoped to present this challenge
-          to the next Lore Master in training....
-
-
-          But you will do just
-          fine!'
+          All I have are writing utenisels '
         type: 0
         typeString: 
       - title: Sequence
@@ -6708,19 +6591,19 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: GiveQuest("Tana", "Tana's Keys")
+      userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 465.3922
-        y: 298.3924
+        y: 198.39241
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.7300004
+    canvasScrollPosition: {x: 23.68416, y: 16.538965}
+    canvasZoom: 0.7900003
   - id: 10
     fields:
     - title: Title
