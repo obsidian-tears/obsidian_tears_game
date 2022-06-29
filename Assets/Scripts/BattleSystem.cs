@@ -1,12 +1,19 @@
+using Opsive.UltimateInventorySystem.Core;
+using Opsive.UltimateInventorySystem.Core.DataStructures;
+using Opsive.UltimateInventorySystem.Core.InventoryCollections;
+using Opsive.UltimateInventorySystem.Exchange;
+using Opsive.UltimateInventorySystem.UI.Panels;
 using PixelCrushers;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
+using EventHandler = Opsive.Shared.Events.EventHandler;
 
 
-public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST}
+public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST, FLEEING}
 public class BattleSystem : MonoBehaviour
 {
     public BattleState state;
@@ -31,11 +38,29 @@ public class BattleSystem : MonoBehaviour
 
     private ScenePortal portal;
 
+    private Inventory inventory;
+
     public Animator playerAnimator;
     public Animator enemyAnimator;
 
+    public FlashImage flashImage;
+    public Color enemyHurtFlashColor;
+    public Color playerHurtFlashColor;
+
+    public DisplayPanel mainMenuPanel;
+
+    public Image backgroundImage;
+
+    public Transform damageObjectPrefab;
+
+    public Transform enemyNumberSpawnTransform;
+    public Transform playerNumberSpawnTransform;
+
     void Start()
     {
+
+        backgroundImage.sprite = currentBattle.backgroundImage;
+
         state = BattleState.START;
 
         statsUI.SetActive(false);
@@ -46,6 +71,14 @@ public class BattleSystem : MonoBehaviour
         enemyStats = enemy.GetComponent<CharStats>();
 
         portal = gameObject.GetComponent<ScenePortal>();
+
+        inventory = player.GetComponent<Inventory>();
+
+        if (playerStats.equipper != null)
+        {
+            EventHandler.RegisterEvent(playerStats.equipper, EventNames.c_Equipper_OnChange, ItemEquipped);
+        }
+        EventManager.StartListening("PlayerHeal", ItemUsed);
 
         StartCoroutine(SetupBattle());
     }
@@ -72,6 +105,7 @@ public class BattleSystem : MonoBehaviour
         enemyStats.attackTotal = currentBattle.enemy.attackDamage;
         enemyStats.defenseTotal = currentBattle.enemy.defense;
         enemyStats.speedTotal = currentBattle.enemy.speed;
+        enemyStats.criticalHitProbability = currentBattle.enemy.criticalHitProbability;
 
         //Start battle
         dialogueText.text = enemyStats.characterName + " approaches.";
@@ -93,11 +127,21 @@ public class BattleSystem : MonoBehaviour
 
         playerAnimator.SetTrigger("Attack");
 
-        bool isDead = enemyStats.TakeDamage(playerStats.attackTotal);
+        DamageValue damageValue = CalculateDamage(playerStats.attackTotal, enemyStats.defenseTotal, playerStats.criticalHitProbability);
+        bool isDead = enemyStats.TakeDamage(damageValue.damageAmount);
+        
+
+        yield return new WaitForSeconds(1f);
+
+        enemyAnimator.SetTrigger("Hurt");
+        flashImage.StartFlash(0.25f, 0.5f, enemyHurtFlashColor);
+        spawnDamageDisplay(enemyNumberSpawnTransform.position, damageValue.damageAmount, damageValue.isCritical);
 
         dialogueText.text = "Phendrin attacks " + enemyStats.characterName;
 
         yield return new WaitForSeconds(2f);
+
+        
 
         if (isDead)
         {
@@ -111,19 +155,33 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
+
+
     IEnumerator EnemyTurn()
     {
+        hud.SetHUD(playerStats);
+        yield return new WaitForSeconds(0.25f);
+        hud.SetHUD(playerStats);
+
         dialogueText.text = enemyStats.characterName + " attacks!";
 
         enemyAnimator.SetTrigger("Attack");
 
         yield return new WaitForSeconds(1f);
 
-        bool isDead = playerStats.TakeDamage(enemyStats.attackTotal);
+        DamageValue damageValue = CalculateDamage(enemyStats.attackTotal, playerStats.defenseTotal, enemyStats.criticalHitProbability);
+        bool isDead = playerStats.TakeDamage(damageValue.damageAmount);
+        
+
+        playerAnimator.SetTrigger("Hurt");
+        flashImage.StartFlash(0.25f, 0.5f, playerHurtFlashColor);
+        spawnDamageDisplay(playerNumberSpawnTransform.position, damageValue.damageAmount, damageValue.isCritical);
 
         hud.SetHUD(playerStats);
 
         yield return new WaitForSeconds(1f);
+
+        
 
         if (isDead)
         {
@@ -139,9 +197,28 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator EndBattle()
     {
-        if(state == BattleState.WON)
+        EventHandler.UnregisterEvent(playerStats.equipper, EventNames.c_Equipper_OnChange, ItemEquipped);
+        EventManager.StopListening("PlayerHeal", ItemUsed);
+
+        if (state == BattleState.WON)
         {
             dialogueText.text = enemyStats.characterName + " has been defeated.";
+
+            float disappearTimer = 1f;
+            SpriteRenderer renderer = enemy.GetComponent<SpriteRenderer>();
+            Color rendererColor = renderer.color;
+            while(disappearTimer > 0)
+            {
+                rendererColor.a -= Time.deltaTime * 3f;
+                renderer.color = rendererColor;
+                disappearTimer -= Time.deltaTime;
+            }
+
+            inventory.AddItem(currentBattle.enemy.itemDrop, 1);
+            var currencyOwner = inventory.GetCurrencyComponent<CurrencyCollection>() as CurrencyOwner;
+            var ownerCurrencyCollection = currencyOwner.CurrencyAmount;
+            var gold = InventorySystemManager.GetCurrency("Gold");
+            ownerCurrencyCollection.AddCurrency(gold, currentBattle.enemy.goldDrop);
 
             yield return new WaitForSeconds(2f);
 
@@ -152,11 +229,19 @@ public class BattleSystem : MonoBehaviour
             dialogueText.text = "Phendrin has been defeated.";
             yield return new WaitForSeconds(2f);
         }
+        else if (state == BattleState.FLEEING)
+        {
+            dialogueText.text = "Success! Phendrin escapes " + currentBattle.enemy.enemyName;
+
+            yield return new WaitForSeconds(2f);
+
+            portal.UsePortal();
+        }
     }
 
     void PlayerTurn()
     {
-        attackButton.enabled = true;
+        buttonsContainer.SetActive(true);
         dialogueText.text = "Choose an action...";
     }
 
@@ -167,7 +252,118 @@ public class BattleSystem : MonoBehaviour
             return;
         }
 
-        attackButton.enabled = false;
+        buttonsContainer.SetActive(false);
         StartCoroutine(PlayerAttack());
     }
+
+    public void OnRunButton()
+    {
+        if (state != BattleState.PLAYERTURN)
+        {
+            return;
+        }
+
+        StartCoroutine(OnRun());
+    }
+
+    IEnumerator OnRun()
+    {
+        buttonsContainer.SetActive(false);
+
+        dialogueText.text = "Attempting to flee from " + currentBattle.enemy.enemyName + "...";
+
+        yield return new WaitForSeconds(1.5f);
+
+        float chance = Random.Range(0f, 1f);
+        if (chance > currentBattle.enemy.runSuccessProbability)
+        {
+
+            state = BattleState.FLEEING;
+            StartCoroutine(EndBattle());
+        }
+        else
+        {
+            dialogueText.text = "Phendrin could not escape " + currentBattle.enemy.enemyName;
+            state = BattleState.ENEMYTURN;
+            StartCoroutine(EnemyTurn());
+        }
+    }
+
+    public void ItemEquipped()
+    {
+        if (state != BattleState.PLAYERTURN)
+        {
+            return;
+        }
+        CloseInventory();
+        buttonsContainer.SetActive(false);
+        state = BattleState.ENEMYTURN;
+        StartCoroutine(EnemyTurn());
+        hud.SetHUD(playerStats);
+    }
+
+    public void ItemUsed()
+    {
+        if (state != BattleState.PLAYERTURN)
+        {
+            return;
+        }
+        
+        CloseInventory();
+        buttonsContainer.SetActive(false);
+        state = BattleState.ENEMYTURN;
+        StartCoroutine(EnemyTurn());
+        hud.SetHUD(playerStats);
+    }
+
+    public void CloseInventory()
+    {
+        mainMenuPanel.SmartClose();
+    }
+
+    public DamageValue CalculateDamage(int attack, int defense, float criticalHitChance)
+    {
+        //Get value of damage
+        float denominator = 50 + defense;
+        float factor = 50 / denominator;
+        float initalValue = attack * factor;
+
+        //Randomize
+        float stdDev = 1.5f;
+        if (playerStats.level > 3)
+        {
+            stdDev = playerStats.level / 2f;
+        }
+
+        float randomizedValue = Random.Range(initalValue - stdDev, initalValue + stdDev);
+
+        int damageAmount = (int)System.Math.Ceiling(randomizedValue);
+
+        bool isCritical = false;
+        //Double if critical hit
+        if(Random.Range(0f, 1.0f) < criticalHitChance)
+        {
+            damageAmount = damageAmount * 2;
+            isCritical = true;
+        }
+
+        //Return value
+        DamageValue returnValue;
+        returnValue.damageAmount = damageAmount;
+        returnValue.isCritical = isCritical;
+        return returnValue;
+    }
+
+    void spawnDamageDisplay(Vector3 location, int damageAmount, bool isCriticalHit)
+    {
+        Transform damagePopupTransform = Instantiate(damageObjectPrefab, location, Quaternion.identity);
+        DamagePopup damagePopup = damagePopupTransform.GetComponent<DamagePopup>();
+        damagePopup.Setup(damageAmount, isCriticalHit);
+    }
+}
+
+public struct DamageValue
+{
+    public int damageAmount;
+    public bool isCritical;
 }

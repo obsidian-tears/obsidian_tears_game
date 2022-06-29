@@ -16,4 +16,10 @@ public class Enemy : ScriptableObject
     public int xpDrop;
     public int goldDrop;
     public string itemDrop;
+
+    [Range(0f, 1.0f)]
+    public float runSuccessProbability;
+
+    [Range(0f, 1.0f)]
+    public float criticalHitProbability;
 }

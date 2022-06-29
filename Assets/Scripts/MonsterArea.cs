@@ -8,16 +8,21 @@ using PixelCrushers;
 [System.Serializable]
 public class OnBattleStart : UnityEvent { }
 
-
+[RequireComponent(typeof(DestructibleSaver))]
 public class MonsterArea : MonoBehaviour
 {
-    public float initProb = 0.1f;
+    public int minSecondsToBattleStart;
+    public int maxSecondsToBattleStart;
+    public Sprite backgroundImage;
+    public bool isOneTimeBattle;
     public List<EnemiesList> enemies;
 
     private float probability;
     private bool active;
     private Battle currentBattle;
     private ScenePortal scenePortal;
+
+    private float t;
 
     public OnBattleStart onBattleStart;
 
@@ -26,6 +31,7 @@ public class MonsterArea : MonoBehaviour
         if (collider.CompareTag("Player"))
         {
             active = true;
+            t = 0;
         }
     }
     public void OnTriggerExit2D(Collider2D collision)
@@ -35,14 +41,28 @@ public class MonsterArea : MonoBehaviour
             active = false;
         }
     }
+
     public void OnTriggerStay2D(Collider2D collision)
     {
         if (active)
         {
-            float randVal = Random.value;
-            if (randVal < probability * Time.deltaTime)
+            
+            if(t > 1)
             {
-                OnBattleSignal();
+                float randVal = Random.Range(minSecondsToBattleStart, maxSecondsToBattleStart);
+                if (randVal <= probability)
+                {
+                    OnBattleSignal();
+                }
+                else
+                {
+                    probability++;
+                }
+                t = 0;
+            }
+            else
+            {
+                t += Time.deltaTime;
             }
         }
     }
@@ -64,15 +84,25 @@ public class MonsterArea : MonoBehaviour
                 }
             }
             // navigate to battle scene
-            StartBattle();
+            StartCoroutine(StartBattle());
         }
     }
 
-    public void StartBattle()
+    IEnumerator StartBattle()
     {
-        Debug.Log("Battle starting");
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        playerObj.GetComponent<Player>().Freeze();
+
+        probability = 0f;
         onBattleStart.Invoke();
-        CharStats player = GameObject.FindGameObjectWithTag("Player").GetComponent<CharStats>();
+        FlashImage flashImage = (FlashImage)FindObjectOfType(typeof(FlashImage));
+        if(flashImage != null)
+        {   
+            flashImage.StartFlash(2f, 0.99f, Color.white);
+        }
+
+
+        CharStats player = playerObj.GetComponent<CharStats>();
 
         currentBattle.playerBaseHealth = player.healthBase;
         currentBattle.playerCurrentHealth = player.healthTotal;
@@ -82,13 +112,23 @@ public class MonsterArea : MonoBehaviour
         currentBattle.playerDefenseBase = player.defenseBase;
         currentBattle.playerSpeedBase = player.speedBase;
 
+        currentBattle.level = player.level;
+        currentBattle.backgroundImage = backgroundImage;
+
+        yield return new WaitForSeconds(1f);
+
+        if (isOneTimeBattle)
+        {
+            Destroy(this.gameObject);
+        }
+
         scenePortal.UsePortal();
     }
 
 
     void Start()
     {
-        probability = initProb;
+        probability = 0;
         currentBattle = GameObject.Find("SceneManager").GetComponent<ObjectHolder>().currentBattle;
 
         scenePortal = gameObject.AddComponent<ScenePortal>();

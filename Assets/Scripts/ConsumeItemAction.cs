@@ -16,7 +16,7 @@ namespace Opsive.UltimateInventorySystem.Demo.ItemActions
     /// Demo Item action used to consume an item.
     /// </summary>
     [System.Serializable]
-    public class DemoConsumeItemAction : ItemAction
+    public class ConsumeItemAction : ItemAction
     {
         protected int m_HealAmount;
 
@@ -25,7 +25,7 @@ namespace Opsive.UltimateInventorySystem.Demo.ItemActions
         /// <summary>
         /// Default constructor.
         /// </summary>
-        public DemoConsumeItemAction()
+        public ConsumeItemAction()
         {
             m_Name = "Consume";
         }
@@ -40,11 +40,11 @@ namespace Opsive.UltimateInventorySystem.Demo.ItemActions
         {
             var item = itemInfo.Item;
             var inventory = itemInfo.Inventory;
-            var character = itemUser.GetComponent<Character>();
+            var character = itemUser.GetComponent<CharStats>();
             return item.GetAttribute<Attribute<int>>("HealAmount") != null
                    && character != null
                    && inventory.MainItemCollection.HasItem((1, item))
-                   && character.CharacterDamageable.CurrentHp != character.CharacterDamageable.MaxHp;
+                   && character.healthTotal != character.healthMax;
         }
 
         /// <summary>
@@ -56,10 +56,11 @@ namespace Opsive.UltimateInventorySystem.Demo.ItemActions
         {
             var item = itemInfo.Item;
             var inventory = itemInfo.Inventory;
-            var character = itemUser.GetComponent<Character>();
+            var character = itemUser.GetComponent<CharStats>();
             inventory.MainItemCollection.RemoveItem(item);
             m_HealAmount = item.GetAttribute<Attribute<int>>("HealAmount").GetValue();
-            character.CharacterDamageable.Heal(m_HealAmount);
+            EventManager.TriggerEvent("PlayerHeal");
+            character.Heal(m_HealAmount);
         }
     }
 }

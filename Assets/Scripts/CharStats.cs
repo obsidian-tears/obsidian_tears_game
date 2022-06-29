@@ -38,6 +38,8 @@ public class CharStats : MonoBehaviour
     public int speedBase;
     [ReadOnly] public int speedTotal;
 
+    public float criticalHitProbability;
+
     public string[] characterEffects;
 
 
@@ -64,6 +66,7 @@ public class CharStats : MonoBehaviour
             attackTotal = attackBase + equipper.GetEquipmentStatInt("Attack");
             defenseTotal = defenseBase + equipper.GetEquipmentStatInt("Defense");
             speedTotal = speedBase + equipper.GetEquipmentStatInt("Speed");
+            criticalHitProbability = equipper.GetEquipmentStatFloat("CriticalChance");
             statsDisplay.Draw(healthMax, magicMax, attackTotal, defenseTotal, speedTotal);
         }
 
@@ -91,6 +94,15 @@ public class CharStats : MonoBehaviour
         }
         else
             return false;
+    }
+
+    public void Heal(int healAmt)
+    {
+        healthTotal += healAmt;
+        if(healthTotal > healthMax)
+        {
+            healthTotal = healthMax;
+        }
     }
 }
 

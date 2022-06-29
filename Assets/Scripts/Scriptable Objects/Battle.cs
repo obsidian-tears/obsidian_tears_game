@@ -15,4 +15,6 @@ public class Battle : ScriptableObject
     public int playerAttackBase;
     public int playerDefenseBase;
     public int playerSpeedBase;
+
+    public Sprite backgroundImage;
 }
