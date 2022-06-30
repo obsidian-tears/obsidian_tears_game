@@ -30,6 +30,7 @@ namespace Opsive.UltimateInventorySystem.Demo.UI.VisualStructures.AttributeUIs
 
         protected PlayerCharacter m_PlayerCharacter;
         protected Equipper m_Equipper;
+        private GameObject player;
 
         /// <summary>
         /// Set the text.
@@ -59,10 +60,28 @@ namespace Opsive.UltimateInventorySystem.Demo.UI.VisualStructures.AttributeUIs
             }
 
             var currentValue = m_Equipper.GetEquipmentStatInt(m_StatName);
+            player = GameObject.FindGameObjectWithTag("Player");
+            CharStats playerStats = player.GetComponent<CharStats>();
+            int addedValue = 0;
+            if (playerStats != null)
+            {
+                
+                if (m_StatName == "Attack")
+                {
+                    addedValue = playerStats.attackBase;
+                }
+                else if (m_StatName == "Defense")
+                {
+                    addedValue = playerStats.defenseBase;
+                    
+                }
+                currentValue = currentValue + addedValue;
+            }
+            
 
             var previewValue = m_Equipper.IsEquipped(item)
-                ? m_Equipper.GetEquipmentStatPreviewRemove(m_StatName, item)
-                : m_Equipper.GetEquipmentStatPreviewAdd(m_StatName, item);
+                ? m_Equipper.GetEquipmentStatPreviewRemove(m_StatName, item) + addedValue
+                : m_Equipper.GetEquipmentStatPreviewAdd(m_StatName, item) + addedValue;
 
             m_CurrentValueText.text = currentValue.ToString();
 

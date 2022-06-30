@@ -67,7 +67,7 @@ public class CharStats : MonoBehaviour
             defenseTotal = defenseBase + equipper.GetEquipmentStatInt("Defense");
             speedTotal = speedBase + equipper.GetEquipmentStatInt("Speed");
             criticalHitProbability = equipper.GetEquipmentStatFloat("CriticalChance");
-            statsDisplay.Draw(healthMax, magicMax, attackTotal, defenseTotal, speedTotal);
+            statsDisplay.Draw(healthMax, magicMax, attackTotal, defenseTotal, speedTotal, healthTotal, magicTotal);
         }
 
         //This is an enemy
@@ -87,6 +87,8 @@ public class CharStats : MonoBehaviour
     public bool TakeDamage(int dmg)
     {
         healthTotal -= dmg;
+        if(equipper != null && statsDisplay != null)
+            UpdateStats();
 
         if (healthTotal <= 0)
         {
@@ -103,6 +105,8 @@ public class CharStats : MonoBehaviour
         {
             healthTotal = healthMax;
         }
+        if (equipper != null && statsDisplay != null)
+            UpdateStats();
     }
 }
 

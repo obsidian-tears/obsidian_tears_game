@@ -50,11 +50,11 @@ namespace Opsive.UltimateInventorySystem.Demo.UI.Menus.Main.Inventory
         /// <summary>
         /// Draw the stats.
         /// </summary>
-        public void Draw(int healthMax, int magicMax, int attackTotal, int defenseTotal, int speedTotal)
+        public void Draw(int healthMax, int magicMax, int attackTotal, int defenseTotal, int speedTotal, int healthTotal, int magicTotal)
         {
 
-            m_MaxHpValueText.text = healthMax.ToString();
-            m_MaxMpValueText.text = magicMax.ToString();
+            m_MaxHpValueText.text = healthTotal + "/" + healthMax.ToString();
+            m_MaxMpValueText.text = magicTotal + "/" + magicMax.ToString();
             m_AttackValueText.text = attackTotal.ToString();
             m_DefenseValueText.text = defenseTotal.ToString();
             m_SpeedValueText.text = speedTotal.ToString();
