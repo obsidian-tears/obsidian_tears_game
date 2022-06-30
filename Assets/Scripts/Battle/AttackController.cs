@@ -42,20 +42,20 @@ public class AttackController : MonoBehaviour
         return spell.spellPower;
     }
 
-    public BattleState CheckBattleEnd()
+    public BattleStateOld CheckBattleEnd()
     {
         if (currentEnemyHealth <= 0)
         {
-            return BattleState.PlayerWon;
+            return BattleStateOld.PlayerWon;
         }
         else if (currentHealth.value <= 0)
         {
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
                 GameOver();
 #endif
-            return BattleState.PlayerLost;
+            return BattleStateOld.PlayerLost;
         }
-        else return BattleState.Busy;
+        else return BattleStateOld.Busy;
     }
 
     public float EnemyAttack()

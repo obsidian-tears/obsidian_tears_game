@@ -23,7 +23,6 @@ public class ItemActivator : MonoBehaviour
         activatorItems = new List<ActivatorItem>();
 
         AddToList();
-        Debug.Log(activatorItems.Count);
 
         StartCoroutine("CheckActivation");
     }

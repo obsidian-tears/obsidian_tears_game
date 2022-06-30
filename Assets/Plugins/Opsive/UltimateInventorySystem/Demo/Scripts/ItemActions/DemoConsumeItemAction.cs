@@ -10,6 +10,7 @@ namespace Opsive.UltimateInventorySystem.Demo.ItemActions
     using Opsive.UltimateInventorySystem.Core.DataStructures;
     using Opsive.UltimateInventorySystem.Demo.CharacterControl;
     using Opsive.UltimateInventorySystem.ItemActions;
+    using UnityEngine;
 
     /// <summary>
     /// Demo Item action used to consume an item.
