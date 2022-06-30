@@ -11,6 +11,13 @@ GameObject:
   - component: {fileID: 4207141302314722605}
   - component: {fileID: 7005678767108719805}
   - component: {fileID: -5688013619472268659}
+  - component: {fileID: -5720644830874224642}
+  - component: {fileID: 8899731423107611634}
+  - component: {fileID: -2425575496379969333}
+  - component: {fileID: 7097455118799439598}
+  - component: {fileID: 8597714040273600713}
+  - component: {fileID: 7624469818975458246}
+  - component: {fileID: 4639960761661950830}
   m_Layer: 0
   m_Name: Monster Jaw
   m_TagString: Untagged
@@ -111,3 +118,224 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-5720644830874224642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8116543058118371614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce023a631714115a69fbc9c3288b791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PrefabAttributeName: 
+  m_ItemPrefabVisualizerParent: {fileID: 0}
+  m_DefaultVisualPrefab: {fileID: 5411279775078999209, guid: a4144c66b8e73884285fa140498e6d23, type: 3}
+  m_ItemView: {fileID: 0}
+--- !u!114 &8899731423107611634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8116543058118371614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03526e258566dc247a4eb8525aeeb667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_key: 
+  m_appendSaverTypeToKey: 0
+  m_saveAcrossSceneChanges: 1
+  m_restoreStateOnStart: 0
+  m_mode: 1
+  m_destroyMode: 0
+  m_destroyedVersionPrefab: {fileID: 0}
+--- !u!114 &-2425575496379969333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8116543058118371614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4102b0049df8f97409f59aadd39565d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTreasureChest: 1
+  chestOpenedPrefab: {fileID: 3159340856048911723, guid: a601d3fa28f184f4eba912f1b9ea6d74, type: 3}
+  vis: {fileID: 0}
+  saver: {fileID: 0}
+--- !u!114 &7097455118799439598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8116543058118371614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ec83bdea51e5954a985bcb9403ffacf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ItemInfo:
+    m_ItemAmount:
+      m_Amount: 1
+      m_Item:
+        m_ID: 4039861964
+        m_Name: Monster Jaw
+        m_ItemDefinitionID: 3666317515
+        m_ItemDefinition: {fileID: 11400000, guid: ea421ec0bed69a84ab34906cd5673f94, type: 2}
+        m_ItemAttributeCollection:
+          m_AttributeCollectionData: []
+--- !u!114 &8597714040273600713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8116543058118371614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 176215d6f5dc7d6439ae4e5225cbd075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractorLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsInteractable: 1
+  m_AutoInteract: 0
+  m_2D: 1
+  m_3D: 0
+  m_OnInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: d531d607f6eb3064995cf15f15b7b39a, type: 2}
+        m_TargetAssemblyTypeName: MySignal, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_OnDeselect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: b8a067e6f45f3814186e8aa0d3e30043, type: 2}
+        m_TargetAssemblyTypeName: MySignal, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7624469818975458246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8116543058118371614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ae9de52d9898424c9e484d9bb739a9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DeactivateOnInteract: 1
+  m_ScheduleReactivationTime: -1
+  m_SelectIndicators: []
+  m_OnPickupSuccess:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -2425575496379969333}
+        m_TargetAssemblyTypeName: Pickupable, Assembly-CSharp
+        m_MethodName: placeOpenedChest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4639960761661950830}
+        m_TargetAssemblyTypeName: PixelCrushers.QuestMachine.QuestControl, Opsive.UltimateInventorySystem
+        m_MethodName: SendToMessageSystem
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MonsterJaw;Found
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_AudioClip: {fileID: 0}
+  m_AudioConfig: {fileID: 0}
+  m_OnPickupFail:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FailAudioClip: {fileID: 0}
+  m_FailAudioConfig: {fileID: 0}
+  m_AddToItemCollection:
+    m_Name: 
+    m_Purpose: 1
+  m_FailIfFullAmountDoesNotFit: 0
+--- !u!114 &4639960761661950830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8116543058118371614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d18230d3a29b2a418e94d126c53f276, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_questID:
+    m_text: 
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_questNodeID:
+    m_text: 
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_counterName:
+    m_text: 
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_conditionalEvent:
+    questID:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    requiredQuestState: 0
+    questNodeID:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    requiredQuestNodeState: 0
+    onConditionMet:
+      m_PersistentCalls:
+        m_Calls: []
