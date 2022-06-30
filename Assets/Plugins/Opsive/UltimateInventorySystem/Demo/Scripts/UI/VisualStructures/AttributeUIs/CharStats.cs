@@ -5,12 +5,16 @@ using Opsive.UltimateInventorySystem.Equipping;
 using System;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 using EventHandler = Opsive.Shared.Events.EventHandler;
 
 public class CharStats : MonoBehaviour
 {
     public Equipper equipper;
     public CharacterStatsDisplay statsDisplay;
+
+    public Slider healthSlider;
+    public Slider magicSlider;
 
     public string characterName;
 
@@ -80,6 +84,17 @@ public class CharStats : MonoBehaviour
             attackTotal = attackBase;
             defenseTotal = defenseBase;
             speedTotal = speedBase;
+        }
+
+        if(healthSlider != null)
+        {
+            healthSlider.maxValue = healthMax;
+            healthSlider.value = healthTotal;
+        }
+        if(magicSlider != null)
+        {
+            magicSlider.maxValue = magicMax;
+            magicSlider.value = magicTotal;
         }
     }
 
