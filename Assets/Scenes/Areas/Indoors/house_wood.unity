@@ -2456,6 +2456,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1728602841}
     - target: {fileID: 371175696198544571, guid: 8f5a107a7c78c9a498cab978c386a854, type: 3}
+      propertyPath: selectedDatabase
+      value: 
+      objectReference: {fileID: 11400000, guid: be8533d46225d0048a5f2cc784c166d8, type: 2}
+    - target: {fileID: 371175696198544571, guid: 8f5a107a7c78c9a498cab978c386a854, type: 3}
       propertyPath: conversationActor
       value: 
       objectReference: {fileID: 1728602841}
@@ -2522,76 +2526,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4988939232815615430, guid: 8f5a107a7c78c9a498cab978c386a854, type: 3}
   m_PrefabInstance: {fileID: 1104270152}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1104270159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 562550658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c593457cd8105e148906690e1707c592, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trigger: 16
-  condition:
-    luaConditions: []
-    questConditions: []
-    acceptedTags:
-    - 
-    acceptedGameObjects:
-    - {fileID: 0}
-    luaWizardIndex: -1
-    lastEvaluationValue: 0
-  setQuestState: 1
-  questName: 
-  questState: 0
-  setQuestEntryState: 0
-  questEntryNumber: 1
-  questEntryState: 0
-  luaCode: 
-  sequence: 
-  sequenceSpeaker: {fileID: 0}
-  sequenceListener: {fileID: 0}
-  waitOneFrameOnStartOrEnable: 1
-  alertMessage: 
-  textTable: {fileID: 0}
-  alertDuration: 0
-  sendMessages: []
-  barkSource: 2
-  barkConversation: 
-  barkText: Hey! Press "Space Bar" to talk to me!
-  barkTextSequence: 
-  barker: {fileID: 1104270153}
-  barkTarget: {fileID: 1728602841}
-  barkOrder: 0
-  allowBarksDuringConversations: 0
-  skipBarkIfNoValidEntries: 0
-  cacheBarkLines: 0
-  conversation: 
-  conversationConversant: {fileID: 0}
-  conversationActor: {fileID: 0}
-  startConversationEntryID: -1
-  exclusive: 0
-  replace: 0
-  skipIfNoValidEntries: 0
-  stopConversationOnTriggerExit: 0
-  stopConversationIfTooFar: 0
-  maxConversationDistance: 5
-  monitorConversationDistanceFrequency: 1
-  showCursorDuringConversation: 0
-  pauseGameDuringConversation: 0
-  setActiveActions: []
-  setEnabledActions: []
-  setAnimatorStateActions: []
-  onExecute:
-    m_PersistentCalls:
-      m_Calls: []
-  useConversationTitlePicker: 1
-  useBarkTitlePicker: 1
-  useQuestNamePicker: 1
-  selectedDatabase: {fileID: 11400000, guid: 28708b6c2815bda4793eb7af4c96b06a, type: 2}
 --- !u!114 &1104270160
 MonoBehaviour:
   m_ObjectHideFlags: 0
