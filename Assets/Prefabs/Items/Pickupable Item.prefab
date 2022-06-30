@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 3830019983375316030}
   - component: {fileID: 3830019983375316025}
   - component: {fileID: 3830019983375316017}
+  - component: {fileID: 6629342225508471097}
   m_Layer: 0
   m_Name: Pickupable Item
   m_TagString: Untagged
@@ -184,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4102b0049df8f97409f59aadd39565d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTreasureChest: 1
+  isTreasureChest: 0
   chestOpenedPrefab: {fileID: 3159340856048911723, guid: a601d3fa28f184f4eba912f1b9ea6d74, type: 3}
   vis: {fileID: 0}
   saver: {fileID: 0}
@@ -202,28 +203,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ItemInfo:
     m_ItemAmount:
-      m_Amount: 1
+      m_Amount: 0
       m_Item:
-        m_ID: 1749586336
-        m_Name: Iron Sword
-        m_ItemDefinitionID: 685812945
-        m_ItemDefinition: {fileID: 11400000, guid: 3ef924373abdb6041bce5dd7dd9dd32d, type: 2}
+        m_ID: 2907753346
+        m_Name: 
+        m_ItemDefinitionID: 0
+        m_ItemDefinition: {fileID: 0}
         m_ItemAttributeCollection:
-          m_AttributeCollectionData:
-          - m_ObjectType: Opsive.UltimateInventorySystem.Core.AttributeSystem.Attribute`1[[Opsive.UltimateInventorySystem.Core.DataStructures.ItemAmounts,
-              Opsive.UltimateInventorySystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
-            m_ValueHashes: 0d00eb255b713f72086efd3934ebab2af446621ba8823c4a6a0d994035481f3faedf32ad
-            m_ValuePositions: 000000000500000006000000060000000a0000000a0000000e0000000e00000012000000
-            m_Values: 536c6f7473000000000076e59f4e00000000
-            m_UnityObjects: []
-            m_Version: 3.1
-          - m_ObjectType: Opsive.UltimateInventorySystem.Core.AttributeSystem.Attribute`1[[System.Int32,
-              mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]
-            m_ValueHashes: 0d00eb255b713f72086efd3934ebab2af446621ba8823c4a424b280f861dc27b
-            m_ValuePositions: 000000000600000007000000070000000b0000000b0000000f00000013000000
-            m_Values: 41747461636b000000000070bf4e97000000000a000000
-            m_UnityObjects: []
-            m_Version: 3.1
+          m_AttributeCollectionData: []
 --- !u!114 &3830019983375316018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,6 +320,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6629342225508471097}
+        m_TargetAssemblyTypeName: PixelCrushers.QuestMachine.QuestControl, Opsive.UltimateInventorySystem
+        m_MethodName: SendToMessageSystem
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AudioClip: {fileID: 0}
   m_AudioConfig: {fileID: 0}
   m_OnPickupFail:
@@ -379,3 +378,46 @@ MonoBehaviour:
   m_mode: 1
   m_destroyMode: 0
   m_destroyedVersionPrefab: {fileID: 0}
+--- !u!114 &6629342225508471097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3830019983375316024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d18230d3a29b2a418e94d126c53f276, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_questID:
+    m_text: 
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_questNodeID:
+    m_text: 
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_counterName:
+    m_text: 
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_conditionalEvent:
+    questID:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    requiredQuestState: 0
+    questNodeID:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    requiredQuestNodeState: 0
+    onConditionMet:
+      m_PersistentCalls:
+        m_Calls: []
