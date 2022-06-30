@@ -56,6 +56,9 @@ public class BattleSystem : MonoBehaviour
     public Transform enemyNumberSpawnTransform;
     public Transform playerNumberSpawnTransform;
 
+    public AudioSource musicSource;
+    public AudioClip deathSound;
+
     void Start()
     {
 
@@ -222,12 +225,18 @@ public class BattleSystem : MonoBehaviour
 
             yield return new WaitForSeconds(2f);
 
+            portal.setDestinationToPreviousScene();
             portal.UsePortal();
         }
         else if (state == BattleState.LOST)
         {
+            musicSource.clip = deathSound;
             dialogueText.text = "Phendrin has been defeated.";
-            yield return new WaitForSeconds(2f);
+            portal.destinationSceneName = "Main Menu";
+            musicSource.PlayOneShot(deathSound);
+            yield return new WaitForSeconds(9f);
+            
+            portal.UsePortal();
         }
         else if (state == BattleState.FLEEING)
         {
@@ -235,6 +244,7 @@ public class BattleSystem : MonoBehaviour
 
             yield return new WaitForSeconds(2f);
 
+            portal.setDestinationToPreviousScene();
             portal.UsePortal();
         }
     }
