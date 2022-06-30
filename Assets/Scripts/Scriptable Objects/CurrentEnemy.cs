@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="CurrentEnemy", menuName ="Enemies/Current Enemy")]
 public class CurrentEnemy : ScriptableObject
 {
-    public Enemy enemy;
+    public EnemyOld enemy;
 }

@@ -88,6 +88,7 @@ namespace Opsive.UltimateInventorySystem.UI.Panels.ItemViewSlotContainers
         public override void UseItemAction(int itemSlotIndex, int itemActionIndex)
         {
             if (CanItemUseAction(itemSlotIndex) == false) {
+                
                 return;
             }
 
@@ -104,6 +105,7 @@ namespace Opsive.UltimateInventorySystem.UI.Panels.ItemViewSlotContainers
         /// <param name="index">The index.</param>
         protected override void OpenItemAction(ItemInfo itemInfo, int index)
         {
+            
             if (CanOpenItemActionPanel(itemInfo)) {
                 return;
             }
