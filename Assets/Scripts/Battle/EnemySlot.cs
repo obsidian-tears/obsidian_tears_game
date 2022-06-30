@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class EnemySlot : MonoBehaviour
 {
-    public Enemy enemy;
+    public EnemyOld enemy;
     public Image image;
-    public void Setup(Enemy newEnemy) {
+    public void Setup(EnemyOld newEnemy) {
         enemy = newEnemy;
         image.preserveAspect = true;
         image.sprite = newEnemy.sprite;
