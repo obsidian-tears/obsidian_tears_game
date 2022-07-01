@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6054190570690657677
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6054190570690657673}
+  - component: {fileID: 6054190570690657678}
+  - component: {fileID: 6054190570690657679}
+  - component: {fileID: 6054190570690657676}
+  m_Layer: 0
+  m_Name: MonsterArea(Cave)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6054190570690657673
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6054190570690657677}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -19.594173, y: -10.917267, z: 5.6093955}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &6054190570690657678
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6054190570690657677}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -19.42675, y: 3.4833908}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 170.61565, y: 73.34796}
+  m_EdgeRadius: 0
+--- !u!114 &6054190570690657679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6054190570690657677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86e4361f56649c48a778fe7a5d81b2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_key: 
+  m_appendSaverTypeToKey: 0
+  m_saveAcrossSceneChanges: 1
+  m_restoreStateOnStart: 0
+  m_mode: 1
+  m_destroyMode: 0
+  m_destroyedVersionPrefab: {fileID: 0}
+--- !u!114 &6054190570690657676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6054190570690657677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0db12642190ca2c4c99b343dd15ed6de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterAreaUniqueID: 
+  minSecondsToBattleStart: 10
+  maxSecondsToBattleStart: 25
+  backgroundImage: {fileID: 0}
+  musicClip: {fileID: 0}
+  isOneTimeBattle: 0
+  enemies:
+  - enemy: {fileID: 11400000, guid: 8c9982f5abdd0934383b20ced1ffc42a, type: 2}
+    enemyProbability: 0.511
+  - enemy: {fileID: 11400000, guid: b19dcb57ef867fc40b5d65aab40a6cd9, type: 2}
+    enemyProbability: 0.311
+  - enemy: {fileID: 11400000, guid: 6ec814cad3b236a4da31dc24934ee9bf, type: 2}
+    enemyProbability: 0.16
+  onBattleStart:
+    m_PersistentCalls:
+      m_Calls: []
+  onBattleWin:
+    m_PersistentCalls:
+      m_Calls: []
