@@ -8,12 +8,18 @@ using PixelCrushers;
 [System.Serializable]
 public class OnBattleStart : UnityEvent { }
 
+[System.Serializable]
+public class OnBattleWin : UnityEvent { }
+
 [RequireComponent(typeof(DestructibleSaver))]
 public class MonsterArea : MonoBehaviour
 {
+    public string monsterAreaUniqueID;
+
     public int minSecondsToBattleStart;
     public int maxSecondsToBattleStart;
     public Sprite backgroundImage;
+    public AudioClip musicClip;
     public bool isOneTimeBattle;
     public List<EnemiesList> enemies;
 
@@ -25,6 +31,7 @@ public class MonsterArea : MonoBehaviour
     private float t;
 
     public OnBattleStart onBattleStart;
+    public OnBattleWin onBattleWin;
 
     public void OnTriggerEnter2D(Collider2D collider)
     {
@@ -90,6 +97,9 @@ public class MonsterArea : MonoBehaviour
 
     IEnumerator StartBattle()
     {
+        if (monsterAreaUniqueID == null)
+            monsterAreaUniqueID = gameObject.name;
+        currentBattle.monsterAreaObject = monsterAreaUniqueID;
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         playerObj.GetComponent<Player>().Freeze();
 
@@ -111,16 +121,14 @@ public class MonsterArea : MonoBehaviour
         currentBattle.playerAttackBase = player.attackBase;
         currentBattle.playerDefenseBase = player.defenseBase;
         currentBattle.playerSpeedBase = player.speedBase;
+        currentBattle.music = musicClip;
 
         currentBattle.level = player.level;
         currentBattle.backgroundImage = backgroundImage;
 
         yield return new WaitForSeconds(1f);
 
-        if (isOneTimeBattle)
-        {
-            Destroy(this.gameObject);
-        }
+        
 
         scenePortal.UsePortal();
     }
@@ -131,9 +139,24 @@ public class MonsterArea : MonoBehaviour
         probability = 0;
         currentBattle = GameObject.Find("SceneManager").GetComponent<ObjectHolder>().currentBattle;
 
+        if(currentBattle.monsterAreaObject == monsterAreaUniqueID && currentBattle.wonBattle)
+        {
+            onBattleWin.Invoke();
+
+            if (isOneTimeBattle)
+            {
+                Destroy(this.gameObject);
+            }
+        }
+
+        
+
         scenePortal = gameObject.AddComponent<ScenePortal>();
         scenePortal.requiredTag = "Player";
         scenePortal.destinationSceneName = "Battle";
+
+        currentBattle.wonBattle = false;
+        currentBattle.monsterAreaObject = null;
     }
 
 

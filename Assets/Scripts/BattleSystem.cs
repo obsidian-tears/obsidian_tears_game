@@ -59,10 +59,20 @@ public class BattleSystem : MonoBehaviour
     public AudioSource musicSource;
     public AudioClip deathSound;
 
+
     void Start()
     {
 
+        
         backgroundImage.sprite = currentBattle.backgroundImage;
+
+        if(currentBattle.music != null)
+        {
+            musicSource.clip = currentBattle.music;
+            musicSource.Play();
+            
+        }
+            
 
         state = BattleState.START;
 
@@ -205,6 +215,7 @@ public class BattleSystem : MonoBehaviour
 
         if (state == BattleState.WON)
         {
+            currentBattle.wonBattle = true;
             dialogueText.text = enemyStats.characterName + " has been defeated.";
 
             float disappearTimer = 1f;
