@@ -17,4 +17,10 @@ public class Battle : ScriptableObject
     public int playerSpeedBase;
 
     public Sprite backgroundImage;
+
+    public AudioClip music;
+
+    public string monsterAreaObject;
+
+    public bool wonBattle = false;
 }
