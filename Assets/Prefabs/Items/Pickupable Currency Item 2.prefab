@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 3830019983375316017}
   - component: {fileID: -7989326757098761737}
   - component: {fileID: -7720382789440467825}
+  - component: {fileID: -3013972009104381802}
   m_Layer: 0
   m_Name: Pickupable Currency Item 2
   m_TagString: Untagged
@@ -331,6 +332,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: -3013972009104381802}
+        m_TargetAssemblyTypeName: PixelCrushers.QuestMachine.QuestControl, Opsive.UltimateInventorySystem
+        m_MethodName: ShowAlert
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Found 2 Gold
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AudioClip: {fileID: 0}
   m_AudioConfig: {fileID: 0}
   m_OnPickupFail:
@@ -360,3 +373,46 @@ MonoBehaviour:
       m_UnityObjects:
       - {fileID: 11400000, guid: 3ea0f02d96e79ae49bb7b7d745f12765, type: 2}
       m_Version: 3.1
+--- !u!114 &-3013972009104381802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3830019983375316024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d18230d3a29b2a418e94d126c53f276, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_questID:
+    m_text: 
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_questNodeID:
+    m_text: 
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_counterName:
+    m_text: 
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_conditionalEvent:
+    questID:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    requiredQuestState: 0
+    questNodeID:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    requiredQuestNodeState: 0
+    onConditionMet:
+      m_PersistentCalls:
+        m_Calls: []
