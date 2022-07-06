@@ -563,6 +563,50 @@ MonoBehaviour:
     spritePortrait: {fileID: 21300000, guid: 5ca446cfd816a1646a78f4b0a94ffe02, type: 3}
     alternatePortraits: []
     spritePortraits: []
+  - id: 25
+    fields:
+    - title: Name
+      value: Guard 5
+      type: 0
+      typeString: 
+    - title: Pictures
+      value: '[]'
+      type: 3
+      typeString: CustomFieldType_Files
+    - title: Description
+      value: West Gate
+      type: 0
+      typeString: 
+    - title: IsPlayer
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    portrait: {fileID: 0}
+    spritePortrait: {fileID: 21300000, guid: 1daf2dd7a32809f40ba31ff5c5c65f03, type: 3}
+    alternatePortraits: []
+    spritePortraits: []
+  - id: 26
+    fields:
+    - title: Name
+      value: guard 3
+      type: 0
+      typeString: 
+    - title: Pictures
+      value: '[]'
+      type: 3
+      typeString: CustomFieldType_Files
+    - title: Description
+      value: blonde guy with spear west gate
+      type: 0
+      typeString: 
+    - title: IsPlayer
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    portrait: {fileID: 0}
+    spritePortrait: {fileID: 21300000, guid: 170e83c3f7f3b4a47bea3f4cb55b2fc9, type: 3}
+    alternatePortraits: []
+    spritePortraits: []
   items: []
   locations: []
   variables:
@@ -11528,8 +11572,7 @@ MonoBehaviour:
       - title: Dialogue Text
         value: On my way to hunt for spider meat I found a cave in the middle of
           the forest. Following it, I eventually emerged high on a plateau. It was
-          there I found a magic artifact. There were several there, so there might
-          still be one for you!
+          there I found a magic artifact.
         type: 0
         typeString: 
       - title: Sequence
@@ -12110,8 +12153,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 91.82348, y: 131.69656}
-    canvasZoom: 0.61000025
+    canvasScrollPosition: {x: 1106.5055, y: 303.70474}
+    canvasZoom: 1.1499997
   - id: 15
     fields:
     - title: Title
@@ -14245,7 +14288,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 'You sure you want to go out there? '
+        value: 'You sure about all this?
+
+
+          If you do go out make sure you''re
+          properly equipped but even then its not safe. Best if you stay here.'
         type: 0
         typeString: 
       - title: Sequence
@@ -14396,8 +14443,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: I'm sorry, but you have to stay in the village. If you go out you
-          will never come back again.
+        value: 'I''m sorry, but you have to stay in the village. '
         type: 0
         typeString: 
       - title: Sequence
@@ -14411,22 +14457,324 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 250
+        y: 111
+        width: 160
+        height: 30
+    entryGroups: []
+    canvasScrollPosition: {x: 32.71243, y: 21.817024}
+    canvasZoom: 0.7900002
+  - id: 24
+    fields:
+    - title: Title
+      value: Helmet Guard 5
+      type: 0
+      typeString: 
+    - title: Description
+      value: 
+      type: 0
+      typeString: 
+    - title: Actor
+      value: 1
+      type: 5
+      typeString: CustomFieldType_Actor
+    - title: Conversant
+      value: 24
+      type: 5
+      typeString: CustomFieldType_Actor
+    overrideSettings:
+      useOverrides: 0
+      overrideSubtitleSettings: 0
+      showNPCSubtitlesDuringLine: 1
+      showNPCSubtitlesWithResponses: 1
+      showPCSubtitlesDuringLine: 0
+      skipPCSubtitleAfterResponseMenu: 0
+      subtitleCharsPerSecond: 30
+      minSubtitleSeconds: 2
+      continueButton: 0
+      overrideSequenceSettings: 0
+      defaultSequence: 
+      defaultPlayerSequence: 
+      defaultResponseMenuSequence: 
+      overrideInputSettings: 0
+      alwaysForceResponseMenu: 1
+      includeInvalidEntries: 0
+      responseTimeout: 0
+      cancelSubtitle:
+        key: 27
+        buttonName: 
+      cancelConversation:
+        key: 27
+        buttonName: 
+    nodeColor: 
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 25
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: None()
+        type: 0
+        typeString: 
+      conversationID: 24
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 23
+      - originConversationID: 24
+        originDialogueID: 0
+        destinationConversationID: 24
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 212
+        y: 25
+        width: 160
+        height: 30
+    - id: 1
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 25
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Don't go out there! Stay inside where it is safe.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 24
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 237
+        y: 123
+        width: 160
+        height: 30
+    entryGroups: []
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 1
+  - id: 25
+    fields:
+    - title: Title
+      value: guard 3
+      type: 0
+      typeString: 
+    - title: Description
+      value: blonde guard w/spear by west gate
+      type: 0
+      typeString: 
+    - title: Actor
+      value: 1
+      type: 5
+      typeString: CustomFieldType_Actor
+    - title: Conversant
+      value: 26
+      type: 5
+      typeString: CustomFieldType_Actor
+    overrideSettings:
+      useOverrides: 0
+      overrideSubtitleSettings: 0
+      showNPCSubtitlesDuringLine: 1
+      showNPCSubtitlesWithResponses: 1
+      showPCSubtitlesDuringLine: 0
+      skipPCSubtitleAfterResponseMenu: 0
+      subtitleCharsPerSecond: 30
+      minSubtitleSeconds: 2
+      continueButton: 0
+      overrideSequenceSettings: 0
+      defaultSequence: 
+      defaultPlayerSequence: 
+      defaultResponseMenuSequence: 
+      overrideInputSettings: 0
+      alwaysForceResponseMenu: 1
+      includeInvalidEntries: 0
+      responseTimeout: 0
+      cancelSubtitle:
+        key: 27
+        buttonName: 
+      cancelConversation:
+        key: 27
+        buttonName: 
+    nodeColor: 
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 26
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: None()
+        type: 0
+        typeString: 
+      conversationID: 25
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 25
+        originDialogueID: 0
+        destinationConversationID: 25
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 276
+        y: 23
+        width: 160
+        height: 30
+    - id: 1
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 26
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Captain Herl said you might come by. What may I help you with?
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 25
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 25
         originDialogueID: 1
-        destinationConversationID: 23
+        destinationConversationID: 25
         destinationDialogueID: 2
         isConnector: 0
         priority: 2
-      - originConversationID: 23
+      - originConversationID: 25
         originDialogueID: 1
-        destinationConversationID: 23
+        destinationConversationID: 25
         destinationDialogueID: 3
         isConnector: 0
         priority: 2
-      - originConversationID: 23
+      - originConversationID: 25
         originDialogueID: 1
-        destinationConversationID: 23
+        destinationConversationID: 25
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
@@ -14437,8 +14785,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 250
-        y: 111
+        x: 275
+        y: 148
         width: 160
         height: 30
     - id: 2
@@ -14456,7 +14804,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 24
+        value: 26
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -14464,14 +14812,14 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: But I got here somehow
+        value: I want to be better able to defeat monsters
         type: 0
         typeString: 
       - title: Sequence
         value: 
         type: 0
         typeString: 
-      conversationID: 23
+      conversationID: 25
       isRoot: 0
       isGroup: 0
       nodeColor: 
@@ -14479,9 +14827,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 23
+      - originConversationID: 25
         originDialogueID: 2
-        destinationConversationID: 23
+        destinationConversationID: 25
         destinationDialogueID: 5
         isConnector: 0
         priority: 2
@@ -14492,8 +14840,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 79
-        y: 225
+        x: 74
+        y: 220
         width: 160
         height: 30
     - id: 3
@@ -14511,7 +14859,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 24
+        value: 26
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -14519,14 +14867,14 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Thanks for the tip
+        value: I'm looking to up my magic power
         type: 0
         typeString: 
       - title: Sequence
         value: 
         type: 0
         typeString: 
-      conversationID: 23
+      conversationID: 25
       isRoot: 0
       isGroup: 0
       nodeColor: 
@@ -14534,9 +14882,9 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
-      - originConversationID: 23
+      - originConversationID: 25
         originDialogueID: 3
-        destinationConversationID: 23
+        destinationConversationID: 25
         destinationDialogueID: 6
         isConnector: 0
         priority: 2
@@ -14547,8 +14895,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 267
-        y: 216
+        x: 289
+        y: 220
         width: 160
         height: 30
     - id: 4
@@ -14566,7 +14914,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 24
+        value: 26
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -14574,14 +14922,14 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Bye
+        value: I need to go
         type: 0
         typeString: 
       - title: Sequence
         value: 
         type: 0
         typeString: 
-      conversationID: 23
+      conversationID: 25
       isRoot: 0
       isGroup: 0
       nodeColor: 
@@ -14596,8 +14944,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 467
-        y: 211
+        x: 516
+        y: 222
         width: 160
         height: 30
     - id: 5
@@ -14611,7 +14959,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: 24
+        value: 26
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
@@ -14623,16 +14971,16 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 'I don''t know how you survived. None of us do. Too bad you don''t
-          have any memories but there is nothing we can do about that now. You go
-          out there you''re as good as dead. '
+        value: Best way you can do that is through equipping, armor, new weapons,
+          and artifacts that boost your health and ability to pack a punch. The guard
+          house might have some armor you can use
         type: 0
         typeString: 
       - title: Sequence
         value: 
         type: 0
         typeString: 
-      conversationID: 23
+      conversationID: 25
       isRoot: 0
       isGroup: 0
       nodeColor: 
@@ -14647,8 +14995,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 114.51544
-        y: 343.34018
+        x: 74
+        y: 270
         width: 160
         height: 30
     - id: 6
@@ -14662,7 +15010,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: 24
+        value: 26
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
@@ -14674,14 +15022,16 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Good luck
+        value: Mmmm. The Lore Master should be who you talk to about that. She's
+          in charge of all our ancient history and magical lore that we know about.
+          She may be able to direct you to what you need
         type: 0
         typeString: 
       - title: Sequence
         value: 
         type: 0
         typeString: 
-      conversationID: 23
+      conversationID: 25
       isRoot: 0
       isGroup: 0
       nodeColor: 
@@ -14696,13 +15046,13 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 311.3299
-        y: 301.05154
+        x: 291
+        y: 276
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 91.37165}
-    canvasZoom: 0.97
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 1
   syncInfo:
     syncActors: 0
     syncItems: 0
