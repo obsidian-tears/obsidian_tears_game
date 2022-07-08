@@ -12,4 +12,10 @@ mergeInto(LibraryManager.library, {
           "LoadGame"
       );
   },
+  OpenChest: function(chestId) {
+      window.dispatchReactUnityEvent(
+          "OpenChest",
+          Pointer_stringify(chestId)
+      );
+  },
 });
