@@ -1,15 +1,15 @@
 // File: MyPlugin.jslib
 
 mergeInto(LibraryManager.library, {
-  GameOver: function () {
+  SaveGame: function(gameData) {
     window.dispatchReactUnityEvent(
-      "GameOver"
+      "SaveGame",
+      Pointer_stringify(gameData)
     );
   },
-//  GiveGold: function(goldAmount) {
-//      window.dispatchReactUnityEvent(
-//          "GiveGold",
-//          goldAmount
-//      );
-//  },
+  LoadGame: function() {
+      window.dispatchReactUnityEvent(
+          "LoadGame"
+      );
+  },
 });

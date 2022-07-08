@@ -2,6 +2,7 @@ using Opsive.UltimateInventorySystem.Demo.UI.Menus.Main.Inventory;
 using Opsive.UltimateInventorySystem.Equipping;
 using PixelCrushers;
 using System;
+using System.Runtime.InteropServices;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,7 @@ using UnityEngine.UI;
 public class CharStatsSaver : Saver
 {
 
+[DllImport("__Internal")] private static extern void SaveGame(String data);
     [Serializable]
     public class Data
     {
@@ -40,6 +42,7 @@ public class CharStatsSaver : Saver
         public float criticalHitProbability;
 
         public string[] characterEffects;
+        public string test;
     }
 
     public override string RecordData()
@@ -64,7 +67,12 @@ public class CharStatsSaver : Saver
         data.speedTotal = charStats.speedTotal;
         data.criticalHitProbability = charStats.criticalHitProbability;
         data.characterEffects = charStats.characterEffects;
-
+        data.test = "test";
+Debug.Log(SaveSystem.Serialize(data));
+Debug.Log(SaveSystem.Serialize(data).GetType());
+#if UNITY_WEBGL == true && UNITY_EDITOR == false
+                SaveGame(SaveSystem.Serialize(data));
+#endif
         return SaveSystem.Serialize(data);
     }
 
