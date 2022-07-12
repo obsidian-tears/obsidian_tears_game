@@ -14,7 +14,6 @@ public class AttackController : MonoBehaviour
     [SerializeField] CurrentEnemy currentEnemy;
     [SerializeField] MySignal playerSignal;
 
-    [DllImport("__Internal")] private static extern void GameOver();
 
     void Start()
     {
@@ -50,9 +49,6 @@ public class AttackController : MonoBehaviour
         }
         else if (currentHealth.value <= 0)
         {
-#if UNITY_WEBGL == true && UNITY_EDITOR == false
-                GameOver();
-#endif
             return BattleStateOld.PlayerLost;
         }
         else return BattleStateOld.Busy;

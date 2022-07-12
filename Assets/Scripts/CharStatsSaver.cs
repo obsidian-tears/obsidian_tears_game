@@ -2,6 +2,7 @@ using Opsive.UltimateInventorySystem.Demo.UI.Menus.Main.Inventory;
 using Opsive.UltimateInventorySystem.Equipping;
 using PixelCrushers;
 using System;
+using System.Runtime.InteropServices;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
