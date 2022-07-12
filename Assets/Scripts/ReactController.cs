@@ -10,10 +10,60 @@ public class ReactController : MonoBehaviour
     [SerializeField] MySignal unfreezeSignal;
     [SerializeField] GameObject loadingIndicator;
     [SerializeField] GameObject gameObject;
+    [DllImport("__Internal")] private static extern void LoadGame(string objectName);
+    [DllImport("__Internal")] private static extern void SaveGame(string saveGameData, string objectName);
     [DllImport("__Internal")] private static extern void OpenChest(string chestId, string objectName);
     [DllImport("__Internal")] private static extern void BuyItem(string chestId, string objectName);
     [DllImport("__Internal")] private static extern void EquipItems(string[] itemIds, string objectName);
     [DllImport("__Internal")] private static extern void DefeatMonster(string monsterId, string objectName);
+
+    // ---------------------------
+    // Loading/Saving Functions
+    // ---------------------------
+
+    // calls the react function to load the game, start loading
+    public void SignalLoadGame() {
+        // call react fx
+#if UNITY_WEBGL == true && UNITY_EDITOR == false
+        LoadGame(gameObject.name);
+#endif
+        // TODO start loading
+        Debug.Log("sent load game message");
+    }
+
+    // react calls this function, triggering the actual load, end loading
+    public void ListenLoadGame(string fromReact) {
+        // TODO: call savesystem.loadgame
+        PixelCrushers.SavedGameData gameData = PixelCrushers.SaveSystem.Deserialize<PixelCrushers.SavedGameData>(fromReact);
+        PixelCrushers.SaveSystem.LoadGame(gameData);
+        // TODO: end loading screen
+        Debug.Log("load the game: " + fromReact);
+
+    }
+
+    // calls the react function to save the game, start loading
+    public void SignalSaveGame() {
+        // get saved game data
+        PixelCrushers.SavedGameData gameData = PixelCrushers.SaveSystem.RecordSavedGameData();
+        string stringData = PixelCrushers.SaveSystem.Serialize(gameData);
+        // call react fx
+#if UNITY_WEBGL == true && UNITY_EDITOR == false
+        SaveGame(stringData, gameObject.name);
+#endif
+        // TODO: start loading
+        Debug.Log("sent save signal: " + stringData);
+
+    }
+
+    // applies the data from react (to refresh inventory) and stops loading
+    public void ListenSaveGame(string fromReact) {
+        // apply saved game data
+        PixelCrushers.SavedGameData gameData = PixelCrushers.SaveSystem.Deserialize<PixelCrushers.SavedGameData>(fromReact);
+        PixelCrushers.SaveSystem.ApplySavedGameData(gameData);
+        // TODO: stop loading
+        Debug.Log("apply save data: " + fromReact);
+    }
+
 
 
     // ---------------------------
@@ -57,7 +107,7 @@ public class ReactController : MonoBehaviour
     }
 
     public void EquipItems() {
-        const string[] itemIds = new string[] {};
+        string[] itemIds = new string[] {};
         const string gameObjectId = "id";
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
         EquipItems(itemIds, gameObjectId);
