@@ -1,0 +1,300 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &991252085394496691
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3022056917291945535}
+  - component: {fileID: 3920269086825770445}
+  - component: {fileID: 7307805639626584870}
+  - component: {fileID: 5754215239923255285}
+  - component: {fileID: 4164812562826180137}
+  - component: {fileID: 2646143100100176428}
+  - component: {fileID: 7553518823084812692}
+  - component: {fileID: 972989202010658832}
+  m_Layer: 0
+  m_Name: Bethila NPC Shop (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3022056917291945535
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991252085394496691}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -65.97, y: 44.37, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &3920269086825770445
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991252085394496691}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -898105737
+  m_SortingLayer: 2
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: d5cd06e26dcae6c47898246c030c7c84, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1.125, y: 2}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!61 &7307805639626584870
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991252085394496691}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.07165527, y: 0.21179962}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 1.125, y: 2}
+    newSize: {x: 1.125, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.89979553, y: 0.42359924}
+  m_EdgeRadius: 0
+--- !u!114 &5754215239923255285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991252085394496691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 274b80ab5b659c646ba9338870d14625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overrideName: 
+  overrideUseMessage: 
+  maxUseDistance: 5
+  events:
+    onSelect:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: c278cd009b303264696d8c69e40c1885, type: 2}
+          m_TargetAssemblyTypeName: MySignal, Assembly-CSharp
+          m_MethodName: Raise
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    onDeselect:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 284623b10c039534ba500c3972cb5651, type: 2}
+          m_TargetAssemblyTypeName: MySignal, Assembly-CSharp
+          m_MethodName: Raise
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    onUse:
+      m_PersistentCalls:
+        m_Calls: []
+--- !u!114 &4164812562826180137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991252085394496691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c593457cd8105e148906690e1707c592, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger: 32
+  condition:
+    luaConditions: []
+    questConditions: []
+    acceptedTags: []
+    acceptedGameObjects: []
+    luaWizardIndex: -1
+    lastEvaluationValue: 0
+  setQuestState: 1
+  questName: 
+  questState: 0
+  setQuestEntryState: 0
+  questEntryNumber: 1
+  questEntryState: 0
+  luaCode: 
+  sequence: 
+  sequenceSpeaker: {fileID: 0}
+  sequenceListener: {fileID: 0}
+  waitOneFrameOnStartOrEnable: 1
+  alertMessage: 
+  textTable: {fileID: 0}
+  alertDuration: 0
+  sendMessages: []
+  barkSource: 0
+  barkConversation: 
+  barkText: 
+  barkTextSequence: 
+  barker: {fileID: 0}
+  barkTarget: {fileID: 0}
+  barkOrder: 0
+  allowBarksDuringConversations: 0
+  skipBarkIfNoValidEntries: 0
+  cacheBarkLines: 0
+  conversation: Bethila
+  conversationConversant: {fileID: 3022056917291945535}
+  conversationActor: {fileID: 0}
+  startConversationEntryID: -1
+  exclusive: 0
+  replace: 0
+  skipIfNoValidEntries: 0
+  stopConversationOnTriggerExit: 0
+  stopConversationIfTooFar: 0
+  maxConversationDistance: 5
+  monitorConversationDistanceFrequency: 1
+  showCursorDuringConversation: 0
+  pauseGameDuringConversation: 1
+  setActiveActions: []
+  setEnabledActions: []
+  setAnimatorStateActions: []
+  onExecute:
+    m_PersistentCalls:
+      m_Calls: []
+  useConversationTitlePicker: 1
+  useBarkTitlePicker: 1
+  useQuestNamePicker: 1
+  selectedDatabase: {fileID: 11400000, guid: be8533d46225d0048a5f2cc784c166d8, type: 2}
+--- !u!114 &2646143100100176428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991252085394496691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7540d24761b4f024d8d8a6014f93d9f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ItemCollectionRestrictionObjects: []
+  m_ItemCollectionData:
+  - m_ObjectType: Opsive.UltimateInventorySystem.Core.InventoryCollections.ItemCollection
+    m_ValueHashes: 0d00eb25b769d11d5030ac3ef1f5543f666e77ff063d5314aacf0d993edd1331719c8809ffab97cf34df945eaa1351826791e7bfaf7e5032c9f13d91dd6f4cf47a52e37d619c510662a997cfbdc9905e23055582821884b54af733382c785e9b38e62ffe9fdb8077c0ee036dd1a897cf5aa9915ec4655482313fbdb4f9d00a399f5f679a8bc116ff2cfcb9766f6bbb21449697cf3362b55eadae70828c0de2e044e2556d226d38ce36f349ab91cee6228e2d3920
+    m_ValuePositions: 000000001100000011000000150000001500000016000000170000001b0000001b0000001f0000001f000000230000002300000027000000370000003b0000003f0000003f000000430000004300000047000000470000004b0000005b0000005f000000630000006300000067000000670000006b0000006b0000006f0000007e0000008200000086000000860000008a0000008a0000008e0000008e00000092000000a1000000a5000000a9000000a9000000
+    m_Values: 4e65774974656d436f6c6c656374696f6e010000000101ffffffff040000000a0000001d125341426c756520506f74696f6e2046756c6c10002caa00000000000000000a00000084fc825f48616c6620426c756520506f74696f6e1181dd1c01000000000000000a000000ed3726e352656420506f74696f6e2046756c6cdf96b06602000000000000000a0000005f09500248616c662052656420506f74696f6e6d0bd63d0300000000000000
+    m_UnityObjects:
+    - {fileID: 11400000, guid: 70cb81d4a6aaeb9459e1e341a6a7bd91, type: 2}
+    - {fileID: 11400000, guid: d49834ace7e0518408180888a743f6e2, type: 2}
+    - {fileID: 11400000, guid: 007909531881e9e4ba2a4ea2c1dee13f, type: 2}
+    - {fileID: 11400000, guid: ad3dbc2034032624caab359bfcd17a40, type: 2}
+    m_Version: 3.1
+--- !u!114 &7553518823084812692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991252085394496691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bcd4fc02560fce4d9ee6b87734270f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BuyAttributeName: BuyPrice
+  m_BuyModifier: 0
+  m_SellAttributeName: SellPrice
+  m_SellModifier: 0
+  m_AddItemWithCallback: 0
+  m_RemoveItemWithCallback: 0
+  m_Inventory: {fileID: 2646143100100176428}
+  m_DefaultItemCollectionToAddOnBuy:
+    m_Name: 
+    m_Purpose: 1
+  m_ItemCollectionToAddOnBuyByCategory: []
+--- !u!114 &972989202010658832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991252085394496691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8406d965d03ec9140ad61f8bda4ec013, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelManagerIndex: 1
+  m_PanelName: Shop Menu
+  m_ClientInventoryIdentifierIndex: 0
+  m_ClientInventory: {fileID: 0}
+  m_Menu: {fileID: 0}
+  m_Shop: {fileID: 7553518823084812692}
