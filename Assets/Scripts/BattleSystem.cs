@@ -93,6 +93,8 @@ public class BattleSystem : MonoBehaviour
         }
         EventManager.StartListening("PlayerHeal", ItemUsed);
 
+        Cursor.lockState = CursorLockMode.None;
+
         StartCoroutine(SetupBattle());
     }
 
