@@ -302,7 +302,7 @@ MonoBehaviour:
   - id: 13
     fields:
     - title: Name
-      value: Ancient Elf
+      value: Cenn'e Lenialeth
       type: 0
       typeString: 
     - title: Pictures
@@ -318,7 +318,7 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
-    spritePortrait: {fileID: 21300000, guid: b43f2ece3fe497e42b7d42a104b0c22e, type: 3}
+    spritePortrait: {fileID: 21300000, guid: 00f4dbca4316bf94ba0420ab1f373e37, type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 14
@@ -671,6 +671,28 @@ MonoBehaviour:
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
     spritePortrait: {fileID: 0}
+    alternatePortraits: []
+    spritePortraits: []
+  - id: 30
+    fields:
+    - title: Name
+      value: Broken Obelisk Elf Ruins
+      type: 0
+      typeString: 
+    - title: Pictures
+      value: '[]'
+      type: 3
+      typeString: CustomFieldType_Files
+    - title: Description
+      value: 
+      type: 0
+      typeString: 
+    - title: IsPlayer
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    portrait: {fileID: 0}
+    spritePortrait: {fileID: -1965607508, guid: 73be0a2aba716824c878afd99215763c, type: 3}
     alternatePortraits: []
     spritePortraits: []
   items: []
@@ -2698,7 +2720,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Ah, glad you found me. We took all your armor and weapons last night
+        value: Ah, glad you found me. We took your sword when you arrived, as well
+          as this glowing pendant....very odd artifact.
         type: 0
         typeString: 
       - title: Sequence
@@ -2809,7 +2832,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Here you go!
+        value: 'Here you go! '
         type: 0
         typeString: 
       - title: Sequence
@@ -2937,7 +2960,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 5
+        originDialogueID: 5
+        destinationConversationID: 5
+        destinationDialogueID: 7
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: GiveQuest("Captain Herl", "Find the Lore Master")
       onExecute:
@@ -2996,6 +3025,57 @@ MonoBehaviour:
         serializedVersion: 2
         x: 304.72525
         y: 86.48352
+        width: 160
+        height: 30
+    - id: 7
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 6
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: You can find Tana in the Lore Church in the North West corner of town.
+          After you see her, consider stopping by the West Guardhouse. We may have
+          some extra armor that fits you.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 5
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 35.78351
+        y: 346.2474
         width: 160
         height: 30
     entryGroups: []
@@ -3415,7 +3495,7 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: Its an ancient site built by our ancestors. The ancient runes are
-          carved on a spire of rock called an obelisk. But an dark and deadly monster
+          carved on a spire of rock called an obelisk. But a dark and deadly monster
           took up residence nearby a hundred years ago. I've never seen it.
         type: 0
         typeString: 
@@ -4265,7 +4345,7 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: You came to our town with some possesions. You had a sword and a strange
-          glowing artifact. We are all so curiuos to know where you came from! We
+          glowing artifact. We are all so curious to know where you came from! We
           thought we were the last humans left alive. MY grandparents said we were
           the last surviving town.
         type: 0
@@ -4802,8 +4882,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 504.0476, y: 0}
-    canvasZoom: 0.54999995
+    canvasScrollPosition: {x: 408.68823, y: 1079.3727}
+    canvasZoom: 0.75999975
   - id: 7
     fields:
     - title: Title
@@ -9535,7 +9615,7 @@ MonoBehaviour:
   - id: 12
     fields:
     - title: Title
-      value: Elf
+      value: Cenn'e Lenialeth
       type: 0
       typeString: 
     - title: Description
@@ -9804,8 +9884,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 30
-        y: 236
+        x: 27.704445
+        y: 234.8522
         width: 160
         height: 30
     - id: 5
@@ -9831,7 +9911,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: The race of Arann exploded into existence upon Eli' Alan iwith fire
+        value: The race of Arann exploded into existence upon Eli' Alan amidst fire
           and light millenia ago. Do you not remember your own ancestry?
         type: 0
         typeString: 
@@ -9902,7 +9982,19 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 12
+        originDialogueID: 6
+        destinationConversationID: 12
+        destinationDialogueID: 19
+        isConnector: 0
+        priority: 2
+      - originConversationID: 12
+        originDialogueID: 6
+        destinationConversationID: 12
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -9937,7 +10029,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 'Do you even know who you are? '
+        value: "I am Cenn'e Lenialeth\u2014Rememberer, He Who Remains, Residuum of
+          LIght."
         type: 0
         typeString: 
       - title: Sequence
@@ -10033,7 +10126,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 424
-        y: 286
+        y: 286.8325
         width: 160
         height: 30
     - id: 10
@@ -10225,9 +10318,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: You've traded your memories in return for ancient ones from your ancestors.
-          It was a way for...the elves to reach back near to the beginning of time.
-          But for you humans it is much more potent
+        value: 'You''ve traded your memories in return for ancient ones from your
+          ancestors. It was a way for...the elves to reach back near to the beginning
+          of time. But for you humans it is much more potent. '
         type: 0
         typeString: 
       - title: Sequence
@@ -10317,7 +10410,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 423.88727
-        y: 494.51065
+        y: 493.6782
         width: 160
         height: 30
     - id: 15
@@ -10453,7 +10546,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: I do. But it is best for you to rediscover that for yourself.
+        value: 'I do. But it is best for you to rediscover that for yourself. '
         type: 0
         typeString: 
       - title: Sequence
@@ -10509,8 +10602,8 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: "Ah yes. The Obelisks. Created by the race of men and women as a way
-          to remember something very important. A key to their ancient rights of
-          survival\u2014Arann's Artifact."
+          to remember something very important. A key to your ancient rights of survival\u2014Arann's
+          Artifact."
         type: 0
         typeString: 
       - title: Sequence
@@ -10687,7 +10780,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 603.5749
+        x: 602.7425
         y: 337.47073
         width: 160
         height: 30
@@ -10797,8 +10890,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.3912503
+    canvasScrollPosition: {x: 16.167772, y: 3.0698292}
+    canvasZoom: 0.87125003
   - id: 13
     fields:
     - title: Title
@@ -14354,11 +14447,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 'You sure about all this?
-
-
-          If you do go out make sure you''re
-          properly equipped but even then its not safe. Best if you stay here.'
+        value: Its too dangerous out there.
         type: 0
         typeString: 
       - title: Sequence
@@ -14380,8 +14469,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 250
-        y: 103
+        x: 248.30511
+        y: 98.762726
         width: 160
         height: 30
     entryGroups: []
@@ -15757,6 +15846,216 @@ MonoBehaviour:
     entryGroups: []
     canvasScrollPosition: {x: 14.626687, y: 11.025894}
     canvasZoom: 1.06
+  - id: 29
+    fields:
+    - title: Title
+      value: Broken Obelisk Elf Ruins
+      type: 0
+      typeString: 
+    - title: Description
+      value: 
+      type: 0
+      typeString: 
+    - title: Actor
+      value: 1
+      type: 5
+      typeString: CustomFieldType_Actor
+    - title: Conversant
+      value: 30
+      type: 5
+      typeString: CustomFieldType_Actor
+    overrideSettings:
+      useOverrides: 0
+      overrideSubtitleSettings: 0
+      showNPCSubtitlesDuringLine: 1
+      showNPCSubtitlesWithResponses: 1
+      showPCSubtitlesDuringLine: 0
+      skipPCSubtitleAfterResponseMenu: 0
+      subtitleCharsPerSecond: 30
+      minSubtitleSeconds: 2
+      continueButton: 0
+      overrideSequenceSettings: 0
+      defaultSequence: 
+      defaultPlayerSequence: 
+      defaultResponseMenuSequence: 
+      overrideInputSettings: 0
+      alwaysForceResponseMenu: 1
+      includeInvalidEntries: 0
+      responseTimeout: 0
+      cancelSubtitle:
+        key: 27
+        buttonName: 
+      cancelConversation:
+        key: 27
+        buttonName: 
+    nodeColor: 
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 30
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: None()
+        type: 0
+        typeString: 
+      conversationID: 29
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 29
+        originDialogueID: 0
+        destinationConversationID: 29
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 327
+        y: 21
+        width: 160
+        height: 30
+    - id: 1
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 30
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 'A friendship unwanted
+
+          Unexpected worlds combine
+
+'
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 29
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 29
+        originDialogueID: 1
+        destinationConversationID: 29
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 330
+        y: 141
+        width: 160
+        height: 30
+    - id: 2
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 30
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: ....the rest is unreadable
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 29
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 330
+        y: 191
+        width: 160
+        height: 30
+    entryGroups: []
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 1
   syncInfo:
     syncActors: 0
     syncItems: 0
