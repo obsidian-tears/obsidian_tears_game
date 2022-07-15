@@ -390,7 +390,7 @@ MonoBehaviour:
   - id: 17
     fields:
     - title: Name
-      value: Tavern Customer 1
+      value: Mary
       type: 0
       typeString: 
     - title: Pictures
@@ -398,7 +398,7 @@ MonoBehaviour:
       type: 3
       typeString: CustomFieldType_Files
     - title: Description
-      value: 
+      value: Tavern Customer 1
       type: 0
       typeString: 
     - title: IsPlayer
@@ -412,7 +412,7 @@ MonoBehaviour:
   - id: 18
     fields:
     - title: Name
-      value: Tavern Customer 2
+      value: Bertah
       type: 0
       typeString: 
     - title: Pictures
@@ -420,7 +420,7 @@ MonoBehaviour:
       type: 3
       typeString: CustomFieldType_Files
     - title: Description
-      value: 
+      value: Tavern Customer 2
       type: 0
       typeString: 
     - title: IsPlayer
@@ -434,7 +434,7 @@ MonoBehaviour:
   - id: 19
     fields:
     - title: Name
-      value: Tavern Customer 3
+      value: Kenlick
       type: 0
       typeString: 
     - title: Pictures
@@ -442,7 +442,7 @@ MonoBehaviour:
       type: 3
       typeString: CustomFieldType_Files
     - title: Description
-      value: 
+      value: Tavern Customer 3
       type: 0
       typeString: 
     - title: IsPlayer
@@ -522,7 +522,7 @@ MonoBehaviour:
   - id: 23
     fields:
     - title: Name
-      value: Helmet Guard Blonde
+      value: Chandrius
       type: 0
       typeString: 
     - title: Pictures
@@ -530,7 +530,7 @@ MonoBehaviour:
       type: 3
       typeString: CustomFieldType_Files
     - title: Description
-      value: 
+      value: Helmet Guard Blonde
       type: 0
       typeString: 
     - title: IsPlayer
@@ -544,7 +544,7 @@ MonoBehaviour:
   - id: 24
     fields:
     - title: Name
-      value: Helmet Guard 6
+      value: Sventon
       type: 0
       typeString: 
     - title: Pictures
@@ -552,7 +552,7 @@ MonoBehaviour:
       type: 3
       typeString: CustomFieldType_Files
     - title: Description
-      value: without the purple in the eye
+      value: Helmet Guard Sixwithout the purple in the eye
       type: 0
       typeString: 
     - title: IsPlayer
@@ -566,7 +566,7 @@ MonoBehaviour:
   - id: 25
     fields:
     - title: Name
-      value: Guard 5
+      value: Bron
       type: 0
       typeString: 
     - title: Pictures
@@ -588,7 +588,7 @@ MonoBehaviour:
   - id: 26
     fields:
     - title: Name
-      value: guard 3
+      value: Richard
       type: 0
       typeString: 
     - title: Pictures
@@ -610,7 +610,7 @@ MonoBehaviour:
   - id: 27
     fields:
     - title: Name
-      value: Broken Obelisk East
+      value: Obelisk
       type: 0
       typeString: 
     - title: Pictures
@@ -618,7 +618,7 @@ MonoBehaviour:
       type: 3
       typeString: CustomFieldType_Files
     - title: Description
-      value: 
+      value: Broken Obelisk East
       type: 0
       typeString: 
     - title: IsPlayer
@@ -632,7 +632,7 @@ MonoBehaviour:
   - id: 28
     fields:
     - title: Name
-      value: Broken Obelisk West
+      value: Obelisk
       type: 0
       typeString: 
     - title: Pictures
@@ -640,7 +640,7 @@ MonoBehaviour:
       type: 3
       typeString: CustomFieldType_Files
     - title: Description
-      value: south by the river
+      value: south west by the river
       type: 0
       typeString: 
     - title: IsPlayer
@@ -654,7 +654,7 @@ MonoBehaviour:
   - id: 29
     fields:
     - title: Name
-      value: 'Broken Obelisk South '
+      value: Obelisk
       type: 0
       typeString: 
     - title: Pictures
@@ -676,7 +676,7 @@ MonoBehaviour:
   - id: 30
     fields:
     - title: Name
-      value: Broken Obelisk Elf Ruins
+      value: Obelisk
       type: 0
       typeString: 
     - title: Pictures
@@ -684,7 +684,7 @@ MonoBehaviour:
       type: 3
       typeString: CustomFieldType_Files
     - title: Description
-      value: 
+      value: inside elf ruines
       type: 0
       typeString: 
     - title: IsPlayer
@@ -698,7 +698,7 @@ MonoBehaviour:
   - id: 31
     fields:
     - title: Name
-      value: Obelisk lore church
+      value: 'Obelisk '
       type: 0
       typeString: 
     - title: Pictures
@@ -706,7 +706,7 @@ MonoBehaviour:
       type: 3
       typeString: CustomFieldType_Files
     - title: Description
-      value: 
+      value: inside lore church
       type: 0
       typeString: 
     - title: IsPlayer
@@ -2699,13 +2699,13 @@ MonoBehaviour:
       - originConversationID: 5
         originDialogueID: 0
         destinationConversationID: 5
-        destinationDialogueID: 1
+        destinationDialogueID: 6
         isConnector: 0
         priority: 2
       - originConversationID: 5
         originDialogueID: 0
         destinationConversationID: 5
-        destinationDialogueID: 6
+        destinationDialogueID: 1
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -3038,7 +3038,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: CurrentQuestState("GranGran1") == "success"
+      conditionsString: HasQuest("Find the Lore Master")
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -3101,7 +3101,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1.0989075, y: 15.384598}
+    canvasScrollPosition: {x: 0, y: 2.1977844}
     canvasZoom: 0.9100001
   - id: 6
     fields:
@@ -7691,6 +7691,12 @@ MonoBehaviour:
       - originConversationID: 9
         originDialogueID: 0
         destinationConversationID: 9
+        destinationDialogueID: 14
+        isConnector: 0
+        priority: 2
+      - originConversationID: 9
+        originDialogueID: 0
+        destinationConversationID: 9
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
@@ -7704,12 +7710,6 @@ MonoBehaviour:
         originDialogueID: 0
         destinationConversationID: 9
         destinationDialogueID: 22
-        isConnector: 0
-        priority: 2
-      - originConversationID: 9
-        originDialogueID: 0
-        destinationConversationID: 9
-        destinationDialogueID: 14
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -7967,8 +7967,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Those things are ancient! And I've only read about one other in a
-          book. Do you know how rare that is?
+        value: 'Those things are ancient! And I''ve only suspected their existence.
+          And YOU HAVE ONE! Do you know how rare that is? '
         type: 0
         typeString: 
       - title: Sequence
@@ -8104,6 +8104,12 @@ MonoBehaviour:
         originDialogueID: 8
         destinationConversationID: 9
         destinationDialogueID: 10
+        isConnector: 0
+        priority: 2
+      - originConversationID: 9
+        originDialogueID: 8
+        destinationConversationID: 9
+        destinationDialogueID: 29
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -8279,8 +8285,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 407.7831
-        y: 524.0929
+        x: 432.27792
+        y: 555.9361
         width: 160
         height: 30
     - id: 12
@@ -8332,8 +8338,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 418.39124
-        y: 581.14294
+        x: 440.43652
+        y: 608.0872
         width: 160
         height: 30
     - id: 13
@@ -8359,7 +8365,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Oh. Yes. Not good I suppose
+        value: "Oh. Yes. Not good I suppose. \n\nBut...you should know something"
         type: 0
         typeString: 
       - title: Sequence
@@ -8373,7 +8379,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 9
+        originDialogueID: 13
+        destinationConversationID: 9
+        destinationDialogueID: 11
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -8396,11 +8408,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: 1
+        value: 10
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 10
+        value: 1
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -8408,7 +8420,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Captain Herl sent me! Can you help me fight the monsters?
+        value: Oh! Captain Herl sent you?
         type: 0
         typeString: 
       - title: Sequence
@@ -8426,10 +8438,11 @@ MonoBehaviour:
       - originConversationID: 9
         originDialogueID: 14
         destinationConversationID: 9
-        destinationDialogueID: 15
+        destinationDialogueID: 28
         isConnector: 0
         priority: 2
-      conditionsString: CurrentQuestState("Find the Lore Master") == "active"
+      conditionsString: CurrentQuestState("Find the Lore Master") == "active" and
+        CurrentQuestState("Main Quest 2") == "unassigned"
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -8644,8 +8657,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 'But if you bring them to me, I can make you a weapon strong enough
-          to defeat the monster that guards the obelisk. '
+        value: 'But if you bring them to me, I can make you a weapon that will assist
+          you in beating  the monster that guards the obelisk at the Place of Prophecy. '
         type: 0
         typeString: 
       - title: Sequence
@@ -8848,8 +8861,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 889.33765
-        y: 6.756729
+        x: 891.54395
+        y: 7.8598785
         width: 160
         height: 30
     - id: 23
@@ -9010,7 +9023,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: SetQuestState("Main Quest 2") == "abandoned"
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -9114,13 +9127,117 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 886.9936
-        y: 684.4206
+        x: 920.02875
+        y: 680.29126
+        width: 160
+        height: 30
+    - id: 28
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 10
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Can you help me?
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 9
+        originDialogueID: 28
+        destinationConversationID: 9
+        destinationDialogueID: 15
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 784.6358
+        y: 363.1302
+        width: 160
+        height: 30
+    - id: 29
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 10
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Bye
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 236.75165
+        y: 495.34448
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 61.582275, y: 38.17083}
-    canvasZoom: 0.51649994
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.36649987
   - id: 10
     fields:
     - title: Title
@@ -12748,7 +12865,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: I hear a lot of talk in hear. Would you like to hear the local gossip?
+        value: I hear a lot of talk in here. Would you like to hear the local gossip?
         type: 0
         typeString: 
       - title: Sequence
@@ -13612,7 +13729,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 96.01758, y: 282.2159}
+    canvasScrollPosition: {x: 387.4999, y: 0}
     canvasZoom: 0.8800003
   - id: 16
     fields:
