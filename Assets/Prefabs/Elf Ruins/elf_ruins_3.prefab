@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7390570089233342267}
   - component: {fileID: 7390570089233342266}
-  - component: {fileID: 7390570089233342265}
+  - component: {fileID: 7887545292063526073}
   m_Layer: 0
   m_Name: elf_ruins_3
   m_TagString: Untagged
@@ -85,8 +85,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
---- !u!61 &7390570089233342265
-BoxCollider2D:
+--- !u!60 &7887545292063526073
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -98,7 +98,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 3.1011105, y: 0.19675446}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.29376122, y: 0.3444001}
@@ -108,6 +108,23 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 14.473751, y: 3.4239044}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 10.328742, y: -0.8996508}
+      - {x: 10.2827215, y: 0.26627326}
+      - {x: 8.133246, y: 0.88901496}
+      - {x: 6.3179693, y: 1.2770765}
+      - {x: 1.3639593, y: 2.329933}
+      - {x: 0.73165894, y: 2.3048706}
+      - {x: -0.7010498, y: 1.2944641}
+      - {x: -3.3583002, y: 0.8847425}
+      - {x: -4.296258, y: -0.024650812}
+      - {x: -4.296258, y: -0.4621508}
+      - {x: -3.796258, y: -1.0871508}
+      - {x: -2.8763971, y: -1.8996508}
+      - {x: -0.6734009, y: -1.3427124}
+      - {x: -0.23375797, y: -0.5246508}
+      - {x: 5.516242, y: -1.7746508}
+      - {x: 7.766242, y: -2.2746508}
+      - {x: 8.516242, y: -1.8371508}
+      - {x: 9.703742, y: -1.7121508}
