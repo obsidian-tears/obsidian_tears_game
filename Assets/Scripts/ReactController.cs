@@ -9,6 +9,7 @@ public class ReactController : MonoBehaviour
     [SerializeField] MySignal freezeSignal;
     [SerializeField] MySignal unfreezeSignal;
     [SerializeField] GameObject loadingIndicator;
+    [SerializeField] GameObject blocker;
     [DllImport("__Internal")] private static extern void LoadGame(string objectName);
     [DllImport("__Internal")] private static extern void SaveGame(string saveGameData, string objectName);
     [DllImport("__Internal")] private static extern void OpenChest(string chestId, string objectName);
@@ -23,14 +24,15 @@ public class ReactController : MonoBehaviour
     // calls the react function to load the game, start loading
     public void SignalLoadGame() {
         loadingIndicator.SetActive(true);
+        blocker.SetActive(true);
         // call react fx
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
         LoadGame(gameObject.name);
 #endif
 #if UNITY_WEBGL == false || UNITY_EDITOR == true
         loadingIndicator.SetActive(false);
+        blocker.SetActive(false);
 #endif
-        // TODO start loading
         Debug.Log("sent load game message");
     }
 
@@ -39,13 +41,14 @@ public class ReactController : MonoBehaviour
         PixelCrushers.SavedGameData gameData = PixelCrushers.SaveSystem.Deserialize<PixelCrushers.SavedGameData>(fromReact);
         PixelCrushers.SaveSystem.LoadGame(gameData);
         loadingIndicator.SetActive(false);
+        blocker.SetActive(false);
         Debug.Log("load the game: " + fromReact);
-
     }
 
     // calls the react function to save the game, start loading
     public void SignalSaveGame() {
         loadingIndicator.SetActive(true);
+        blocker.SetActive(true);
         // get saved game data
         PixelCrushers.SavedGameData gameData = PixelCrushers.SaveSystem.RecordSavedGameData();
         string stringData = PixelCrushers.SaveSystem.Serialize(gameData);
@@ -55,6 +58,7 @@ public class ReactController : MonoBehaviour
 #endif
 #if UNITY_WEBGL == false || UNITY_EDITOR == true
         loadingIndicator.SetActive(false);
+        blocker.SetActive(false);
 #endif
         Debug.Log("sent save signal: " + stringData);
 
@@ -66,6 +70,7 @@ public class ReactController : MonoBehaviour
         PixelCrushers.SavedGameData gameData = PixelCrushers.SaveSystem.Deserialize<PixelCrushers.SavedGameData>(fromReact);
         PixelCrushers.SaveSystem.ApplySavedGameData(gameData);
         loadingIndicator.SetActive(false);
+        blocker.SetActive(false);
         Debug.Log("apply save data: " + fromReact);
     }
 
