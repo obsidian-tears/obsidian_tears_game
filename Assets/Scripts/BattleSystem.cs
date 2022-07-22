@@ -347,8 +347,8 @@ public class BattleSystem : MonoBehaviour
     public DamageValue CalculateDamage(int attack, int defense, float criticalHitChance)
     {
         //Get value of damage
-        float denominator = 50 + defense;
-        float factor = 50 / denominator;
+        float denominator = attack + defense;
+        float factor = attack / denominator;
         float initalValue = attack * factor;
 
         //Randomize

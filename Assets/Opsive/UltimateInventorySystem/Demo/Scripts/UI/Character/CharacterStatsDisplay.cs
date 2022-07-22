@@ -33,6 +33,8 @@ namespace Opsive.UltimateInventorySystem.Demo.UI.Menus.Main.Inventory
         [SerializeField] protected Text m_DefenseValueText;
         [Tooltip("The speed text.")]
         [SerializeField] protected Text m_SpeedValueText;
+        [Tooltip("The speed text.")]
+        [SerializeField] protected Text m_MagicPowerText;
 
         private void Start()
         {
@@ -50,7 +52,7 @@ namespace Opsive.UltimateInventorySystem.Demo.UI.Menus.Main.Inventory
         /// <summary>
         /// Draw the stats.
         /// </summary>
-        public void Draw(int healthMax, int magicMax, int attackTotal, int defenseTotal, int speedTotal, int healthTotal, int magicTotal)
+        public void Draw(int healthMax, int magicMax, int attackTotal, int defenseTotal, int speedTotal, int healthTotal, int magicTotal, int magicPower)
         {
 
             m_MaxHpValueText.text = healthTotal + "/" + healthMax.ToString();
@@ -58,7 +60,7 @@ namespace Opsive.UltimateInventorySystem.Demo.UI.Menus.Main.Inventory
             m_AttackValueText.text = attackTotal.ToString();
             m_DefenseValueText.text = defenseTotal.ToString();
             m_SpeedValueText.text = speedTotal.ToString();
-
+            m_MagicPowerText.text = magicPower.ToString();
         }
     }
 }
