@@ -172,7 +172,7 @@ namespace Opsive.UltimateInventorySystem.Core.InventoryCollections
         /// <param name="itemInfo">The item info being added.</param>
         /// <param name="stackTarget">The item stack where the item should be added.</param>
         /// <returns>Returns the item info that was actually added.</returns>
-        public override ItemInfo AddItem(ItemInfo itemInfo, ItemStack stackTarget = null)
+        public override ItemInfo AddItem(ItemInfo itemInfo, ItemStack stackTarget = null, bool notify=true)
         {
             return AddItem(itemInfo, GetTargetSlotIndex(itemInfo.Item));
         }

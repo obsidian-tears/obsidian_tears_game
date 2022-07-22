@@ -509,7 +509,7 @@ namespace Opsive.UltimateInventorySystem.Core.InventoryCollections
         /// <param name="itemInfo">The amount of item being added.</param>
         /// <param name="stackTarget">The item stack where the item should be added.</param>
         /// <returns>Returns the number of items added, 0 if no item was added.</returns>
-        public virtual ItemInfo AddItem(ItemInfo itemInfo, ItemStack stackTarget = null)
+        public virtual ItemInfo AddItem(ItemInfo itemInfo, ItemStack stackTarget = null, bool notify=true)
         {
             var canAddItemResult = CanAddItem(itemInfo);
             var canAddAmount = canAddItemResult.HasValue ? canAddItemResult.Value.Amount : 0;
@@ -520,7 +520,7 @@ namespace Opsive.UltimateInventorySystem.Core.InventoryCollections
                 var itemInfoToAdd = (item, amountToAdd: canAddAmount, itemInfo);
 
                 if (!item.IsUnique || canAddAmount <= 1) {
-                    itemInfoAdded =  AddInternal(itemInfoToAdd, stackTarget);
+                    itemInfoAdded =  AddInternal(itemInfoToAdd, stackTarget, notify);
                 } else {
                     var originalResult = AddItem((item, 1, itemInfo), stackTarget);
 
@@ -600,10 +600,10 @@ namespace Opsive.UltimateInventorySystem.Core.InventoryCollections
         /// <param name="itemDefinition">The item being added.</param>
         /// <param name="amount">The amount of that item being added.</param>
         /// <returns>Returns the number of items added, 0 if no item was added.</returns>
-        public virtual ItemInfo AddItem(ItemDefinition itemDefinition, int amount = 1)
+        public virtual ItemInfo AddItem(ItemDefinition itemDefinition, int amount = 1, bool notify = true)
         {
             if (itemDefinition == null) { return ItemInfo.None; }
-            return AddItem((ItemInfo)(InventorySystemManager.CreateItem(itemDefinition), amount));
+            return AddItem((ItemInfo)(InventorySystemManager.CreateItem(itemDefinition), amount), null, notify);
         }
 
         /// <summary>
