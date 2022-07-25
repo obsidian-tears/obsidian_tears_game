@@ -21,6 +21,8 @@ public class CharStatsSaver : Saver
         public int xp;
         public int xpToLevelUp;
 
+        public int pointsRemaining;
+
         public int healthBase;
         public int healthTotal;
         public int healthMax;
@@ -31,6 +33,9 @@ public class CharStatsSaver : Saver
 
         public int attackBase;
         public int attackTotal;
+
+        public int magicPowerBase;
+        public int magicPowerTotal;
 
         public int defenseBase;
         public int defenseTotal;
@@ -51,6 +56,7 @@ public class CharStatsSaver : Saver
         data.level = charStats.level;
         data.xp = charStats.xp;
         data.xpToLevelUp = charStats.xpToLevelUp;
+        data.pointsRemaining = charStats.pointsRemaining;
         data.healthBase = charStats.healthBase;
         data.healthTotal = charStats.healthTotal;
         data.healthMax = charStats.healthMax;
@@ -59,6 +65,8 @@ public class CharStatsSaver : Saver
         data.magicMax = charStats.magicMax;
         data.attackBase = charStats.attackBase;
         data.attackTotal = charStats.attackTotal;
+        data.magicPowerBase = charStats.magicPowerBase;
+        data.magicPowerTotal = charStats.magicPowerTotal;
         data.defenseBase = charStats.defenseBase;
         data.defenseTotal = charStats.defenseTotal;
         data.speedBase = charStats.speedBase;
@@ -81,6 +89,7 @@ public class CharStatsSaver : Saver
         charStats.level = data.level;
         charStats.xp = data.xp;
         charStats.xpToLevelUp = data.xpToLevelUp;
+        charStats.pointsRemaining = data.pointsRemaining;
         charStats.healthBase = data.healthBase;
         charStats.healthTotal = data.healthTotal;
         charStats.healthMax = data.healthMax;
@@ -89,6 +98,8 @@ public class CharStatsSaver : Saver
         charStats.magicMax = data.magicMax;
         charStats.attackBase = data.attackBase;
         charStats.attackTotal = data.attackTotal;
+        charStats.magicPowerBase = data.magicPowerBase;
+        charStats.magicPowerTotal = data.magicPowerTotal;
         charStats.defenseBase = data.defenseBase;
         charStats.defenseTotal = data.defenseTotal;
         charStats.speedBase = data.speedBase;
