@@ -21,6 +21,8 @@ public class CharStats : MonoBehaviour
     public int xp;
     public int xpToLevelUp;
 
+    public int pointsRemaining;
+
     public int healthBase;
     public int healthTotal;
     [ReadOnly] public int healthMax;
@@ -34,6 +36,10 @@ public class CharStats : MonoBehaviour
 
     public int attackBase;
     [ReadOnly] public int attackTotal;
+
+
+    public int magicPowerBase;
+    [ReadOnly] public int magicPowerTotal;
 
     public int defenseBase;
     [ReadOnly] public int defenseTotal;
@@ -70,7 +76,8 @@ public class CharStats : MonoBehaviour
             defenseTotal = defenseBase + equipper.GetEquipmentStatInt("Defense");
             speedTotal = speedBase + equipper.GetEquipmentStatInt("Speed");
             criticalHitProbability = equipper.GetEquipmentStatFloat("CriticalChance");
-            statsDisplay.Draw(healthMax, magicMax, attackTotal, defenseTotal, speedTotal, healthTotal, magicTotal);
+            magicPowerTotal = magicPowerBase + equipper.GetEquipmentStatInt("MagicPower");
+            statsDisplay.Draw(healthMax, magicMax, attackTotal, defenseTotal, speedTotal, healthTotal, magicTotal, magicPowerTotal);
         }
 
         //This is an enemy
