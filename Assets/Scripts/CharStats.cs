@@ -129,6 +129,11 @@ public class CharStats : MonoBehaviour
         if (equipper != null && statsDisplay != null)
             UpdateStats();
     }
+
+    public void AddXP(int xPAmt)
+    {
+        xp += xPAmt;
+    }
 }
 
 

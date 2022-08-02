@@ -59,6 +59,9 @@ public class BattleSystem : MonoBehaviour
     public AudioSource musicSource;
     public AudioClip deathSound;
 
+    public UnityEvent onWin;
+    public UnityEvent onLose;
+
 
     void Start()
     {
@@ -72,7 +75,12 @@ public class BattleSystem : MonoBehaviour
             musicSource.Play();
             
         }
-            
+
+
+        if (onWin == null)
+            onWin = new UnityEvent();
+        if (onLose == null)
+            onLose = new UnityEvent();
 
         state = BattleState.START;
 
@@ -230,16 +238,15 @@ public class BattleSystem : MonoBehaviour
                 disappearTimer -= Time.deltaTime;
             }
 
-            inventory.AddItem(currentBattle.enemy.itemDrop, 1);
+            onWin.Invoke();
+
+            playerStats.xp += currentBattle.enemy.xpDrop;
             var currencyOwner = inventory.GetCurrencyComponent<CurrencyCollection>() as CurrencyOwner;
             var ownerCurrencyCollection = currencyOwner.CurrencyAmount;
             var gold = InventorySystemManager.GetCurrency("Gold");
             ownerCurrencyCollection.AddCurrency(gold, currentBattle.enemy.goldDrop);
 
             yield return new WaitForSeconds(2f);
-
-            portal.setDestinationToPreviousScene();
-            portal.UsePortal();
         }
         else if (state == BattleState.LOST)
         {
@@ -247,6 +254,8 @@ public class BattleSystem : MonoBehaviour
             dialogueText.text = "Phendrin has been defeated.";
             portal.destinationSceneName = "Main Menu";
             musicSource.PlayOneShot(deathSound);
+
+            onLose.Invoke();
             yield return new WaitForSeconds(9f);
             
             portal.UsePortal();

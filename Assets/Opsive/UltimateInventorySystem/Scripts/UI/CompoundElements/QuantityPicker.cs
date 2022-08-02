@@ -9,6 +9,7 @@ namespace Opsive.UltimateInventorySystem.UI.CompoundElements
     using Opsive.UltimateInventorySystem.Input;
     using System;
     using UnityEngine;
+    using UnityEngine.Events;
     using UnityEngine.EventSystems;
     using UnityEngine.UI;
     using Text = Opsive.Shared.UI.Text;
@@ -20,6 +21,8 @@ namespace Opsive.UltimateInventorySystem.UI.CompoundElements
     {
         public event Action<int> OnAmountChanged;
         public event Action OnMainButtonClicked;
+
+        public UnityEvent onQuantityChanged;
 
         [Tooltip("The main action button, press when confirm quantity.")]
         [SerializeField] protected ActionButton m_MainButton;
@@ -59,6 +62,10 @@ namespace Opsive.UltimateInventorySystem.UI.CompoundElements
         /// </summary>
         void Start()
         {
+            if (onQuantityChanged == null)
+                onQuantityChanged = new UnityEvent();
+
+
             if (m_PlusQuantity != null) {
                 m_PlusQuantity.onClick.AddListener(() => AdjustAmount(1));
             }
@@ -112,6 +119,9 @@ namespace Opsive.UltimateInventorySystem.UI.CompoundElements
         {
             var newAmount = Mathf.Clamp(m_Quantity + delta, m_MinQuantity, m_MaxQuantity);
             QuantityChanged(newAmount);
+
+
+            onQuantityChanged.Invoke();
         }
 
         /// <summary>
