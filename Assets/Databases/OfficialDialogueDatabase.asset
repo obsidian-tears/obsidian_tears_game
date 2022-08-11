@@ -2274,8 +2274,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: OH alright. We've lived here for hundreds of years. Only the men go
-          outside the walls.
+        value: OH alright. We've lived here for hundreds of years. We rarely go outside
+          the walls because its so dangerous. But even recently it seems monsters
+          are moving closer to us.
         type: 0
         typeString: 
       - title: Sequence
@@ -2365,8 +2366,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 332.82352
-        y: 319.82352
+        x: 329.16498
+        y: 318.604
         width: 160
         height: 30
     - id: 9
@@ -2526,7 +2527,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 84.56656}
+    canvasScrollPosition: {x: 0, y: 85.78607}
     canvasZoom: 0.8200002
   - id: 4
     fields:
@@ -6481,7 +6482,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 78
+        destinationConversationID: 6
+        destinationDialogueID: 87
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -6489,7 +6496,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1982.3972
+        x: 1973.0222
         y: 1567.105
         width: 160
         height: 30
@@ -6949,9 +6956,58 @@ MonoBehaviour:
         y: 551.578
         width: 160
         height: 30
+    - id: 87
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 'Now go find Captain Herl! You''ll find him by the north guardhouse. '
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: givequest("GranGran, "GranGran1")
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1968.3594
+        y: 1617.105
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1904.5132, y: 371.60022}
-    canvasZoom: 0.93999964
+    canvasScrollPosition: {x: 1616.2859, y: 1158.8245}
+    canvasZoom: 0.46
   - id: 7
     fields:
     - title: Title
@@ -9424,8 +9480,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.40000045
+    canvasScrollPosition: {x: 91.59552, y: 576.51227}
+    canvasZoom: 0.9100001
   - id: 9
     fields:
     - title: Title
@@ -10362,8 +10418,8 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: But as Lore Master I do have...knowledge of how to make a powerful
-          artifact. Long ago it was split into three parts and hidden around and
-          near our town. Its only supposed to be legend...
+          artifact that could help you. Long ago it was split into three parts and
+          hidden around and near our town. Its only supposed to be legend...
         type: 0
         typeString: 
       - title: Sequence
@@ -10391,7 +10447,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 850.30914
+        x: 851.5316
         y: 550.0947
         width: 160
         height: 30
@@ -10418,9 +10474,10 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 'Legend has that each is hidden in a chest. The Rune of Doom is supposedly
-          hidden in a cave beneath the dead. The other two lie to the North and were
-          hidden in caves as well.
+        value: 'Legend has that each is hidden in a chest. One was hidden in a cave
+          beneath the dead. The other two lie to the North. Find the Elf Ruins. I
+          heard there are still treasures inside. Perhaps they can guide you on where
+          to go too.
 
 
           That''s all I know!'
@@ -10484,8 +10541,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 'But if you bring them to me, I can make you a weapon that will assist
-          you in beating  the monster that guards the obelisk at the Place of Prophecy. '
+        value: 'But if you bring them to me, I can make you a weapon that will help
+          you defeat  the monster that guards the obelisk at the Place of Prophecy. '
         type: 0
         typeString: 
       - title: Sequence
@@ -11124,8 +11181,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 631.7405, y: 319.808}
-    canvasZoom: 0.9679999
+    canvasScrollPosition: {x: 532.5221, y: 394.74725}
+    canvasZoom: 0.8179999
   - id: 10
     fields:
     - title: Title
@@ -12027,6 +12084,12 @@ MonoBehaviour:
         originDialogueID: 0
         destinationConversationID: 12
         destinationDialogueID: 19
+        isConnector: 0
+        priority: 2
+      - originConversationID: 12
+        originDialogueID: 0
+        destinationConversationID: 12
+        destinationDialogueID: 24
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -13206,9 +13269,283 @@ MonoBehaviour:
         y: 439.3733
         width: 160
         height: 30
+    - id: 24
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 13
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Can you help me on my Quest to find Tana's artifacts?
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 12
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 12
+        originDialogueID: 24
+        destinationConversationID: 12
+        destinationDialogueID: 25
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1040.1748
+        y: 174.97357
+        width: 160
+        height: 30
+    - id: 25
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 13
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 'You''ll want to explore each cave system near by. Cave entrance''s
+          look like the one behind me. '
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 12
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 12
+        originDialogueID: 25
+        destinationConversationID: 12
+        destinationDialogueID: 26
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1041.2844
+        y: 221.71637
+        width: 160
+        height: 30
+    - id: 26
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 13
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 'I know of a few. Heading west from this shrine will lead you to a
+          dead forest. There is a cave at the end. If you proceed north after that,
+          you''ll come to a pond. I once visited a cave by that as well. '
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 12
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 12
+        originDialogueID: 26
+        destinationConversationID: 12
+        destinationDialogueID: 27
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1040.2106
+        y: 271.71637
+        width: 160
+        height: 30
+    - id: 27
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 13
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 'North of here is a plateau. There is an ancient evil at the obelisk
+          there. Something, or someone, doesn''t want you to find out what it says. '
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 12
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 12
+        originDialogueID: 27
+        destinationConversationID: 12
+        destinationDialogueID: 28
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1040.2106
+        y: 321.71637
+        width: 160
+        height: 30
+    - id: 28
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 13
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: East of the Plateau the forest is swarmed with spiders. Nobody who
+          wants to live ventures there. Only the bravest enter the Valley of Bones.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 12
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1040.2106
+        y: 371.71637
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 36.52716}
-    canvasZoom: 0.69125015
+    canvasScrollPosition: {x: 0, y: 10.389587}
+    canvasZoom: 0.48125026
   - id: 13
     fields:
     - title: Title
