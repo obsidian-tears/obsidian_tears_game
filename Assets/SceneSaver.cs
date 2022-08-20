@@ -17,6 +17,7 @@ public class SceneSaver : MonoBehaviour
         SaveData saveData = new SaveData();
         saveData.gameObjects = gameObjectsToSave.ToArray();
         saveData.dateTime = System.DateTime.Now.ToString();
+        saveData.versionNumber = "0.1.0";
         string jsonSave = JsonUtility.ToJson(saveData);
         File.WriteAllText(Application.persistentDataPath + "/CreatorModeSave.json", jsonSave);
     }
@@ -29,6 +30,7 @@ public class SceneSaver : MonoBehaviour
     class SaveData {
         public GameObject[] gameObjects;
         public string dateTime;
+        public string versionNumber;
     }
 
     class GameObjectData {
