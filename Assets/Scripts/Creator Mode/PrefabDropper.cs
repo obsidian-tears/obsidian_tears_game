@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.EventSystems;
 public class PrefabDropper : MonoBehaviour
 {
 
@@ -13,31 +13,51 @@ public class PrefabDropper : MonoBehaviour
     [SerializeField]
     public Transform saveSpace;
 
+    public delegate GameObject GetPrefab();
+    private GetPrefab getPrefab;
+    
+
     void Update() {
 
+        // Deselect selected prefab on right click
         if (Input.GetMouseButtonDown(1)) DeSelect();
        
+        // Don't bother continuing if nothing is selected
         if (selectedPrefab == null) return;
 
+        // Find the game world coordinates that correspond to the current mouse location
         Vector2 worldMouseLoc = GetMouseWorldLoc();
 
+        // Make ghost object follow the mouse
         if (ghostObject != null) ghostObject.transform.position = worldMouseLoc;
         
-        if (Input.GetMouseButtonDown(0)) {
+        // On left click, as long as cursor is not over UI element, place selected prefab in the world
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject()) {
             InstantiateToSaveSpace(selectedPrefab, worldMouseLoc);
+            // Select new prefab from Prefab Button Mapper
+            Select(getPrefab());
         }
 
     }
 
-    public void Select(GameObject prefab) {
+    // Using a selector enables one button to be mapped to multiple prefabs
+    public void SetSelector(GetPrefab getPrefab) {
+        this.getPrefab = getPrefab;
+        Select(getPrefab());
+    }
+
+    private void Select(GameObject prefab) {
+        // Cleanup current selection
         DeSelect();
 
         selectedPrefab = prefab;
   
+        // Instantiate a ghost object to follow the mouse
         Vector2 worldMouseLoc = GetMouseWorldLoc();
-
         ghostObject = Instantiate(selectedPrefab, new Vector3(worldMouseLoc.x, worldMouseLoc.y, 0), Quaternion.identity);
         Component[] ghostComponents = ghostObject.GetComponents(typeof(Component));
+        
+        // Strip ghost object of all components except for sprite renderer so it doesn't interact with the game
         foreach (Component component in ghostComponents) {
             if (component is SpriteRenderer) {
                 SpriteRenderer sr = (SpriteRenderer)component;
@@ -50,7 +70,7 @@ public class PrefabDropper : MonoBehaviour
 
     }
 
-    void DeSelect() {
+    public void DeSelect() {
         selectedPrefab = null;
         if(ghostObject != null) {
             Destroy(ghostObject);
