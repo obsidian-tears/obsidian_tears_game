@@ -23,14 +23,14 @@ public class PrefabEditor : MonoBehaviour
         if (selectedPrefabId == -1) return;
 
         // Find the game world coordinates that correspond to the current mouse location
-        Vector2 worldMouseLoc = GetMouseWorldLoc();
+        Vector2 worldMousePos = GetMouseWorldPos();
 
         // Make ghost object follow the mouse
-        if (ghostObject != null) ghostObject.transform.position = worldMouseLoc;
+        if (ghostObject != null) ghostObject.transform.position = worldMousePos;
         
         // On left click, as long as cursor is not over UI element, place selected prefab in the world
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject()) {
-            InstantiateSelectedPrefabToSaveSpaceWithId(worldMouseLoc);
+            InstantiateSelectedPrefabToSaveSpaceWithId(worldMousePos);
             // Select new prefab from Prefab Button Mapper
             Select(getNextPrefabId());
         }
@@ -52,8 +52,8 @@ public class PrefabEditor : MonoBehaviour
     }
 
     private void InstantiateGhostObject(GameObject prefab) {
-        Vector2 worldMouseLoc = GetMouseWorldLoc();
-        ghostObject = Instantiate(prefab, new Vector3(worldMouseLoc.x, worldMouseLoc.y, 0), Quaternion.identity);
+        Vector3 worldMouseLoc = GetMouseWorldPos();
+        ghostObject = Instantiate(prefab, worldMouseLoc, Quaternion.identity);
         Component[] ghostComponents = ghostObject.GetComponents(typeof(Component));
         
         // Strip ghost object of all components except for sprite renderer so it doesn't interact with the game
@@ -75,10 +75,9 @@ public class PrefabEditor : MonoBehaviour
         }
     }
 
-    Vector2 GetMouseWorldLoc() {
-        Vector2 screenMouseLoc = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-        Vector2 worldMouseLoc = Camera.main.ScreenToWorldPoint(screenMouseLoc);
-        return worldMouseLoc;
+    Vector3 GetMouseWorldPos() {
+        Vector3 worldMousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
+        return worldMousePos;
     }
 
     private GameObject InstantiateSelectedPrefabToSaveSpaceWithId(Vector2 position) {
