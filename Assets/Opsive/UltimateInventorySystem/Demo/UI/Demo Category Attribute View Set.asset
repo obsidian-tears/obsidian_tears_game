@@ -18,19 +18,59 @@ MonoBehaviour:
       m_ItemCategory: {fileID: 11400000, guid: 8073554c06c8bb84a94980124840782c, type: 2}
     m_AttributeViews:
     - m_Name: Attack
-      m_Object: {fileID: 4622949086825378269, guid: a54e7fcbd7b9d084eb9822e57afbe63f, type: 3}
+      m_Object: {fileID: 4622949086825378269, guid: 1b7ca0b5167052540a61bb9572cccb3c, type: 3}
+    - m_Name: Defense
+      m_Object: {fileID: 4622949086825378269, guid: cb8144f8c79f5564897d826f674810c9, type: 3}
+    - m_Name: Speed
+      m_Object: {fileID: 4622949086825378269, guid: 0e280565ef1250845821dca88b75668a, type: 3}
+    - m_Name: MaxHp
+      m_Object: {fileID: 4622949086825378269, guid: 6a5dbca9abe6b564c881535815c8b84f, type: 3}
+    - m_Name: MaxMp
+      m_Object: {fileID: 4622949086825378269, guid: 31b2243c8bc9fdf4caafe171196a4eea, type: 3}
+    - m_Name: MagicPower
+      m_Object: {fileID: 4622949086825378269, guid: 61d01efb2736db04a9bc9232096701dc, type: 3}
   - m_Category:
       m_Name: Armor
       m_ItemCategory: {fileID: 11400000, guid: b3c0ab0078e219748806ae7737c0e09f, type: 2}
     m_AttributeViews:
     - m_Name: Defense
-      m_Object: {fileID: 5855478440590369450, guid: 339111acbc46acd4fa8237f6dad841f8, type: 3}
+      m_Object: {fileID: 4622949086825378269, guid: cb8144f8c79f5564897d826f674810c9, type: 3}
+    - m_Name: MaxHp
+      m_Object: {fileID: 4622949086825378269, guid: 6a5dbca9abe6b564c881535815c8b84f, type: 3}
+    - m_Name: MaxMp
+      m_Object: {fileID: 4622949086825378269, guid: 31b2243c8bc9fdf4caafe171196a4eea, type: 3}
+    - m_Name: Speed
+      m_Object: {fileID: 4622949086825378269, guid: 0e280565ef1250845821dca88b75668a, type: 3}
+    - m_Name: Attack
+      m_Object: {fileID: 4622949086825378269, guid: 1b7ca0b5167052540a61bb9572cccb3c, type: 3}
+    - m_Name: MagicPower
+      m_Object: {fileID: 4622949086825378269, guid: 61d01efb2736db04a9bc9232096701dc, type: 3}
   - m_Category:
       m_Name: Consumable
       m_ItemCategory: {fileID: 11400000, guid: f678ae8714dafb24b8a959254c366589, type: 2}
     m_AttributeViews:
     - m_Name: HealAmount
-      m_Object: {fileID: 371242242216513171, guid: 81536a4cd41135a47901799ebf1616d5, type: 3}
+      m_Object: {fileID: 371242242216513171, guid: a96cb95a08dc73f48a0eaa7f08970ad1, type: 3}
+    - m_Name: ManaAmount
+      m_Object: {fileID: 371242242216513171, guid: 9201416bce9a9b24db4d664dab2c87d8, type: 3}
+  - m_Category:
+      m_Name: Spells
+      m_ItemCategory: {fileID: 11400000, guid: 6b4363021b298c545bcadbc4ee01a3a6, type: 2}
+    m_AttributeViews:
+    - m_Name: Mana Needed
+      m_Object: {fileID: 371242242216513171, guid: 7e6d5ef6289500b438ee7966178126a1, type: 3}
+    - m_Name: Magic Power Added
+      m_Object: {fileID: 371242242216513171, guid: 2bc768d65a123144990bf07fd0b121a5, type: 3}
+    - m_Name: Magic Power Multiplier
+      m_Object: {fileID: 371242242216513171, guid: 9ba32b263bc9ac54cb1be6a50b9b76f5, type: 3}
+    - m_Name: Heal Amount
+      m_Object: {fileID: 371242242216513171, guid: a96cb95a08dc73f48a0eaa7f08970ad1, type: 3}
+    - m_Name: Frost Damage
+      m_Object: {fileID: 371242242216513171, guid: dd4828d9b6dcff1479a0fbd0c7951b82, type: 3}
+    - m_Name: Lightning Damage
+      m_Object: {fileID: 371242242216513171, guid: 8f52ce84ff353e540b76f30ababcce16, type: 3}
+    - m_Name: Fire Damage
+      m_Object: {fileID: 371242242216513171, guid: 749773be4b9eebb42911012536d8474a, type: 3}
   - m_Category:
       m_Name: Upgrade Item
       m_ItemCategory: {fileID: 11400000, guid: d1fdeb10652ecbc478973f0139f8aa68, type: 2}

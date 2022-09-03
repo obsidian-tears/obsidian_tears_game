@@ -8,6 +8,7 @@ namespace Opsive.UltimateInventorySystem.UI.Item.AttributeViewModules
 {
     using Opsive.UltimateInventorySystem.Core.DataStructures;
     using Opsive.UltimateInventorySystem.UI.CompoundElements;
+    using System;
     using UnityEngine;
     using Text = Opsive.Shared.UI.Text;
 
@@ -39,7 +40,41 @@ namespace Opsive.UltimateInventorySystem.UI.Item.AttributeViewModules
                 return;
             }
 
-            m_AttributeText.text = value.ToString();
+            Type t = value.GetType();
+
+            if (t.Equals(typeof(int)))
+            {
+                int intValue = System.Convert.ToInt32(value);
+
+                if (intValue == 0)
+                {
+                    gameObject.SetActive(false);
+                }
+            }
+            else if (t.Equals(typeof(float)))
+            {
+                float floatValue = Convert.ToSingle(value);
+                if(floatValue == 1)
+                {
+                    gameObject.SetActive(false);
+                }
+
+            }
+
+
+            if (t.Equals(typeof(bool)))
+            {
+                bool boolValue = (bool)value;
+                if(boolValue != true)
+                {
+                    gameObject.SetActive(false);
+                }
+            }
+            else
+            {
+                m_AttributeText.text = value.ToString();
+            }
+            
         }
 
         /// <summary>
