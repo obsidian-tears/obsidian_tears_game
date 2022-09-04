@@ -6,5 +6,5 @@ using UnityEngine;
 public class PlayerSpells : ScriptableObject
 {
     private void OnEnable() => hideFlags = HideFlags.DontUnloadUnusedAsset;
-    public List<Spell> mySpells = new List<Spell>();
+    public List<SpellObject> mySpells = new List<SpellObject>();
 }

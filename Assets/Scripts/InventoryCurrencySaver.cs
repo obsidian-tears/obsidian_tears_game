@@ -79,6 +79,8 @@ public class InventoryCurrencySaver : Saver
 
     public override void ApplyData(string s)
     {
+        Debug.Log("Applying inventory currency saver data");
+
         if (string.IsNullOrEmpty(s)) return;
         var data = SaveSystem.Deserialize<Data>(s);
         if (data == null) return;
@@ -96,6 +98,7 @@ public class InventoryCurrencySaver : Saver
             {
                 foreach (string itemDefString in data.items)
                 {
+                    Debug.Log("Adding " + itemDefString);
                     uint defId = uint.Parse(itemDefString);
                     ItemDefinition itemDef =
                         InventorySystemManager.GetItemDefinition(defId);

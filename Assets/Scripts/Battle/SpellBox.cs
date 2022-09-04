@@ -21,7 +21,7 @@ public class SpellBox : MonoBehaviour
     {
         if (playerSpells)
         {
-            foreach (Spell spell in playerSpells.mySpells)
+            foreach (SpellObject spell in playerSpells.mySpells)
             {
                 if (spell.canUseInBattle)
                 {
@@ -62,7 +62,7 @@ public class SpellBox : MonoBehaviour
         return attackController.Spell(spellSlots[selectedIndex].spell);
     }
 
-    public void AddSpell(Spell newSpell) {
+    public void AddSpell(SpellObject newSpell) {
         playerSpells.mySpells.Add(newSpell);
     }
 

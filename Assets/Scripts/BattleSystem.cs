@@ -255,6 +255,8 @@ public class BattleSystem : MonoBehaviour
             portal.destinationSceneName = "Main Menu";
             musicSource.PlayOneShot(deathSound);
 
+            
+
             onLose.Invoke();
             yield return new WaitForSeconds(9f);
             

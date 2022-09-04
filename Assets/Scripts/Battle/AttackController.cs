@@ -32,7 +32,7 @@ public class AttackController : MonoBehaviour
         return damage;
     }
 
-    public float Spell(Spell spell)
+    public float Spell(SpellObject spell)
     {
         if (currentMagic.value < spell.spellCost) return -1f;
         currentMagic.value -= spell.spellCost;

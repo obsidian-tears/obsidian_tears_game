@@ -32,7 +32,7 @@ public class LevelManager : MonoBehaviour
                             float xAgility, float xMagicPower, float xMaxHealth, float xMaxMagic)
     {
         int dLevel = learningTrack.levelsExp.xp.Count >= currentLevel && xp >= learningTrack.levelsExp.xp[currentLevel-1] ? 1 : 0;
-        Spell newSpell = null;
+        SpellObject newSpell = null;
         if (dLevel > 0)
         {
             int levelIndex = fighterTrack.spellLevels.IndexOf(currentLevel + dLevel);
