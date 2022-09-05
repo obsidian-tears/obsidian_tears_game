@@ -19,8 +19,10 @@ namespace Opsive.UltimateInventorySystem.Demo.ItemActions
     public class ConsumeItemAction : ItemAction
     {
         protected int m_HealAmount;
+        protected int m_ManaAmount;
 
         public int HealAmount => m_HealAmount;
+        public int ManaAmount => m_ManaAmount;
 
         /// <summary>
         /// Default constructor.
@@ -41,10 +43,34 @@ namespace Opsive.UltimateInventorySystem.Demo.ItemActions
             var item = itemInfo.Item;
             var inventory = itemInfo.Inventory;
             var character = itemUser.GetComponent<CharStats>();
-            return item.GetAttribute<Attribute<int>>("HealAmount") != null
-                   && character != null
-                   && inventory.MainItemCollection.HasItem((1, item))
-                   && character.healthTotal != character.healthMax;
+            if(character != null && inventory.MainItemCollection.HasItem((1, item)))
+            {
+                if (item.GetAttribute<Attribute<int>>("HealAmount") != null || item.GetAttribute<Attribute<int>>("ManaAmount") != null)
+                {
+                    if (character.healthTotal != character.healthMax)
+                    {
+                        return true;
+                    }
+                    else if (character.magicTotal != character.magicMax)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+            
+            
         }
 
         /// <summary>
@@ -59,8 +85,10 @@ namespace Opsive.UltimateInventorySystem.Demo.ItemActions
             var character = itemUser.GetComponent<CharStats>();
             inventory.MainItemCollection.RemoveItem(item);
             m_HealAmount = item.GetAttribute<Attribute<int>>("HealAmount").GetValue();
+            m_ManaAmount = item.GetAttribute<Attribute<int>>("ManaAmount").GetValue();
             EventManager.TriggerEvent("PlayerHeal");
             character.Heal(m_HealAmount);
+            character.AddMana(m_ManaAmount);
         }
     }
 }

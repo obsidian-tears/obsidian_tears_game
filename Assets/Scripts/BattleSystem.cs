@@ -95,15 +95,41 @@ public class BattleSystem : MonoBehaviour
 
         inventory = player.GetComponent<Inventory>();
 
-        if (playerStats.equipper != null)
-        {
-            EventHandler.RegisterEvent(playerStats.equipper, EventNames.c_Equipper_OnChange, ItemEquipped);
-        }
-        EventManager.StartListening("PlayerHeal", ItemUsed);
-
         Cursor.lockState = CursorLockMode.None;
 
+        ItemCollection equipmentCollection = inventory.GetItemCollection("Equipped");
+        EventHandler.RegisterEvent(equipmentCollection, EventNames.c_ItemCollection_OnUpdate, () => OnItemChange());
+
+        ItemCollection mainCollection = inventory.GetItemCollection("MainItemCollection");
+        EventHandler.RegisterEvent(mainCollection, EventNames.c_ItemCollection_OnUpdate, () => OnItemChange());
+
         StartCoroutine(SetupBattle());
+    }
+
+    private void OnItemChange()
+    {
+        if (mainMenuPanel.IsOpen)
+        {
+            Debug.Log("Inventory change logged");
+            if (state != BattleState.PLAYERTURN)
+            {
+                return;
+            }
+            CloseInventory();
+            StartCoroutine(ItemChanged());
+        }
+        
+    }
+
+    IEnumerator ItemChanged()
+    {
+        hud.SetHUD(playerStats);
+        dialogueText.text = "Phendrin uses an item";
+        yield return new WaitForSeconds(2f);
+        buttonsContainer.SetActive(false);
+        state = BattleState.ENEMYTURN;
+        StartCoroutine(EnemyTurn());
+        hud.SetHUD(playerStats);
     }
 
     IEnumerator SetupBattle()
@@ -220,8 +246,10 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator EndBattle()
     {
-        EventHandler.UnregisterEvent(playerStats.equipper, EventNames.c_Equipper_OnChange, ItemEquipped);
-        EventManager.StopListening("PlayerHeal", ItemUsed);
+        ItemCollection equipmentCollection = inventory.GetItemCollection("Equipped");
+        ItemCollection mainCollection = inventory.GetItemCollection("MainItemCollection");
+        EventHandler.UnregisterEvent(equipmentCollection, EventNames.c_ItemCollection_OnUpdate, () => OnItemChange());
+        EventHandler.UnregisterEvent(mainCollection, EventNames.c_ItemCollection_OnUpdate, () => OnItemChange());
 
         if (state == BattleState.WON)
         {
@@ -318,36 +346,10 @@ public class BattleSystem : MonoBehaviour
         else
         {
             dialogueText.text = "Phendrin could not escape " + currentBattle.enemy.enemyName;
+            yield return new WaitForSeconds(1.5f);
             state = BattleState.ENEMYTURN;
             StartCoroutine(EnemyTurn());
         }
-    }
-
-    public void ItemEquipped()
-    {
-        if (state != BattleState.PLAYERTURN)
-        {
-            return;
-        }
-        CloseInventory();
-        buttonsContainer.SetActive(false);
-        state = BattleState.ENEMYTURN;
-        StartCoroutine(EnemyTurn());
-        hud.SetHUD(playerStats);
-    }
-
-    public void ItemUsed()
-    {
-        if (state != BattleState.PLAYERTURN)
-        {
-            return;
-        }
-        
-        CloseInventory();
-        buttonsContainer.SetActive(false);
-        state = BattleState.ENEMYTURN;
-        StartCoroutine(EnemyTurn());
-        hud.SetHUD(playerStats);
     }
 
     public void CloseInventory()

@@ -59,9 +59,13 @@ public class CharStats : MonoBehaviour
 
     void Start()
     {
-        equipmentCollection = inventory.GetItemCollection("Equipped");
-        EventHandler.RegisterEvent(equipmentCollection, EventNames.c_ItemCollection_OnUpdate, () => UpdateStats());
-        UpdateStats();
+        if(inventory != null)
+        {
+            equipmentCollection = inventory.GetItemCollection("Equipped");
+            EventHandler.RegisterEvent(equipmentCollection, EventNames.c_ItemCollection_OnUpdate, () => UpdateStats());
+            UpdateStats();
+        }
+        
     }
     /// <summary>
     /// Update the character stats.
@@ -131,9 +135,26 @@ public class CharStats : MonoBehaviour
             UpdateStats();
     }
 
+    public void AddMana(int manaAmt)
+    {
+        magicTotal += manaAmt;
+        if(magicTotal > magicMax)
+        {
+            magicTotal = magicMax;
+        }
+        if(equipper != null && statsDisplay != null)
+        {
+            UpdateStats();
+        }
+    }
+
     public void AddXP(int xPAmt)
     {
         xp += xPAmt;
+        if (equipper != null && statsDisplay != null)
+        {
+            UpdateStats();
+        }
     }
 }
 
