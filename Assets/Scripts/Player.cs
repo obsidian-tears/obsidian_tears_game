@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
 
     [HideInInspector] [SerializeField] public float speed = 3f;
     Rigidbody2D myRigidbody;
-    Vector3 change;
+    public Vector3 change;
     public Animator animator;
     public FloatValue maxHealth;
     public FloatValue currentHealth;

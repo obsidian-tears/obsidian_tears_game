@@ -4,6 +4,7 @@ using Opsive.UltimateInventorySystem.Core.InventoryCollections;
 using Opsive.UltimateInventorySystem.Exchange;
 using Opsive.UltimateInventorySystem.UI.Panels;
 using PixelCrushers;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -48,6 +49,7 @@ public class BattleSystem : MonoBehaviour
     public Color playerHurtFlashColor;
 
     public DisplayPanel mainMenuPanel;
+    public DisplayPanel spellMenuPanel;
 
     public Image backgroundImage;
 
@@ -115,6 +117,7 @@ public class BattleSystem : MonoBehaviour
             {
                 return;
             }
+            buttonsContainer.SetActive(false);
             CloseInventory();
             StartCoroutine(ItemChanged());
         }
@@ -126,7 +129,7 @@ public class BattleSystem : MonoBehaviour
         hud.SetHUD(playerStats);
         dialogueText.text = "Phendrin uses an item";
         yield return new WaitForSeconds(2f);
-        buttonsContainer.SetActive(false);
+        
         state = BattleState.ENEMYTURN;
         StartCoroutine(EnemyTurn());
         hud.SetHUD(playerStats);
@@ -266,13 +269,14 @@ public class BattleSystem : MonoBehaviour
                 disappearTimer -= Time.deltaTime;
             }
 
-            onWin.Invoke();
-
             playerStats.xp += currentBattle.enemy.xpDrop;
-            var currencyOwner = inventory.GetCurrencyComponent<CurrencyCollection>() as CurrencyOwner;
+
+            onWin.Invoke();
+            
+            /*var currencyOwner = inventory.GetCurrencyComponent<CurrencyCollection>() as CurrencyOwner;
             var ownerCurrencyCollection = currencyOwner.CurrencyAmount;
             var gold = InventorySystemManager.GetCurrency("Gold");
-            ownerCurrencyCollection.AddCurrency(gold, currentBattle.enemy.goldDrop);
+            ownerCurrencyCollection.AddCurrency(gold, currentBattle.enemy.goldDrop);*/
 
             yield return new WaitForSeconds(2f);
         }
@@ -328,6 +332,67 @@ public class BattleSystem : MonoBehaviour
         StartCoroutine(OnRun());
     }
 
+    public void OnSpellUse(int manaNeeded, int magicPowerAdded, float magicPowerMultiplier, int healAmount, bool frostDamage, bool lightningDamage, bool fireDamage, string spellName, GameObject spellAnimation)
+    {
+        if (state != BattleState.PLAYERTURN)
+        {
+            return;
+        }
+
+        StartCoroutine(UseSpell(manaNeeded, magicPowerAdded, magicPowerMultiplier, healAmount, frostDamage, lightningDamage, fireDamage, spellName, spellAnimation));
+    }
+
+    IEnumerator UseSpell(int manaNeeded, int magicPowerAdded, float magicPowerMultiplier, int healAmount, bool frostDamage, bool lightningDamage, bool fireDamage, string spellName, GameObject spellAnimation)
+    {
+        spellMenuPanel.SmartClose();
+
+        dialogueText.text = "Phendrin casts " + spellName;
+
+        //playerAnimator.SetTrigger("Attack");
+
+        Instantiate(spellAnimation, player.transform, true);
+
+        yield return new WaitForSeconds(1f);
+
+        playerStats.AddMana(-manaNeeded);
+        playerStats.Heal(healAmount);
+
+
+        DamageValue damageValue = CalculateSpellDamage(magicPowerAdded, magicPowerMultiplier, enemyStats.defenseTotal, playerStats.criticalHitProbability, fireDamage, frostDamage, lightningDamage);
+        if(damageValue.damageAmount != 0)
+        {
+            bool isDead = enemyStats.TakeDamage(damageValue.damageAmount);
+
+
+            yield return new WaitForSeconds(1f);
+
+            enemyAnimator.SetTrigger("Hurt");
+            flashImage.StartFlash(0.25f, 0.5f, enemyHurtFlashColor);
+            spawnDamageDisplay(enemyNumberSpawnTransform.position, damageValue.damageAmount, damageValue.isCritical);
+
+
+            yield return new WaitForSeconds(2f);
+
+
+
+            if (isDead)
+            {
+                state = BattleState.WON;
+                StartCoroutine(EndBattle());
+            }
+            else
+            {
+                state = BattleState.ENEMYTURN;
+                StartCoroutine(EnemyTurn());
+            }
+        }
+        else
+        {
+            state = BattleState.ENEMYTURN;
+            StartCoroutine(EnemyTurn());
+        }
+    }
+
     IEnumerator OnRun()
     {
         buttonsContainer.SetActive(false);
@@ -336,7 +401,7 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(1.5f);
 
-        float chance = Random.Range(0f, 1f);
+        float chance = UnityEngine.Random.Range(0f, 1f);
         if (chance > currentBattle.enemy.runSuccessProbability)
         {
 
@@ -371,17 +436,101 @@ public class BattleSystem : MonoBehaviour
             stdDev = playerStats.level / 2f;
         }
 
-        float randomizedValue = Random.Range(initalValue - stdDev, initalValue + stdDev);
+        float randomizedValue = UnityEngine.Random.Range(initalValue - stdDev, initalValue + stdDev);
 
         int damageAmount = (int)System.Math.Ceiling(randomizedValue);
 
         bool isCritical = false;
         //Double if critical hit
-        if(Random.Range(0f, 1.0f) < criticalHitChance)
+        if(UnityEngine.Random.Range(0f, 1.0f) < criticalHitChance)
         {
             damageAmount = damageAmount * 2;
             isCritical = true;
         }
+
+        //Return value
+        DamageValue returnValue;
+        returnValue.damageAmount = damageAmount;
+        returnValue.isCritical = isCritical;
+        return returnValue;
+    }
+
+
+
+    public DamageValue CalculateSpellDamage(int magicPowerAdded, float magicPowerMultipler, int defense, float criticalHitChance, bool fireDamage, bool frostDamage, bool shockDamage)
+    {
+        //Calculate damage amount for spell
+        int damageAmount = 0;
+        bool isCritical = false;
+
+        if (magicPowerAdded > 0)
+        {
+            damageAmount = playerStats.magicPowerTotal;
+            damageAmount += magicPowerAdded;
+        }
+        if (magicPowerMultipler != 1 && magicPowerMultipler > 0)
+        {
+            if (damageAmount == 0)
+            {
+                damageAmount = playerStats.magicPowerTotal;
+            }
+            damageAmount = (int)Math.Round(damageAmount * magicPowerMultipler);
+        }
+        if (damageAmount > 0)
+        {
+            //Get value of damage
+            float denominator = damageAmount + defense;
+            float factor = damageAmount / denominator;
+            float initalValue = damageAmount * factor;
+
+            //Randomize
+            float stdDev = 1.5f;
+            if (playerStats.level > 3)
+            {
+                stdDev = playerStats.level / 2f;
+            }
+
+            float randomizedValue = UnityEngine.Random.Range(initalValue - stdDev, initalValue + stdDev);
+
+            damageAmount = (int)System.Math.Ceiling(randomizedValue);
+
+
+            //Calculate susceptibility to spells
+            int currentDamageAmount = damageAmount;
+            int fireDamageAmount = 0;
+            int frostDamageAmount = 0;
+            int shockDamageAmount = 0;
+
+
+            if (currentBattle.enemy.fireSusceptibility > 0 && fireDamage)
+            {
+                fireDamageAmount = (int)Math.Round(currentDamageAmount * currentBattle.enemy.fireSusceptibility);
+            }
+            if (currentBattle.enemy.frostSusceptibility > 0 && frostDamage)
+            {
+                frostDamageAmount = (int)Math.Round(currentDamageAmount * currentBattle.enemy.frostSusceptibility);
+            }
+            if (currentBattle.enemy.shockSusceptibility > 0 && shockDamage)
+            {
+                shockDamageAmount = (int)Math.Round(currentDamageAmount * currentBattle.enemy.shockSusceptibility);
+            }
+
+            damageAmount = currentDamageAmount + fireDamageAmount + frostDamageAmount + shockDamageAmount;
+
+
+
+
+            //Double if critical hit
+            isCritical = false;
+            if (UnityEngine.Random.Range(0f, 1.0f) < criticalHitChance)
+            {
+                damageAmount = damageAmount * 2;
+                isCritical = true;
+            }
+        }
+
+
+        
 
         //Return value
         DamageValue returnValue;

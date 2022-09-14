@@ -131,6 +131,10 @@ public class CharStats : MonoBehaviour
         {
             healthTotal = healthMax;
         }
+        else if (healthTotal < 0)
+        {
+            healthTotal = 0;
+        }
         if (equipper != null && statsDisplay != null)
             UpdateStats();
     }
@@ -141,6 +145,10 @@ public class CharStats : MonoBehaviour
         if(magicTotal > magicMax)
         {
             magicTotal = magicMax;
+        }
+        else if (magicTotal < 0)
+        {
+            magicTotal = 0;
         }
         if(equipper != null && statsDisplay != null)
         {

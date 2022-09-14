@@ -1,5 +1,6 @@
 ﻿// Copyright (c) Pixel Crushers. All rights reserved.
 
+using TMPro;
 using UnityEngine;
 
 namespace PixelCrushers.QuestMachine
@@ -14,12 +15,12 @@ namespace PixelCrushers.QuestMachine
 
         [Tooltip("Text UI element.")]
         [SerializeField]
-        private UITextField m_text;
+        private TextMeshProUGUI m_text;
 
         /// <summary>
         /// Text UI element.
         /// </summary>
-        public UITextField text
+        public TextMeshProUGUI text
         {
             get { return m_text; }
             set { m_text = value; }
@@ -27,7 +28,7 @@ namespace PixelCrushers.QuestMachine
 
         public virtual void Awake()
         {
-            if (UITextField.IsNull(text) && Debug.isDebugBuild) Debug.LogError("Quest Machine: UI Text is unassigned.", this);
+            if (text == null && Debug.isDebugBuild) Debug.LogError("Quest Machine: UI Text is unassigned.", this);
         }
 
         /// <summary>
