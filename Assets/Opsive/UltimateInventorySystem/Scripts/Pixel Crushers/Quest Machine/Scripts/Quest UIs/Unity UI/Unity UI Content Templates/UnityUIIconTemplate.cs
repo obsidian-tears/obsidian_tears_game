@@ -2,6 +2,7 @@
 
 using UnityEngine;
 using System;
+using TMPro;
 
 namespace PixelCrushers.QuestMachine
 {
@@ -23,7 +24,7 @@ namespace PixelCrushers.QuestMachine
 
         [Tooltip("Text UI element for icon's caption.")]
         [SerializeField]
-        private UITextField m_captionText;
+        private TextMeshProUGUI m_captionText;
 
         /// <summary>
         /// Image UI element for icon's image.
@@ -46,7 +47,7 @@ namespace PixelCrushers.QuestMachine
         /// <summary>
         /// Text UI element for icon's caption.
         /// </summary>
-        public UITextField captionText
+        public TextMeshProUGUI captionText
         {
             get { return m_captionText; }
             set { m_captionText = value; }

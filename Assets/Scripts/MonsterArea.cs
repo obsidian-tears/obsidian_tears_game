@@ -33,12 +33,18 @@ public class MonsterArea : MonoBehaviour
     public OnBattleStart onBattleStart;
     public OnBattleWin onBattleWin;
 
+    private Player player;
+
     public void OnTriggerEnter2D(Collider2D collider)
     {
+
         if (collider.CompareTag("Player"))
         {
+            player = collider.gameObject.GetComponent<Player>();
             active = true;
             t = 0;
+            probability = Random.Range(minSecondsToBattleStart, maxSecondsToBattleStart);
+            Debug.Log("Probability: " + probability);
         }
     }
     public void OnTriggerExit2D(Collider2D collision)
@@ -49,29 +55,23 @@ public class MonsterArea : MonoBehaviour
         }
     }
 
-    public void OnTriggerStay2D(Collider2D collision)
+    private void FixedUpdate()
     {
-        if (active)
+        if(player != null)
         {
-            
-            if(t > 1)
+            if (active && player.change != Vector3.zero)
             {
-                float randVal = Random.Range(minSecondsToBattleStart, maxSecondsToBattleStart);
-                if (randVal <= probability)
+                if (t > probability)
                 {
                     OnBattleSignal();
                 }
                 else
                 {
-                    probability++;
+                    t += Time.deltaTime;
                 }
-                t = 0;
-            }
-            else
-            {
-                t += Time.deltaTime;
             }
         }
+        
     }
 
     public void OnBattleSignal()
@@ -158,6 +158,8 @@ public class MonsterArea : MonoBehaviour
         currentBattle.wonBattle = false;
         currentBattle.monsterAreaObject = null;
     }
+
+    
 
 
     void BattleStarted()
