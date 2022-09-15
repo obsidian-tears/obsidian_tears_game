@@ -95,6 +95,8 @@ namespace Opsive.UltimateInventorySystem.UI.Panels.ItemViewSlotContainers
 
             if (m_ResetDrawOnOpen) {
                 m_ItemViewSlotsContainer.ResetDraw();
+                m_Inventory.UpdateInventory();
+
             }else if (m_DrawOnOpen) {
                 m_ItemViewSlotsContainer.Draw();
             }

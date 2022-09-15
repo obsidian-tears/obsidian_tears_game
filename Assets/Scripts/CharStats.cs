@@ -1,8 +1,10 @@
 using Opsive.UltimateInventorySystem.Core;
+using Opsive.UltimateInventorySystem.Core.InventoryCollections;
 using Opsive.UltimateInventorySystem.Demo.Events;
 using Opsive.UltimateInventorySystem.Demo.UI.Menus.Main.Inventory;
 using Opsive.UltimateInventorySystem.Equipping;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using EventHandler = Opsive.Shared.Events.EventHandler;
@@ -10,6 +12,7 @@ using EventHandler = Opsive.Shared.Events.EventHandler;
 public class CharStats : MonoBehaviour
 {
     public Equipper equipper;
+    public Inventory inventory;
     public CharacterStatsDisplay statsDisplay;
 
     public Slider healthSlider;
@@ -51,16 +54,18 @@ public class CharStats : MonoBehaviour
 
     public string[] characterEffects;
 
+    ItemCollection equipmentCollection;
 
 
     void Start()
     {
-
-        if (equipper != null)
+        if(inventory != null)
         {
-            EventHandler.RegisterEvent(equipper, EventNames.c_Equipper_OnChange, UpdateStats);
+            equipmentCollection = inventory.GetItemCollection("Equipped");
+            EventHandler.RegisterEvent(equipmentCollection, EventNames.c_ItemCollection_OnUpdate, () => UpdateStats());
+            UpdateStats();
         }
-        UpdateStats();
+        
     }
     /// <summary>
     /// Update the character stats.
@@ -70,14 +75,14 @@ public class CharStats : MonoBehaviour
         //This is a player
         if(equipper != null && statsDisplay != null)
         {
-            healthMax = healthBase + equipper.GetEquipmentStatInt("MaxHp");
-            magicMax = magicBase + equipper.GetEquipmentStatInt("MaxMp");
-            attackTotal = attackBase + equipper.GetEquipmentStatInt("Attack");
-            defenseTotal = defenseBase + equipper.GetEquipmentStatInt("Defense");
-            speedTotal = speedBase + equipper.GetEquipmentStatInt("Speed");
-            criticalHitProbability = equipper.GetEquipmentStatFloat("CriticalChance");
-            magicPowerTotal = magicPowerBase + equipper.GetEquipmentStatInt("MagicPower");
-            statsDisplay.Draw(healthMax, magicMax, attackTotal, defenseTotal, speedTotal, healthTotal, magicTotal, magicPowerTotal);
+            healthMax = healthBase + equipmentCollection.GetIntSum("MaxHp");
+            magicMax = magicBase + equipmentCollection.GetIntSum("MaxMp");
+            attackTotal = attackBase + equipmentCollection.GetIntSum("Attack");
+            defenseTotal = defenseBase + equipmentCollection.GetIntSum("Defense");
+            speedTotal = speedBase + equipmentCollection.GetIntSum("Speed");
+            criticalHitProbability = equipmentCollection.GetFloatSum("CriticalChance");
+            magicPowerTotal = magicPowerBase + equipmentCollection.GetIntSum("MagicPower");
+            statsDisplay.Draw(healthMax, magicMax, attackTotal, defenseTotal, speedTotal, healthTotal, magicTotal, magicPowerTotal, healthBase, magicBase, attackBase, defenseBase, speedBase, magicPowerBase, xp, xpToLevelUp);
         }
 
         //This is an enemy
@@ -126,13 +131,38 @@ public class CharStats : MonoBehaviour
         {
             healthTotal = healthMax;
         }
+        else if (healthTotal < 0)
+        {
+            healthTotal = 0;
+        }
         if (equipper != null && statsDisplay != null)
             UpdateStats();
+    }
+
+    public void AddMana(int manaAmt)
+    {
+        magicTotal += manaAmt;
+        if(magicTotal > magicMax)
+        {
+            magicTotal = magicMax;
+        }
+        else if (magicTotal < 0)
+        {
+            magicTotal = 0;
+        }
+        if(equipper != null && statsDisplay != null)
+        {
+            UpdateStats();
+        }
     }
 
     public void AddXP(int xPAmt)
     {
         xp += xPAmt;
+        if (equipper != null && statsDisplay != null)
+        {
+            UpdateStats();
+        }
     }
 }
 

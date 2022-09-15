@@ -493,7 +493,8 @@ namespace Opsive.UltimateInventorySystem.Core.AttributeSystem
             }
 
             if (string.IsNullOrWhiteSpace(modifyExpression) == false) {
-                Debug.LogWarning($"Expression Evaluation Error: failed to parse result of expression: {modifyExpression}; evaluated to: {evaluatedValue}; Details: {evaluationMessage}");
+                if(modifyExpression != "[BaseAttack]")
+                    Debug.LogWarning($"Expression Evaluation Error: failed to parse result of expression: {modifyExpression}; evaluated to: {evaluatedValue}; Details: {evaluationMessage}");
             }
 
             return false;

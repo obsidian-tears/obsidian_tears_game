@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BattleResult
 {
-    public BattleResult(int level, float strength, float agility, float magicPower, float maxMagic, float maxHealth, Spell spell)
+    public BattleResult(int level, float strength, float agility, float magicPower, float maxMagic, float maxHealth, SpellObject spell)
     {
         dLevel = level;
         dStrength = strength;
@@ -20,5 +20,5 @@ public class BattleResult
     public float dMagicPower;
     public float dMaxMagic;
     public float dMaxHealth;
-    public Spell newSpell;
+    public SpellObject newSpell;
 }
