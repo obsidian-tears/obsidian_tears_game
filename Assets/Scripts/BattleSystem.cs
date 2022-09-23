@@ -296,6 +296,7 @@ public class BattleSystem : MonoBehaviour
         }
         else if (state == BattleState.FLEEING)
         {
+            currentBattle.ranBattle = true;
             dialogueText.text = "Success! Phendrin escapes " + currentBattle.enemy.enemyName;
 
             yield return new WaitForSeconds(2f);
