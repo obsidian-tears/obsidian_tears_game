@@ -11,6 +11,9 @@ public class OnBattleStart : UnityEvent { }
 [System.Serializable]
 public class OnBattleWin : UnityEvent { }
 
+[System.Serializable]
+public class OnBattleRan : UnityEvent { }
+
 [RequireComponent(typeof(DestructibleSaver))]
 public class MonsterArea : MonoBehaviour
 {
@@ -32,6 +35,7 @@ public class MonsterArea : MonoBehaviour
 
     public OnBattleStart onBattleStart;
     public OnBattleWin onBattleWin;
+    public OnBattleRan onBattleRan;
 
     private Player player;
 
@@ -148,6 +152,10 @@ public class MonsterArea : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
+        else if (currentBattle.monsterAreaObject == monsterAreaUniqueID && currentBattle.ranBattle)
+        {
+            onBattleRan.Invoke();
+        }
 
         
 
@@ -156,6 +164,7 @@ public class MonsterArea : MonoBehaviour
         scenePortal.destinationSceneName = "Battle";
 
         currentBattle.wonBattle = false;
+        currentBattle.ranBattle = false;
         currentBattle.monsterAreaObject = null;
     }
 
