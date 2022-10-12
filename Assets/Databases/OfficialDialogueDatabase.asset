@@ -5914,7 +5914,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1970.2849
+        x: 1969.1917
         y: 908.3603
         width: 160
         height: 30
@@ -6076,7 +6076,7 @@ MonoBehaviour:
       - originConversationID: 6
         originDialogueID: 67
         destinationConversationID: 6
-        destinationDialogueID: 64
+        destinationDialogueID: 88
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -6940,8 +6940,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2311.264
-        y: 614.21533
+        x: 2307.03
+        y: 616.33234
         width: 160
         height: 30
     - id: 83
@@ -6967,10 +6967,10 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 'See? In the top left corner you will see your money purse. You have
-          5 Gold! Heh heh. A little gift from Grandma. But you''ll notice your red
-          bar isn''t full. That''s your Health Points. The blue bar is your Magic
-          Points for casting spells! '
+        value: 'See? In the top right corner you will see your money purse. You have
+          5 Gold! Heh heh. A little gift from Grandma. But, in the top left, you''ll
+          notice your red bar isn''t full. That''s your Health Points. The blue bar
+          is your Magic Points for casting spells! '
         type: 0
         typeString: 
       - title: Sequence
@@ -7247,8 +7247,7 @@ MonoBehaviour:
       - title: Dialogue Text
         value: 'You found the red potion and wooden sword in your inventory yes?
           Notice your health increasing in the top left when you consume the Red
-          Potion? As for the sword, did you notice how it showed you the potential
-          change in your character stats when you clicked on it to equip it? '
+          Potion? '
         type: 0
         typeString: 
       - title: Sequence
@@ -7304,8 +7303,8 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: When you click on an item you will see a category symbol and how the
-          item effects your stats in that category. The Wooden Sword, for example,
-          increases your skill in "Might" from a "10" to an "11".
+          item effects your stats in that category. Find items to help you in your
+          journey!
         type: 0
         typeString: 
       - title: Sequence
@@ -7420,11 +7419,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: See just beneath your gold amount in the top left corner? The spot
-          that says "Lvl 1?" That shows what level you are at. Beating monsters and
-          continuing on your quest are ways to get experience. You can trade in experience
-          points to level up stats of your choosing at broken obelisks around the
-          map. So keep an eye out for those!
+        value: See also in the top left? The spot that says "Lvl 1?" That shows what
+          level you are at. Beating monsters and continuing on your quest are ways
+          to get experience. You can trade in experience points to level up stats
+          of your choosing at broken obelisks around the map. So keep an eye out
+          for those!
         type: 0
         typeString: 
       - title: Sequence
@@ -7634,8 +7633,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 313.7179}
-    canvasZoom: 0.1647504
+    canvasScrollPosition: {x: 761.04095, y: 7.85083}
+    canvasZoom: 0.25475034
   - id: 7
     fields:
     - title: Title
@@ -8893,7 +8892,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 356.52893
-        y: 154.96272
+        y: 153.74321
         width: 160
         height: 30
     - id: 2
@@ -9452,7 +9451,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 573.43756
+        x: 570.99854
         y: 552.3578
         width: 160
         height: 30
@@ -9882,7 +9881,7 @@ MonoBehaviour:
         destinationDialogueID: 21
         isConnector: 0
         priority: 2
-      conditionsString: CurrentQuestState("ArcherMaster1") == "success"
+      conditionsString: 'CurrentQuestState("ArcherMaster1") == "active" '
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -9916,7 +9915,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 
+        value: Not Yet
         type: 0
         typeString: 
       - title: Sequence
@@ -10108,8 +10107,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 91.59552, y: 576.51227}
-    canvasZoom: 0.9100001
+    canvasScrollPosition: {x: 352.31558, y: 1.1615767}
+    canvasZoom: 0.85000014
   - id: 9
     fields:
     - title: Title
@@ -20422,157 +20421,6 @@ MonoBehaviour:
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 22.2226}
     canvasZoom: 0.8200002
-  - id: 33
-    fields:
-    - title: Title
-      value: GranGran2
-      type: 0
-      typeString: 
-    - title: Description
-      value: 
-      type: 0
-      typeString: 
-    - title: Actor
-      value: 1
-      type: 5
-      typeString: CustomFieldType_Actor
-    - title: Conversant
-      value: 7
-      type: 5
-      typeString: CustomFieldType_Actor
-    overrideSettings:
-      useOverrides: 0
-      overrideSubtitleSettings: 0
-      showNPCSubtitlesDuringLine: 1
-      showNPCSubtitlesWithResponses: 1
-      showPCSubtitlesDuringLine: 0
-      skipPCSubtitleAfterResponseMenu: 0
-      subtitleCharsPerSecond: 30
-      minSubtitleSeconds: 2
-      continueButton: 0
-      overrideSequenceSettings: 0
-      defaultSequence: 
-      defaultPlayerSequence: 
-      defaultResponseMenuSequence: 
-      overrideInputSettings: 0
-      alwaysForceResponseMenu: 1
-      includeInvalidEntries: 0
-      responseTimeout: 0
-      cancelSubtitle:
-        key: 27
-        buttonName: 
-      cancelConversation:
-        key: 27
-        buttonName: 
-    nodeColor: 
-    dialogueEntries:
-    - id: 0
-      fields:
-      - title: Title
-        value: START
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 7
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: None()
-        type: 0
-        typeString: 
-      conversationID: 33
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 33
-        originDialogueID: 0
-        destinationConversationID: 33
-        destinationDialogueID: 1
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 299
-        y: 41
-        width: 160
-        height: 30
-    - id: 1
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 7
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: Would you like to see the controls again?
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 33
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 300
-        y: 109
-        width: 160
-        height: 30
-    entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.28000033
   - id: 34
     fields:
     - title: Title
@@ -27890,10 +27738,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 'See? In the top left corner you will see your money purse. You have
-          5 Gold! Heh heh. A little gift from Grandma. But you''ll notice your red
-          bar isn''t full. That''s your Health Points. The blue bar is your Magic
-          Points for casting spells! '
+        value: See? In the top right corner you will see your money purse. In the
+          top left the red bar is your health! The blue bar is your magic power.
         type: 0
         typeString: 
       - title: Sequence
@@ -27921,7 +27767,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2676.9707
+        x: 2678.2864
         y: 347.5518
         width: 160
         height: 30
@@ -28172,11 +28018,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: See just beneath your gold amount in the top left corner? The spot
-          that says "Lvl 1?" That shows what level you are at. Beating monsters and
-          continuing on your quest are ways to get experience. You can trade in experience
-          points to level up stats of your choosing at broken obelisks around the
-          map. So keep an eye out for those!
+        value: ' Beating monsters and continuing on your quest are ways to get experience.
+          You can trade in experience points to level up stats of your choosing at
+          broken obelisks around the map. So keep an eye out for those!'
         type: 0
         typeString: 
       - title: Sequence
@@ -28204,8 +28048,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2699.3657
-        y: 433.825
+        x: 2698.05
+        y: 432.50922
         width: 160
         height: 30
     - id: 92
@@ -28640,7 +28484,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Now have a nice day Deary. Come by and visit anytime!
+        value: Now have a nice day Deary. Grandma's getting tired. Come by and visit
+          anytime!
         type: 0
         typeString: 
       - title: Sequence
@@ -28722,8 +28567,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1670.6766, y: 0}
-    canvasZoom: 0.45999998
+    canvasScrollPosition: {x: 1633.4419, y: 455.29987}
+    canvasZoom: 0.6099999
   syncInfo:
     syncActors: 0
     syncItems: 0
