@@ -158,9 +158,9 @@ namespace Opsive.UltimateInventorySystem.UI.Panels
         /// Opens the panel through the manager.
         /// </summary>
         [ContextMenu("Smart Open")]
-        public virtual void SmartOpen()
+        public virtual void SmartOpen(string identifierString = "basic identifier")
         {
-            m_Manager.OpenPanel(this);
+            m_Manager.OpenPanel(this.UniqueName, identifierString);
         }
 
         [ContextMenu("Smart Open", true)]
@@ -246,6 +246,7 @@ namespace Opsive.UltimateInventorySystem.UI.Panels
                 EventSystemManager.Select(m_SelectableOnOpen.gameObject);
             }
 
+            
             OpenInternal();
         }
 
@@ -303,7 +304,7 @@ namespace Opsive.UltimateInventorySystem.UI.Panels
 
             OnOpen?.Invoke();
             for (int i = 0; i < m_Bindings.Count; i++) { m_Bindings[i].OnOpen(); }
-
+            Debug.Log(m_Bindings);
         }
 
         /// <summary>

@@ -229,10 +229,10 @@ namespace Opsive.UltimateInventorySystem.UI.Panels
         /// </summary>
         /// <param name="uniqueName">The unique name.</param>
         /// <returns>The display panel.</returns>
-        public void OpenPanel(string uniqueName)
+        public void OpenPanel(string uniqueName, string identifierString = "basic identifier")
         {
             var panel = GetPanel(uniqueName);
-            OpenPanel(panel);
+            OpenPanel(panel, identifierString);
         }
         
         /// <summary>
@@ -252,8 +252,9 @@ namespace Opsive.UltimateInventorySystem.UI.Panels
         /// Open the panel specified.
         /// </summary>
         /// <param name="menu">The menu panel.</param>
-        public void OpenPanel(DisplayPanel panel)
+        public void OpenPanel(DisplayPanel panel, string identifierString = "basic identifier")
         {
+            Debug.Log(identifierString);
             if (panel == null) { return; }
 
             var eventSystem = EventSystemManager.GetEvenSystemFor(gameObject); 
@@ -277,6 +278,7 @@ namespace Opsive.UltimateInventorySystem.UI.Panels
                 m_GameplayPanel.Close(false);
             }
 
+            
             panel.Open(m_SelectedDisplayPanel, null);
         }
 
