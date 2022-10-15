@@ -158,9 +158,9 @@ namespace Opsive.UltimateInventorySystem.UI.Panels
         /// Opens the panel through the manager.
         /// </summary>
         [ContextMenu("Smart Open")]
-        public virtual void SmartOpen(string identifierString = "basic identifier")
+        public virtual void SmartOpen()
         {
-            m_Manager.OpenPanel(this.UniqueName, identifierString);
+            m_Manager.OpenPanel(this);
         }
 
         [ContextMenu("Smart Open", true)]
