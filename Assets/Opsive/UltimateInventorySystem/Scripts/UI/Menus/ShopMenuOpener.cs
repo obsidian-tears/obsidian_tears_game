@@ -28,7 +28,8 @@ namespace Opsive.UltimateInventorySystem.UI.Menus
         {
             m_Menu.BindInventory(inventory);
             m_Menu.SetShop(m_Shop);
-            m_Menu.DisplayPanel.SmartOpen();
+            
+            m_Menu.DisplayPanel.SmartOpen("this is the correct menu");
         }
     }
 }

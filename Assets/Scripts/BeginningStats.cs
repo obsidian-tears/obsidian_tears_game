@@ -32,129 +32,132 @@ public class BeginningStats : MonoBehaviour
     public int speedTotal;
     public float criticalHitProbability;
 
+    public float timer;
+
+
+
     private void Start()
     {
-        //Define variables
-        Inventory startingInventory = gameObject.GetComponent<Inventory>();
+        timer = 0f;
+    }
 
-        Inventory playerInventory = player.GetComponent<Inventory>();
-        CharStats playerStats = player.GetComponent<CharStats>();
-        CurrencyOwner currencyOwner = player.GetComponent<CurrencyOwner>();
-
-        playerStats.level = level;
-        playerStats.xp = xp;
-        playerStats.xpToLevelUp = xpToLevelUp;
-        playerStats.pointsRemaining = pointsRemaining;
-        playerStats.healthBase = healthBase;
-        playerStats.healthTotal = healthTotal;
-        playerStats.healthMax = healthMax;
-        playerStats.magicBase = magicBase;
-        playerStats.magicTotal = magicTotal;
-        playerStats.magicMax = magicMax;
-        playerStats.attackBase = attackBase;
-        playerStats.attackTotal = attackTotal;
-        playerStats.magicPowerBase = magicPowerBase;
-        playerStats.magicPowerTotal = magicPowerTotal;
-        playerStats.defenseBase = defenseBase;
-        playerStats.defenseTotal = defenseTotal;
-        playerStats.speedBase = speedBase;
-        playerStats.speedTotal = speedTotal;
-
-
-
-        //Add the proper amount of currency to the player
-        CurrencyCollection currencyCollection = currencyOwner.CurrencyAmount;
-
-        CurrencyAmount[] currencies =
-            currencyCollection.GetCurrencyAmounts().ToArray();
-        foreach (CurrencyAmount currencyAmount in currencies)
+    private void Update()
+    {
+        while (timer < 5f)
         {
-            currencyOwner
-                .RemoveCurrency(currencyAmount.Currency, currencyAmount.Amount);
-        }
-        currencyOwner.AddCurrency("Gold", goldAmount);
+            //Define variables
+            Inventory startingInventory = gameObject.GetComponent<Inventory>();
 
-        /*playerInventory.RemoveAllItems();
-        foreach(ItemCollection col in startingInventory.ItemCollectionsReadOnly)
-        {
-            ItemCollection playerCol = playerInventory.GetItemCollection(col.Name);
+            Inventory playerInventory = player.GetComponent<Inventory>();
+            CharStats playerStats = player.GetComponent<CharStats>();
+            CurrencyOwner currencyOwner = player.GetComponent<CurrencyOwner>();
 
-            foreach(ItemStack item in col.GetAllItemStacks())
+            playerStats.level = level;
+            playerStats.xp = xp;
+            playerStats.xpToLevelUp = xpToLevelUp;
+            playerStats.pointsRemaining = pointsRemaining;
+            playerStats.healthBase = healthBase;
+            playerStats.healthTotal = healthTotal;
+            playerStats.healthMax = healthMax;
+            playerStats.magicBase = magicBase;
+            playerStats.magicTotal = magicTotal;
+            playerStats.magicMax = magicMax;
+            playerStats.attackBase = attackBase;
+            playerStats.attackTotal = attackTotal;
+            playerStats.magicPowerBase = magicPowerBase;
+            playerStats.magicPowerTotal = magicPowerTotal;
+            playerStats.defenseBase = defenseBase;
+            playerStats.defenseTotal = defenseTotal;
+            playerStats.speedBase = speedBase;
+            playerStats.speedTotal = speedTotal;
+
+
+
+            //Add the proper amount of currency to the player
+            CurrencyCollection currencyCollection = currencyOwner.CurrencyAmount;
+
+            CurrencyAmount[] currencies =
+                currencyCollection.GetCurrencyAmounts().ToArray();
+            foreach (CurrencyAmount currencyAmount in currencies)
             {
-                Debug.Log("Adding this item: " + item.Item.name);
-                playerCol.AddItem(item.Item);
+                currencyOwner
+                    .RemoveCurrency(currencyAmount.Currency, currencyAmount.Amount);
             }
-        }*/
-
-        //Get all the items from the starting inventory
-        List<string> myItems = new List<string>();
-        List<string> equippedItems = new List<string>();
+            currencyOwner.AddCurrency("Gold", goldAmount);
 
 
-        foreach (ItemCollection itemCol in startingInventory.ItemCollectionsReadOnly)
-        {
-            if (itemCol.Name == "MainItemCollection")
+            //Get all the items from the starting inventory
+            List<string> myItems = new List<string>();
+            List<string> equippedItems = new List<string>();
+
+
+            foreach (ItemCollection itemCol in startingInventory.ItemCollectionsReadOnly)
             {
-                foreach (ItemStack itemStack in itemCol.GetAllItemStacks())
+                if (itemCol.Name == "MainItemCollection")
                 {
-                    int i = 0;
-                    while (i < itemStack.Amount)
+                    foreach (ItemStack itemStack in itemCol.GetAllItemStacks())
                     {
-                        myItems
-                            .Add(itemStack.Item.ItemDefinition.ID.ToString());
-                        i++;
+                        int i = 0;
+                        while (i < itemStack.Amount)
+                        {
+                            myItems
+                                .Add(itemStack.Item.ItemDefinition.ID.ToString());
+                            i++;
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (ItemStack itemStack in itemCol.GetAllItemStacks())
+                    {
+                        int i = 0;
+                        while (i < itemStack.Amount)
+                        {
+                            equippedItems
+                                .Add(itemStack.Item.ItemDefinition.ID.ToString());
+                            i++;
+                        }
                     }
                 }
             }
-            else
+
+
+
+
+
+
+
+
+
+            //Add all the items from the starting inventory into the player inventory
+            playerInventory.RemoveAllItems();
+
+
+            foreach (ItemCollection itemCol in playerInventory.ItemCollectionsReadOnly)
             {
-                foreach (ItemStack itemStack in itemCol.GetAllItemStacks())
+                if (itemCol.Name == "MainItemCollection")
                 {
-                    int i = 0;
-                    while (i < itemStack.Amount)
+                    foreach (string itemDefString in myItems)
                     {
-                        equippedItems
-                            .Add(itemStack.Item.ItemDefinition.ID.ToString());
-                        i++;
+                        uint defId = uint.Parse(itemDefString);
+                        ItemDefinition itemDef =
+                            InventorySystemManager.GetItemDefinition(defId);
+                        itemCol.AddItem(itemDef, 1, false);
+                    }
+                }
+                else
+                {
+                    foreach (string itemDefString in equippedItems)
+                    {
+                        uint defId = uint.Parse(itemDefString);
+                        ItemDefinition itemDef =
+                            InventorySystemManager.GetItemDefinition(defId);
+                        itemCol.AddItem(itemDef, 1, false);
                     }
                 }
             }
-        }
 
-
-
-
-
-
-
-
-
-        //Add all the items from the starting inventory into the player inventory
-        playerInventory.RemoveAllItems();
-
-
-        foreach (ItemCollection itemCol in playerInventory.ItemCollectionsReadOnly)
-        {
-            if (itemCol.Name == "MainItemCollection")
-            {
-                foreach (string itemDefString in myItems)
-                {
-                    uint defId = uint.Parse(itemDefString);
-                    ItemDefinition itemDef =
-                        InventorySystemManager.GetItemDefinition(defId);
-                    itemCol.AddItem(itemDef, 1, false);
-                }
-            }
-            else
-            {
-                foreach (string itemDefString in equippedItems)
-                {
-                    uint defId = uint.Parse(itemDefString);
-                    ItemDefinition itemDef =
-                        InventorySystemManager.GetItemDefinition(defId);
-                    itemCol.AddItem(itemDef, 1, false);
-                }
-            }
+            timer += Time.deltaTime;
         }
     }
 }
