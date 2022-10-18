@@ -304,7 +304,6 @@ namespace Opsive.UltimateInventorySystem.UI.Panels
 
             OnOpen?.Invoke();
             for (int i = 0; i < m_Bindings.Count; i++) { m_Bindings[i].OnOpen(); }
-            Debug.Log(m_Bindings);
         }
 
         /// <summary>
