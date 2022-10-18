@@ -87,6 +87,7 @@ namespace Opsive.UltimateInventorySystem.UI.Item.DragAndDrop.DropActions
         /// <param name="itemViewDropHandler">The Item View Drop Handler.</param>
         public override void Drop(ItemViewDropHandler itemViewDropHandler)
         {
+            Debug.Log("Dropping");
 
             var sourceCanGive = itemViewDropHandler.SourceContainer.CanGiveItem(
                 itemViewDropHandler.SourceItemInfo,
@@ -140,8 +141,9 @@ namespace Opsive.UltimateInventorySystem.UI.Item.DragAndDrop.DropActions
 
             if (sourceGiveDestinationReceive) {
                 var addToDestination = false;
-                
+
                 // Make an exception for Item Hotbars as they look for items within the Inventory.
+                Debug.Log("drop handler name: " + itemViewDropHandler.SlotCursorManager.SourceItemViewSlot.gameObject.name);
                 if (!(itemViewDropHandler.SourceContainer is ItemHotbar itemHotbar) || itemViewDropHandler.SourceContainer is InventoryMirrorHotbar ) {
                     addToDestination = true;
                 } else {

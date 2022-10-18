@@ -232,7 +232,7 @@ namespace Opsive.UltimateInventorySystem.UI.Panels
         public void OpenPanel(string uniqueName, string identifierString = "basic identifier")
         {
             var panel = GetPanel(uniqueName);
-            OpenPanel(panel, identifierString);
+            OpenPanel(panel);
         }
         
         /// <summary>
@@ -252,9 +252,8 @@ namespace Opsive.UltimateInventorySystem.UI.Panels
         /// Open the panel specified.
         /// </summary>
         /// <param name="menu">The menu panel.</param>
-        public void OpenPanel(DisplayPanel panel, string identifierString = "basic identifier")
+        public void OpenPanel(DisplayPanel panel)
         {
-            Debug.Log(identifierString);
             if (panel == null) { return; }
 
             var eventSystem = EventSystemManager.GetEvenSystemFor(gameObject); 
