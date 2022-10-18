@@ -1411,7 +1411,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Make sure to click up top along the catergories to see all of my goods!
+        value: Enjoy!
         type: 0
         typeString: 
       - title: Sequence
@@ -1433,12 +1433,12 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 126.25186
-        y: 366.27505
+        x: 134.92857
+        y: 367.16794
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 18.34288, y: 14.116272}
+    canvasScrollPosition: {x: 0, y: 188.2234}
     canvasZoom: 1.12
   - id: 2
     fields:
@@ -3021,8 +3021,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Ah, glad you found me. We took your sword when you arrived, as well
-          as this glowing pendant....very odd artifact.
+        value: Ah, glad you found me. We took this glowing pendant from you when
+          you arrived....very odd artifact. Couldn't let a stranger around with a
+          magic artifact. Not to mention we haven't seen another human traveler well,
+          ever! Haha! But it turns out your a regular monster fighter just like the
+          rest of us!
         type: 0
         typeString: 
       - title: Sequence
@@ -3155,8 +3158,8 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: uisAddItem("Iron Sword", 1, "", ""); SendMessageSystem("Herl",
-        "gave");uisAddItem("Pendant of Memories", 1, "", "")
+      userScript: ' SendMessageSystem("Herl", "gave");uisAddItem("Pendant of Memories",
+        1, "", "")'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -3352,8 +3355,8 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: You can find Tana in the Lore Church in the North West corner of town.
-          Before you go, consider visiting the Guardhouse. Frederick may have some
-          extra armor that fits you.
+          Before you go, consider visiting the Guardhouse. There may be some odds
+          and ends in there that may be useful to you!
         type: 0
         typeString: 
       - title: Sequence
@@ -3375,7 +3378,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 35.78351
+        x: 34.413635
         y: 346.2474
         width: 160
         height: 30
@@ -5882,10 +5885,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Captain Herl took away that strange glowing pendant and your Iron
-          Sword when the guards brought you to me. But here's a Wooden Sword and
-          a Full Red Potion to practice with. Go ahead and equip the sword and consume
-          the potion. Press "E" now to view the menu and click on "Inventory."
+        value: Captain Herl took away that strange glowing pendant you had with you.
+          So let's practice equipping a different item! Since you're a hero you'll
+          be needing a weapon! So here's a stick from my fireplace Sweetie and some
+          Red Potions to practice with. Go ahead and equip the stick  and consume
+          a potion. Press "E" now to view the menu and click on "Inventory."
         type: 0
         typeString: 
       - title: Sequence
@@ -5907,8 +5911,8 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: uisAddItem("Wooden Sword", 1, "", ""); uisAddItem("Red Potion Full",
-        1, "", "")
+      userScript: uisAddItem("Extraordinarily Big Stick", 1, "", ""); uisAddItem("Red
+        Potion Full", 7, "", "")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -7212,14 +7216,14 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: givequest("GranGran, "GranGran1")
+      userScript: GiveQuest("GranGran", "GranGran1");GiveQuest("GranGran", "Ch 1")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1968.3594
-        y: 1617.105
+        x: 1981.597
+        y: 1661.2311
         width: 160
         height: 30
     - id: 88
@@ -7245,9 +7249,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 'You found the red potion and wooden sword in your inventory yes?
-          Notice your health increasing in the top left when you consume the Red
-          Potion? '
+        value: 'You found the red potion and Granny''s ol'' Big Stick in your inventory
+          yes? Notice how your health increases in the top left when you consume
+          the Red Potion? '
         type: 0
         typeString: 
       - title: Sequence
@@ -7633,8 +7637,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1386.932, y: 5.716908}
-    canvasZoom: 0.6747507
+    canvasScrollPosition: {x: 1713.8489, y: 11.479585}
+    canvasZoom: 0.63999987
   - id: 7
     fields:
     - title: Title
@@ -10107,8 +10111,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 352.31558, y: 1.1615767}
-    canvasZoom: 0.85000014
+    canvasScrollPosition: {x: 140.5669, y: 535.7141}
+    canvasZoom: 0.7000003
   - id: 9
     fields:
     - title: Title
@@ -11808,8 +11812,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.19325045
+    canvasScrollPosition: {x: 710.6392, y: 505.40433}
+    canvasZoom: 0.76325023
   - id: 10
     fields:
     - title: Title
@@ -15258,7 +15262,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 1340.7787
-        y: 556.34705
+        y: 558.34705
         width: 160
         height: 30
     - id: 16
@@ -15595,8 +15599,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 180.95087, y: 398.47406}
-    canvasZoom: 0.90999997
+    canvasScrollPosition: {x: 1010.60767, y: 367.58777}
+    canvasZoom: 0.9999999
   - id: 15
     fields:
     - title: Title
@@ -17216,8 +17220,10 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Growing food is my job here in town. Used to have a brother to help
-          but he wanted some more adventure in his life. I sure hope I see him again
+        value: 'Growing food is my job here in town. Used to have a brother to help
+          but he wanted some more adventure in his life. I sure hope I see him again.
+          I''m sure if you bring him some SWEET SUCULENT TUBERS he''d give you something
+          special! '
         type: 0
         typeString: 
       - title: Sequence
@@ -17231,7 +17237,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 19
+        originDialogueID: 2
+        destinationConversationID: 19
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -17298,9 +17310,61 @@ MonoBehaviour:
         y: 235
         width: 160
         height: 30
+    - id: 4
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 20
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 'Oh sorry, I don''t have any for sale here, sold all of mine to Ardvan
+          the Shop Keeper! Good luck friend!
+
+'
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 19
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 446.87494
+        y: 471.87497
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 11.779663, y: 35}
-    canvasZoom: 1
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.6400002
   - id: 20
     fields:
     - title: Title
@@ -18599,8 +18663,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 105}
-    canvasZoom: 1
+    canvasScrollPosition: {x: 0, y: 10.958893}
+    canvasZoom: 0.73000026
   - id: 26
     fields:
     - title: Title
