@@ -17,6 +17,7 @@ public class CharStatsSaver : Saver
     {
 
         public string characterName;
+        public string characterClass;
 
         public int level;
         public int xp;
@@ -54,6 +55,7 @@ public class CharStatsSaver : Saver
         var charStats = GetComponent<CharStats>();
         var data = new Data();
         data.characterName = charStats.characterName;
+        data.characterClass = charStats.characterClass;
         data.level = charStats.level;
         data.xp = charStats.xp;
         data.xpToLevelUp = charStats.xpToLevelUp;
@@ -89,6 +91,7 @@ public class CharStatsSaver : Saver
             var charStats = GetComponent<CharStats>();
 
             charStats.characterName = data.characterName;
+            charStats.characterClass = data.characterClass;
             charStats.level = data.level;
             charStats.xp = data.xp;
             charStats.xpToLevelUp = data.xpToLevelUp;

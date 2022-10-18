@@ -3,6 +3,7 @@ using Opsive.UltimateInventorySystem.Core.DataStructures;
 using Opsive.UltimateInventorySystem.Core.InventoryCollections;
 using Opsive.UltimateInventorySystem.Exchange;
 using Opsive.UltimateInventorySystem.UI.Panels;
+using Opsive.UltimateInventorySystem.UI.Panels.ItemViewSlotContainers;
 using PixelCrushers;
 using System;
 using System.Collections;
@@ -27,6 +28,9 @@ public class BattleSystem : MonoBehaviour
     public GameObject player;
 
     public TextMeshProUGUI dialogueText;
+
+    public ItemViewSlotsContainerPanelBinding charPanelBinding;
+    public ItemViewSlotsContainerPanelBinding invPanelBinding;
 
 
     public GameObject buttonsContainer;
@@ -98,6 +102,7 @@ public class BattleSystem : MonoBehaviour
         inventory = player.GetComponent<Inventory>();
 
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
 
         ItemCollection equipmentCollection = inventory.GetItemCollection("Equipped");
         EventHandler.RegisterEvent(equipmentCollection, EventNames.c_ItemCollection_OnUpdate, () => OnItemChange());
@@ -112,12 +117,13 @@ public class BattleSystem : MonoBehaviour
     {
         if (mainMenuPanel.IsOpen)
         {
-            Debug.Log("Inventory change logged");
             if (state != BattleState.PLAYERTURN)
             {
                 return;
             }
             buttonsContainer.SetActive(false);
+            invPanelBinding.OnOpen();
+            charPanelBinding.OnOpen();
             CloseInventory();
             StartCoroutine(ItemChanged());
         }
@@ -128,7 +134,11 @@ public class BattleSystem : MonoBehaviour
     {
         hud.SetHUD(playerStats);
         dialogueText.text = "Phendrin uses an item";
+
+        
+
         yield return new WaitForSeconds(2f);
+
         
         state = BattleState.ENEMYTURN;
         StartCoroutine(EnemyTurn());

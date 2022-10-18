@@ -134,7 +134,8 @@ namespace Opsive.UltimateInventorySystem.UI.Item
         protected void StartMove(ItemViewSlot itemViewSlot, ItemViewSlotsContainerBase viewSlotsContainer)
         {
             if (CanMove() == false) { return; }
-            
+
+            Debug.Log("Starting move with item view slot: " + itemViewSlot.name);
             m_SourceItemViewSlot = itemViewSlot;
             m_SourceContainer = viewSlotsContainer;
 

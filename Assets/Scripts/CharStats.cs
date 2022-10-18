@@ -18,6 +18,8 @@ public class CharStats : MonoBehaviour
     public Slider healthSlider;
     public Slider magicSlider;
 
+    public string characterClass;
+    
     public string characterName;
 
     public int level;
