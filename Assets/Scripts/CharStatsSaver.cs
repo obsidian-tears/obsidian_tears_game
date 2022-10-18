@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CharStatsSaver : Saver
 {
@@ -16,6 +17,7 @@ public class CharStatsSaver : Saver
     {
 
         public string characterName;
+        public string characterClass;
 
         public int level;
         public int xp;
@@ -53,6 +55,7 @@ public class CharStatsSaver : Saver
         var charStats = GetComponent<CharStats>();
         var data = new Data();
         data.characterName = charStats.characterName;
+        data.characterClass = charStats.characterClass;
         data.level = charStats.level;
         data.xp = charStats.xp;
         data.xpToLevelUp = charStats.xpToLevelUp;
@@ -79,32 +82,37 @@ public class CharStatsSaver : Saver
 
     public override void ApplyData(string s)
     {
-        if (string.IsNullOrEmpty(s)) return;
-        var data = SaveSystem.Deserialize<Data>(s);
-        if (data == null) return;
+        if (SceneManager.GetActiveScene().name != "GranGranFirst")
+        {
+            if (string.IsNullOrEmpty(s)) return;
+            var data = SaveSystem.Deserialize<Data>(s);
+            if (data == null) return;
 
-        var charStats = GetComponent<CharStats>();
+            var charStats = GetComponent<CharStats>();
 
-        charStats.characterName = data.characterName;
-        charStats.level = data.level;
-        charStats.xp = data.xp;
-        charStats.xpToLevelUp = data.xpToLevelUp;
-        charStats.pointsRemaining = data.pointsRemaining;
-        charStats.healthBase = data.healthBase;
-        charStats.healthTotal = data.healthTotal;
-        charStats.healthMax = data.healthMax;
-        charStats.magicBase = data.magicBase;
-        charStats.magicTotal = data.magicTotal;
-        charStats.magicMax = data.magicMax;
-        charStats.attackBase = data.attackBase;
-        charStats.attackTotal = data.attackTotal;
-        charStats.magicPowerBase = data.magicPowerBase;
-        charStats.magicPowerTotal = data.magicPowerTotal;
-        charStats.defenseBase = data.defenseBase;
-        charStats.defenseTotal = data.defenseTotal;
-        charStats.speedBase = data.speedBase;
-        charStats.speedTotal = data.speedTotal;
-        charStats.criticalHitProbability = data.criticalHitProbability;
-        charStats.characterEffects = data.characterEffects;
+            charStats.characterName = data.characterName;
+            charStats.characterClass = data.characterClass;
+            charStats.level = data.level;
+            charStats.xp = data.xp;
+            charStats.xpToLevelUp = data.xpToLevelUp;
+            charStats.pointsRemaining = data.pointsRemaining;
+            charStats.healthBase = data.healthBase;
+            charStats.healthTotal = data.healthTotal;
+            charStats.healthMax = data.healthMax;
+            charStats.magicBase = data.magicBase;
+            charStats.magicTotal = data.magicTotal;
+            charStats.magicMax = data.magicMax;
+            charStats.attackBase = data.attackBase;
+            charStats.attackTotal = data.attackTotal;
+            charStats.magicPowerBase = data.magicPowerBase;
+            charStats.magicPowerTotal = data.magicPowerTotal;
+            charStats.defenseBase = data.defenseBase;
+            charStats.defenseTotal = data.defenseTotal;
+            charStats.speedBase = data.speedBase;
+            charStats.speedTotal = data.speedTotal;
+            charStats.criticalHitProbability = data.criticalHitProbability;
+            charStats.characterEffects = data.characterEffects;
+        }
+        
     }
 }

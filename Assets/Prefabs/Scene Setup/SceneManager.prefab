@@ -3830,7 +3830,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.99931}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5226,8 +5226,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 140.21344, y: -11.255}
-  m_SizeDelta: {x: 280.42688, y: 22.51}
+  m_AnchoredPosition: {x: 143.01, y: -12}
+  m_SizeDelta: {x: 286.02, y: 24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8348294778090271431
 CanvasRenderer:
@@ -5292,7 +5292,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Active Quest
+  m_text: Active Quest this is my quest check me out
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 54240f2891846104fba28124b5d3de4f, type: 2}
   m_sharedMaterial: {fileID: -1991233971431094331, guid: 54240f2891846104fba28124b5d3de4f, type: 2}
@@ -9449,7 +9449,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 8348294778090336525}
   m_Direction: 2
   m_Value: 1
-  m_Size: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -9594,7 +9594,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 16.4413, y: 0.00012207031}
+  m_AnchoredPosition: {x: 16.4413, y: 0.000015258789}
   m_SizeDelta: {x: -16.4413, y: 297.8035}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &8348294778090636727
@@ -9725,8 +9725,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 289.42688, y: -9}
-  m_SizeDelta: {x: 18, y: 18}
+  m_AnchoredPosition: {x: 292.22342, y: -9}
+  m_SizeDelta: {x: 12.406883, y: 18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8348294778112944469
 MonoBehaviour:
@@ -9825,6 +9825,7 @@ GameObject:
   - component: {fileID: 8348294778112923655}
   - component: {fileID: 8348294778112882859}
   - component: {fileID: 8348294778112918033}
+  - component: {fileID: 1986587877571801588}
   m_Layer: 5
   m_Name: Active Quest Name Template
   m_TagString: Untagged
@@ -10014,6 +10015,20 @@ MonoBehaviour:
     m_uiText: {fileID: 0}
   m_captionText: {fileID: 1271000407}
   m_button: {fileID: 8348294778112950183}
+--- !u!114 &1986587877571801588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8348294778102172061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d98ce9ea4dcae634ea5b7f53584c4d7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 1271000407}
+  rt: {fileID: 8348294778090177003}
 --- !u!1 &8348294778102172845
 GameObject:
   m_ObjectHideFlags: 0
@@ -12753,7 +12768,7 @@ RectTransform:
   m_Father: {fileID: 8348294778090334875}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.000000059604645}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -14096,7 +14111,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.000030517578, y: -0.00044250488}
-  m_SizeDelta: {x: -43.2745, y: 79.0768}
+  m_SizeDelta: {x: -43.2745, y: 368.44}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &8348294778090561283
 CanvasRenderer:
@@ -17622,8 +17637,7 @@ GameObject:
   - component: {fileID: 8348294779649026512}
   - component: {fileID: 8348294779649026513}
   - component: {fileID: 8348294779649026514}
-  - component: {fileID: 8348294779649026348}
-  - component: {fileID: 8348294779706095280}
+  - component: {fileID: 924007107}
   m_Layer: 0
   m_Name: SaveSystem
   m_TagString: Untagged
@@ -17692,24 +17706,7 @@ MonoBehaviour:
   encrypt: 0
   encryptionPassword: My Password
   m_debug: 0
---- !u!114 &8348294779649026348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8348294779649026518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0ee63801adc86d47b70c5e1986398a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_key: 
-  m_appendSaverTypeToKey: 0
-  m_saveAcrossSceneChanges: 1
-  m_restoreStateOnStart: 0
-  saveSlot: 0
---- !u!114 &8348294779706095280
+--- !u!114 &924007107
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17721,12 +17718,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99738be95cdf96a4c83561277430a7a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseDuringTransition: 1
+  pauseDuringTransition: 0
   leaveSceneTransition:
-    animator: {fileID: 9596216, guid: 57901d8399fd6e74fbabbc9956f39557, type: 3}
-    trigger: 
-    animationDuration: 0
-    minTransitionDuration: 0
+    animator: {fileID: 9108277254499979404}
+    trigger: Start
+    animationDuration: 0.5
+    minTransitionDuration: 0.5
     onTransitionStart:
       m_PersistentCalls:
         m_Calls: []
@@ -17735,10 +17732,10 @@ MonoBehaviour:
         m_Calls: []
   loadingSceneName: 
   enterSceneTransition:
-    animator: {fileID: 9596216, guid: 57901d8399fd6e74fbabbc9956f39557, type: 3}
-    trigger: 
-    animationDuration: 0
-    minTransitionDuration: 0
+    animator: {fileID: 9108277254499979404}
+    trigger: Start
+    animationDuration: 0.5
+    minTransitionDuration: 0.5
     onTransitionStart:
       m_PersistentCalls:
         m_Calls: []

@@ -48,7 +48,6 @@ public class MonsterArea : MonoBehaviour
             active = true;
             t = 0;
             probability = Random.Range(minSecondsToBattleStart, maxSecondsToBattleStart);
-            Debug.Log("Probability: " + probability);
         }
     }
     public void OnTriggerExit2D(Collider2D collision)

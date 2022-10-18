@@ -246,6 +246,7 @@ namespace Opsive.UltimateInventorySystem.UI.Panels
                 EventSystemManager.Select(m_SelectableOnOpen.gameObject);
             }
 
+            
             OpenInternal();
         }
 
@@ -303,7 +304,6 @@ namespace Opsive.UltimateInventorySystem.UI.Panels
 
             OnOpen?.Invoke();
             for (int i = 0; i < m_Bindings.Count; i++) { m_Bindings[i].OnOpen(); }
-
         }
 
         /// <summary>
