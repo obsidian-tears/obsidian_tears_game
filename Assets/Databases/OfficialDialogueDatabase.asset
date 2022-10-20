@@ -8703,8 +8703,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: It's on the other side of this wall, almost directly across from me.
-          When I hid it the tree branches messed up my hair...but whatever
+        value: 'It''s on the other side of this wall, directly across from this rock!
+          When I hid it the tree branches messed up my hair...but whatever. Best
+          if you stick close to the wall as you try to reach it eh? '
         type: 0
         typeString: 
       - title: Sequence
@@ -8731,8 +8732,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 50.081543, y: 357.0328}
-    canvasZoom: 0.94
+    canvasScrollPosition: {x: 0, y: 107.15535}
+    canvasZoom: 0.4300004
   - id: 8
     fields:
     - title: Title
@@ -10232,7 +10233,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 402.2248
+        x: 398.79572
         y: 1
         width: 160
         height: 30
@@ -10962,7 +10963,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 844.441
+        x: 846.2485
         y: 397.08118
         width: 160
         height: 30
@@ -11739,19 +11740,19 @@ MonoBehaviour:
         destinationDialogueID: 31
         isConnector: 0
         priority: 2
-      conditionsString: 'uisGetItemAmount("Wizard Wand", "") == 1 and uisGetItemAmount("Chained
-        Orb of Red Light", "") == 1 and
+      conditionsString: 'uisGetItemAmount("Shard of Light", "") == 1 and uisGetItemAmount("The
+        Chained Orb", "") == 1 and
 
-        uisGetItemAmount("Rune of Doom",
-        "") == 1'
+        uisGetItemAmount("Rune of Doom", "")
+        == 1'
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1239.6125
-        y: 56.567963
+        x: 1241.327
+        y: 54.85344
         width: 160
         height: 30
     - id: 31
@@ -11812,8 +11813,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 710.6392, y: 505.40433}
-    canvasZoom: 0.76325023
+    canvasScrollPosition: {x: 644.6632, y: 0}
+    canvasZoom: 0.58325034
   - id: 10
     fields:
     - title: Title
@@ -14579,13 +14580,13 @@ MonoBehaviour:
       - originConversationID: 14
         originDialogueID: 0
         destinationConversationID: 14
-        destinationDialogueID: 1
+        destinationDialogueID: 16
         isConnector: 0
         priority: 2
       - originConversationID: 14
         originDialogueID: 0
         destinationConversationID: 14
-        destinationDialogueID: 16
+        destinationDialogueID: 1
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -15016,9 +15017,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: On my way to hunt for spider meat I found a cave in the middle of
-          the forest. Following it, I eventually emerged high on a plateau. It was
-          there I found a magic artifact.
+        value: On my way to hunt for spider meat I saw an indent in the trees on
+          the right. I found a cave in the middle of the forest. Following it, I
+          eventually emerged high on a plateau. It was there I found a magic artifact.
         type: 0
         typeString: 
       - title: Sequence
@@ -15599,8 +15600,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1010.60767, y: 367.58777}
-    canvasZoom: 0.9999999
+    canvasScrollPosition: {x: 438.31616, y: 0}
+    canvasZoom: 0.43000025
   - id: 15
     fields:
     - title: Title
