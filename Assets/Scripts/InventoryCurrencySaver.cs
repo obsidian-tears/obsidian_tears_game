@@ -10,10 +10,13 @@ using Opsive.UltimateInventorySystem.Equipping;
 using Opsive.UltimateInventorySystem.Exchange;
 using PixelCrushers;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class InventoryCurrencySaver : Saver
 {
+    public string startScene;
+
     [Serializable]
     public class Data
     {
@@ -79,52 +82,56 @@ public class InventoryCurrencySaver : Saver
 
     public override void ApplyData(string s)
     {
-        if (string.IsNullOrEmpty(s)) return;
-        var data = SaveSystem.Deserialize<Data>(s);
-        if (data == null) return;
-
-        var inventory = GetComponent<Inventory>();
-        var currencyOwner = GetComponent<CurrencyOwner>();
-
-        inventory.RemoveAllItems();
-
-        Equipper equipper = GetComponent<Equipper>();
-
-        foreach (ItemCollection itemCol in inventory.ItemCollectionsReadOnly)
+        if(SceneManager.GetActiveScene().name != startScene)
         {
-            if (itemCol.Name == "MainItemCollection")
+            if (string.IsNullOrEmpty(s)) return;
+            var data = SaveSystem.Deserialize<Data>(s);
+            if (data == null) return;
+
+            var inventory = GetComponent<Inventory>();
+            var currencyOwner = GetComponent<CurrencyOwner>();
+
+            inventory.RemoveAllItems();
+
+            Equipper equipper = GetComponent<Equipper>();
+
+            foreach (ItemCollection itemCol in inventory.ItemCollectionsReadOnly)
             {
-                foreach (string itemDefString in data.items)
+                if (itemCol.Name == "MainItemCollection")
                 {
-                    uint defId = uint.Parse(itemDefString);
-                    ItemDefinition itemDef =
-                        InventorySystemManager.GetItemDefinition(defId);
-                    itemCol.AddItem(itemDef, 1, false);
+                    foreach (string itemDefString in data.items)
+                    {
+                        uint defId = uint.Parse(itemDefString);
+                        ItemDefinition itemDef =
+                            InventorySystemManager.GetItemDefinition(defId);
+                        itemCol.AddItem(itemDef, 1, false);
+                    }
+                }
+                else
+                {
+                    foreach (string itemDefString in data.equippedItems)
+                    {
+                        uint defId = uint.Parse(itemDefString);
+                        ItemDefinition itemDef =
+                            InventorySystemManager.GetItemDefinition(defId);
+                        itemCol.AddItem(itemDef, 1, false);
+                    }
                 }
             }
-            else
+
+            CurrencyCollection currencyCollection = currencyOwner.CurrencyAmount;
+
+            CurrencyAmount[] currencies =
+                currencyCollection.GetCurrencyAmounts().ToArray();
+            foreach (CurrencyAmount currencyAmount in currencies)
             {
-                foreach (string itemDefString in data.equippedItems)
-                {
-                    Debug.Log("Equipping an item");
-                    uint defId = uint.Parse(itemDefString);
-                    ItemDefinition itemDef =
-                        InventorySystemManager.GetItemDefinition(defId);
-                    itemCol.AddItem(itemDef, 1, false);
-                }
+                currencyOwner
+                    .RemoveCurrency(currencyAmount.Currency, currencyAmount.Amount);
             }
+
+            currencyOwner.AddCurrency("Gold", data.currency);
         }
 
-        CurrencyCollection currencyCollection = currencyOwner.CurrencyAmount;
-
-        CurrencyAmount[] currencies =
-            currencyCollection.GetCurrencyAmounts().ToArray();
-        foreach (CurrencyAmount currencyAmount in currencies)
-        {
-            currencyOwner
-                .RemoveCurrency(currencyAmount.Currency, currencyAmount.Amount);
-        }
-
-        currencyOwner.AddCurrency("Gold", data.currency);
+        
     }
 }

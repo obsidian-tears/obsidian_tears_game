@@ -23,4 +23,15 @@ public class Battle : ScriptableObject
     public string monsterAreaObject;
 
     public bool wonBattle = false;
+//when running from enemy
+    public bool ranBattle = false;
+
+    [Range(0f, 1.0f)]
+    public float fireSusceptibility;
+
+    [Range(0f, 1.0f)]
+    public float frostSusceptibility;
+
+    [Range(0f, 1.0f)]
+    public float shockSusceptibility;
 }

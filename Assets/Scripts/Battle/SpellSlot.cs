@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class SpellSlot : MonoBehaviour
 {
     public Text spellNameText;
-    public Spell spell;
-    public void Setup(Spell newSpell) {
+    public SpellObject spell;
+    public void Setup(SpellObject newSpell) {
         spell = newSpell;
         spellNameText.text = newSpell.spellName;
     }

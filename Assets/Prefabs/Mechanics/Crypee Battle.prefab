@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8314385171691826351
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2591356523271637724}
+  - component: {fileID: 6445104999692534092}
+  - component: {fileID: 8028741598735486825}
+  m_Layer: 0
+  m_Name: Crypee Battle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2591356523271637724
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8314385171691826351}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.491884, y: 4.601107, z: 4.795535}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6445104999692534092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8314385171691826351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d86e4361f56649c48a778fe7a5d81b2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_key: 
+  m_appendSaverTypeToKey: 0
+  m_saveAcrossSceneChanges: 1
+  m_restoreStateOnStart: 0
+  m_mode: 1
+  m_destroyMode: 0
+  m_destroyedVersionPrefab: {fileID: 0}
+--- !u!114 &8028741598735486825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8314385171691826351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0db12642190ca2c4c99b343dd15ed6de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterAreaUniqueID: 
+  minSecondsToBattleStart: 0
+  maxSecondsToBattleStart: 0
+  backgroundImage: {fileID: 21300000, guid: 8031c1ac882849a4c9b58d4145572a6a, type: 3}
+  musicClip: {fileID: 8300000, guid: cfb03a92c1e3cad44a792524c7dcac09, type: 3}
+  isOneTimeBattle: 1
+  enemies:
+  - enemy: {fileID: 11400000, guid: 9003504e17aca4549a161a2af32868c5, type: 2}
+    enemyProbability: 0
+  onBattleStart:
+    m_PersistentCalls:
+      m_Calls: []
+  onBattleWin:
+    m_PersistentCalls:
+      m_Calls: []

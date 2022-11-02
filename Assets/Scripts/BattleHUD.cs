@@ -21,9 +21,9 @@ public class BattleHUD : MonoBehaviour
         levelText.text = "LVL " + stats.level;
         hpNumber.text = stats.healthTotal + "/" + stats.healthMax;
         mpNumber.text = stats.magicTotal + "/" + stats.magicMax;
-        attackNumber.text = stats.attackTotal.ToString();
+        /*attackNumber.text = stats.attackTotal.ToString();
         defenseNumber.text = stats.defenseTotal.ToString();
-        speedNumber.text = stats.speedTotal.ToString();
+        speedNumber.text = stats.speedTotal.ToString();*/
 
         hpSlider.maxValue = stats.healthMax;
         hpSlider.value = stats.healthTotal;

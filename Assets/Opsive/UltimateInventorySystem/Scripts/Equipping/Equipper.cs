@@ -508,7 +508,7 @@ namespace Opsive.UltimateInventorySystem.Equipping
 
                 Item item = null;
 
-                if (itemPreview == null) {
+               if (itemPreview == null) {
                     if (m_Slots[i].ItemObject == null) { continue; }
                     item = m_Slots[i].ItemObject.Item;
                 } else if (m_Slots[i].Category.InherentlyContains(itemPreview.Category)) {
@@ -524,8 +524,10 @@ namespace Opsive.UltimateInventorySystem.Equipping
                 if (item.TryGetAttributeValue<float>(attributeName, out var floatAttributeValue)) {
                     stat += floatAttributeValue;
                 }
+
             }
 
+            
             return (int)stat;
         }
 
@@ -550,6 +552,7 @@ namespace Opsive.UltimateInventorySystem.Equipping
                 if (item.TryGetAttributeValue<float>(attributeName, out var floatAttributeValue)) {
                     stat += floatAttributeValue;
                 }
+
             }
 
             return (int)stat;
@@ -614,7 +617,8 @@ namespace Opsive.UltimateInventorySystem.Equipping
         /// <returns>The ItemObject.</returns>
         public virtual ItemObject CreateItemObject(Item item)
         {
-            if (item.TryGetAttributeValue(m_EquipablePrefabAttributeName, out GameObject itemPrefab) == false) {
+            ItemObject usableItemGameObject = null;
+            /*if (item.TryGetAttributeValue(m_EquipablePrefabAttributeName, out GameObject itemPrefab) == false) {
                 Debug.LogError($"Prefab Attribute is undefined for Attribute {m_EquipablePrefabAttributeName}.", gameObject);
                 return null;
             }
@@ -640,7 +644,7 @@ namespace Opsive.UltimateInventorySystem.Equipping
             equipmentGameObject.transform.localPosition = Vector3.zero;
             equipmentGameObject.transform.localRotation = Quaternion.identity;
             equipmentGameObject.transform.localScale = itemPrefab.transform.localScale;
-
+            */
             return usableItemGameObject;
         }
 

@@ -14,12 +14,19 @@ public class Enemy : ScriptableObject
     public int speed;
 
     public int xpDrop;
-    public int goldDrop;
-    public string itemDrop;
 
     [Range(0f, 1.0f)]
     public float runSuccessProbability;
 
     [Range(0f, 1.0f)]
     public float criticalHitProbability;
+
+    [Range(0f, 1.0f)]
+    public float fireSusceptibility;
+
+    [Range(0f, 1.0f)]
+    public float frostSusceptibility;
+
+    [Range(0f, 1.0f)]
+    public float shockSusceptibility;
 }
