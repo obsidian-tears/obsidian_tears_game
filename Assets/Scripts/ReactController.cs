@@ -109,22 +109,30 @@ public class ReactController : MonoBehaviour
     }
 
     // For treasure chests
-    public void SignalOpenChest()
+    public void SignalOpenChest(string treasureIndex, int treasureInstanceId)
     {
-        // TODO use proper id for treasure chest
-        const string treasureIndex = "id";
-
+        //convert treasureInstanceId to string
+        string treasureInstanceIdString = treasureInstanceId.ToString();
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
-        OpenChest(treasureIndex, gameObject.name);
+        OpenChest(treasureIndex, treasureInstanceIdString);
 #endif
 
         freezeSignal.Raise();
         loadingIndicator.SetActive(true);
     }
 
-    public void ListenOpenChest(string fromReact)
+    public void ListenOpenChest(string fromReact, string treasureInstanceId)
     {
-        // TODO set the chest data
+        // TODO: get itemDefinitionIds from fromReact:
+        // call reactGiveItems function
+        // parse treasureInstanceId to int
+        int treasureInstanceIdInt = int.Parse(treasureInstanceId);
+        GiveItems(xxx, treasureInstanceIdInt);
+        // if necessary, call a function on the treasure chest to give the item:
+        // GameObject myGameObject = (GameObject)Object.FindObjectFromInstanceID(treasureInstanceIdInt);
+        // ItemPickup itemPickup = myGameObject.GetComponent<ItemPickup>();
+        // itemPickup.dosomething();
+
         loadingIndicator.SetActive(false);
         blocker.SetActive(false);
         Debug.Log("open chest: " + fromReact);
@@ -192,5 +200,20 @@ public class ReactController : MonoBehaviour
         // TODO display an error on the screen
         loadingIndicator.SetActive(false);
         unfreezeSignal.Raise();
+    }
+
+public void GiveItems(uint itemDefinitionId, int goldAmount)
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        Inventory inv = player.GetComponent<Inventory>();
+        var itemDefinition = InventorySystemManager.GetItemDefinition(itemDefinitionId);
+        inv.AddItem(itemDefinition, 1);
+
+        var currencyOwner = inv.GetCurrencyComponent<CurrencyCollection>() as CurrencyOwner;
+        var ownerCurrencyCollection = currencyOwner.CurrencyAmount;
+
+        var gold = InventorySystemManager.GetCurrency("Gold");
+
+        ownerCurrencyCollection.AddCurrency(gold, goldAmount);
     }
 }
