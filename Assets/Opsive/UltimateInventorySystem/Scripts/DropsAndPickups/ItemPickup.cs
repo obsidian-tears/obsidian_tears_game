@@ -12,7 +12,8 @@ namespace Opsive.UltimateInventorySystem.DropsAndPickups
     using Opsive.UltimateInventorySystem.Interactions;
     using System;
     using UnityEngine;
-    
+    using EventHandler = Opsive.Shared.Events.EventHandler;
+
     /// <summary>
     /// The item pickup component.
     /// </summary>
@@ -24,10 +25,6 @@ namespace Opsive.UltimateInventorySystem.DropsAndPickups
         [SerializeField] protected ItemCollectionID m_AddToItemCollection = ItemCollectionPurpose.Main;
         [Tooltip("Fail to pickup the item if the amount added isn't the full amount inside the pickup.")]
         [SerializeField] protected bool m_FailIfFullAmountDoesNotFit;
-        [Tooltip("TreasureIndex is the number in the server associated with this treasure chest.")]
-        [SerializeField] protected string m_TreasureIndex;
-
-        ReactController reactController;
 
 
         protected ItemObject m_ItemObject;
@@ -49,7 +46,6 @@ namespace Opsive.UltimateInventorySystem.DropsAndPickups
         protected override void Start()
         {
             base.Start();
-            reactController = GetComponent<ReactController>();
 
             if (m_ItemObject == null) { return; }
 
@@ -88,17 +84,15 @@ namespace Opsive.UltimateInventorySystem.DropsAndPickups
         /// <param name="interactor">The interactor that picks up the item.</param>
         protected override void OnInteractInternal(IInteractor interactor)
         {
-            // if (!(interactor is IInteractorWithInventory interactorWithInventory)) { return; }
-            // 
-            // var itemCollection = interactorWithInventory.Inventory.GetItemCollection(m_AddToItemCollection);
-            // 
-            // if (itemCollection == null) {
-                // itemCollection = interactorWithInventory.Inventory.MainItemCollection;
-            // }
-            reactController.SignalOpenChest(m_TreasureIndex, gameObject.GetInstanceID());
+            if (!(interactor is IInteractorWithInventory interactorWithInventory)) { return; }
 
-            NotifyPickupSuccess();
-            // TryAddItemToCollection(itemCollection);
+            var itemCollection = interactorWithInventory.Inventory.GetItemCollection(m_AddToItemCollection);
+
+            if (itemCollection == null) {
+                itemCollection = interactorWithInventory.Inventory.MainItemCollection;
+            }
+
+            TryAddItemToCollection(itemCollection);
         }
 
         /// <summary>

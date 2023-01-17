@@ -6,6 +6,7 @@ using UnityEngine;
 public class Enemy : ScriptableObject
 {
     public string enemyName;
+    public int enemyServerId;
     public Sprite sprite;
     public int hp;
     public int mp;

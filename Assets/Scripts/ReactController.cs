@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using Opsive.UltimateInventorySystem.Core;
+using Opsive.UltimateInventorySystem.Core.InventoryCollections;
+using Opsive.UltimateInventorySystem.Exchange;
 using UnityEngine;
 
 public class ReactController : MonoBehaviour
@@ -27,13 +30,21 @@ public class ReactController : MonoBehaviour
     private static extern void OpenChest(string chestId, string objectName);
 
     [DllImport("__Internal")]
-    private static extern void BuyItem(string shopId, string itemId, string objectName);
+    private static extern void BuyItem(
+        int shopId,
+        string itemDefId,
+        int qty,
+        string objectName
+    );
 
     [DllImport("__Internal")]
     private static extern void EquipItems(string[] itemIds, string objectName);
 
     [DllImport("__Internal")]
-    private static extern void DefeatMonster(string monsterId, string objectName);
+    private static extern void DefeatMonster(
+        string monsterId,
+        string objectName
+    );
 
     // calls the react function to load the game, start loading
     public void SignalLoadGame()
@@ -46,11 +57,9 @@ public class ReactController : MonoBehaviour
         LoadGame(gameObject.name);
 #endif
 
-#if UNITY_WEBGL == false || UNITY_EDITOR == true
+
         loadingIndicator.SetActive(false);
         blocker.SetActive(false);
-#endif
-
         Debug.Log("sent load game message");
     }
 
@@ -71,6 +80,7 @@ public class ReactController : MonoBehaviour
     // calls the react function to save the game, start loading
     public void SignalSaveGame()
     {
+        // freeze
         loadingIndicator.SetActive(true);
         blocker.SetActive(true);
 
@@ -82,15 +92,14 @@ public class ReactController : MonoBehaviour
         // call react fx
         Debug.Log (stringData);
 
+
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
         SaveGame(stringData, gameObject.name);
 #endif
 
-#if UNITY_WEBGL == false || UNITY_EDITOR == true
+
         loadingIndicator.SetActive(false);
         blocker.SetActive(false);
-#endif
-
         Debug.Log("sent save signal: " + stringData);
     }
 
@@ -109,64 +118,60 @@ public class ReactController : MonoBehaviour
     }
 
     // For treasure chests
-    public void SignalOpenChest(string treasureIndex, int treasureInstanceId)
+    public void SignalOpenChest(string treasureIndex)
     {
-        //convert treasureInstanceId to string
-        string treasureInstanceIdString = treasureInstanceId.ToString();
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
-        OpenChest(treasureIndex, treasureInstanceIdString);
+        OpenChest(treasureIndex, gameObject.name);
 #endif
+
 
         freezeSignal.Raise();
         loadingIndicator.SetActive(true);
     }
 
-    public void ListenOpenChest(string fromReact, string treasureInstanceId)
+    public void ListenOpenChest(string fromReact)
     {
         // TODO: get itemDefinitionIds from fromReact:
-        // call reactGiveItems function
-        // parse treasureInstanceId to int
-        int treasureInstanceIdInt = int.Parse(treasureInstanceId);
-        GiveItems(xxx, treasureInstanceIdInt);
-        // if necessary, call a function on the treasure chest to give the item:
-        // GameObject myGameObject = (GameObject)Object.FindObjectFromInstanceID(treasureInstanceIdInt);
-        // ItemPickup itemPickup = myGameObject.GetComponent<ItemPickup>();
-        // itemPickup.dosomething();
-
+        int treasureInstanceIdInt = int.Parse(fromReact);
+        GiveItems(0, treasureInstanceIdInt);
         loadingIndicator.SetActive(false);
         blocker.SetActive(false);
         Debug.Log("open chest: " + fromReact);
     }
 
-    public void DefeatMonster()
+    public void SignalDefeatMonster(string monsterId)
     {
-        // TODO use proper id for treasure chest
-        const string monsterId = "id";
-
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
         DefeatMonster(monsterId, gameObject.name);
 #endif
+
 
         freezeSignal.Raise();
         loadingIndicator.SetActive(true);
     }
 
-    public void ListenDefeatMonster(string fromReact)
+    public void ListenBuyItem(string fromReact)
     {
-        // TODO apply monster rewards
         loadingIndicator.SetActive(false);
         blocker.SetActive(false);
-        Debug.Log("defeat monster: " + fromReact);
+        Debug.Log("bought item: " + fromReact);
     }
 
-    public void BuyItem()
+    public void ListenDefeatMonster(string fromReact)
     {
-        // TODO use proper id for item
-        const string itemIndex = "id";
+        loadingIndicator.SetActive(false);
+        blocker.SetActive(false);
 
+        // TODO give player items parsed from fromReact
+        Debug.Log("defeated monster: " + fromReact);
+    }
+
+    public void SignalBuyItem(string shopIndex, string itemDefId, int quantity)
+    {
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
-        BuyItem (itemIndex, gameObject.name);
+        BuyItem(int.Prase(shopIndex), itemDefId, quantity, gameObject.name);
 #endif
+
 
         freezeSignal.Raise();
         loadingIndicator.SetActive(true);
@@ -175,16 +180,16 @@ public class ReactController : MonoBehaviour
     public void EquipItems()
     {
         string[] itemIds = new string[] { };
-        const string gameObjectId = "id";
+
 
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
-        EquipItems (itemIds, gameObjectId);
+        EquipItems(itemIds, gameObject.name);
 #endif
+
 
         freezeSignal.Raise();
         loadingIndicator.SetActive(true);
     }
-
 
     // for generic success
     public void DisplaySuccess(string success)
@@ -202,18 +207,23 @@ public class ReactController : MonoBehaviour
         unfreezeSignal.Raise();
     }
 
-public void GiveItems(uint itemDefinitionId, int goldAmount)
+    public void GiveItems(uint itemDefinitionId, int goldAmount)
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        Inventory inv = player.GetComponent<Inventory>();
-        var itemDefinition = InventorySystemManager.GetItemDefinition(itemDefinitionId);
-        inv.AddItem(itemDefinition, 1);
-
-        var currencyOwner = inv.GetCurrencyComponent<CurrencyCollection>() as CurrencyOwner;
-        var ownerCurrencyCollection = currencyOwner.CurrencyAmount;
-
-        var gold = InventorySystemManager.GetCurrency("Gold");
-
-        ownerCurrencyCollection.AddCurrency(gold, goldAmount);
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            Inventory inv = player.GetComponent<Inventory>();
+        if (itemDefinitionId != 0)
+        {
+            var itemDefinition =
+                InventorySystemManager.GetItemDefinition(itemDefinitionId);
+            inv.AddItem(itemDefinition, 1);
+        }
+        if (goldAmount != 0)
+        {
+            var currencyOwner =
+                inv.GetCurrencyComponent<CurrencyCollection>() as CurrencyOwner;
+            var ownerCurrencyCollection = currencyOwner.CurrencyAmount;
+            var gold = InventorySystemManager.GetCurrency("Gold");
+            ownerCurrencyCollection.AddCurrency (gold, goldAmount);
+        }
     }
 }

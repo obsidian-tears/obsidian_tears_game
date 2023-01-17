@@ -19,6 +19,7 @@ namespace PixelCrushers.UISSupport
         public bool unregisterOnDisable = false;
 
         protected CurrencyCollection m_TemporaryCurrencyCollection;
+        ReactController reactController;
 
         protected virtual void Awake()
         {
@@ -27,11 +28,12 @@ namespace PixelCrushers.UISSupport
 
         protected virtual void OnEnable()
         {
+            reactController = GameObject.Find("ReactController").GetComponent<ReactController>();
             Lua.RegisterFunction("uisGetItemAmount", this, SymbolExtensions.GetMethodInfo(() => uisGetItemAmount(string.Empty, string.Empty)));
-            Lua.RegisterFunction("uisAddItem", this, SymbolExtensions.GetMethodInfo(() => uisAddItem(string.Empty, (double)0, string.Empty, string.Empty)));
+            Lua.RegisterFunction("uisAddItem", this, SymbolExtensions.GetMethodInfo(() => uisAddItem(string.Empty, (double)0, string.Empty, string.Empty, (double)-1)));
             Lua.RegisterFunction("uisRemoveItem", this, SymbolExtensions.GetMethodInfo(() => uisRemoveItem(string.Empty, (double)0, string.Empty, string.Empty)));
             Lua.RegisterFunction("uisGetCurrencyAmount", this, SymbolExtensions.GetMethodInfo(() => uisGetCurrencyAmount(string.Empty, string.Empty)));
-            Lua.RegisterFunction("uisAddCurrency", this, SymbolExtensions.GetMethodInfo(() => uisAddCurrency(string.Empty, (double)0, string.Empty)));
+            Lua.RegisterFunction("uisAddCurrency", this, SymbolExtensions.GetMethodInfo(() => uisAddCurrency(string.Empty, (double)0, string.Empty, (double)-1)));
             Lua.RegisterFunction("uisRemoveCurrency", this, SymbolExtensions.GetMethodInfo(() => uisRemoveCurrency(string.Empty, (double)0, string.Empty)));
         }
 
@@ -74,7 +76,7 @@ namespace PixelCrushers.UISSupport
         /// <param name="amount">Amount of item to add.</param>
         /// <param name="inventoryName">Name of GameObject that has Inventory component, or blank to use GameObject tagged Player.</param>
         /// <param name="itemCollectionName">Name of item collection in Inventory, or blank to not specify an item collection.</param>
-        public virtual void uisAddItem(string itemName, double amount, string inventoryName, string itemCollectionName)
+        public virtual void uisAddItem(string itemName, double amount, string inventoryName, string itemCollectionName, double treasureId)
         {
             var item = GetItem(itemName);
             if (item == null) return;
@@ -84,12 +86,15 @@ namespace PixelCrushers.UISSupport
             var itemInfo = new ItemInfo(new ItemAmount(item, (int)amount), itemCollection);
             if (itemCollection != null)
             {
-                itemCollection.AddItem(itemInfo);
+                // itemCollection.AddItem(itemInfo);
             }
             else
             {
-                inventory.AddItem(itemInfo);
+                // inventory.AddItem(itemInfo);
             }
+            if (treasureId < 0)
+            reactController.SignalOpenChest(treasureId.ToString());
+            // TODO: call react controller to add item to inventory
         }
 
         /// <summary>
@@ -212,13 +217,15 @@ namespace PixelCrushers.UISSupport
         /// <param name="currencyName">Currency name.</param>
         /// <param name="amount">Amount to add.</param>
         /// <param name="currencyOwnerName">Name of GameObject that has Currency Owner component, or blank to use GameObject tagged Player.</param>
-        public virtual void uisAddCurrency(string currencyName, double amount, string currencyOwnerName)
+        public virtual void uisAddCurrency(string currencyName, double amount, string currencyOwnerName, double treasureId)
         {
             var currency = GetCurrency(currencyName);
             if (currency == null) return;
             var currencyOwner = GetCurrencyOwner(currencyOwnerName);
             if (currencyOwner == null) return;
             currencyOwner.CurrencyAmount.AddCurrency(currency, amount);
+            if (treasureId < 0)
+            reactController.SignalOpenChest(treasureId.ToString());
         }
 
         /// <summary>

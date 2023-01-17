@@ -38,6 +38,7 @@ public class MonsterArea : MonoBehaviour
     public OnBattleRan onBattleRan;
 
     private Player player;
+    ReactController reactController;
 
     public void OnTriggerEnter2D(Collider2D collider)
     {
@@ -139,11 +140,13 @@ public class MonsterArea : MonoBehaviour
 
     void Start()
     {
+        reactController = GameObject.Find("ReactController").GetComponent<ReactController>();
         probability = 0;
         currentBattle = GameObject.Find("SceneManager").GetComponent<ObjectHolder>().currentBattle;
 
         if(currentBattle.monsterAreaObject == monsterAreaUniqueID && currentBattle.wonBattle)
         {
+            reactController.SignalDefeatMonster(currentBattle.enemy.enemyServerId.ToString());
             onBattleWin.Invoke();
 
             if (isOneTimeBattle)
