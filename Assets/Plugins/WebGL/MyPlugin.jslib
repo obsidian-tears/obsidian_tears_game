@@ -39,7 +39,7 @@ mergeInto(LibraryManager.library, {
       window.dispatchReactUnityEvent(
         "BuyItem",
         shopId,
-        itemId,
+        Pointer_stringify(itemId),
         qty,
         Pointer_stringify(objectName)
       );

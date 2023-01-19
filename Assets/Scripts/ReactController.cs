@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -5,6 +6,15 @@ using Opsive.UltimateInventorySystem.Core;
 using Opsive.UltimateInventorySystem.Core.InventoryCollections;
 using Opsive.UltimateInventorySystem.Exchange;
 using UnityEngine;
+using System.Linq; 
+
+[Serializable]
+public class RewardInfo
+{
+    public string[] itemIds;
+    public int gold;
+    public int xp;
+}
 
 public class ReactController : MonoBehaviour
 {
@@ -27,7 +37,7 @@ public class ReactController : MonoBehaviour
     private static extern void SaveGame(string saveGameData, string objectName);
 
     [DllImport("__Internal")]
-    private static extern void OpenChest(string chestId, string objectName);
+    private static extern void OpenChest(int chestId, string objectName);
 
     [DllImport("__Internal")]
     private static extern void BuyItem(
@@ -121,7 +131,7 @@ public class ReactController : MonoBehaviour
     public void SignalOpenChest(string treasureIndex)
     {
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
-        OpenChest(treasureIndex, gameObject.name);
+        OpenChest((int)Math.Round(double.Parse(treasureIndex)), gameObject.name);
 #endif
 
 
@@ -131,9 +141,13 @@ public class ReactController : MonoBehaviour
 
     public void ListenOpenChest(string fromReact)
     {
-        // TODO: get itemDefinitionIds from fromReact:
-        int treasureInstanceIdInt = int.Parse(fromReact);
-        GiveItems(0, treasureInstanceIdInt);
+        RewardInfo data = JsonUtility.FromJson<RewardInfo>(fromReact);
+        uint[] items = Array.ConvertAll(data.itemIds, uint.Parse);
+        Dictionary<uint, int> dictionary = items.GroupBy(x => x)
+                .ToDictionary(g => g.Key, g => g.Count());
+        var gold = data.gold;
+
+        GiveItems(dictionary, gold);
         loadingIndicator.SetActive(false);
         blocker.SetActive(false);
         Debug.Log("open chest: " + fromReact);
@@ -169,7 +183,7 @@ public class ReactController : MonoBehaviour
     public void SignalBuyItem(string shopIndex, string itemDefId, int quantity)
     {
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
-        BuyItem(int.Prase(shopIndex), itemDefId, quantity, gameObject.name);
+        BuyItem(int.Parse(shopIndex), itemDefId, quantity, gameObject.name);
 #endif
 
 
@@ -207,16 +221,16 @@ public class ReactController : MonoBehaviour
         unfreezeSignal.Raise();
     }
 
-    public void GiveItems(uint itemDefinitionId, int goldAmount)
+    public void GiveItems(Dictionary<uint, int> items, int goldAmount)
     {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            Inventory inv = player.GetComponent<Inventory>();
-        if (itemDefinitionId != 0)
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        Inventory inv = player.GetComponent<Inventory>();
+        foreach (uint key in items.Keys)
         {
             var itemDefinition =
-                InventorySystemManager.GetItemDefinition(itemDefinitionId);
-            inv.AddItem(itemDefinition, 1);
-        }
+                InventorySystemManager.GetItemDefinition(key);
+            inv.AddItem(itemDefinition, items[key]);
+         }
         if (goldAmount != 0)
         {
             var currencyOwner =

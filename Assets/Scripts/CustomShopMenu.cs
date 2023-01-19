@@ -27,16 +27,17 @@ namespace Opsive.UltimateInventorySystem.UI.Menus.Shop
     /// </summary>
     public class CustomShopMenu : ShopMenu
     {
-        [Tooltip("The shop component to show in the UI.")]
-        [SerializeField] internal ShopBase m_Shop;
-        [Tooltip("The inventory grid UI.")]
-        [SerializeField] internal InventoryGrid m_InventoryGrid;
-        [Tooltip("The currency UI displaying the total price.")]
-        [SerializeField] internal MultiCurrencyView m_TotalPrice;
-        [Tooltip("The quantity picker panel.")]
-        [SerializeField] internal QuantityPickerPanel m_QuantityPickerPanel;
-        [Tooltip("The shop id")]
-        [SerializeField] protected string m_shopId;
+        // [Tooltip("The shop component to show in the UI.")]
+        // [SerializeField] new internal ShopBase m_Shop;
+        // [Tooltip("The inventory grid UI.")]
+        // [SerializeField] internal InventoryGrid m_InventoryGrid;
+        // [Tooltip("The currency UI displaying the total price.")]
+        // [SerializeField] internal MultiCurrencyView m_TotalPrice;
+        // [Tooltip("The quantity picker panel.")]
+        // [SerializeField] internal QuantityPickerPanel m_QuantityPickerPanel;
+        // [Tooltip("The shop id")]
+        // [SerializeField] protected string m_shopId;
+
 
         private ICurrencyOwner<CurrencyCollection> m_ShopperClientCurrencyOwner;
         ReactController reactController;
