@@ -141,13 +141,7 @@ public class ReactController : MonoBehaviour
 
     public void ListenOpenChest(string fromReact)
     {
-        RewardInfo data = JsonUtility.FromJson<RewardInfo>(fromReact);
-        uint[] items = Array.ConvertAll(data.itemIds, uint.Parse);
-        Dictionary<uint, int> dictionary = items.GroupBy(x => x)
-                .ToDictionary(g => g.Key, g => g.Count());
-        var gold = data.gold;
-
-        GiveItems(dictionary, gold);
+        handleReward(fromReact);
         loadingIndicator.SetActive(false);
         blocker.SetActive(false);
         Debug.Log("open chest: " + fromReact);
@@ -173,6 +167,7 @@ public class ReactController : MonoBehaviour
 
     public void ListenDefeatMonster(string fromReact)
     {
+        handleReward(fromReact);
         loadingIndicator.SetActive(false);
         blocker.SetActive(false);
 
@@ -219,6 +214,16 @@ public class ReactController : MonoBehaviour
         // TODO display an error on the screen
         loadingIndicator.SetActive(false);
         unfreezeSignal.Raise();
+    }
+
+    public void handleReward(string fromReact) {
+        RewardInfo data = JsonUtility.FromJson<RewardInfo>(fromReact);
+        uint[] items = Array.ConvertAll(data.itemIds, uint.Parse);
+        Dictionary<uint, int> dictionary = items.GroupBy(x => x)
+                .ToDictionary(g => g.Key, g => g.Count());
+        var gold = data.gold;
+
+        GiveItems(dictionary, gold);
     }
 
     public void GiveItems(Dictionary<uint, int> items, int goldAmount)
