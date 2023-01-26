@@ -56,6 +56,9 @@ public class ReactController : MonoBehaviour
         string objectName
     );
 
+    [DllImport("__Internal")]
+    private static extern void NewGame(string objectName);
+
     // calls the react function to load the game, start loading
     public void SignalLoadGame()
     {
@@ -66,11 +69,6 @@ public class ReactController : MonoBehaviour
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
         LoadGame(gameObject.name);
 #endif
-
-
-        loadingIndicator.SetActive(false);
-        blocker.SetActive(false);
-        Debug.Log("sent load game message");
     }
 
     // react calls this function, triggering the actual load, end loading
@@ -106,11 +104,6 @@ public class ReactController : MonoBehaviour
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
         SaveGame(stringData, gameObject.name);
 #endif
-
-
-        loadingIndicator.SetActive(false);
-        blocker.SetActive(false);
-        Debug.Log("sent save signal: " + stringData);
     }
 
     // applies the data from react (to refresh inventory) and stops loading
@@ -156,6 +149,17 @@ public class ReactController : MonoBehaviour
 
         freezeSignal.Raise();
         loadingIndicator.SetActive(true);
+    }
+
+    public void SignalNewGame()
+    {
+#if UNITY_WEBGL == true && UNITY_EDITOR == false
+        NewGame(gameObject.name);
+#endif
+
+
+        //freezeSignal.Raise();
+        //loadingIndicator.SetActive(true);
     }
 
     public void ListenBuyItem(string fromReact)

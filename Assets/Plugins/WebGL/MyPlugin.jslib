@@ -28,6 +28,12 @@ mergeInto(LibraryManager.library, {
         Pointer_stringify(objectName)
       );
   },
+  NewGame: function(objectName) {
+      window.dispatchReactUnityEvent(
+        "NewGame",
+        Pointer_stringify(objectName)
+      );
+  },
   EquipItems: function(itemIds, objectName) {
       window.dispatchReactUnityEvent(
         "EquipItems",
