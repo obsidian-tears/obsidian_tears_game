@@ -35,13 +35,13 @@ namespace Opsive.UltimateInventorySystem.UI.Menus.Shop
         }
         
         [Tooltip("The shop component to show in the UI.")]
-        [SerializeField] internal ShopBase m_Shop;
+        [SerializeField] public ShopBase m_Shop;
         [Tooltip("The inventory grid UI.")]
-        [SerializeField] internal InventoryGrid m_InventoryGrid;
+        [SerializeField] public InventoryGrid m_InventoryGrid;
         [Tooltip("The currency UI displaying the total price.")]
-        [SerializeField] internal MultiCurrencyView m_TotalPrice;
+        [SerializeField] public MultiCurrencyView m_TotalPrice;
         [Tooltip("The quantity picker panel.")]
-        [SerializeField] internal QuantityPickerPanel m_QuantityPickerPanel;
+        [SerializeField] public QuantityPickerPanel m_QuantityPickerPanel;
         [Tooltip("Limit the quantity picker max value to the available item amount count.")]
         [SerializeField] protected bool m_LimitBuyQuantityToAvailableItemAmount;
         [Tooltip("Select the item to buy or sell only using click, and not item view slot select.")]

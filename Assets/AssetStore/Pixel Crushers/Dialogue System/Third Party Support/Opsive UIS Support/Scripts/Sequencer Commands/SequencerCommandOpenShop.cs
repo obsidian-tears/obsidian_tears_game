@@ -26,12 +26,12 @@ namespace PixelCrushers.DialogueSystem.SequencerCommands
             var shopSubject = GetSubject(0, speaker);
             var shop = (shopSubject != null) ? shopSubject.GetComponent<ShopBase>() : null;
             var shopMenuTransform = !string.IsNullOrEmpty(GetParameter(1)) ? GetSubject(1) : null;
-            var shopMenu = (shopMenuTransform != null) ? shopMenuTransform.GetComponent<ShopMenu>() : null;
-            if (shopMenu == null) shopMenu = FindObjectOfType<ShopMenu>();
+            var shopMenu = (shopMenuTransform != null) ? shopMenuTransform.GetComponent<CustomShopMenu>() : null;
+            if (shopMenu == null) shopMenu = FindObjectOfType<CustomShopMenu>();
             if (shopMenu == null)
             {
                 var shopMenuObject = GameObjectUtility.GameObjectHardFind("Shop Menu");
-                if (shopMenuObject != null) shopMenu = shopMenuObject.GetComponent<ShopMenu>();
+                if (shopMenuObject != null) shopMenu = shopMenuObject.GetComponent<CustomShopMenu>();
             }
             var panelManager = (shopMenu != null) ? shopMenu.GetComponentInParent<DisplayPanelManager>() : null;
             var player = GetSubject(2, listener);
@@ -57,10 +57,11 @@ namespace PixelCrushers.DialogueSystem.SequencerCommands
             else
             {
                 if (DialogueDebug.logInfo) Debug.Log("Dialogue System: Sequencer: OpenShop(" + GetParameters() + ")");
-                var shopMenuOpener = shop.GetComponent<ShopMenuOpener>();
+                var shopMenuOpener = shop.GetComponent<CustomShopMenuOpener>();
                 if (shopMenuOpener != null)
                 {
                     shopMenuOpener.Open(playerInventory);
+
                 }
                 else
                 {

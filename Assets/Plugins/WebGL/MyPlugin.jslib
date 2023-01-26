@@ -17,28 +17,30 @@ mergeInto(LibraryManager.library, {
   OpenChest: function(chestId, objectName) {
       window.dispatchReactUnityEvent(
         "OpenChest",
-        Pointer_stringify(chestId),
+        chestId,
         Pointer_stringify(objectName)
       );
   },
-  DefeatMonster: function(chestId, objectName) {
+  DefeatMonster: function(monsterId, objectName) {
       window.dispatchReactUnityEvent(
         "DefeatMonster",
-        Pointer_stringify(chestId),
+        monsterId,
         Pointer_stringify(objectName)
       );
   },
   EquipItems: function(itemIds, objectName) {
       window.dispatchReactUnityEvent(
         "EquipItems",
-        itemIds,
+        Pointer_stringify(itemIds),
         Pointer_stringify(objectName)
       );
   },
-  BuyItem: function(itemId, objectName) {
+  BuyItem: function(shopId, itemId, qty, objectName) {
       window.dispatchReactUnityEvent(
         "BuyItem",
-        itemId,
+        shopId,
+        Pointer_stringify(itemId),
+        qty,
         Pointer_stringify(objectName)
       );
   },

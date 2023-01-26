@@ -42,6 +42,11 @@ namespace Opsive.UltimateInventorySystem.Core
         [Tooltip("This is true only after the Item is initialized.")]
         [System.NonSerialized] [HideInInspector] protected bool m_Initialized = false;
 
+        public uint ItemDefinitionID
+        {
+            get { return m_ItemDefinitionID; }
+            internal set => m_ItemDefinitionID = value;
+        }
         public uint ID {
             get => m_ID;
             internal set => m_ID = value;
