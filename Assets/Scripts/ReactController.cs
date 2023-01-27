@@ -143,7 +143,7 @@ public class ReactController : MonoBehaviour
     public void SignalDefeatMonster(string monsterId)
     {
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
-        DefeatMonster(monsterId, gameObject.name);
+        DefeatMonster(int.parse(monsterId), gameObject.name);
 #endif
 
 
