@@ -52,7 +52,7 @@ public class ReactController : MonoBehaviour
 
     [DllImport("__Internal")]
     private static extern void DefeatMonster(
-        string monsterId,
+        int monsterId,
         string objectName
     );
 
@@ -143,7 +143,7 @@ public class ReactController : MonoBehaviour
     public void SignalDefeatMonster(string monsterId)
     {
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
-        DefeatMonster(int.parse(monsterId), gameObject.name);
+        DefeatMonster(int.Parse(monsterId), gameObject.name);
 #endif
 
 
@@ -175,7 +175,6 @@ public class ReactController : MonoBehaviour
         loadingIndicator.SetActive(false);
         blocker.SetActive(false);
 
-        // TODO give player items parsed from fromReact
         Debug.Log("defeated monster: " + fromReact);
     }
 
