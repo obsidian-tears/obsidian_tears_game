@@ -25,6 +25,9 @@ namespace Opsive.UltimateInventorySystem.Exchange.Shops
         [Tooltip("Sell price modifier. 0 => no modification.")]
         [SerializeField] protected float m_SellModifier;
 
+        [Tooltip("The server shop id.")]
+        [SerializeField] public string ShopId;
+
         [Tooltip("If true the item won't be added by the shop, but instead the shop will send an event with a callback to add the item externally.")]
         [SerializeField] protected bool m_AddItemWithCallback = false;
         [Tooltip("If true the item won't be removed by the shop, but instead the shop will send an event with a callback to remove the item externally.")]

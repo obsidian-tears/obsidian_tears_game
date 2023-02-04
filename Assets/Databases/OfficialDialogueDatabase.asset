@@ -1007,7 +1007,7 @@ MonoBehaviour:
     - title: Initial Value
       value: 
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Description
       value: 
       type: 0
@@ -3159,7 +3159,7 @@ MonoBehaviour:
         priority: 2
       conditionsString: 
       userScript: ' SendMessageSystem("Herl", "gave");uisAddItem("Pendant of Memories",
-        1, "", "")'
+        1, "", "",48)'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -5911,8 +5911,8 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: uisAddItem("Extraordinarily Big Stick", 1, "", ""); uisAddItem("Red
-        Potion Full", 7, "", "")
+      userScript: uisAddItem("Extraordinarily Big Stick", 1, "", "",49); uisAddItem("Red
+        Potion Full", 7, "", "",-1)
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -7637,8 +7637,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1713.8489, y: 11.479585}
-    canvasZoom: 0.63999987
+    canvasScrollPosition: {x: 1507.2783, y: 811.5663}
+    canvasZoom: 0.58250004
   - id: 7
     fields:
     - title: Title
@@ -10046,7 +10046,7 @@ MonoBehaviour:
       outgoingLinks: []
       conditionsString: 
       userScript: SetQuestNodeState("ArcherMaster1","Success","Success");uisAddItem("Bow",
-        1, "", "");uisRemoveItem("Monster Jaw", 1, "", "")
+        1, "", "", 47);uisRemoveItem("Monster Jaw", 1, "", "")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -10114,8 +10114,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 140.5669, y: 535.7141}
-    canvasZoom: 0.7000003
+    canvasScrollPosition: {x: 260.47348, y: 76.371574}
+    canvasZoom: 0.69799656
   - id: 9
     fields:
     - title: Title
@@ -11375,7 +11375,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: uisAddItem("Blades of Duality", 1, "", "")
+      userScript: uisAddItem("Blades of Duality", 1, "", "",46)
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -21424,7 +21424,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: CurrentQuestState("Loincloth Wizard") == success
-      userScript: uisAddCurrency("Gold", 50, "")
+      userScript: uisAddCurrency("Gold", 50, "",50)
       onExecute:
         m_PersistentCalls:
           m_Calls: []

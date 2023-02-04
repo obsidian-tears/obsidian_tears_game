@@ -1,161 +1,251 @@
-
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using System.Runtime.InteropServices;
+using Opsive.UltimateInventorySystem.Core;
+using Opsive.UltimateInventorySystem.Core.InventoryCollections;
+using Opsive.UltimateInventorySystem.Exchange;
+using UnityEngine;
+using System.Linq; 
+
+[Serializable]
+public class RewardInfo
+{
+    public string[] itemIds;
+    public int gold;
+    public int xp;
+}
 
 public class ReactController : MonoBehaviour
 {
-    [SerializeField] MySignal freezeSignal;
-    [SerializeField] MySignal unfreezeSignal;
-    [SerializeField] GameObject loadingIndicator;
-    [SerializeField] GameObject blocker;
-    [DllImport("__Internal")] private static extern void LoadGame(string objectName);
-    [DllImport("__Internal")] private static extern void SaveGame(string saveGameData, string objectName);
-    [DllImport("__Internal")] private static extern void OpenChest(string chestId, string objectName);
-    [DllImport("__Internal")] private static extern void BuyItem(string chestId, string objectName);
-    [DllImport("__Internal")] private static extern void EquipItems(string[] itemIds, string objectName);
-    [DllImport("__Internal")] private static extern void DefeatMonster(string monsterId, string objectName);
+    [SerializeField]
+    MySignal freezeSignal;
 
-    // ---------------------------
-    // Loading/Saving Functions
-    // ---------------------------
+    [SerializeField]
+    MySignal unfreezeSignal;
+
+    [SerializeField]
+    GameObject loadingIndicator;
+
+    [SerializeField]
+    GameObject blocker;
+
+    [DllImport("__Internal")]
+    private static extern void LoadGame(string objectName);
+
+    [DllImport("__Internal")]
+    private static extern void SaveGame(string saveGameData, string objectName);
+
+    [DllImport("__Internal")]
+    private static extern void OpenChest(int chestId, string objectName);
+
+    [DllImport("__Internal")]
+    private static extern void BuyItem(
+        int shopId,
+        string itemDefId,
+        int qty,
+        string objectName
+    );
+
+    [DllImport("__Internal")]
+    private static extern void EquipItems(string[] itemIds, string objectName);
+
+    [DllImport("__Internal")]
+    private static extern void DefeatMonster(
+        int monsterId,
+        string objectName
+    );
+
+    [DllImport("__Internal")]
+    private static extern void NewGame(string objectName);
 
     // calls the react function to load the game, start loading
-    public void SignalLoadGame() {
+    public void SignalLoadGame()
+    {
         loadingIndicator.SetActive(true);
         blocker.SetActive(true);
+
         // call react fx
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
         LoadGame(gameObject.name);
 #endif
-#if UNITY_WEBGL == false || UNITY_EDITOR == true
-        loadingIndicator.SetActive(false);
-        blocker.SetActive(false);
-#endif
-        Debug.Log("sent load game message");
     }
 
     // react calls this function, triggering the actual load, end loading
-    public void ListenLoadGame(string fromReact) {
-        PixelCrushers.SavedGameData gameData = PixelCrushers.SaveSystem.Deserialize<PixelCrushers.SavedGameData>(fromReact);
-        PixelCrushers.SaveSystem.LoadGame(gameData);
+    public void ListenLoadGame(string fromReact)
+    {
+        Debug.Log (fromReact);
+        PixelCrushers.SavedGameData gameData =
+            PixelCrushers
+                .SaveSystem
+                .Deserialize<PixelCrushers.SavedGameData>(fromReact);
+        PixelCrushers.SaveSystem.LoadGame (gameData);
         loadingIndicator.SetActive(false);
         blocker.SetActive(false);
         Debug.Log("load the game: " + fromReact);
     }
 
     // calls the react function to save the game, start loading
-    public void SignalSaveGame() {
+    public void SignalSaveGame()
+    {
+        // freeze
         loadingIndicator.SetActive(true);
         blocker.SetActive(true);
+
         // get saved game data
-        PixelCrushers.SavedGameData gameData = PixelCrushers.SaveSystem.RecordSavedGameData();
+        PixelCrushers.SavedGameData gameData =
+            PixelCrushers.SaveSystem.RecordSavedGameData();
         string stringData = PixelCrushers.SaveSystem.Serialize(gameData);
+
         // call react fx
+        Debug.Log (stringData);
+
+
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
         SaveGame(stringData, gameObject.name);
 #endif
-#if UNITY_WEBGL == false || UNITY_EDITOR == true
-        loadingIndicator.SetActive(false);
-        blocker.SetActive(false);
-#endif
-        Debug.Log("sent save signal: " + stringData);
-
     }
 
     // applies the data from react (to refresh inventory) and stops loading
-    public void ListenSaveGame(string fromReact) {
+    public void ListenSaveGame(string fromReact)
+    {
         // apply saved game data
-        PixelCrushers.SavedGameData gameData = PixelCrushers.SaveSystem.Deserialize<PixelCrushers.SavedGameData>(fromReact);
-        PixelCrushers.SaveSystem.ApplySavedGameData(gameData);
+        PixelCrushers.SavedGameData gameData =
+            PixelCrushers
+                .SaveSystem
+                .Deserialize<PixelCrushers.SavedGameData>(fromReact);
+        PixelCrushers.SaveSystem.ApplySavedGameData (gameData);
         loadingIndicator.SetActive(false);
         blocker.SetActive(false);
         Debug.Log("apply save data: " + fromReact);
     }
 
-
-
-    // ---------------------------
-    // Functions Unity will call through events
-    // ---------------------------
-
     // For treasure chests
-    public void GetTreasure()
+    public void SignalOpenChest(string treasureIndex)
     {
-        // TODO use proper id for treasure chest
-        const string treasureId = "id";
-        const string gameObjectName = "name";
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
-        OpenChest(treasureId, gameObjectName);
+        OpenChest((int)Math.Round(double.Parse(treasureIndex)), gameObject.name);
 #endif
+
+
         freezeSignal.Raise();
         loadingIndicator.SetActive(true);
     }
 
-    public void DefeatMonster()
+    public void ListenOpenChest(string fromReact)
     {
-        // TODO use proper id for treasure chest
-        const string monsterId = "id";
-        const string gameObjectName = "name";
-#if UNITY_WEBGL == true && UNITY_EDITOR == false
-        DefeatMonster(monsterId, gameObjectName);
-#endif
-        freezeSignal.Raise();
-        loadingIndicator.SetActive(true);
-    }
-
-    public void BuyItem() {
-        // TODO use proper id for item
-        const string itemId = "id";
-        const string gameObjectName = "name";
-#if UNITY_WEBGL == true && UNITY_EDITOR == false
-        BuyItem(itemId, gameObjectName);
-#endif
-        freezeSignal.Raise();
-        loadingIndicator.SetActive(true);
-    }
-
-    public void EquipItems() {
-        string[] itemIds = new string[] {};
-        const string gameObjectId = "id";
-#if UNITY_WEBGL == true && UNITY_EDITOR == false
-        EquipItems(itemIds, gameObjectId);
-#endif
-        freezeSignal.Raise();
-        loadingIndicator.SetActive(true);
-    }
-
-
-    // ---------------------------
-    // Functions React will call upon server response
-    // ---------------------------
-
-    // For treasure chests
-    public void SetTreasure(string treasureIdentifier, int numGold)
-    {
-        // TODO set the treasure that is inside the treasure chest
+        handleReward(fromReact);
         loadingIndicator.SetActive(false);
-        unfreezeSignal.Raise();
+        blocker.SetActive(false);
+        Debug.Log("open chest: " + fromReact);
     }
 
-    public void SetMonsterRewards(string[] itemIds, int numGold, int xp) {
-        // TODO set monster rewards (including items if any)
+    public void SignalDefeatMonster(string monsterId)
+    {
+#if UNITY_WEBGL == true && UNITY_EDITOR == false
+        DefeatMonster(int.Parse(monsterId), gameObject.name);
+#endif
+
+
+        freezeSignal.Raise();
+        loadingIndicator.SetActive(true);
+    }
+
+    public void SignalNewGame()
+    {
+#if UNITY_WEBGL == true && UNITY_EDITOR == false
+        NewGame(gameObject.name);
+#endif
+
+
+        //freezeSignal.Raise();
+        //loadingIndicator.SetActive(true);
+    }
+
+    public void ListenBuyItem(string fromReact)
+    {
         loadingIndicator.SetActive(false);
-        unfreezeSignal.Raise();
+        blocker.SetActive(false);
+        Debug.Log("bought item: " + fromReact);
+    }
+
+    public void ListenDefeatMonster(string fromReact)
+    {
+        handleReward(fromReact);
+        loadingIndicator.SetActive(false);
+        blocker.SetActive(false);
+
+        Debug.Log("defeated monster: " + fromReact);
+    }
+
+    public void SignalBuyItem(string shopIndex, string itemDefId, int quantity)
+    {
+#if UNITY_WEBGL == true && UNITY_EDITOR == false
+        BuyItem(int.Parse(shopIndex), itemDefId, quantity, gameObject.name);
+#endif
+
+
+        freezeSignal.Raise();
+        loadingIndicator.SetActive(true);
+    }
+
+    public void EquipItems()
+    {
+        string[] itemIds = new string[] { };
+
+
+#if UNITY_WEBGL == true && UNITY_EDITOR == false
+        EquipItems(itemIds, gameObject.name);
+#endif
+
+
+        freezeSignal.Raise();
+        loadingIndicator.SetActive(true);
     }
 
     // for generic success
-    public void DisplaySuccess(string success) {
+    public void DisplaySuccess(string success)
+    {
         // TODO display an error on the screen
         loadingIndicator.SetActive(false);
         unfreezeSignal.Raise();
     }
 
     // for failure
-    public void DisplayError(string error) {
+    public void DisplayError(string error)
+    {
         // TODO display an error on the screen
         loadingIndicator.SetActive(false);
         unfreezeSignal.Raise();
+    }
+
+    public void handleReward(string fromReact) {
+        RewardInfo data = JsonUtility.FromJson<RewardInfo>(fromReact);
+        uint[] items = Array.ConvertAll(data.itemIds, uint.Parse);
+        Dictionary<uint, int> dictionary = items.GroupBy(x => x)
+                .ToDictionary(g => g.Key, g => g.Count());
+        var gold = data.gold;
+
+        GiveItems(dictionary, gold);
+    }
+
+    public void GiveItems(Dictionary<uint, int> items, int goldAmount)
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        Inventory inv = player.GetComponent<Inventory>();
+        foreach (uint key in items.Keys)
+        {
+            var itemDefinition =
+                InventorySystemManager.GetItemDefinition(key);
+            inv.AddItem(itemDefinition, items[key]);
+         }
+        if (goldAmount != 0)
+        {
+            var currencyOwner =
+                inv.GetCurrencyComponent<CurrencyCollection>() as CurrencyOwner;
+            var ownerCurrencyCollection = currencyOwner.CurrencyAmount;
+            var gold = InventorySystemManager.GetCurrency("Gold");
+            ownerCurrencyCollection.AddCurrency (gold, goldAmount);
+        }
     }
 }
