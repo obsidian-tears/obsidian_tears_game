@@ -52,9 +52,12 @@ public class ReactController : MonoBehaviour
 
     [DllImport("__Internal")]
     private static extern void DefeatMonster(
-        string monsterId,
+        int monsterId,
         string objectName
     );
+
+    [DllImport("__Internal")]
+    private static extern void NewGame(string objectName);
 
     // calls the react function to load the game, start loading
     public void SignalLoadGame()
@@ -66,11 +69,6 @@ public class ReactController : MonoBehaviour
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
         LoadGame(gameObject.name);
 #endif
-
-
-        loadingIndicator.SetActive(false);
-        blocker.SetActive(false);
-        Debug.Log("sent load game message");
     }
 
     // react calls this function, triggering the actual load, end loading
@@ -106,11 +104,6 @@ public class ReactController : MonoBehaviour
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
         SaveGame(stringData, gameObject.name);
 #endif
-
-
-        loadingIndicator.SetActive(false);
-        blocker.SetActive(false);
-        Debug.Log("sent save signal: " + stringData);
     }
 
     // applies the data from react (to refresh inventory) and stops loading
@@ -150,12 +143,23 @@ public class ReactController : MonoBehaviour
     public void SignalDefeatMonster(string monsterId)
     {
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
-        DefeatMonster(monsterId, gameObject.name);
+        DefeatMonster(int.Parse(monsterId), gameObject.name);
 #endif
 
 
         freezeSignal.Raise();
         loadingIndicator.SetActive(true);
+    }
+
+    public void SignalNewGame()
+    {
+#if UNITY_WEBGL == true && UNITY_EDITOR == false
+        NewGame(gameObject.name);
+#endif
+
+
+        //freezeSignal.Raise();
+        //loadingIndicator.SetActive(true);
     }
 
     public void ListenBuyItem(string fromReact)
@@ -171,7 +175,6 @@ public class ReactController : MonoBehaviour
         loadingIndicator.SetActive(false);
         blocker.SetActive(false);
 
-        // TODO give player items parsed from fromReact
         Debug.Log("defeated monster: " + fromReact);
     }
 
