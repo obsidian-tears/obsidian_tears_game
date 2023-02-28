@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8981868035935532224
+--- !u!1 &98882285204749404
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,65 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8981868035935532226}
-  - component: {fileID: 8981868035935532227}
-  - component: {fileID: 1484208330998831843}
+  - component: {fileID: 4059295024614492017}
+  - component: {fileID: 2876507215983372143}
+  - component: {fileID: 491509617459690752}
+  - component: {fileID: 7244108038240701440}
   m_Layer: 0
-  m_Name: CastleWallHorizontalMedium
+  m_Name: RockArchway
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8981868035935532226
+--- !u!4 &4059295024614492017
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8981868035935532224}
+  m_GameObject: {fileID: 98882285204749404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -48.725018, y: 162.81415, z: 0.12136323}
+  m_LocalPosition: {x: -31.987623, y: 196.69908, z: -52.766926}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &8981868035935532227
+--- !u!61 &2876507215983372143
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98882285204749404}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 2.2358694, y: 0.32583618}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.48298168, y: 0.07642746}
+    oldSize: {x: 8, y: 6}
+    newSize: {x: 8, y: 6}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.3594646, y: 1.0674133}
+  m_EdgeRadius: 0
+--- !u!212 &491509617459690752
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8981868035935532224}
+  m_GameObject: {fileID: 98882285204749404}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -74,40 +101,40 @@ SpriteRenderer:
   m_SortingLayerID: -898105737
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1792051439, guid: 9edf881246d2a5d4f992bcb860dfb184, type: 3}
+  m_Sprite: {fileID: -953372220, guid: 3ac47642e7f12b94ca1d674b0bc3360c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 3}
+  m_Size: {x: 8, y: 6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
---- !u!61 &1484208330998831843
+--- !u!61 &7244108038240701440
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8981868035935532224}
+  m_GameObject: {fileID: 98882285204749404}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.36053467}
+  m_Offset: {x: -2.7981434, y: 0.4780426}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1, y: 3}
-    newSize: {x: 1, y: 3}
+    pivot: {x: 0.48298168, y: 0.07642746}
+    oldSize: {x: 8, y: 6}
+    newSize: {x: 8, y: 6}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.72106934}
+  m_Size: {x: 1.8634491, y: 0.9085388}
   m_EdgeRadius: 0
