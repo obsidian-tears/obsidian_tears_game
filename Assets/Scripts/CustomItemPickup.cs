@@ -110,17 +110,19 @@ namespace Opsive.UltimateInventorySystem.DropsAndPickups
         /// <param name="itemCollection">The item collection.</param>
         protected new virtual void TryAddItemToCollection(ItemCollection itemCollection)
         {
-            // var itemInfo = m_ItemObject.ItemInfo;
-            // var canAddResult = itemCollection.CanAddItem(itemInfo);
-            // if (canAddResult.HasValue == false
-                // || canAddResult.Value.Amount == 0
-                // || (m_FailIfFullAmountDoesNotFit && canAddResult.Value.Amount != itemInfo.Amount))
-            // {
-                // NotifyPickupFailed();
-                // return;
-            // }
-// 
-            // itemCollection.AddItem(itemInfo);
+            //QUESTION Jakub comment - this was commented before, was there some intent behind it?
+            var itemInfo = m_ItemObject.ItemInfo;
+            var canAddResult = itemCollection.CanAddItem(itemInfo);
+            if (canAddResult.HasValue == false
+                || canAddResult.Value.Amount == 0
+                || (m_FailIfFullAmountDoesNotFit && canAddResult.Value.Amount != itemInfo.Amount))
+            {
+                NotifyPickupFailed();
+                return;
+            }
+
+            itemCollection.AddItem(itemInfo);
+            //end of comments
             reactController.SignalOpenChest(m_TreasureIndex);
             NotifyPickupSuccess();
         }
