@@ -7,6 +7,7 @@ using Opsive.UltimateInventorySystem.Core.InventoryCollections;
 using Opsive.UltimateInventorySystem.Exchange;
 using UnityEngine;
 using System.Linq;
+using PixelCrushers;
 
 [Serializable]
 public class RewardInfo
@@ -18,6 +19,14 @@ public class RewardInfo
 
 public class ReactController : MonoBehaviour
 {
+    // TODO probably adding timeout variable would be beneficial
+    [Header("Testing/Setup")]
+    [Tooltip("For testing purposes - on which save system slot should be game saved locally?")]
+    [SerializeField] private int m_localSaveSlotNumber;
+    [Tooltip("For testing purposes - how long should be save/load screen shown when testing game in editor?")]
+    [SerializeField] private float m_saveLoadScreenShowTime;
+    [Space(5)]
+    [Header("References")]
     [SerializeField]
     MySignal freezeSignal;
 
@@ -59,69 +68,96 @@ public class ReactController : MonoBehaviour
     [DllImport("__Internal")]
     private static extern void NewGame(string objectName);
 
-    // calls the react function to load the game, start loading
+    private void Awake()
+    {
+    }
+
+    private void OnDestroy()
+    {
+    }
+
+    /// <summary>
+    /// Reaction to Load game signal, calls react method or local one when running from editor
+    /// </summary>
     public void SignalLoadGame()
     {
+        Debug.Log("LOADING START!");
         ShowLoadingIndicator(true, true);
-        // call react fx
+
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
+        // call react fx
+        // TODO why are we sending gameobject name to the server, is it needed?
+        // TODO probably adding timeout would be beneficial
         LoadGame(gameObject.name);
 #else
-    LoadGameLocally();
+        // else save data locally for testing purposes
+        StartCoroutine(LocalLoadGameSimulation());
 #endif
     }
 
-    private void LoadGameLocally()
+    private IEnumerator LocalLoadGameSimulation()
     {
-        PixelCrushers.SaveSystem.LoadFromSlot(0);
-        //ListenLoadGame(gameObject.name);
+        yield return new WaitForSecondsRealtime(m_saveLoadScreenShowTime);
+        SavedGameData savedData = SaveSystem.storer.RetrieveSavedGameData(m_localSaveSlotNumber);
+        if (savedData == null)
+        {
+            Debug.LogError("LOADING ERROR, NO DATA FOUND!");
+            ShowLoadingIndicator(false, true);
+            yield break;
+        }
+
+        string stringData = SaveSystem.Serialize(savedData);
+        ListenLoadGame(stringData);
     }
 
-    // react calls this function, triggering the actual load, end loading
+    /// <summary>
+    /// React load game callback, triggering the actual load
+    /// </summary>
+    /// <param name="fromReact">String with player data</param>
     public void ListenLoadGame(string fromReact)
     {
-        Debug.Log(fromReact);
-        PixelCrushers.SavedGameData gameData =
-            PixelCrushers
-                .SaveSystem
-                .Deserialize<PixelCrushers.SavedGameData>(fromReact);
-        PixelCrushers.SaveSystem.LoadGame(gameData);
-        ShowLoadingIndicator(false, true);
-        Debug.Log("load the game: " + fromReact);
+        Debug.Log("LOADING, DATA TO LOAD: " + fromReact);
+        SavedGameData gameData = SaveSystem.Deserialize<PixelCrushers.SavedGameData>(fromReact);
+        SaveSystem.LoadGame(gameData);
     }
 
-    // calls the react function to save the game, start loading
+    /// <summary>
+    /// Reaction to Save game signal, calls react method or local one when running from editor
+    /// </summary>
     public void SignalSaveGame()
     {
         // freeze
         ShowLoadingIndicator(true, true);
         // get saved game data
-        PixelCrushers.SavedGameData gameData =
-            PixelCrushers.SaveSystem.RecordSavedGameData();
-        string stringData = PixelCrushers.SaveSystem.Serialize(gameData);
+        SavedGameData gameData = SaveSystem.RecordSavedGameData();
+        string stringData = SaveSystem.Serialize(gameData);
 
-        // call react fx
-        Debug.Log(stringData);
-
+        Debug.Log("SAVING, GAME DATA:" + stringData);
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
+        // call react 
+        // TODO timeout would be beneficial
         SaveGame(stringData, gameObject.name);
 #else
-        ListenSaveGame(stringData);
+        // else save data locally for testing purposes
+        StartCoroutine(LocalSaveGameSimulation(gameData, stringData));
 #endif
     }
 
-    // applies the data from react (to refresh inventory) and stops loading
+    // Callback to react-related save game
+    // TODO - probably should receive just simple bool/int to make sure operation was successful
+    // TODO - show some error message in case something went wrong
     public void ListenSaveGame(string fromReact)
     {
-        // apply saved game data
-        PixelCrushers.SavedGameData gameData =
-            PixelCrushers
-                .SaveSystem
-                .Deserialize<PixelCrushers.SavedGameData>(fromReact);
-        //PixelCrushers.SaveSystem.ApplySavedGameData(gameData);
-        PixelCrushers.SaveSystem.SaveToSlot(0);
+        //TODO show proper save/load screen
         ShowLoadingIndicator(false, true);
-        Debug.Log("apply save data: " + fromReact);
+        Debug.Log("SAVING SUCCESS, GAME DATA:" + fromReact);
+    }
+
+    private IEnumerator LocalSaveGameSimulation(SavedGameData gameData, string stringData)
+    {
+        SaveSystem.storer.StoreSavedGameData(m_localSaveSlotNumber, gameData);
+        yield return new WaitForSecondsRealtime(m_saveLoadScreenShowTime);
+        ListenSaveGame(stringData);
     }
 
     // For treasure chests
@@ -249,7 +285,6 @@ public class ReactController : MonoBehaviour
     // TODO this should be ideally move to the dedicated UI script
     private void ShowLoadingIndicator(bool show, bool involveBlocker)
     {
-#if UNITY_WEBGL == true && UNITY_EDITOR == false
         if (loadingIndicator != null)
         {
             loadingIndicator.SetActive(show);
@@ -259,8 +294,5 @@ public class ReactController : MonoBehaviour
         {
             blocker.SetActive(show);
         }
-#else
-    Debug.Log("REACT-RELATED ACTION! Normally this would show/hide the loading indicator, but we skip that in the editor");
-#endif
     }
 }
