@@ -51,7 +51,7 @@ namespace Opsive.UltimateInventorySystem.DropsAndPickups
         {
             base.Start();
 
-// get reactcontroller that is in the scene
+            // get reactcontroller that is in the scene
 
             reactController = GameObject.Find("ReactController").GetComponent<ReactController>();
             if (m_ItemObject == null) { return; }
@@ -110,6 +110,9 @@ namespace Opsive.UltimateInventorySystem.DropsAndPickups
         /// <param name="itemCollection">The item collection.</param>
         protected new virtual void TryAddItemToCollection(ItemCollection itemCollection)
         {
+#if UNITY_WEBGL && !UNITY_EDITOR
+            reactController.SignalOpenChest(m_TreasureIndex);
+#else
             //QUESTION Jakub comment - this was commented before, was there some intent behind it?
             var itemInfo = m_ItemObject.ItemInfo;
             var canAddResult = itemCollection.CanAddItem(itemInfo);
@@ -123,7 +126,7 @@ namespace Opsive.UltimateInventorySystem.DropsAndPickups
 
             itemCollection.AddItem(itemInfo);
             //end of comments
-            reactController.SignalOpenChest(m_TreasureIndex);
+#endif
             NotifyPickupSuccess();
         }
 
