@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Opsive.UltimateInventorySystem.Core;
 
 public enum PlayerType { Fighter, Wizard, Rogue, Barbarian }
 public class Player : MonoBehaviour
@@ -26,10 +27,12 @@ public class Player : MonoBehaviour
     //[SerializeField] PlayerType playerType = PlayerType.Fighter;
     [SerializeField] bool frozen;
 
-
     // Start is called before the first frame update
     void Start()
     {
+        //Register player as the inventory panel owner
+        InventorySystemManager.GetDisplayPanelManager().SetPanelOwner(gameObject);
+
         frozen = false;
         myRigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
