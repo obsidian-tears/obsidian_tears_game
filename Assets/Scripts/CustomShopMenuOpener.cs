@@ -18,8 +18,20 @@ namespace Opsive.UltimateInventorySystem.UI.Menus
     /// </summary>
     public class CustomShopMenuOpener : InventoryPanelOpener<CustomShopMenu>
     {
-        [Tooltip("The shop.")]
+        [Tooltip("The shop")]
         [SerializeField] protected ShopBase m_Shop;
+
+        // !!! Start of the code added by Jakub
+        protected override void Initialize(bool force) {
+            m_Menu = GameManagers.GameUIManager.Instance.ShopMenu;
+            if (m_Menu == null)
+            {
+                Debug.LogError("ERROR! ShopMenu has not been found, please make sure that GameUIManager has been spawned and its Shop Menu property assigned!");
+            }
+
+            base.Initialize(force);
+        }
+        // !!! End of the code added by Jakub
 
         /// <summary>
         /// Open the menu on for an inventory.
