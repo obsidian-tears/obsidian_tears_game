@@ -8,6 +8,8 @@ using Opsive.UltimateInventorySystem.Exchange;
 using UnityEngine;
 using System.Linq;
 using PixelCrushers;
+using Core;
+using GameManagers;
 
 [Serializable]
 public class RewardInfo
@@ -17,7 +19,7 @@ public class RewardInfo
     public int xp;
 }
 
-public class ReactController : MonoBehaviour
+public class ReactController : MonoSingleton<ReactController>
 {
     // TODO probably adding timeout variable would be beneficial
     [Header("Testing/Setup")]
@@ -29,15 +31,8 @@ public class ReactController : MonoBehaviour
     [Header("References")]
     [SerializeField]
     MySignal freezeSignal;
-
     [SerializeField]
     MySignal unfreezeSignal;
-
-    [SerializeField]
-    GameObject loadingIndicator;
-
-    [SerializeField]
-    GameObject blocker;
 
     [DllImport("__Internal")]
     private static extern void LoadGame(string objectName);
@@ -68,11 +63,7 @@ public class ReactController : MonoBehaviour
     [DllImport("__Internal")]
     private static extern void NewGame(string objectName);
 
-    private void Awake()
-    {
-    }
-
-    private void OnDestroy()
+    protected override void Init()
     {
     }
 
@@ -82,7 +73,7 @@ public class ReactController : MonoBehaviour
     public void SignalLoadGame()
     {
         Debug.Log("LOADING START!");
-        ShowLoadingIndicator(true, true);
+        GameUIManager.Instance.ShowLoadingIndicator(true, true);
 
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
         // call react fx
@@ -102,7 +93,7 @@ public class ReactController : MonoBehaviour
         if (savedData == null)
         {
             Debug.LogError("LOADING ERROR, NO DATA FOUND!");
-            ShowLoadingIndicator(false, true);
+            GameUIManager.Instance.ShowLoadingIndicator(false, true);
             yield break;
         }
 
@@ -127,7 +118,8 @@ public class ReactController : MonoBehaviour
     public void SignalSaveGame()
     {
         // freeze
-        ShowLoadingIndicator(true, true);
+        GameUIManager.Instance.ShowLoadingIndicator(true, true);
+
         // get saved game data
         SavedGameData gameData = SaveSystem.RecordSavedGameData();
         string stringData = SaveSystem.Serialize(gameData);
@@ -149,7 +141,7 @@ public class ReactController : MonoBehaviour
     public void ListenSaveGame(string fromReact)
     {
         //TODO show proper save/load screen
-        ShowLoadingIndicator(false, true);
+        GameUIManager.Instance.ShowLoadingIndicator(false, true);
         Debug.Log("SAVING SUCCESS, GAME DATA:" + fromReact);
     }
 
@@ -163,19 +155,20 @@ public class ReactController : MonoBehaviour
     // For treasure chests
     public void SignalOpenChest(string treasureIndex)
     {
+        Debug.Log("REACT OPEN CHEST! Treasure index: " + treasureIndex);
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
         OpenChest((int)Math.Round(double.Parse(treasureIndex)), gameObject.name);
 #endif
 
         freezeSignal.Raise();
-        ShowLoadingIndicator(true, false);
+        GameUIManager.Instance.ShowLoadingIndicator(true, false);
     }
 
     public void ListenOpenChest(string fromReact)
     {
+        Debug.Log("REACT OPEN CHEST CALLBACK. Data from react: " + fromReact);
         handleReward(fromReact);
-        ShowLoadingIndicator(false, true);
-        Debug.Log("open chest: " + fromReact);
+        GameUIManager.Instance.ShowLoadingIndicator(false, true);
     }
 
     public void SignalDefeatMonster(string monsterId)
@@ -185,7 +178,7 @@ public class ReactController : MonoBehaviour
 #endif
 
         freezeSignal.Raise();
-        ShowLoadingIndicator(true, false);
+        GameUIManager.Instance.ShowLoadingIndicator(true, false);
     }
 
     public void SignalNewGame()
@@ -201,26 +194,28 @@ public class ReactController : MonoBehaviour
     public void ListenBuyItem(string fromReact)
     {
         // TODO WHAT ABOUT SOME HANDLE REWARD HERE?? OR IS IT HANDLED ELSEWHERE?
-        ShowLoadingIndicator(false, true);
+        GameUIManager.Instance.ShowLoadingIndicator(false, true);
+
         Debug.Log("bought item: " + fromReact);
     }
 
     public void ListenDefeatMonster(string fromReact)
     {
         handleReward(fromReact);
-        ShowLoadingIndicator(false, true);
+        GameUIManager.Instance.ShowLoadingIndicator(false, true);
 
         Debug.Log("defeated monster: " + fromReact);
     }
 
     public void SignalBuyItem(string shopIndex, string itemDefId, int quantity)
     {
+        Debug.Log("REACT BUY ITEM METHOD, shopIndex, itemDefId, quantity info follows: " + shopIndex + ", " + itemDefId + ", " + quantity);
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
         BuyItem(int.Parse(shopIndex), itemDefId, quantity, gameObject.name);
 #endif
 
         freezeSignal.Raise();
-        ShowLoadingIndicator(true, false);
+        GameUIManager.Instance.ShowLoadingIndicator(true, false);
     }
 
     public void EquipItems()
@@ -232,14 +227,14 @@ public class ReactController : MonoBehaviour
 #endif
 
         freezeSignal.Raise();
-        ShowLoadingIndicator(true, false);
+        GameUIManager.Instance.ShowLoadingIndicator(true, false);
     }
 
     // for generic success
     public void DisplaySuccess(string success)
     {
         // TODO display an error on the screen
-        ShowLoadingIndicator(false, false);
+        GameUIManager.Instance.ShowLoadingIndicator(false, false);
         unfreezeSignal.Raise();
     }
 
@@ -247,12 +242,13 @@ public class ReactController : MonoBehaviour
     public void DisplayError(string error)
     {
         // TODO display an error on the screen
-        ShowLoadingIndicator(false, false);
+        GameUIManager.Instance.ShowLoadingIndicator(false, false);
         unfreezeSignal.Raise();
     }
 
     public void handleReward(string fromReact)
     {
+        Debug.Log("REACT HANDLING REWARD METHOD, give items should follow.");
         RewardInfo data = JsonUtility.FromJson<RewardInfo>(fromReact);
         uint[] items = Array.ConvertAll(data.itemIds, uint.Parse);
         Dictionary<uint, int> dictionary = items.GroupBy(x => x)
@@ -264,10 +260,13 @@ public class ReactController : MonoBehaviour
 
     public void GiveItems(Dictionary<uint, int> items, int goldAmount)
     {
+        Debug.Log("REACT GIVE ITEMS METHOD, obtained gold: " + goldAmount);
+        Debug.Log("REACT GIVE ITEMS METHOD, list of obtained keys should follow");
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         Inventory inv = player.GetComponent<Inventory>();
         foreach (uint key in items.Keys)
         {
+            Debug.Log("REACT GIVE ITEMS, giving item with key: " + key);
             var itemDefinition =
                 InventorySystemManager.GetItemDefinition(key);
             inv.AddItem(itemDefinition, items[key]);
@@ -279,20 +278,6 @@ public class ReactController : MonoBehaviour
             var ownerCurrencyCollection = currencyOwner.CurrencyAmount;
             var gold = InventorySystemManager.GetCurrency("Gold");
             ownerCurrencyCollection.AddCurrency(gold, goldAmount);
-        }
-    }
-
-    // TODO this should be ideally move to the dedicated UI script
-    private void ShowLoadingIndicator(bool show, bool involveBlocker)
-    {
-        if (loadingIndicator != null)
-        {
-            loadingIndicator.SetActive(show);
-        }
-
-        if (involveBlocker && blocker != null)
-        {
-            blocker.SetActive(show);
         }
     }
 }
