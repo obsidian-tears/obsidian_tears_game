@@ -40,7 +40,6 @@ namespace Opsive.UltimateInventorySystem.UI.Menus.Shop
 
 
         private ICurrencyOwner<CurrencyCollection> m_ShopperClientCurrencyOwner;
-        ReactController reactController;
 
         /// <summary>
         /// Set up the panel.
@@ -80,7 +79,6 @@ namespace Opsive.UltimateInventorySystem.UI.Menus.Shop
                 m_QuantityPickerPanel.OnAmountChanged += QuantityPickerAmountChanged;
                 m_QuantityPickerPanel.ConfirmCancelPanel.OnConfirm += BuySellItem;
 
-                reactController = GameObject.Find("ReactController").GetComponent<ReactController>();
                 SetShop(m_Shop);
             }
         }
@@ -134,7 +132,7 @@ namespace Opsive.UltimateInventorySystem.UI.Menus.Shop
             if (m_IsBuying) {
                 var result = m_Shop.BuyItem(m_Inventory, m_ShopperClientCurrencyOwner, (quantity, m_SelectedItemInfo));
                 if (result) {
-                    reactController.SignalBuyItem(m_Shop.ShopId, m_SelectedItemInfo.Item.ItemDefinitionID.ToString(), quantity);
+                    ReactController.Instance.SignalBuyItem(m_Shop.ShopId, m_SelectedItemInfo.Item.ItemDefinitionID.ToString(), quantity);
                     m_OnBuySuccess?.Invoke();
                 } else {
                     m_OnBuyFailed?.Invoke();

@@ -22,8 +22,6 @@ namespace PixelCrushers.UISSupport
 
         protected CurrencyCollection m_TemporaryCurrencyCollection;
 
-        ReactController reactController;
-
         protected virtual void Awake()
         {
             m_TemporaryCurrencyCollection = new CurrencyCollection();
@@ -31,10 +29,6 @@ namespace PixelCrushers.UISSupport
 
         protected virtual void OnEnable()
         {
-            reactController =
-                GameObject
-                    .Find("ReactController")
-                    .GetComponent<ReactController>();
             Lua
                 .RegisterFunction("uisGetItemAmount",
                 this,
@@ -154,7 +148,7 @@ namespace PixelCrushers.UISSupport
             }
             if (treasureId >= 0)
             {
-                reactController.SignalOpenChest(treasureId.ToString());
+                ReactController.Instance.SignalOpenChest(treasureId.ToString());
             }
             // call react controller to add item to inventory
         }
@@ -345,7 +339,7 @@ namespace PixelCrushers.UISSupport
             currencyOwner.CurrencyAmount.AddCurrency (currency, amount);
             if (treasureId >= 0)
             {
-                reactController.SignalOpenChest(treasureId.ToString());
+                ReactController.Instance.SignalOpenChest(treasureId.ToString());
             }
         }
 

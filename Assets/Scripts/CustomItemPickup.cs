@@ -28,8 +28,7 @@ namespace Opsive.UltimateInventorySystem.DropsAndPickups
         [Tooltip("Dumb treasure chest id")]
         [SerializeField] protected string m_TreasureIndex;
 
-
-        ReactController reactController;
+        //ReactController reactController;
 
         // protected new ItemObject m_ItemObject;
 
@@ -51,9 +50,6 @@ namespace Opsive.UltimateInventorySystem.DropsAndPickups
         {
             base.Start();
 
-            // get reactcontroller that is in the scene
-
-            reactController = GameObject.Find("ReactController").GetComponent<ReactController>();
             if (m_ItemObject == null) { return; }
 
             Shared.Events.EventHandler.RegisterEvent(m_ItemObject, EventNames.c_ItemObject_OnItemChanged, () => UpdateState(m_ItemObject));
@@ -111,9 +107,8 @@ namespace Opsive.UltimateInventorySystem.DropsAndPickups
         protected new virtual void TryAddItemToCollection(ItemCollection itemCollection)
         {
 #if UNITY_WEBGL && !UNITY_EDITOR
-            reactController.SignalOpenChest(m_TreasureIndex);
+            ReactController.Instance.SignalOpenChest(m_TreasureIndex);
 #else
-            //QUESTION Jakub comment - this was commented before, was there some intent behind it?
             var itemInfo = m_ItemObject.ItemInfo;
             var canAddResult = itemCollection.CanAddItem(itemInfo);
             if (canAddResult.HasValue == false
@@ -125,7 +120,6 @@ namespace Opsive.UltimateInventorySystem.DropsAndPickups
             }
 
             itemCollection.AddItem(itemInfo);
-            //end of comments
 #endif
             NotifyPickupSuccess();
         }

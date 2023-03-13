@@ -1,33 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Core;
 
 
 /// <summary>
 /// Helper class to get objects used as Dont destroy on load - currently used by GameObjectUtility class
 /// </summary>
-public class DontDestroyOnLoadAccessor : MonoBehaviour
+public class DontDestroyOnLoadAccessor : MonoSingleton<DontDestroyOnLoadAccessor>
 {
-    private static DontDestroyOnLoadAccessor _instance;
-    public static DontDestroyOnLoadAccessor Instance
+    protected override void Init()
     {
-        get
-        {
-            return _instance;
-        }
-    }
-
-    void Awake()
-    {
-        if (_instance != null) Destroy(gameObject);
-        this.gameObject.name = this.GetType().ToString();
-        _instance = this;
-        DontDestroyOnLoad(this);
     }
 
     public GameObject[] GetAllRootsOfDontDestroyOnLoad()
     {
-        return this.gameObject.scene.GetRootGameObjects();
+        return gameObject.scene.GetRootGameObjects();
     }
 
     public GameObject GetDdolGameObjectByName(string goName)

@@ -16,6 +16,11 @@ public class Player : MonoBehaviour
     public FloatValue currentHealth;
     public FloatValue maxMagic;
     public FloatValue currentMagic;
+    [Space(5)]
+    [Header("Global game context reference")]
+    [SerializeField] GlobalGameContextSORS m_globalGameContext;
+    [Space(5)]
+    [Header("Signals")]
     [SerializeField] MySignal playerHealthSignal;
     [SerializeField] MySignal battleSignal;
     [SerializeField] MySignal dialogSignal;
@@ -26,6 +31,17 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject pauseMenu;
     //[SerializeField] PlayerType playerType = PlayerType.Fighter;
     [SerializeField] bool frozen;
+
+    void Awake() {
+        if (m_globalGameContext != null)
+        {
+            m_globalGameContext.RegisterPlayerObject(this);
+        }
+        else 
+        {
+            Debug.LogError("Cannot find attached global game context!", gameObject);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
