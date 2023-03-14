@@ -81,6 +81,8 @@ public class ReactController : MonoSingleton<ReactController>
         // call react fx
         // TODO Uncomment this for react script communication
         //CheckForLoadGame();
+        //TODO delete this later
+        StartCoroutine(ServerCheckLoadGameSimulation());
 #else
         // else check saved data locally
         StartCoroutine(LocalCheckLoadGameSimulation());
@@ -91,6 +93,12 @@ public class ReactController : MonoSingleton<ReactController>
     {
         yield return new WaitForSecondsRealtime(m_saveLoadScreenShowTime);
         OnLoadGameCheckDone?.Invoke(SaveSystem.HasSavedGameInSlot(m_localSaveSlotNumber));
+    }
+
+    private IEnumerator ServerCheckLoadGameSimulation()
+    {
+        yield return new WaitForSecondsRealtime(m_saveLoadScreenShowTime);
+        ListenCheckLoadGame(true);
     }
 
     //TODO make react communicate with this
