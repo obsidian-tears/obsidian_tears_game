@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Opsive.UltimateInventorySystem.Core;
+using PixelCrushers.Wrappers;
 using UnityEngine;
 
 namespace GameManagers
@@ -12,14 +13,19 @@ namespace GameManagers
     /// </summary>
     public class SceneLoader : MonoBehaviour
     {
+        [SerializeField] private bool m_loadInventoryManager;
+        [SerializeField] private bool m_loadReactController;
+        [SerializeField] private bool m_loadSaveSystem;
+        [SerializeField] private bool m_loadInGameUI;
         [SerializeField] private InventorySystemManager m_InventoryManagerPrefab;
         [SerializeField] private ReactController m_ReactControllerPrefab;
+        [SerializeField] private SaveSystem m_SaveSystemPrefab;
         [SerializeField] private GameUIManager m_UIPrefab;
         // Start is called before the first frame update
         private void Awake()
         {
             // Instantiate Opsive Inventory Manager
-            if (InventorySystemManager.IsNull)
+            if (m_loadInventoryManager && InventorySystemManager.IsNull)
             {
                 Debug.Log("Instantiating Inventory system!");
                 if (m_InventoryManagerPrefab != null)
@@ -33,9 +39,24 @@ namespace GameManagers
                 }
             }
             else Debug.Log("Inventory already found, doing nothing");
+
+            if (m_loadSaveSystem && !SaveSystem.hasInstance)
+            {
+                Debug.Log("Instantiating Save system!");
+                if (m_SaveSystemPrefab != null)
+                {
+                    Instantiate(m_SaveSystemPrefab.gameObject);
+                }
+                else
+                {
+                    ThrowError("SaveSystem");
+                    return;
+                }
+            }
+            else Debug.Log("Save system already found, doing nothing");
             
             // Instantiate main game canvas
-            if (!GameUIManager.Exist)
+            if (m_loadInGameUI && !GameUIManager.Exist)
             {
                 Debug.Log("Instantiating GameUI!");
                 if (m_UIPrefab != null)
@@ -51,7 +72,7 @@ namespace GameManagers
             else Debug.Log("Canvas already found, doing nothing");
 
             // Instantiate ReactController
-            if (!ReactController.Exist)
+            if (m_loadReactController && !ReactController.Exist)
             {
                 Debug.Log("Instantiating React controller!");
                 if (m_ReactControllerPrefab != null)

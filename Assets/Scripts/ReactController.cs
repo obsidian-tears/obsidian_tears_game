@@ -34,6 +34,12 @@ public class ReactController : MonoSingleton<ReactController>
     [SerializeField]
     MySignal unfreezeSignal;
 
+    public event Action<bool> OnLoadGameCheckDone;
+    
+    // TODO Uncomment this for cooperation with react script!
+    // [DllImport("__Internal")]
+    // private static extern void CheckForLoadGame();
+
     [DllImport("__Internal")]
     private static extern void LoadGame(string objectName);
 
@@ -65,6 +71,33 @@ public class ReactController : MonoSingleton<ReactController>
 
     protected override void Init()
     {
+        Debug.Log("REACT controller INIT!");
+    }
+
+    public void SignalCheckForLoadedGame()
+    {
+        Debug.Log("REACT CHECK FOR LOADED GAME");
+#if UNITY_WEBGL == true && UNITY_EDITOR == false
+        // call react fx
+        // TODO Uncomment this for react script communication
+        //CheckForLoadGame();
+#else
+        // else check saved data locally
+        StartCoroutine(LocalCheckLoadGameSimulation());
+#endif
+    }
+
+    private IEnumerator LocalCheckLoadGameSimulation()
+    {
+        yield return new WaitForSecondsRealtime(m_saveLoadScreenShowTime);
+        OnLoadGameCheckDone?.Invoke(SaveSystem.HasSavedGameInSlot(m_localSaveSlotNumber));
+    }
+
+    //TODO make react communicate with this
+    public void ListenCheckLoadGame(bool fromReact)
+    {
+        Debug.Log("REACT LOAD GAME CHECKED, HAS BEEN FOUND? " + fromReact);
+        OnLoadGameCheckDone(fromReact);
     }
 
     /// <summary>
@@ -183,6 +216,7 @@ public class ReactController : MonoSingleton<ReactController>
 
     public void SignalNewGame()
     {
+        Debug.Log("REACT SIGNAL NEW GAME");
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
         NewGame(gameObject.name);
 #endif
@@ -266,17 +300,15 @@ public class ReactController : MonoSingleton<ReactController>
         Inventory inv = player.GetComponent<Inventory>();
         foreach (uint key in items.Keys)
         {
-            Debug.Log("REACT GIVE ITEMS, giving item with key: " + key);
             var itemDefinition =
                 InventorySystemManager.GetItemDefinition(key);
             inv.AddItem(itemDefinition, items[key]);
         }
         if (goldAmount != 0)
         {
-            var currencyOwner =
-                inv.GetCurrencyComponent<CurrencyCollection>() as CurrencyOwner;
-            var ownerCurrencyCollection = currencyOwner.CurrencyAmount;
-            var gold = InventorySystemManager.GetCurrency("Gold");
+            CurrencyOwner currencyOwner = inv.GetCurrencyComponent<CurrencyCollection>() as CurrencyOwner;
+            CurrencyCollection ownerCurrencyCollection = currencyOwner.CurrencyAmount;
+            Currency gold = InventorySystemManager.GetCurrency("Gold");
             ownerCurrencyCollection.AddCurrency(gold, goldAmount);
         }
     }

@@ -93,6 +93,16 @@ namespace Core
         }
 
         /// <summary>
+        /// Destroys singleton instance including its gameObject
+        /// </summary>
+        public virtual void DestroyInstance()
+        {
+            s_instance = null;
+            s_isInitialized = false;
+            Destroy(gameObject);
+        }
+
+        /// <summary>
         /// This function is called when the instance is used the first time
         /// Put all the initializations you need here, as you would do in Awake
         /// </summary>
