@@ -300,17 +300,15 @@ public class ReactController : MonoSingleton<ReactController>
         Inventory inv = player.GetComponent<Inventory>();
         foreach (uint key in items.Keys)
         {
-            Debug.Log("REACT GIVE ITEMS, giving item with key: " + key);
             var itemDefinition =
                 InventorySystemManager.GetItemDefinition(key);
             inv.AddItem(itemDefinition, items[key]);
         }
         if (goldAmount != 0)
         {
-            var currencyOwner =
-                inv.GetCurrencyComponent<CurrencyCollection>() as CurrencyOwner;
-            var ownerCurrencyCollection = currencyOwner.CurrencyAmount;
-            var gold = InventorySystemManager.GetCurrency("Gold");
+            CurrencyOwner currencyOwner = inv.GetCurrencyComponent<CurrencyCollection>() as CurrencyOwner;
+            CurrencyCollection ownerCurrencyCollection = currencyOwner.CurrencyAmount;
+            Currency gold = InventorySystemManager.GetCurrency("Gold");
             ownerCurrencyCollection.AddCurrency(gold, goldAmount);
         }
     }

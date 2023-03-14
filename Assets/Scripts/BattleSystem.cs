@@ -1,3 +1,4 @@
+using GameManagers;
 using Opsive.UltimateInventorySystem.Core;
 using Opsive.UltimateInventorySystem.Core.DataStructures;
 using Opsive.UltimateInventorySystem.Core.InventoryCollections;
@@ -29,8 +30,8 @@ public class BattleSystem : MonoBehaviour
 
     public TextMeshProUGUI dialogueText;
 
-    public ItemViewSlotsContainerPanelBinding charPanelBinding;
-    public ItemViewSlotsContainerPanelBinding invPanelBinding;
+    //public ItemViewSlotsContainerPanelBinding charPanelBinding;
+    //public ItemViewSlotsContainerPanelBinding invPanelBinding;
 
 
     public GameObject buttonsContainer;
@@ -52,8 +53,8 @@ public class BattleSystem : MonoBehaviour
     public Color enemyHurtFlashColor;
     public Color playerHurtFlashColor;
 
-    public DisplayPanel mainMenuPanel;
-    public DisplayPanel spellMenuPanel;
+    // public DisplayPanel mainMenuPanel;
+    // public DisplayPanel spellMenuPanel;
 
     public Image backgroundImage;
 
@@ -71,17 +72,13 @@ public class BattleSystem : MonoBehaviour
 
     void Start()
     {
-
-        
         backgroundImage.sprite = currentBattle.backgroundImage;
-
         if(currentBattle.music != null)
         {
             musicSource.clip = currentBattle.music;
             musicSource.Play();
             
         }
-
 
         if (onWin == null)
             onWin = new UnityEvent();
@@ -110,20 +107,33 @@ public class BattleSystem : MonoBehaviour
         ItemCollection mainCollection = inventory.GetItemCollection("MainItemCollection");
         EventHandler.RegisterEvent(mainCollection, EventNames.c_ItemCollection_OnUpdate, () => OnItemChange());
 
+        //Register player as the inventory panel owner
+        InventorySystemManager.GetDisplayPanelManager().SetPanelOwner(player);
+
+        // Notify UI that the battle is happening and bind on signal
+        GameUIManager.Instance.SetUIMode(UIMode.BATTLE);
+        GameUIManager.Instance.OnSpellWindowClosed += OnSpellWindowClosed;
+
         StartCoroutine(SetupBattle());
+    }
+
+    private void OnDestroy()
+    {
+        GameUIManager.Instance.SetUIMode(UIMode.STANDARD);
+        GameUIManager.Instance.OnSpellWindowClosed -= OnSpellWindowClosed;
     }
 
     private void OnItemChange()
     {
-        if (mainMenuPanel.IsOpen)
+        if (GameUIManager.Instance.MainMenu.IsOpen)
         {
             if (state != BattleState.PLAYERTURN)
             {
                 return;
             }
             buttonsContainer.SetActive(false);
-            invPanelBinding.OnOpen();
-            charPanelBinding.OnOpen();
+            GameUIManager.Instance.InventoryPanel.OnOpen();
+            GameUIManager.Instance.EquipmentPanel.OnOpen();
             CloseInventory();
             StartCoroutine(ItemChanged());
         }
@@ -297,8 +307,6 @@ public class BattleSystem : MonoBehaviour
             portal.destinationSceneName = "Main Menu";
             musicSource.PlayOneShot(deathSound);
 
-            
-
             onLose.Invoke();
             yield return new WaitForSeconds(9f);
             
@@ -343,6 +351,16 @@ public class BattleSystem : MonoBehaviour
         StartCoroutine(OnRun());
     }
 
+    public void OnSpellButton()
+    {
+        GameUIManager.Instance.SpellMenu.SmartOpen();
+    }
+
+    public void OnItemButton()
+    {
+        GameUIManager.Instance.MainMenu.SmartToggle();
+    }
+
     public void OnSpellUse(int manaNeeded, int magicPowerAdded, float magicPowerMultiplier, int healAmount, bool frostDamage, bool lightningDamage, bool fireDamage, string spellName, GameObject spellAnimation)
     {
         if (state != BattleState.PLAYERTURN)
@@ -355,7 +373,7 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator UseSpell(int manaNeeded, int magicPowerAdded, float magicPowerMultiplier, int healAmount, bool frostDamage, bool lightningDamage, bool fireDamage, string spellName, GameObject spellAnimation)
     {
-        spellMenuPanel.SmartClose();
+        GameUIManager.Instance.SpellMenu.SmartClose();
 
         dialogueText.text = "Phendrin casts " + spellName;
 
@@ -404,6 +422,11 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
+    private void OnSpellWindowClosed()
+    {
+        buttonsContainer.SetActive(true);
+    }
+
     IEnumerator OnRun()
     {
         buttonsContainer.SetActive(false);
@@ -430,7 +453,7 @@ public class BattleSystem : MonoBehaviour
 
     public void CloseInventory()
     {
-        mainMenuPanel.SmartClose();
+        GameUIManager.Instance.MainMenu.SmartClose();
     }
 
     public DamageValue CalculateDamage(int attack, int defense, float criticalHitChance)
@@ -465,8 +488,6 @@ public class BattleSystem : MonoBehaviour
         returnValue.isCritical = isCritical;
         return returnValue;
     }
-
-
 
     public DamageValue CalculateSpellDamage(int magicPowerAdded, float magicPowerMultipler, int defense, float criticalHitChance, bool fireDamage, bool frostDamage, bool shockDamage)
     {

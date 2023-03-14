@@ -9,6 +9,7 @@ namespace Opsive.UltimateInventorySystem.DropsAndPickups
     using Opsive.UltimateInventorySystem.Core;
     using Opsive.UltimateInventorySystem.Core.DataStructures;
     using Opsive.UltimateInventorySystem.Core.InventoryCollections;
+    using Opsive.UltimateInventorySystem.Exchange;
     using Opsive.UltimateInventorySystem.Interactions;
     using System;
     using UnityEngine;
@@ -118,7 +119,6 @@ namespace Opsive.UltimateInventorySystem.DropsAndPickups
                 NotifyPickupFailed();
                 return;
             }
-
             itemCollection.AddItem(itemInfo);
 #endif
             NotifyPickupSuccess();
