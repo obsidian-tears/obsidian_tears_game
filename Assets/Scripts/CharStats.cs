@@ -86,22 +86,23 @@ public class CharStats : MonoBehaviour
             criticalHitProbability = equipmentCollection.GetFloatSum("CriticalChance");
             magicPowerTotal = magicPowerBase + equipmentCollection.GetIntSum("MagicPower");
             GameUIManager.Instance.StatsDisplay.Draw(healthMax, magicMax, attackTotal, defenseTotal, speedTotal, healthTotal, magicTotal, magicPowerTotal, healthBase, magicBase, attackBase, defenseBase, speedBase, magicPowerBase, xp, xpToLevelUp);
+        
+            GameUIManager.Instance.SetHealthSlider(healthTotal, healthMax);
+            GameUIManager.Instance.SetHealthSlider(magicTotal, magicMax);
         }
 
+        // Note by Jakub - looks like this part of code is never used by enemy
         //This is an enemy
-        else
-        {
-            healthMax = healthBase;
-            healthTotal = healthMax;
-            magicMax = magicBase;
-            magicTotal = magicMax;
-            attackTotal = attackBase;
-            defenseTotal = defenseBase;
-            speedTotal = speedBase;
-        }
-
-        GameUIManager.Instance.SetHealthSlider(healthTotal, healthMax);
-        GameUIManager.Instance.SetHealthSlider(magicTotal, magicMax);
+        // else
+        // {
+        //     healthMax = healthBase;
+        //     healthTotal = healthMax;
+        //     magicMax = magicBase;
+        //     magicTotal = magicMax;
+        //     attackTotal = attackBase;
+        //     defenseTotal = defenseBase;
+        //     speedTotal = speedBase;
+        // }
     }
 
     //Returns true if the player is dead after taking damage

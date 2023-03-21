@@ -3,11 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Core;
 using Opsive.UltimateInventorySystem.Demo.UI.Menus.Main.Inventory;
+using Opsive.UltimateInventorySystem.UI.CompoundElements;
 using Opsive.UltimateInventorySystem.UI.Menus.Shop;
 using Opsive.UltimateInventorySystem.UI.Panels;
 using Opsive.UltimateInventorySystem.UI.Panels.ItemViewSlotContainers;
+using Opsive.UltimateInventorySystem.UI.Monitors;
 using UnityEngine;
 using UnityEngine.UI;
+using Opsive.UltimateInventorySystem.Core.InventoryCollections;
 
 namespace GameManagers
 {
@@ -22,6 +25,9 @@ namespace GameManagers
     /// </summary>
     public class GameUIManager : MonoSingleton<GameUIManager>
     {
+        [Header("Important components")]
+        public InventoryMonitor InventoryMonitor;
+
         [Header("Menus")]
         public DisplayPanel PlayerUI;
         public DisplayPanel MainMenu;
@@ -36,6 +42,7 @@ namespace GameManagers
         public Slider HealthSlider;
         public Slider MagicSlider;
         public CharacterStatsDisplay StatsDisplay;
+        public ActionButton[] ButtonsForBattleHide;
 
         private UIMode m_currentMode = UIMode.STANDARD;
 
@@ -45,10 +52,17 @@ namespace GameManagers
         {
         }
 
-        // Set UI mode, use this method for more adjustments
+        // Set UI mode, use this method for UI adjustments in battle
         public void SetUIMode(UIMode mode)
         {
-            PlayerUI.gameObject.SetActive(mode == UIMode.STANDARD);
+            m_currentMode = mode;
+
+            bool isStandardMode = m_currentMode == UIMode.STANDARD;
+            PlayerUI.gameObject.SetActive(isStandardMode);
+            foreach (ActionButton btn in ButtonsForBattleHide)
+            {
+                btn.gameObject.SetActive(isStandardMode);
+            }
         }
 
         public void SetHealthSlider(int healthTotal, int healthMax)
@@ -73,6 +87,18 @@ namespace GameManagers
         public void CloseSpellWindow()
         {
             OnSpellWindowClosed?.Invoke();
+        }
+
+        public void SetInventoryMonitor(Inventory inventory)
+        {
+            if (InventoryMonitor != null)
+            {
+                InventoryMonitor.SetMonitoredInventory(inventory);
+            }
+            else
+            {
+                Debug.LogError("No inventory monitor component found on the UI! Please assign one!");
+            }
         }
 
         //TODO this definitely needs some refactor regarding its behaviour (see ReactController for context)
