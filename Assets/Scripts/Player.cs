@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using Opsive.UltimateInventorySystem.Core;
+using GameManagers;
+using Opsive.UltimateInventorySystem.Core.InventoryCollections;
 
 public enum PlayerType { Fighter, Wizard, Rogue, Barbarian }
 public class Player : MonoBehaviour
@@ -46,8 +48,9 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Register player as the inventory panel owner
+        //Register player as the inventory panel owner and register inventory monitor
         InventorySystemManager.GetDisplayPanelManager().SetPanelOwner(gameObject);
+        GameUIManager.Instance.SetInventoryMonitor(GetComponent<Inventory>());
 
         frozen = false;
         myRigidbody = GetComponent<Rigidbody2D>();
