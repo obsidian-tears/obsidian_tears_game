@@ -101,11 +101,17 @@ public class BattleSystem : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        ItemCollection equipmentCollection = inventory.GetItemCollection("Equipped");
-        EventHandler.RegisterEvent(equipmentCollection, EventNames.c_ItemCollection_OnUpdate, () => OnItemChange());
-
+        // PREVIOUS ITEM CALLBACKS
+        // ItemCollection equipmentCollection = inventory.GetItemCollection("Equipped");
+        // EventHandler.RegisterEvent(equipmentCollection, EventNames.c_ItemCollection_OnUpdate, () => OnItemChange());
+        
+        // NOTE: we only monitor main collection, as we are not interested to having updates regarding un/equipped stuff
+        // Also, un/equipping is already 
         ItemCollection mainCollection = inventory.GetItemCollection("MainItemCollection");
-        EventHandler.RegisterEvent(mainCollection, EventNames.c_ItemCollection_OnUpdate, () => OnItemChange());
+        EventHandler.RegisterEvent(mainCollection, EventNames.c_ItemCollection_OnUpdate, () => OnItemUse());
+
+        // NEW ITEM CALLBACKS
+        //EventHandler.RegisterEvent(inventory, EventNames.c_Inventory_OnUpdate, () => OnItemChange());
 
         //Register player as the inventory panel owner
         InventorySystemManager.GetDisplayPanelManager().SetPanelOwner(player);
@@ -119,36 +125,39 @@ public class BattleSystem : MonoBehaviour
 
     private void OnDestroy()
     {
-        GameUIManager.Instance.SetUIMode(UIMode.STANDARD);
-        GameUIManager.Instance.OnSpellWindowClosed -= OnSpellWindowClosed;
+        if (GameUIManager.Exist)
+        {
+            CloseInventory();
+            GameUIManager.Instance.SetUIMode(UIMode.STANDARD);
+            GameUIManager.Instance.OnSpellWindowClosed -= OnSpellWindowClosed;
+        }
     }
 
-    private void OnItemChange()
+    private void OnItemUse()
     {
-        if (GameUIManager.Instance.MainMenu.IsOpen)
+        if (GameUIManager.Instance.InventoryShowing)
         {
             if (state != BattleState.PLAYERTURN)
             {
                 return;
             }
             buttonsContainer.SetActive(false);
-            GameUIManager.Instance.InventoryPanel.OnOpen();
-            GameUIManager.Instance.EquipmentPanel.OnOpen();
+            // GameUIManager.Instance.InventoryPanel.OnOpen();
+            // GameUIManager.Instance.EquipmentPanel.OnOpen();
             CloseInventory();
-            StartCoroutine(ItemChanged());
+            StartCoroutine(ItemUse());
         }
-        
     }
 
-    IEnumerator ItemChanged()
+    IEnumerator ItemUse()
     {
-        hud.SetHUD(playerStats);
-        dialogueText.text = "Phendrin uses an item";
+        // wait one frame until item is applied to the stats
+        yield return null;
 
-        
+        hud.SetHUD(playerStats);
+        dialogueText.text = "Phendrin uses an item";       
 
         yield return new WaitForSeconds(2f);
-
         
         state = BattleState.ENEMYTURN;
         StartCoroutine(EnemyTurn());
@@ -157,7 +166,6 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator SetupBattle()
     {
-
         //Player setup
         playerStats.level = currentBattle.level;
         playerStats.healthBase = currentBattle.playerBaseHealth;
@@ -196,7 +204,6 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayerAttack()
     {
-
         playerAnimator.SetTrigger("Attack");
 
         DamageValue damageValue = CalculateDamage(playerStats.attackTotal, enemyStats.defenseTotal, playerStats.criticalHitProbability);
@@ -227,8 +234,6 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
-
-
     IEnumerator EnemyTurn()
     {
         hud.SetHUD(playerStats);
@@ -243,7 +248,6 @@ public class BattleSystem : MonoBehaviour
 
         DamageValue damageValue = CalculateDamage(enemyStats.attackTotal, playerStats.defenseTotal, enemyStats.criticalHitProbability);
         bool isDead = playerStats.TakeDamage(damageValue.damageAmount);
-        
 
         playerAnimator.SetTrigger("Hurt");
         flashImage.StartFlash(0.25f, 0.5f, playerHurtFlashColor);
@@ -252,8 +256,6 @@ public class BattleSystem : MonoBehaviour
         hud.SetHUD(playerStats);
 
         yield return new WaitForSeconds(1f);
-
-        
 
         if (isDead)
         {
@@ -269,10 +271,10 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator EndBattle()
     {
-        ItemCollection equipmentCollection = inventory.GetItemCollection("Equipped");
+        //ItemCollection equipmentCollection = inventory.GetItemCollection("Equipped");
         ItemCollection mainCollection = inventory.GetItemCollection("MainItemCollection");
-        EventHandler.UnregisterEvent(equipmentCollection, EventNames.c_ItemCollection_OnUpdate, () => OnItemChange());
-        EventHandler.UnregisterEvent(mainCollection, EventNames.c_ItemCollection_OnUpdate, () => OnItemChange());
+        //EventHandler.UnregisterEvent(equipmentCollection, EventNames.c_ItemCollection_OnUpdate, () => OnItemUse());
+        EventHandler.UnregisterEvent(mainCollection, EventNames.c_ItemCollection_OnUpdate, () => OnItemUse());
 
         if (state == BattleState.WON)
         {
@@ -337,6 +339,7 @@ public class BattleSystem : MonoBehaviour
             return;
         }
 
+        CloseInventory();
         buttonsContainer.SetActive(false);
         StartCoroutine(PlayerAttack());
     }
@@ -348,17 +351,19 @@ public class BattleSystem : MonoBehaviour
             return;
         }
 
+        CloseInventory();
         StartCoroutine(OnRun());
     }
 
     public void OnSpellButton()
     {
+        CloseInventory();
         GameUIManager.Instance.SpellMenu.SmartOpen();
     }
 
     public void OnItemButton()
     {
-        GameUIManager.Instance.MainMenu.SmartToggle();
+        GameUIManager.Instance.ToggleBattleInventoryPanel();
     }
 
     public void OnSpellUse(int manaNeeded, int magicPowerAdded, float magicPowerMultiplier, int healAmount, bool frostDamage, bool lightningDamage, bool fireDamage, string spellName, GameObject spellAnimation)
@@ -368,6 +373,7 @@ public class BattleSystem : MonoBehaviour
             return;
         }
 
+        CloseInventory();
         StartCoroutine(UseSpell(manaNeeded, magicPowerAdded, magicPowerMultiplier, healAmount, frostDamage, lightningDamage, fireDamage, spellName, spellAnimation));
     }
 
@@ -399,10 +405,7 @@ public class BattleSystem : MonoBehaviour
             flashImage.StartFlash(0.25f, 0.5f, enemyHurtFlashColor);
             spawnDamageDisplay(enemyNumberSpawnTransform.position, damageValue.damageAmount, damageValue.isCritical);
 
-
             yield return new WaitForSeconds(2f);
-
-
 
             if (isDead)
             {
@@ -453,7 +456,7 @@ public class BattleSystem : MonoBehaviour
 
     public void CloseInventory()
     {
-        GameUIManager.Instance.MainMenu.SmartClose();
+        GameUIManager.Instance.ToggleBattleInventoryPanel(false);
     }
 
     public DamageValue CalculateDamage(int attack, int defense, float criticalHitChance)
@@ -523,16 +526,13 @@ public class BattleSystem : MonoBehaviour
             }
 
             float randomizedValue = UnityEngine.Random.Range(initalValue - stdDev, initalValue + stdDev);
-
             damageAmount = (int)System.Math.Ceiling(randomizedValue);
-
 
             //Calculate susceptibility to spells
             int currentDamageAmount = damageAmount;
             int fireDamageAmount = 0;
             int frostDamageAmount = 0;
             int shockDamageAmount = 0;
-
 
             if (currentBattle.enemy.fireSusceptibility > 0 && fireDamage)
             {
@@ -546,11 +546,7 @@ public class BattleSystem : MonoBehaviour
             {
                 shockDamageAmount = (int)Math.Round(currentDamageAmount * currentBattle.enemy.shockSusceptibility);
             }
-
             damageAmount = currentDamageAmount + fireDamageAmount + frostDamageAmount + shockDamageAmount;
-
-
-
 
             //Double if critical hit
             isCritical = false;
@@ -560,9 +556,6 @@ public class BattleSystem : MonoBehaviour
                 isCritical = true;
             }
         }
-
-
-        
 
         //Return value
         DamageValue returnValue;

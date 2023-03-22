@@ -216,10 +216,11 @@ public class ReactController : MonoSingleton<ReactController>
     {
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
         DefeatMonster(int.Parse(monsterId), gameObject.name);
-#endif
-
         freezeSignal.Raise();
         GameUIManager.Instance.ShowLoadingIndicator(true, false);
+#else
+        Debug.Log("REACT DEFEAT MONSTER! Now the game should communicate with react!");
+#endif
     }
 
     public void SignalNewGame()

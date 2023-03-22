@@ -88,7 +88,7 @@ public class CharStats : MonoBehaviour
             GameUIManager.Instance.StatsDisplay.Draw(healthMax, magicMax, attackTotal, defenseTotal, speedTotal, healthTotal, magicTotal, magicPowerTotal, healthBase, magicBase, attackBase, defenseBase, speedBase, magicPowerBase, xp, xpToLevelUp);
         
             GameUIManager.Instance.SetHealthSlider(healthTotal, healthMax);
-            GameUIManager.Instance.SetHealthSlider(magicTotal, magicMax);
+            GameUIManager.Instance.SetMagicSlider(magicTotal, magicMax);
         }
 
         // Note by Jakub - looks like this part of code is never used by enemy
