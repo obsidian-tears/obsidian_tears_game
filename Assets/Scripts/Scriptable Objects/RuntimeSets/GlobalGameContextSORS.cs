@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using GameManagers;
 using PixelCrushers.QuestMachine;
 using UnityEngine;
 
@@ -51,6 +52,10 @@ public class GlobalGameContextSORS : ScriptableObject
 
     public void ToggleJournalUI()
     {
+        // Journal is not present in the battle
+        if (GameUIManager.Instance.CurrentMode == UIMode.BATTLE)
+            return;
+        
         if (CheckForJournal())
         {
             m_questJournal.ToggleJournalUI();
@@ -59,6 +64,10 @@ public class GlobalGameContextSORS : ScriptableObject
 
     public void HideJournalUI()
     {
+        // Journal is not present in the battle
+        if (GameUIManager.Instance.CurrentMode == UIMode.BATTLE)
+            return;
+        
         if (CheckForJournal())
         {
             m_questJournal.HideJournalUI();

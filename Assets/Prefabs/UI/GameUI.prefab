@@ -9108,7 +9108,7 @@ MonoBehaviour:
   m_Inventory: {fileID: 0}
   m_ItemViewSlotsContainer: {fileID: 528336958309276345}
   m_DrawOnInitialize: 1
-  m_ResetDrawOnOpen: 0
+  m_ResetDrawOnOpen: 1
   m_DrawOnOpen: 1
   m_SelectSlotOnOpen: 1
 --- !u!1 &362595543802474762
@@ -36555,10 +36555,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 310027091962278875}
-        m_TargetAssemblyTypeName: Opsive.UltimateInventorySystem.UI.Panels.DisplayPanel,
-          Opsive.UltimateInventorySystem
-        m_MethodName: SmartClose
+      - m_Target: {fileID: 7437543895263559004}
+        m_TargetAssemblyTypeName: GameManagers.GameUIManager, Assembly-CSharp
+        m_MethodName: CloseInventoryWindow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -65711,6 +65710,7 @@ MonoBehaviour:
   MainMenu: {fileID: 4541092285259220539}
   SpellMenu: {fileID: 9055363251086126529}
   ShopMenu: {fileID: 362595544235379673}
+  MenuTabs: {fileID: 4541092286115907181}
   InventoryPanel: {fileID: 3207081151158502336}
   EquipmentPanel: {fileID: 362595543776825068}
   LoadingIndicator: {fileID: 362595543510924531}
@@ -65723,6 +65723,7 @@ MonoBehaviour:
   - {fileID: 4117535537856154323}
   - {fileID: 362595543670305175}
   - {fileID: 362595543890234390}
+  - {fileID: 2709575899596562928}
 --- !u!114 &2763691648059227235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66979,8 +66980,6 @@ GameObject:
   - component: {fileID: 2763691648292339165}
   - component: {fileID: 2763691648292339163}
   - component: {fileID: 2763691648292339164}
-  - component: {fileID: 2763691648292339162}
-  - component: {fileID: 2763691648292339161}
   m_Layer: 5
   m_Name: HealthHolder
   m_TagString: Untagged
@@ -67052,53 +67051,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2763691648292339162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2763691648292339166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a3fb9a42cc26844fb637c0749ccd0e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  signal: {fileID: 11400000, guid: 3bef31abdf14f6547af9900c8fb9e388, type: 2}
-  signalEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2763691648292339161}
-        m_TargetAssemblyTypeName: HealthController, Assembly-CSharp
-        m_MethodName: UpdateHealthAndMagic
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &2763691648292339161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2763691648292339166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3637088f1233654ca50f7a5d0bb9b0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentHealth: {fileID: 11400000, guid: 084fcbf4366f64048b0ba576eebd7de7, type: 2}
-  currentMagic: {fileID: 11400000, guid: 8bb59036194fea048a54de09679e6c1c, type: 2}
-  playerStats: {fileID: 11400000, guid: 11649d9fcd2808243b094e80f8344954, type: 2}
-  healthSlider: {fileID: 2763691648874363787}
-  magicSlider: {fileID: 2763691647425136993}
-  levelText: {fileID: 2763691647374944633}
-  goldText: {fileID: 2763691647743530647}
 --- !u!1 &2763691648327883781
 GameObject:
   m_ObjectHideFlags: 0
@@ -71572,12 +71524,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3d2e90e2a7487aad7be13f78163309, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BindToPanelOwnerInventory: 0
+  m_BindToPanelOwnerInventory: 1
   m_BindToInventoryByIdentifier: 0
   m_Inventory: {fileID: 0}
   m_ItemViewSlotsContainer: {fileID: 3275000309531737197}
-  m_DrawOnInitialize: 0
-  m_ResetDrawOnOpen: 0
+  m_DrawOnInitialize: 1
+  m_ResetDrawOnOpen: 1
   m_DrawOnOpen: 1
   m_SelectSlotOnOpen: 1
 --- !u!1 &3275000310579580589
@@ -81764,10 +81716,10 @@ MonoBehaviour:
   m_BindToInventoryByIdentifier: 0
   m_Inventory: {fileID: 0}
   m_ItemViewSlotsContainer: {fileID: 4933577489833471972}
-  m_DrawOnInitialize: 0
-  m_ResetDrawOnOpen: 0
+  m_DrawOnInitialize: 1
+  m_ResetDrawOnOpen: 1
   m_DrawOnOpen: 1
-  m_SelectSlotOnOpen: 1
+  m_SelectSlotOnOpen: 0
 --- !u!1 &3595198737035025359
 GameObject:
   m_ObjectHideFlags: 0
@@ -106737,7 +106689,7 @@ MonoBehaviour:
   m_BindToInventoryByIdentifier: 0
   m_Inventory: {fileID: 0}
   m_ItemViewSlotsContainer: {fileID: 2832530101492081223}
-  m_DrawOnInitialize: 0
+  m_DrawOnInitialize: 1
   m_ResetDrawOnOpen: 1
   m_DrawOnOpen: 1
   m_SelectSlotOnOpen: 1
