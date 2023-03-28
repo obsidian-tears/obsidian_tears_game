@@ -5,6 +5,7 @@ using System;
 using Opsive.UltimateInventorySystem.Core;
 using GameManagers;
 using Opsive.UltimateInventorySystem.Core.InventoryCollections;
+using Opsive.UltimateInventorySystem.Exchange;
 
 public enum PlayerType { Fighter, Wizard, Rogue, Barbarian }
 public class Player : MonoBehaviour
@@ -50,7 +51,16 @@ public class Player : MonoBehaviour
     {
         //Register player as the inventory panel owner and register inventory monitor
         InventorySystemManager.GetDisplayPanelManager().SetPanelOwner(gameObject);
-        GameUIManager.Instance.SetInventoryMonitor(GetComponent<Inventory>());
+        Inventory inventory = GetComponent<Inventory>();
+        if (inventory != null)
+        {
+            GameUIManager.Instance.SetInventoryMonitor(inventory);
+            GameUIManager.Instance.SetCurrencyOwner(inventory.GetCurrencyComponent<CurrencyCollection>() as CurrencyOwner);
+        }
+        else
+        {
+            Debug.LogError("FATAL ERROR! Player has no inventory component! Please assign one!");
+        }
 
         frozen = false;
         myRigidbody = GetComponent<Rigidbody2D>();

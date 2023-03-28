@@ -11,6 +11,7 @@ using Opsive.UltimateInventorySystem.UI.Monitors;
 using UnityEngine;
 using UnityEngine.UI;
 using Opsive.UltimateInventorySystem.Core.InventoryCollections;
+using Opsive.UltimateInventorySystem.Exchange;
 
 namespace GameManagers
 {
@@ -27,6 +28,7 @@ namespace GameManagers
     {
         [Header("Important components")]
         public InventoryMonitor InventoryMonitor;
+        public CurrencyOwnerMonitor CurrencyMonitor;
 
         [Header("Menus")]
         public DisplayPanel PlayerUI;
@@ -145,6 +147,18 @@ namespace GameManagers
             else
             {
                 Debug.LogError("No inventory monitor component found on the UI! Please assign one!");
+            }
+        }
+
+        public void SetCurrencyOwner(CurrencyOwner currencyOwner)
+        {
+            if (CurrencyMonitor != null)
+            {
+                CurrencyMonitor.SetCurrencyOwner(currencyOwner);
+            }
+            else
+            {
+                Debug.LogError("No currency monitor component found on the UI! Please assign one!");
             }
         }
 
