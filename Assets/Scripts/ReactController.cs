@@ -10,6 +10,7 @@ using System.Linq;
 using PixelCrushers;
 using Core;
 using GameManagers;
+using PixelCrushers.DialogueSystem;
 
 [Serializable]
 public class RewardInfo
@@ -319,6 +320,8 @@ public class ReactController : MonoSingleton<ReactController>
             CurrencyCollection ownerCurrencyCollection = currencyOwner.CurrencyAmount;
             Currency gold = InventorySystemManager.GetCurrency("Gold");
             ownerCurrencyCollection.AddCurrency(gold, goldAmount);
+
+            DialogueManager.ShowAlert("Found " + goldAmount + " gold");
         }
     }
 }

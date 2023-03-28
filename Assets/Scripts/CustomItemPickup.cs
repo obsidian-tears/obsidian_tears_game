@@ -11,6 +11,7 @@ namespace Opsive.UltimateInventorySystem.DropsAndPickups
     using Opsive.UltimateInventorySystem.Core.InventoryCollections;
     using Opsive.UltimateInventorySystem.Exchange;
     using Opsive.UltimateInventorySystem.Interactions;
+    using PixelCrushers.DialogueSystem;
     using System;
     using UnityEngine;
     using EventHandler = Opsive.Shared.Events.EventHandler;
@@ -110,6 +111,16 @@ namespace Opsive.UltimateInventorySystem.DropsAndPickups
 #if UNITY_WEBGL && !UNITY_EDITOR
             ReactController.Instance.SignalOpenChest(m_TreasureIndex);
 #else
+            // only for testing currency
+            // GameObject player = GameObject.FindGameObjectWithTag("Player");
+            // Inventory inv = player.GetComponent<Inventory>();
+            // CurrencyOwner currencyOwner = inv.GetCurrencyComponent<CurrencyCollection>() as CurrencyOwner;
+            // CurrencyCollection ownerCurrencyCollection = currencyOwner.CurrencyAmount;
+            // Currency gold = InventorySystemManager.GetCurrency("Gold");
+            // ownerCurrencyCollection.AddCurrency(gold, 10);
+
+            // DialogueManager.ShowAlert("Found " + 10 + " gold");
+
             var itemInfo = m_ItemObject.ItemInfo;
             var canAddResult = itemCollection.CanAddItem(itemInfo);
             if (canAddResult.HasValue == false
