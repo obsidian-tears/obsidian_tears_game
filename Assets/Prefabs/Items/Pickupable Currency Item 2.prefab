@@ -147,9 +147,9 @@ GameObject:
   - component: {fileID: 3830019983375316028}
   - component: {fileID: 3830019983375316025}
   - component: {fileID: 3830019983375316017}
-  - component: {fileID: -7989326757098761737}
   - component: {fileID: -7720382789440467825}
   - component: {fileID: -3013972009104381802}
+  - component: {fileID: 4731283166957186016}
   m_Layer: 0
   m_Name: Pickupable Currency Item 2
   m_TagString: Untagged
@@ -295,50 +295,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03526e258566dc247a4eb8525aeeb667, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_key: 
+  m_key: PickupableCurrencyItem2_3010366
   m_appendSaverTypeToKey: 0
   m_saveAcrossSceneChanges: 1
   m_restoreStateOnStart: 0
   m_mode: 1
   m_destroyMode: 0
   m_destroyedVersionPrefab: {fileID: 0}
---- !u!114 &-7989326757098761737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3830019983375316024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4134883aa7e547daa42f51e6ab297101, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_DeactivateOnInteract: 1
-  m_ScheduleReactivationTime: -1
-  m_SelectIndicators: []
-  m_OnPickupSuccess:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3830019983375316016}
-        m_TargetAssemblyTypeName: Pickupable, Assembly-CSharp
-        m_MethodName: placeOpenedChest
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_AudioClip: {fileID: 0}
-  m_AudioConfig: {fileID: 0}
-  m_OnPickupFail:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FailAudioClip: {fileID: 0}
-  m_FailAudioConfig: {fileID: 0}
 --- !u!114 &-7720382789440467825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,7 +320,7 @@ MonoBehaviour:
         Opsive.UltimateInventorySystem, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]
       m_ValueHashes: 4c1e4f8e813e215745dd75944641698ad05643c8
       m_ValuePositions: 000000000400000008000000080000000c000000
-      m_Values: 01000000010000000200000000000000
+      m_Values: 01000000010000001400000000000000
       m_UnityObjects:
       - {fileID: 11400000, guid: 3ea0f02d96e79ae49bb7b7d745f12765, type: 2}
       m_Version: 3.1
@@ -404,3 +367,41 @@ MonoBehaviour:
     onConditionMet:
       m_PersistentCalls:
         m_Calls: []
+--- !u!114 &4731283166957186016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3830019983375316024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d89614540e45a94790cdd92657f6d0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DeactivateOnInteract: 1
+  m_ScheduleReactivationTime: -1
+  m_SelectIndicators: []
+  m_OnPickupSuccess:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3830019983375316016}
+        m_TargetAssemblyTypeName: Pickupable, Assembly-CSharp
+        m_MethodName: placeOpenedChest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_AudioClip: {fileID: 0}
+  m_AudioConfig: {fileID: 0}
+  m_OnPickupFail:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FailAudioClip: {fileID: 0}
+  m_FailAudioConfig: {fileID: 0}
+  m_TreasureIndex: 1

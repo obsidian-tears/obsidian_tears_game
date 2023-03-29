@@ -7617,7 +7617,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 362595543531389319}
-  - component: {fileID: 362595543671447263}
   m_Layer: 5
   m_Name: CenterPanel
   m_TagString: Untagged
@@ -7647,20 +7646,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.0010529, y: -0.00032043}
   m_SizeDelta: {x: 1334.6, y: 631.82}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &362595543671447263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 362595543531389316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b87e57de23bb4ad2961e4dc1b52a25ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PanelRect: {fileID: 3275000309836951570}
-  m_Panel: {fileID: 3275000309836951569}
 --- !u!1 &362595543554505255
 GameObject:
   m_ObjectHideFlags: 0
@@ -65602,7 +65587,6 @@ GameObject:
   - component: {fileID: 2763691648059227237}
   - component: {fileID: 2763691648059227238}
   - component: {fileID: 2763691648059227247}
-  - component: {fileID: 7032297845843332152}
   m_Layer: 5
   m_Name: GameUI
   m_TagString: Untagged
@@ -65706,7 +65690,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InventoryMonitor: {fileID: 2763691647829940560}
-  CurrencyMonitor: {fileID: 2763691646868507048}
+  CurrencyMonitors:
+  - {fileID: 2763691646868507048}
+  - {fileID: 3275000311031762036}
   PlayerUI: {fileID: 2763691646933398079}
   MainMenu: {fileID: 4541092285259220539}
   SpellMenu: {fileID: 9055363251086126529}
@@ -65752,7 +65738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ID: 1
-  m_Canvas: {fileID: 0}
+  m_Canvas: {fileID: 2763691648059227232}
   m_PositionOffset: {x: 0, y: 0}
   m_UseContainerToSpawnItemView: 1
   m_CategoryItemViewSet: {fileID: 0}
@@ -65844,24 +65830,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7032297845843332152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2763691648059227288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7203074dfbd78bc4fa51314c98bf4720, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_requiredTag: 
-  m_destinationSceneName: Main Menu
-  m_spawnpointNameInDestinationScene: 
-  m_onUsePortal:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &2763691648095683860
 GameObject:
   m_ObjectHideFlags: 0
@@ -70107,7 +70075,6 @@ GameObject:
   - component: {fileID: 3275000309531737192}
   - component: {fileID: 3275000309531737193}
   - component: {fileID: 3275000309531737194}
-  - component: {fileID: 3275000309531737187}
   - component: {fileID: 362595543745601524}
   - component: {fileID: 362595543745601527}
   - component: {fileID: 362595543745601526}
@@ -70164,7 +70131,7 @@ MonoBehaviour:
   m_SlotCursor: {fileID: 0}
   m_SlotCursorID: 1
   m_Inventory: {fileID: 0}
-  m_DrawOnEnable: 0
+  m_DrawOnEnable: 1
   m_DrawOnInventoryUpdate: 1
   m_Grid: {fileID: 3275000309531737198}
   m_UseGridIndex: 0
@@ -70192,7 +70159,7 @@ MonoBehaviour:
   m_GridEventSystem: {fileID: 3275000309531737199}
   m_GridNavigator: {fileID: 3275000309531737194}
   m_TabControl: {fileID: 0}
-  m_RefreshOnEnable: 0
+  m_RefreshOnEnable: 1
   m_NextTabInput: Next
   m_PreviousTabInput: Previous
   m_FilterSorterBase: {fileID: 0}
@@ -70267,20 +70234,6 @@ MonoBehaviour:
   m_NextButton: {fileID: 3399679498661149457}
   m_Scrollbar: {fileID: 3399679498092608580}
   m_Vertical: 1
---- !u!114 &3275000309531737187
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3275000309531737172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd7d580d31234baba63f628e8f030aeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TabControl: {fileID: 4541092284969019704}
-  m_ResetTabIndexOnResetDraw: 0
 --- !u!114 &362595543745601524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70456,7 +70409,6 @@ GameObject:
   - component: {fileID: 3275000309836951574}
   - component: {fileID: 3275000309836951575}
   - component: {fileID: 3275000309836951569}
-  - component: {fileID: 362595543845978497}
   - component: {fileID: 362595544235379673}
   m_Layer: 0
   m_Name: Shop Menu
@@ -70546,22 +70498,7 @@ MonoBehaviour:
   m_SetDisableOnClose: 1
   m_SelectableOnOpen: {fileID: 0}
   m_MainContent: {fileID: 362595542757220542}
-  m_Bindings:
-  - {fileID: 0}
---- !u!114 &362595543845978497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3275000309836951571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b87e57de23bb4ad2961e4dc1b52a25ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PanelRect: {fileID: 3275000309836951570}
-  m_Panel: {fileID: 3275000309836951569}
+  m_Bindings: []
 --- !u!114 &362595544235379673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71511,8 +71448,7 @@ MonoBehaviour:
   m_SetDisableOnClose: 1
   m_SelectableOnOpen: {fileID: 0}
   m_MainContent: {fileID: 3399679498026348872}
-  m_Bindings:
-  - {fileID: 3275000310427601975}
+  m_Bindings: []
 --- !u!114 &3275000310427601975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71529,7 +71465,7 @@ MonoBehaviour:
   m_BindToInventoryByIdentifier: 0
   m_Inventory: {fileID: 0}
   m_ItemViewSlotsContainer: {fileID: 3275000309531737197}
-  m_DrawOnInitialize: 1
+  m_DrawOnInitialize: 0
   m_ResetDrawOnOpen: 1
   m_DrawOnOpen: 1
   m_SelectSlotOnOpen: 1
@@ -73439,7 +73375,7 @@ MonoBehaviour:
     m_UnityText: {fileID: 0}
     m_TextMeshProText: {fileID: 3399679499010887894}
   m_InventoryID: 1
-  m_UseInventoryID: 0
+  m_UseInventoryID: 1
 --- !u!114 &3399679497234712865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100489,7 +100425,7 @@ MonoBehaviour:
   m_OnClickEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7032297845843332152}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PixelCrushers.ScenePortal, Opsive.UltimateInventorySystem
         m_MethodName: UsePortal
         m_Mode: 1

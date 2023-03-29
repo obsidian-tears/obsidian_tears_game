@@ -87,6 +87,8 @@ namespace Core
             }
         }
 
+        protected virtual void OnDestroy() {}
+
         void OnApplicationQuit()
         {
             s_isQuitting.quitting = true;
