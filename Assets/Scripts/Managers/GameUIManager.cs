@@ -136,6 +136,7 @@ namespace GameManagers
         /// </summary>
         public void CloseSpellWindow()
         {
+            SetUIMode(UIMode.BATTLE);
             OnSpellWindowClosed?.Invoke();
         }
 
