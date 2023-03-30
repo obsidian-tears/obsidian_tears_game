@@ -45,7 +45,6 @@ namespace GameManagers
         public Image Blocker;
         public Slider HealthSlider;
         public Slider MagicSlider;
-        //public InventoryAmountItemView InventoryAmountView;
         public CharacterStatsDisplay StatsDisplay;
         public ActionButton[] ButtonsForBattleHide;
 
@@ -69,7 +68,6 @@ namespace GameManagers
         public void SetUIMode(UIMode mode)
         {
             m_currentMode = mode;
-            //Debug.Log("Setting UI mode to: "+ mode);
 
             bool isStandardMode = m_currentMode == UIMode.STANDARD;
             PlayerUI.gameObject.SetActive(isStandardMode);
@@ -107,7 +105,7 @@ namespace GameManagers
                 MenuTabs.gameObject.SetActive(!m_inventoryShowing);
                 if (m_inventoryShowing)
                 {
-                    StartCoroutine(RedrawInventory());
+                    RedrawInventory();
                 }
             }
         }
@@ -125,7 +123,12 @@ namespace GameManagers
         /// WORKAROUND FOR A MISSING INVENTORY IN THE BATTLE
         /// Force manual redraw of the inventory, used in battle
         /// </summary>
-        private IEnumerator RedrawInventory()
+        public void RedrawInventory()
+        {
+            StartCoroutine(DoTheInventoryRedraw());
+        }
+
+        private IEnumerator DoTheInventoryRedraw()
         {
             yield return null;
             InventoryPanel.OnOpen();
@@ -165,16 +168,6 @@ namespace GameManagers
             {
                 Debug.LogError("No inventory monitor component found on the UI! Please assign one!");
             }
-
-            // if (InventoryAmountView != null)
-            // {
-            //     Debug.Log("THIS SHOULD BE CALLED 1");
-            //     InventoryAmountView.Inventory = inventory;
-            // }
-            // else
-            // {
-            //     Debug.LogError("No InventoryAmountView component found on the UI! Please assign one!");
-            // }
         }
 
         public void SetCurrencyOwner(CurrencyOwner currencyOwner)
