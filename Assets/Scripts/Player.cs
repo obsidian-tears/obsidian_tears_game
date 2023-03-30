@@ -44,17 +44,13 @@ public class Player : MonoBehaviour
         {
             Debug.LogError("Cannot find attached global game context!", gameObject);
         }
-    }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        //Register player as the inventory panel owner and register inventory monitor
+        //Register player as the inventory panel owner and register inventory, currency monitor(s)
         InventorySystemManager.GetDisplayPanelManager().SetPanelOwner(gameObject);
         Inventory inventory = GetComponent<Inventory>();
         if (inventory != null)
         {
-            GameUIManager.Instance.SetInventoryMonitor(inventory);
+            GameUIManager.Instance.SetInventory(inventory);
             GameUIManager.Instance.SetCurrencyOwner(inventory.GetCurrencyComponent<CurrencyCollection>() as CurrencyOwner);
         }
         else
@@ -65,7 +61,11 @@ public class Player : MonoBehaviour
         frozen = false;
         myRigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        //transform.position = new Vector3(playerPosition.initialValue.x, playerPosition.initialValue.y, transform.position.z);
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
         playerHealthSignal.Raise();
     }
 
