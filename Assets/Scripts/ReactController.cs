@@ -310,6 +310,7 @@ public class ReactController : MonoSingleton<ReactController>
         Inventory inv = player.GetComponent<Inventory>();
         foreach (uint key in items.Keys)
         {
+            Debug.Log("REACT GIVE ITEMS METHOD, obtaining item key: " + key);
             var itemDefinition =
                 InventorySystemManager.GetItemDefinition(key);
             inv.AddItem(itemDefinition, items[key]);

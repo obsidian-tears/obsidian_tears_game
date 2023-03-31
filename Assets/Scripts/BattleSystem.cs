@@ -56,7 +56,7 @@ public class BattleSystem : MonoBehaviour
     // public DisplayPanel mainMenuPanel;
     // public DisplayPanel spellMenuPanel;
 
-    public Image backgroundImage;
+    public SpriteRenderer backgroundImage;
 
     public Transform damageObjectPrefab;
 
