@@ -12,13 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b88df0625a9a7c4dadde66d1ec5fa45, type: 3}
   m_Name: CurrentBattle
   m_EditorClassIdentifier: 
-  enemy: {fileID: 11400000, guid: 8c9982f5abdd0934383b20ced1ffc42a, type: 2}
+  enemy: {fileID: 11400000, guid: 9f843c2a9d008ec46ae9dddb669a1dd7, type: 2}
   level: 1
-  playerBaseHealth: 100
-  playerCurrentHealth: 90
-  playerBaseMagic: 100
-  playerCurrentMagic: 100
-  playerAttackBase: 10
+  playerBaseHealth: 15
+  playerCurrentHealth: 15
+  playerBaseMagic: 10
+  playerCurrentMagic: 10
+  playerAttackBase: 5
   playerDefenseBase: 5
   playerSpeedBase: 5
-  backgroundImage: {fileID: 21300000, guid: 6478136b9b2dc884c9f65e87fbf72d59, type: 3}
+  backgroundImage: {fileID: 21300000, guid: 1dc68e1ce6ed3ea41b6dcbdf9c87100f, type: 3}
+  music: {fileID: 8300000, guid: cfb03a92c1e3cad44a792524c7dcac09, type: 3}
+  monsterAreaObject: 
+  wonBattle: 0
+  ranBattle: 0
+  fireSusceptibility: 0
+  frostSusceptibility: 0
+  shockSusceptibility: 0
