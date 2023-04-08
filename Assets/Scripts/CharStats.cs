@@ -1,3 +1,4 @@
+using GameManagers;
 using Opsive.UltimateInventorySystem.Core;
 using Opsive.UltimateInventorySystem.Core.InventoryCollections;
 using Opsive.UltimateInventorySystem.Demo.Events;
@@ -13,10 +14,10 @@ public class CharStats : MonoBehaviour
 {
     public Equipper equipper;
     public Inventory inventory;
-    public CharacterStatsDisplay statsDisplay;
+    //public CharacterStatsDisplay statsDisplay;
 
-    public Slider healthSlider;
-    public Slider magicSlider;
+    // public Slider healthSlider;
+    // public Slider magicSlider;
 
     public string characterClass;
     
@@ -75,7 +76,7 @@ public class CharStats : MonoBehaviour
     public void UpdateStats()
     {
         //This is a player
-        if(equipper != null && statsDisplay != null)
+        if(equipper != null && GameUIManager.Instance.StatsDisplay != null)
         {
             healthMax = healthBase + equipmentCollection.GetIntSum("MaxHp");
             magicMax = magicBase + equipmentCollection.GetIntSum("MaxMp");
@@ -84,7 +85,7 @@ public class CharStats : MonoBehaviour
             speedTotal = speedBase + equipmentCollection.GetIntSum("Speed");
             criticalHitProbability = equipmentCollection.GetFloatSum("CriticalChance");
             magicPowerTotal = magicPowerBase + equipmentCollection.GetIntSum("MagicPower");
-            statsDisplay.Draw(healthMax, magicMax, attackTotal, defenseTotal, speedTotal, healthTotal, magicTotal, magicPowerTotal, healthBase, magicBase, attackBase, defenseBase, speedBase, magicPowerBase, xp, xpToLevelUp);
+            GameUIManager.Instance.StatsDisplay.Draw(healthMax, magicMax, attackTotal, defenseTotal, speedTotal, healthTotal, magicTotal, magicPowerTotal, healthBase, magicBase, attackBase, defenseBase, speedBase, magicPowerBase, xp, xpToLevelUp);
         }
 
         //This is an enemy
@@ -99,23 +100,15 @@ public class CharStats : MonoBehaviour
             speedTotal = speedBase;
         }
 
-        if(healthSlider != null)
-        {
-            healthSlider.maxValue = healthMax;
-            healthSlider.value = healthTotal;
-        }
-        if(magicSlider != null)
-        {
-            magicSlider.maxValue = magicMax;
-            magicSlider.value = magicTotal;
-        }
+        GameUIManager.Instance.SetHealthSlider(healthTotal, healthMax);
+        GameUIManager.Instance.SetHealthSlider(magicTotal, magicMax);
     }
 
     //Returns true if the player is dead after taking damage
     public bool TakeDamage(int dmg)
     {
         healthTotal -= dmg;
-        if(equipper != null && statsDisplay != null)
+        if(equipper != null && GameUIManager.Instance.StatsDisplay != null)
             UpdateStats();
 
         if (healthTotal <= 0)
@@ -137,7 +130,7 @@ public class CharStats : MonoBehaviour
         {
             healthTotal = 0;
         }
-        if (equipper != null && statsDisplay != null)
+        if (equipper != null && GameUIManager.Instance.StatsDisplay != null)
             UpdateStats();
     }
 
@@ -152,7 +145,7 @@ public class CharStats : MonoBehaviour
         {
             magicTotal = 0;
         }
-        if(equipper != null && statsDisplay != null)
+        if(equipper != null && GameUIManager.Instance.StatsDisplay != null)
         {
             UpdateStats();
         }
@@ -161,7 +154,7 @@ public class CharStats : MonoBehaviour
     public void AddXP(int xPAmt)
     {
         xp += xPAmt;
-        if (equipper != null && statsDisplay != null)
+        if (equipper != null && GameUIManager.Instance.StatsDisplay != null)
         {
             UpdateStats();
         }

@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "dfx": "0.13.1",
+  "canisters": {
+    "obsidian_unity_frontend": {
+      "frontend": {
+        "entrypoint": "src/obsidian_unity_frontend/src/index.html"
+      },
+      "source": [
+        "src/obsidian_unity_frontend/assets",
+        "dist/obsidian_unity_frontend/"
+      ],
+      "type": "assets"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "networks": {
+    "staging": {
+      "providers": [
+        "https://ic0.app"
+      ],
+      "type": "persistent"
+    }
+  }
+}

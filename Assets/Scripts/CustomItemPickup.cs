@@ -9,6 +9,7 @@ namespace Opsive.UltimateInventorySystem.DropsAndPickups
     using Opsive.UltimateInventorySystem.Core;
     using Opsive.UltimateInventorySystem.Core.DataStructures;
     using Opsive.UltimateInventorySystem.Core.InventoryCollections;
+    using Opsive.UltimateInventorySystem.Exchange;
     using Opsive.UltimateInventorySystem.Interactions;
     using System;
     using UnityEngine;
@@ -28,8 +29,7 @@ namespace Opsive.UltimateInventorySystem.DropsAndPickups
         [Tooltip("Dumb treasure chest id")]
         [SerializeField] protected string m_TreasureIndex;
 
-
-        ReactController reactController;
+        //ReactController reactController;
 
         // protected new ItemObject m_ItemObject;
 
@@ -51,9 +51,6 @@ namespace Opsive.UltimateInventorySystem.DropsAndPickups
         {
             base.Start();
 
-// get reactcontroller that is in the scene
-
-            reactController = GameObject.Find("ReactController").GetComponent<ReactController>();
             if (m_ItemObject == null) { return; }
 
             Shared.Events.EventHandler.RegisterEvent(m_ItemObject, EventNames.c_ItemObject_OnItemChanged, () => UpdateState(m_ItemObject));
@@ -110,18 +107,20 @@ namespace Opsive.UltimateInventorySystem.DropsAndPickups
         /// <param name="itemCollection">The item collection.</param>
         protected new virtual void TryAddItemToCollection(ItemCollection itemCollection)
         {
-            // var itemInfo = m_ItemObject.ItemInfo;
-            // var canAddResult = itemCollection.CanAddItem(itemInfo);
-            // if (canAddResult.HasValue == false
-                // || canAddResult.Value.Amount == 0
-                // || (m_FailIfFullAmountDoesNotFit && canAddResult.Value.Amount != itemInfo.Amount))
-            // {
-                // NotifyPickupFailed();
-                // return;
-            // }
-// 
-            // itemCollection.AddItem(itemInfo);
-            reactController.SignalOpenChest(m_TreasureIndex);
+#if UNITY_WEBGL && !UNITY_EDITOR
+            ReactController.Instance.SignalOpenChest(m_TreasureIndex);
+#else
+            var itemInfo = m_ItemObject.ItemInfo;
+            var canAddResult = itemCollection.CanAddItem(itemInfo);
+            if (canAddResult.HasValue == false
+                || canAddResult.Value.Amount == 0
+                || (m_FailIfFullAmountDoesNotFit && canAddResult.Value.Amount != itemInfo.Amount))
+            {
+                NotifyPickupFailed();
+                return;
+            }
+            itemCollection.AddItem(itemInfo);
+#endif
             NotifyPickupSuccess();
         }
 

@@ -15,7 +15,6 @@ public class AssignCamera : MonoBehaviour
         {
             canvas.worldCamera = camera;
         }
-    
     }
 
     // Update is called once per frame

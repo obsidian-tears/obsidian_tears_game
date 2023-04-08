@@ -6,7 +6,10 @@ using Opsive.UltimateInventorySystem.Core;
 using Opsive.UltimateInventorySystem.Core.InventoryCollections;
 using Opsive.UltimateInventorySystem.Exchange;
 using UnityEngine;
-using System.Linq; 
+using System.Linq;
+using PixelCrushers;
+using Core;
+using GameManagers;
 
 [Serializable]
 public class RewardInfo
@@ -16,19 +19,26 @@ public class RewardInfo
     public int xp;
 }
 
-public class ReactController : MonoBehaviour
+public class ReactController : MonoSingleton<ReactController>
 {
+    // TODO probably adding timeout variable would be beneficial
+    [Header("Testing/Setup")]
+    [Tooltip("For testing purposes - on which save system slot should be game saved locally?")]
+    [SerializeField] private int m_localSaveSlotNumber;
+    [Tooltip("For testing purposes - how long should be save/load screen shown when testing game in editor?")]
+    [SerializeField] private float m_saveLoadScreenShowTime;
+    [Space(5)]
+    [Header("References")]
     [SerializeField]
     MySignal freezeSignal;
-
     [SerializeField]
     MySignal unfreezeSignal;
 
-    [SerializeField]
-    GameObject loadingIndicator;
-
-    [SerializeField]
-    GameObject blocker;
+    public event Action<bool> OnLoadGameCheckDone;
+    
+    // TODO Uncomment this for cooperation with react script!
+    // [DllImport("__Internal")]
+    // private static extern void CheckForLoadGame();
 
     [DllImport("__Internal")]
     private static extern void LoadGame(string objectName);
@@ -59,85 +69,147 @@ public class ReactController : MonoBehaviour
     [DllImport("__Internal")]
     private static extern void NewGame(string objectName);
 
-    // calls the react function to load the game, start loading
-    public void SignalLoadGame()
+    protected override void Init()
     {
-        loadingIndicator.SetActive(true);
-        blocker.SetActive(true);
+        Debug.Log("REACT controller INIT!");
+    }
 
-        // call react fx
+    public void SignalCheckForLoadedGame()
+    {
+        Debug.Log("REACT CHECK FOR LOADED GAME");
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
-        LoadGame(gameObject.name);
+        // call react fx
+        // TODO Uncomment this for react script communication
+        //CheckForLoadGame();
+        //TODO delete this later
+        StartCoroutine(ServerCheckLoadGameSimulation());
+#else
+        // else check saved data locally
+        StartCoroutine(LocalCheckLoadGameSimulation());
 #endif
     }
 
-    // react calls this function, triggering the actual load, end loading
-    public void ListenLoadGame(string fromReact)
+    private IEnumerator LocalCheckLoadGameSimulation()
     {
-        Debug.Log (fromReact);
-        PixelCrushers.SavedGameData gameData =
-            PixelCrushers
-                .SaveSystem
-                .Deserialize<PixelCrushers.SavedGameData>(fromReact);
-        PixelCrushers.SaveSystem.LoadGame (gameData);
-        loadingIndicator.SetActive(false);
-        blocker.SetActive(false);
-        Debug.Log("load the game: " + fromReact);
+        yield return new WaitForSecondsRealtime(m_saveLoadScreenShowTime);
+        OnLoadGameCheckDone?.Invoke(SaveSystem.HasSavedGameInSlot(m_localSaveSlotNumber));
     }
 
-    // calls the react function to save the game, start loading
+    private IEnumerator ServerCheckLoadGameSimulation()
+    {
+        yield return new WaitForSecondsRealtime(m_saveLoadScreenShowTime);
+        ListenCheckLoadGame(true);
+    }
+
+    //TODO make react communicate with this
+    public void ListenCheckLoadGame(bool fromReact)
+    {
+        Debug.Log("REACT LOAD GAME CHECKED, HAS BEEN FOUND? " + fromReact);
+        OnLoadGameCheckDone(fromReact);
+    }
+
+    /// <summary>
+    /// Reaction to Load game signal, calls react method or local one when running from editor
+    /// </summary>
+    public void SignalLoadGame()
+    {
+        Debug.Log("LOADING START!");
+        GameUIManager.Instance.ShowLoadingIndicator(true, true);
+
+#if UNITY_WEBGL == true && UNITY_EDITOR == false
+        // call react fx
+        // TODO why are we sending gameobject name to the server, is it needed?
+        // TODO probably adding timeout would be beneficial
+        LoadGame(gameObject.name);
+#else
+        // else save data locally for testing purposes
+        StartCoroutine(LocalLoadGameSimulation());
+#endif
+    }
+
+    private IEnumerator LocalLoadGameSimulation()
+    {
+        yield return new WaitForSecondsRealtime(m_saveLoadScreenShowTime);
+        SavedGameData savedData = SaveSystem.storer.RetrieveSavedGameData(m_localSaveSlotNumber);
+        if (savedData == null)
+        {
+            Debug.LogError("LOADING ERROR, NO DATA FOUND!");
+            GameUIManager.Instance.ShowLoadingIndicator(false, true);
+            yield break;
+        }
+
+        string stringData = SaveSystem.Serialize(savedData);
+        ListenLoadGame(stringData);
+    }
+
+    /// <summary>
+    /// React load game callback, triggering the actual load
+    /// </summary>
+    /// <param name="fromReact">String with player data</param>
+    public void ListenLoadGame(string fromReact)
+    {
+        Debug.Log("LOADING, DATA TO LOAD: " + fromReact);
+        SavedGameData gameData = SaveSystem.Deserialize<PixelCrushers.SavedGameData>(fromReact);
+        SaveSystem.LoadGame(gameData);
+    }
+
+    /// <summary>
+    /// Reaction to Save game signal, calls react method or local one when running from editor
+    /// </summary>
     public void SignalSaveGame()
     {
         // freeze
-        loadingIndicator.SetActive(true);
-        blocker.SetActive(true);
+        GameUIManager.Instance.ShowLoadingIndicator(true, true);
 
         // get saved game data
-        PixelCrushers.SavedGameData gameData =
-            PixelCrushers.SaveSystem.RecordSavedGameData();
-        string stringData = PixelCrushers.SaveSystem.Serialize(gameData);
+        SavedGameData gameData = SaveSystem.RecordSavedGameData();
+        string stringData = SaveSystem.Serialize(gameData);
 
-        // call react fx
-        Debug.Log (stringData);
-
-
+        Debug.Log("SAVING, GAME DATA:" + stringData);
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
+        // call react 
+        // TODO timeout would be beneficial
         SaveGame(stringData, gameObject.name);
+#else
+        // else save data locally for testing purposes
+        StartCoroutine(LocalSaveGameSimulation(gameData, stringData));
 #endif
     }
 
-    // applies the data from react (to refresh inventory) and stops loading
+    // Callback to react-related save game
+    // TODO - probably should receive just simple bool/int to make sure operation was successful
+    // TODO - show some error message in case something went wrong
     public void ListenSaveGame(string fromReact)
     {
-        // apply saved game data
-        PixelCrushers.SavedGameData gameData =
-            PixelCrushers
-                .SaveSystem
-                .Deserialize<PixelCrushers.SavedGameData>(fromReact);
-        PixelCrushers.SaveSystem.ApplySavedGameData (gameData);
-        loadingIndicator.SetActive(false);
-        blocker.SetActive(false);
-        Debug.Log("apply save data: " + fromReact);
+        //TODO show proper save/load screen
+        GameUIManager.Instance.ShowLoadingIndicator(false, true);
+        Debug.Log("SAVING SUCCESS, GAME DATA:" + fromReact);
+    }
+
+    private IEnumerator LocalSaveGameSimulation(SavedGameData gameData, string stringData)
+    {
+        SaveSystem.storer.StoreSavedGameData(m_localSaveSlotNumber, gameData);
+        yield return new WaitForSecondsRealtime(m_saveLoadScreenShowTime);
+        ListenSaveGame(stringData);
     }
 
     // For treasure chests
     public void SignalOpenChest(string treasureIndex)
     {
+        Debug.Log("REACT OPEN CHEST! Treasure index: " + treasureIndex);
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
         OpenChest((int)Math.Round(double.Parse(treasureIndex)), gameObject.name);
 #endif
 
-
         freezeSignal.Raise();
-        loadingIndicator.SetActive(true);
+        GameUIManager.Instance.ShowLoadingIndicator(true, false);
     }
 
     public void ListenOpenChest(string fromReact)
     {
+        Debug.Log("REACT OPEN CHEST CALLBACK. Data from react: " + fromReact);
         handleReward(fromReact);
-        loadingIndicator.SetActive(false);
-        blocker.SetActive(false);
-        Debug.Log("open chest: " + fromReact);
+        GameUIManager.Instance.ShowLoadingIndicator(false, true);
     }
 
     public void SignalDefeatMonster(string monsterId)
@@ -146,17 +218,16 @@ public class ReactController : MonoBehaviour
         DefeatMonster(int.Parse(monsterId), gameObject.name);
 #endif
 
-
         freezeSignal.Raise();
-        loadingIndicator.SetActive(true);
+        GameUIManager.Instance.ShowLoadingIndicator(true, false);
     }
 
     public void SignalNewGame()
     {
+        Debug.Log("REACT SIGNAL NEW GAME");
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
         NewGame(gameObject.name);
 #endif
-
 
         //freezeSignal.Raise();
         //loadingIndicator.SetActive(true);
@@ -164,50 +235,48 @@ public class ReactController : MonoBehaviour
 
     public void ListenBuyItem(string fromReact)
     {
-        loadingIndicator.SetActive(false);
-        blocker.SetActive(false);
+        // TODO WHAT ABOUT SOME HANDLE REWARD HERE?? OR IS IT HANDLED ELSEWHERE?
+        GameUIManager.Instance.ShowLoadingIndicator(false, true);
+
         Debug.Log("bought item: " + fromReact);
     }
 
     public void ListenDefeatMonster(string fromReact)
     {
         handleReward(fromReact);
-        loadingIndicator.SetActive(false);
-        blocker.SetActive(false);
+        GameUIManager.Instance.ShowLoadingIndicator(false, true);
 
         Debug.Log("defeated monster: " + fromReact);
     }
 
     public void SignalBuyItem(string shopIndex, string itemDefId, int quantity)
     {
+        Debug.Log("REACT BUY ITEM METHOD, shopIndex, itemDefId, quantity info follows: " + shopIndex + ", " + itemDefId + ", " + quantity);
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
         BuyItem(int.Parse(shopIndex), itemDefId, quantity, gameObject.name);
 #endif
 
-
         freezeSignal.Raise();
-        loadingIndicator.SetActive(true);
+        GameUIManager.Instance.ShowLoadingIndicator(true, false);
     }
 
     public void EquipItems()
     {
         string[] itemIds = new string[] { };
 
-
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
         EquipItems(itemIds, gameObject.name);
 #endif
 
-
         freezeSignal.Raise();
-        loadingIndicator.SetActive(true);
+        GameUIManager.Instance.ShowLoadingIndicator(true, false);
     }
 
     // for generic success
     public void DisplaySuccess(string success)
     {
         // TODO display an error on the screen
-        loadingIndicator.SetActive(false);
+        GameUIManager.Instance.ShowLoadingIndicator(false, false);
         unfreezeSignal.Raise();
     }
 
@@ -215,11 +284,13 @@ public class ReactController : MonoBehaviour
     public void DisplayError(string error)
     {
         // TODO display an error on the screen
-        loadingIndicator.SetActive(false);
+        GameUIManager.Instance.ShowLoadingIndicator(false, false);
         unfreezeSignal.Raise();
     }
 
-    public void handleReward(string fromReact) {
+    public void handleReward(string fromReact)
+    {
+        Debug.Log("REACT HANDLING REWARD METHOD, give items should follow.");
         RewardInfo data = JsonUtility.FromJson<RewardInfo>(fromReact);
         uint[] items = Array.ConvertAll(data.itemIds, uint.Parse);
         Dictionary<uint, int> dictionary = items.GroupBy(x => x)
@@ -231,6 +302,8 @@ public class ReactController : MonoBehaviour
 
     public void GiveItems(Dictionary<uint, int> items, int goldAmount)
     {
+        Debug.Log("REACT GIVE ITEMS METHOD, obtained gold: " + goldAmount);
+        Debug.Log("REACT GIVE ITEMS METHOD, list of obtained keys should follow");
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         Inventory inv = player.GetComponent<Inventory>();
         foreach (uint key in items.Keys)
@@ -238,14 +311,13 @@ public class ReactController : MonoBehaviour
             var itemDefinition =
                 InventorySystemManager.GetItemDefinition(key);
             inv.AddItem(itemDefinition, items[key]);
-         }
+        }
         if (goldAmount != 0)
         {
-            var currencyOwner =
-                inv.GetCurrencyComponent<CurrencyCollection>() as CurrencyOwner;
-            var ownerCurrencyCollection = currencyOwner.CurrencyAmount;
-            var gold = InventorySystemManager.GetCurrency("Gold");
-            ownerCurrencyCollection.AddCurrency (gold, goldAmount);
+            CurrencyOwner currencyOwner = inv.GetCurrencyComponent<CurrencyCollection>() as CurrencyOwner;
+            CurrencyCollection ownerCurrencyCollection = currencyOwner.CurrencyAmount;
+            Currency gold = InventorySystemManager.GetCurrency("Gold");
+            ownerCurrencyCollection.AddCurrency(gold, goldAmount);
         }
     }
 }

@@ -33,7 +33,22 @@ namespace PixelCrushers.DialogueSystem.SequencerCommands
                 var shopMenuObject = GameObjectUtility.GameObjectHardFind("Shop Menu");
                 if (shopMenuObject != null) shopMenu = shopMenuObject.GetComponent<CustomShopMenu>();
             }
-            var panelManager = (shopMenu != null) ? shopMenu.GetComponentInParent<DisplayPanelManager>() : null;
+            // !!! Start of the code added by Jakub
+            if (shopMenu == null)
+            {
+                var shopMenuObject = DontDestroyOnLoadAccessor.Instance.GetDdolGameObjectByName("Shop Menu");
+                if (shopMenuObject != null) shopMenu = shopMenuObject.GetComponent<CustomShopMenu>();
+            }
+
+            // Previous solution:
+            // if (shopMenu == null && shopSubject != null)
+            // {
+            //     CustomShopMenuOpener shopSubjectGO = shopSubject.gameObject.GetComponent<CustomShopMenuOpener>();
+            //     shopMenu = shopSubjectGO.ShopMenu;
+            // }
+            // !!! End of the code added by Jakub
+
+            var panelManager = (shopMenu != null) ? shopMenu.GetComponentInParent<DisplayPanelManager>(true) : null;
             var player = GetSubject(2, listener);
             if (player == null)
             {
