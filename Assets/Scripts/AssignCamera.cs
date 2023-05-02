@@ -5,7 +5,7 @@ using UnityEngine;
 public class AssignCamera : MonoBehaviour
 {
     private Canvas canvas;
-    private Camera camera;
+    private new Camera camera;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +15,6 @@ public class AssignCamera : MonoBehaviour
         {
             canvas.worldCamera = camera;
         }
-    
     }
 
     // Update is called once per frame

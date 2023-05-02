@@ -144,6 +144,7 @@ public class MonsterArea : MonoBehaviour
 
         if(currentBattle.monsterAreaObject == monsterAreaUniqueID && currentBattle.wonBattle)
         {
+            ReactController.Instance.SignalDefeatMonster(currentBattle.enemy.enemyServerId.ToString());
             onBattleWin.Invoke();
 
             if (isOneTimeBattle)

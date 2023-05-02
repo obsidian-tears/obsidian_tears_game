@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Opsive.UltimateInventorySystem.Core;
+using GameManagers;
+using Opsive.UltimateInventorySystem.Core.InventoryCollections;
+using Opsive.UltimateInventorySystem.Exchange;
 
 public enum PlayerType { Fighter, Wizard, Rogue, Barbarian }
 public class Player : MonoBehaviour
@@ -15,6 +19,11 @@ public class Player : MonoBehaviour
     public FloatValue currentHealth;
     public FloatValue maxMagic;
     public FloatValue currentMagic;
+    [Space(5)]
+    [Header("Global game context reference")]
+    [SerializeField] GlobalGameContextSORS m_globalGameContext;
+    [Space(5)]
+    [Header("Signals")]
     [SerializeField] MySignal playerHealthSignal;
     [SerializeField] MySignal battleSignal;
     [SerializeField] MySignal dialogSignal;
@@ -26,14 +35,37 @@ public class Player : MonoBehaviour
     //[SerializeField] PlayerType playerType = PlayerType.Fighter;
     [SerializeField] bool frozen;
 
+    void Awake() {
+        if (m_globalGameContext != null)
+        {
+            m_globalGameContext.RegisterPlayerObject(this);
+        }
+        else 
+        {
+            Debug.LogError("Cannot find attached global game context!", gameObject);
+        }
+
+        //Register player as the inventory panel owner and register inventory, currency monitor(s)
+        InventorySystemManager.GetDisplayPanelManager().SetPanelOwner(gameObject);
+        Inventory inventory = GetComponent<Inventory>();
+        if (inventory != null)
+        {
+            GameUIManager.Instance.SetInventory(inventory);
+            GameUIManager.Instance.SetCurrencyOwner(inventory.GetCurrencyComponent<CurrencyCollection>() as CurrencyOwner);
+        }
+        else
+        {
+            Debug.LogError("FATAL ERROR! Player has no inventory component! Please assign one!");
+        }
+
+        frozen = false;
+        myRigidbody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        frozen = false;
-        myRigidbody = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        //transform.position = new Vector3(playerPosition.initialValue.x, playerPosition.initialValue.y, transform.position.z);
         playerHealthSignal.Raise();
     }
 

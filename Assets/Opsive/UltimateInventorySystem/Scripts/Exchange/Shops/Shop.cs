@@ -15,6 +15,7 @@ namespace Opsive.UltimateInventorySystem.Exchange.Shops
     /// </summary>
     public class Shop : ShopGeneric<CurrencyCollection>
     {
+
         /// <summary>
         /// Initialize on awake.
         /// </summary>

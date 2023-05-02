@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+// NOTE: not used anymore, health and mana are controlled through CharStats class
 public class HealthController : MonoBehaviour
 {
     [SerializeField] FloatValue currentHealth;
@@ -17,13 +18,13 @@ public class HealthController : MonoBehaviour
 
     void Start()
     {
-       UpdateHealthAndMagic();
+       //UpdateHealthAndMagic();
     }
 
     public void UpdateHealthAndMagic() {
-       healthSlider.value = currentHealth.value / playerStats.maxHealth.value;
-       magicSlider.value = currentMagic.value / playerStats.maxMagic.value;
-       goldText.text = "$" + Mathf.FloorToInt(playerStats.gold.value).ToString();
-       levelText.text = playerStats.level.value.ToString();
+      //  healthSlider.value = currentHealth.value / playerStats.maxHealth.value;
+      //  magicSlider.value = currentMagic.value / playerStats.maxMagic.value;
+      //  goldText.text = "$" + Mathf.FloorToInt(playerStats.gold.value).ToString();
+      //  levelText.text = playerStats.level.value.ToString();
     }
 }
