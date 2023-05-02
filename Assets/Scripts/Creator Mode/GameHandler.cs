@@ -6,16 +6,16 @@ public class GameHandler : MonoBehaviour
 {
     private bool gameMode;
     public GameObject phendrin;
-    public Transform saveSpace;
 
     public void StartGame()
     {
         SpawnPhendrin(new Vector3(0, 0, 0));
+        gameMode = true;
     }
 
     private void SpawnPhendrin(Vector3 loc)
     {
-        GameObject go = Instantiate(phendrin, loc, Quaternion.identity, saveSpace);
+        GameObject go = Instantiate(phendrin, loc, Quaternion.identity);
     }
 
 }
