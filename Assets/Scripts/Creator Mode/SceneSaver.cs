@@ -10,19 +10,22 @@ public class SceneSaver : MonoBehaviour
     [SerializeField] Transform grid;
     [SerializeField] PrefabIdMapper pim;
     [SerializeField] TileIdMapper tim;
-    
 
-    public void Save() {
+
+    public void Save()
+    {
         SaveData saveData = new SaveData();
 
         List<GameObjectData> gameObjectDataList = new List<GameObjectData>();
-        foreach (Transform transform in saveSpace) {
+        foreach (Transform transform in saveSpace)
+        {
             gameObjectDataList.Add(GameObjectToData(transform));
         }
         saveData.gameObjectDatas = gameObjectDataList.ToArray();
 
         List<TilemapData> tilemapDataList = new List<TilemapData>();
-        foreach (Transform transform1 in grid) {
+        foreach (Transform transform1 in grid)
+        {
             tilemapDataList.Add(TilemapToData(transform1));
         }
         saveData.tilemapDatas = tilemapDataList.ToArray();
@@ -33,87 +36,101 @@ public class SceneSaver : MonoBehaviour
         File.WriteAllText(Application.persistentDataPath + "/CreatorModeSave.json", jsonSave);
     }
 
-    public void Load() {
+    public void Load()
+    {
         ClearSaveSpace();
         ClearGrid();
 
         string savePath = Application.persistentDataPath + "/CreatorModeSave.json";
 
-        if (!File.Exists(savePath)) {
+        if (!File.Exists(savePath))
+        {
             Debug.LogError("Save file not found. Cannot load");
             return;
-        } 
+        }
 
         string jsonSave = File.ReadAllText(savePath);
 
         List<GameObjectData> gameObjectDataList = new List<GameObjectData>();
         SaveData saveData = JsonUtility.FromJson<SaveData>(jsonSave);
-        
-        foreach (GameObjectData data in saveData.gameObjectDatas) {
+
+        foreach (GameObjectData data in saveData.gameObjectDatas)
+        {
             InstantiateToSaveSpaceFromGameObjectData(data);
         }
-        
-        foreach (TilemapData data1 in saveData.tilemapDatas) {
+
+        foreach (TilemapData data1 in saveData.tilemapDatas)
+        {
             GameObject go = new GameObject(data1.GetName(), typeof(Tilemap), typeof(TilemapRenderer));
             go.transform.SetParent(grid);
             go.GetComponent<TilemapRenderer>().sortingOrder = data1.tilemapId;
 
             Tilemap t = go.GetComponent<Tilemap>();
 
-            foreach (TileSaveData tbd in data1.tileDatas) {
+            foreach (TileSaveData tbd in data1.tileDatas)
+            {
                 t.SetTile(new Vector3Int(tbd.position[0], tbd.position[1]), tim.GetTileFromId(tbd.tileId));
             }
         }
     }
 
-    private GameObject InstantiateToSaveSpaceFromGameObjectData(GameObjectData data) {
-        GameObject go = Instantiate(pim.GetPrefabFromId(data.prefabId), new Vector3(data.position[0], data.position[1], 0), Quaternion.identity, saveSpace);
+    private GameObject InstantiateToSaveSpaceFromGameObjectData(GameObjectData data)
+    {
+        GameObject go = CreatorModeUtils.InstantiateToSaveSpaceWithExtras(pim.GetPrefabFromId(data.prefabId), new Vector2(data.position[0], data.position[1]), saveSpace, data.prefabId);
         go.transform.localScale = new Vector2(data.scale[0], data.scale[1]);
-        go.AddComponent<CreatorModeID>().id = data.prefabId;
         return go;
     }
-    
-    private GameObjectData GameObjectToData(Transform t) {
+
+    private GameObjectData GameObjectToData(Transform t)
+    {
         return new GameObjectData(
             t.gameObject.GetComponent<CreatorModeID>().id,
             t
             );
     }
 
-    private TilemapData TilemapToData(Transform t) {
+    private TilemapData TilemapToData(Transform t)
+    {
         Tilemap tilemap = t.GetComponent<Tilemap>();
         TilemapRenderer tilemapRenderer = t.GetComponent<TilemapRenderer>();
         List<TileSaveData> tileDatas = new List<TileSaveData>();
-        
+
         BoundsInt bounds = tilemap.cellBounds;
-        for (int x = bounds.min.x; x < bounds.max.x; x++) {
-            for (int y = bounds.min.y; y < bounds.max.y; y++) {
+        for (int x = bounds.min.x; x < bounds.max.x; x++)
+        {
+            for (int y = bounds.min.y; y < bounds.max.y; y++)
+            {
                 TileBase tile = tilemap.GetTile(new Vector3Int(x, y));
                 if (tile == null) continue;
                 tileDatas.Add(new TileSaveData(tim.GetIdFromTile(tile), x, y));
             }
         }
-        
+
         return new TilemapData(
             tilemapRenderer.sortingOrder,
             tileDatas.ToArray()
         );
     }
 
-    public void ClearSaveSpace() {
-        foreach (Transform transform in saveSpace) {
+    public void ClearSaveSpace()
+    {
+        foreach (Transform transform in saveSpace)
+        {
             Destroy(transform.gameObject);
         }
     }
 
-    public void ClearGrid() {
-        foreach (Transform transform in grid) {
+    public void ClearGrid()
+    {
+        foreach (Transform transform in grid)
+        {
             Destroy(transform.gameObject);
         }
     }
 
     [System.Serializable]
-    class SaveData {
+    class SaveData
+    {
         public GameObjectData[] gameObjectDatas;
         public TilemapData[] tilemapDatas;
         public string dateTime;
@@ -121,14 +138,16 @@ public class SceneSaver : MonoBehaviour
     }
 
     [System.Serializable]
-    class GameObjectData {
+    class GameObjectData
+    {
         public int prefabId = -1;
         public float[] position = new float[2];
         public float[] scale = new float[2];
 
-        public GameObjectData(int prefabId, Transform transform) {
-            this.prefabId  = prefabId;
-            
+        public GameObjectData(int prefabId, Transform transform)
+        {
+            this.prefabId = prefabId;
+
             position[0] = transform.position.x;
             position[1] = transform.position.y;
 
@@ -138,30 +157,35 @@ public class SceneSaver : MonoBehaviour
     }
 
     [System.Serializable]
-    class TilemapData {
+    class TilemapData
+    {
         public int tilemapId;
         public TileSaveData[] tileDatas;
 
-        public TilemapData(int tilemapId, TileSaveData[] tileDatas) {
+        public TilemapData(int tilemapId, TileSaveData[] tileDatas)
+        {
             this.tilemapId = tilemapId;
             this.tileDatas = tileDatas;
         }
-    
-        public string GetName() {
+
+        public string GetName()
+        {
             return "Tilemap" + tilemapId;
         }
     }
 
     [System.Serializable]
-    class TileSaveData {
+    class TileSaveData
+    {
         public int tileId;
         public int[] position = new int[2];
 
-        public TileSaveData(int tileId, int x, int y) {
+        public TileSaveData(int tileId, int x, int y)
+        {
             this.tileId = tileId;
 
             position[0] = x;
-            position[1] = y;            
+            position[1] = y;
         }
     }
 
