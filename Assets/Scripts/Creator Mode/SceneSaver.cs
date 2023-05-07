@@ -76,7 +76,7 @@ public class SceneSaver : MonoBehaviour
 
     private GameObject InstantiateToSaveSpaceFromGameObjectData(GameObjectData data)
     {
-        GameObject go = CreatorModeUtils.InstantiateToSaveSpaceWithExtras(pim.GetPrefabFromId(data.prefabId), new Vector2(data.position[0], data.position[1]), saveSpace, data.prefabId);
+        GameObject go = CreatorModeUtils.InstantiateWithExtras(pim.GetPrefabFromId(data.prefabId), new Vector2(data.position[0], data.position[1]), saveSpace, data.prefabId);
         go.transform.localScale = new Vector2(data.scale[0], data.scale[1]);
         return go;
     }

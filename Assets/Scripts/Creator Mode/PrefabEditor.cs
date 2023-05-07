@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,6 @@ public class PrefabEditor : MonoBehaviour
 {
     [SerializeField] PrefabIdMapper pim;
     [SerializeField] Color ghostCopyColor;
-    [SerializeField] Color hoveredColor;
     [SerializeField] Transform saveSpace;
 
     public delegate int GetPrefabId();
@@ -14,88 +14,17 @@ public class PrefabEditor : MonoBehaviour
 
     private int selectedPrefabId = -1;
     private GameObject ghostObject;
-    private GameObject hoveredObject;
-    private GameObject selectedObject;
-    private Vector2 mouseOffset;
 
     void Update()
     {
+        // TODO: Copy Paste
 
         // Deselect selected prefab on right click
-        if (Input.GetMouseButtonDown(1)) DeSelectPrefab();
+        if (Input.GetMouseButtonDown(1)) DeSelect();
 
-        if (selectedPrefabId == -1)
-        {
-            // If nothing is selected, go into editing mode
-            HandleEditing();
-            // TODO: make sure a tile isn't selected before handling editing
-        }
-        else
-        {
-            // If something is selected, go into placing mode
-            HandlePlacing();
-        }
+        if (selectedPrefabId == -1) return;
 
-    }
-
-    private void HandleEditing()
-    {
-        Vector2 worldMousePos = GetMouseWorldPos();
-        RaycastHit2D r = Physics2D.Raycast(worldMousePos, Vector2.zero);
-        if (r.transform != null)
-        {
-            hoveredObject = r.transform.gameObject;
-            CreatorModeUtils.ColorGameObject(hoveredObject, hoveredColor);
-        }
-        else if (hoveredObject != null)
-        {
-            // Restore original color to objects no longer
-            // being hovered over
-            CreatorModeUtils.ColorGameObject(hoveredObject, Color.white);
-            hoveredObject = null;
-        }
-
-        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
-        {
-            if (hoveredObject == null)
-            {
-                // TODO: Drag
-                // TODO: Multiple selected objects
-                // TODO: Copy Paste
-                return;
-            }
-
-            if (selectedObject == null)
-            {
-                selectedObject = hoveredObject;
-                mouseOffset = selectedObject.transform.position - new Vector3(worldMousePos.x, worldMousePos.y, 0);
-            }
-            else
-            {
-                selectedObject = null;
-            }
-        }
-
-        if (Input.GetMouseButtonDown(1) && !EventSystem.current.IsPointerOverGameObject())
-        {
-            if (hoveredObject != null)
-            {
-                Destroy(hoveredObject);
-                hoveredObject = null;
-            }
-        }
-
-        if (selectedObject != null)
-        {
-            selectedObject.transform.position = worldMousePos + mouseOffset;
-        }
-
-
-    }
-
-    private void HandlePlacing()
-    {
-        Vector2 worldMousePos = GetMouseWorldPos();
+        Vector2 worldMousePos = CreatorModeUtils.GetMouseWorldPos();
 
         // Make ghost object follow the mouse
         if (ghostObject != null) ghostObject.transform.position = worldMousePos;
@@ -105,7 +34,7 @@ public class PrefabEditor : MonoBehaviour
         {
             InstantiateSelectedPrefabToSaveSpaceWithId(worldMousePos);
             // Select new prefab from Prefab Button Mapper
-            SelectPrefab(getNextPrefabId());
+            Select(getNextPrefabId());
         }
 
     }
@@ -117,16 +46,16 @@ public class PrefabEditor : MonoBehaviour
     public void SetSelector(GetPrefabId getPrefabId)
     {
         this.getNextPrefabId = getPrefabId;
-        SelectPrefab(getNextPrefabId());
+        Select(getNextPrefabId());
     }
 
     /// <summary>
     /// Selects a prefab by prefabId
     /// </summary>
-    private void SelectPrefab(int prefabId)
+    private void Select(int prefabId)
     {
         // Cleanup current selection
-        DeSelectPrefab();
+        DeSelect();
 
         selectedPrefabId = prefabId;
 
@@ -139,7 +68,7 @@ public class PrefabEditor : MonoBehaviour
     /// </summary>
     private void InstantiateGhostObject(GameObject prefab)
     {
-        Vector3 worldMouseLoc = GetMouseWorldPos();
+        Vector3 worldMouseLoc = CreatorModeUtils.GetMouseWorldPos();
         ghostObject = Instantiate(prefab, worldMouseLoc, Quaternion.identity);
 
         // Color ghostObject its respective color
@@ -159,7 +88,7 @@ public class PrefabEditor : MonoBehaviour
     /// Deselects the selected prefab.
     /// Sets selectedPrefabId to -1 and Destroys the ghostObject
     /// </summary>
-    public void DeSelectPrefab()
+    public void DeSelect()
     {
         selectedPrefabId = -1;
         if (ghostObject != null)
@@ -169,19 +98,9 @@ public class PrefabEditor : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Returns the game world coordinates that corresponds to the 
-    /// current mouse location
-    /// </summary>
-    Vector3 GetMouseWorldPos()
-    {
-        Vector3 worldMousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
-        return worldMousePos;
-    }
-
     private GameObject InstantiateSelectedPrefabToSaveSpaceWithId(Vector2 position)
     {
-        return CreatorModeUtils.InstantiateToSaveSpaceWithExtras(GetSelectedPrefab(), position, saveSpace, selectedPrefabId);
+        return CreatorModeUtils.InstantiateWithExtras(GetSelectedPrefab(), position, saveSpace, selectedPrefabId);
     }
 
     /// <summary>
