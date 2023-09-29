@@ -1,4 +1,4 @@
-# obsidian unity
+# Obsidian Tears Game
 
 Responsibility: to hold and deploy Unity code. It exposes a Unity WebGL build (see folder WebServer) that is used by the "game" frontend repo.
 
