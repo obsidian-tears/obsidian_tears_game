@@ -60,7 +60,7 @@ public class MonsterArea : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(player != null)
+        if (player != null)
         {
             if (active && player.change != Vector3.zero)
             {
@@ -74,7 +74,7 @@ public class MonsterArea : MonoBehaviour
                 }
             }
         }
-        
+
     }
 
     public void OnBattleSignal()
@@ -109,8 +109,8 @@ public class MonsterArea : MonoBehaviour
         probability = 0f;
         onBattleStart.Invoke();
         FlashImage flashImage = (FlashImage)FindObjectOfType(typeof(FlashImage));
-        if(flashImage != null)
-        {   
+        if (flashImage != null)
+        {
             flashImage.StartFlash(2f, 0.99f, Color.white);
         }
 
@@ -131,7 +131,7 @@ public class MonsterArea : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        
+
 
         scenePortal.UsePortal();
     }
@@ -142,7 +142,7 @@ public class MonsterArea : MonoBehaviour
         probability = 0;
         currentBattle = GameObject.Find("SceneManager").GetComponent<ObjectHolder>().currentBattle;
 
-        if(currentBattle.monsterAreaObject == monsterAreaUniqueID && currentBattle.wonBattle)
+        if (currentBattle.monsterAreaObject == monsterAreaUniqueID && currentBattle.wonBattle)
         {
             ReactController.Instance.SignalDefeatMonster(currentBattle.enemy.enemyServerId.ToString());
             onBattleWin.Invoke();
@@ -157,7 +157,7 @@ public class MonsterArea : MonoBehaviour
             onBattleRan.Invoke();
         }
 
-        
+
 
         scenePortal = gameObject.AddComponent<ScenePortal>();
         scenePortal.requiredTag = "Player";
@@ -168,7 +168,7 @@ public class MonsterArea : MonoBehaviour
         currentBattle.monsterAreaObject = null;
     }
 
-    
+
 
 
     void BattleStarted()
@@ -182,8 +182,13 @@ public class MonsterArea : MonoBehaviour
 [System.Serializable]
 public struct EnemiesList
 {
+    public EnemiesList(Enemy enemy, float enemyProbability)
+    {
+        this.enemy = enemy;
+        this.enemyProbability = enemyProbability;
+    }
     public Enemy enemy;
-    [Range(0f,1.0f)]
+    [Range(0f, 1.0f)]
     public float enemyProbability;
 }
 

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class SongArea : MonoBehaviour
 {
-    [SerializeField] MySignal enterSignal;
-    [SerializeField] MySignal exitSignal;
+    [SerializeField] public MySignal enterSignal;
+    [SerializeField] public MySignal exitSignal;
 
-    [SerializeField] Song song;
-    [SerializeField] AudioClip areaSong;
+    [SerializeField] public Song song;
+    [SerializeField] public AudioClip areaSong;
     public void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.CompareTag("Player"))
@@ -22,7 +22,7 @@ public class SongArea : MonoBehaviour
     {
         if (collider.CompareTag("Player"))
         {
-            song.value = null; 
+            song.value = null;
             exitSignal.Raise();
         }
     }
