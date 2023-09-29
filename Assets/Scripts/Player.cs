@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
 {
 
     [HideInInspector] [SerializeField] public float speed = 3f;
+    private float speedMultiplier = 1.0f;
     Rigidbody2D myRigidbody;
     public Vector3 change;
     public Animator animator;
@@ -76,7 +77,10 @@ public class Player : MonoBehaviour
         change = Vector3.zero;
         change.x = Input.GetAxisRaw("Horizontal");
         change.y = Input.GetAxisRaw("Vertical");
-        change = change.normalized;
+
+        speedMultiplier = Input.GetKey(KeyCode.LeftShift) ? 1.5f : 1.0f;
+
+        change = change.normalized * speedMultiplier;
         //playerPosition.initialValue.x = transform.position.x;
         //playerPosition.initialValue.y = transform.position.y;
 

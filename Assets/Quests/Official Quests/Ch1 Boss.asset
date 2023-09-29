@@ -68,6 +68,42 @@ MonoBehaviour:
   m_contentList:
   - {fileID: 1789866734500583449}
   m_contentListSerializationProxy: []
+--- !u!114 &-4484003170376304664
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ed0c4e68ee98946bb5016adda42373, type: 3}
+  m_Name: BodyTextQuestContent
+  m_EditorClassIdentifier: 
+  m_contentID: -1
+  m_bodyText:
+    m_text: 'Chapter 1 Main Quest: Obelisks?'
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+--- !u!114 &-4400837222048572530
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ed0c4e68ee98946bb5016adda42373, type: 3}
+  m_Name: BodyTextQuestContent
+  m_EditorClassIdentifier: 
+  m_contentID: -1
+  m_bodyText:
+    m_text: Main gray is the answer
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
 --- !u!114 &-4267666775784496490
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -101,6 +137,21 @@ MonoBehaviour:
   m_Name: AlertQuestAction
   m_EditorClassIdentifier: 
   m_contentList: []
+  m_contentListSerializationProxy: []
+--- !u!114 &-1433891321971963140
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b99cc2a156c22e46b4fb74b06a4d1e8, type: 3}
+  m_Name: AlertQuestAction
+  m_EditorClassIdentifier: 
+  m_contentList:
+  - {fileID: -4484003170376304664}
   m_contentListSerializationProxy: []
 --- !u!114 &11400000
 MonoBehaviour:
@@ -176,7 +227,8 @@ MonoBehaviour:
       - {fileID: 6649621032384340593}
       - {fileID: 3538694533734761847}
     - m_contentList: []
-  - m_actionList: []
+  - m_actionList:
+    - {fileID: 8879914616517359889}
     m_categorizedContentList:
     - m_contentList: []
     - m_contentList: []
@@ -240,8 +292,8 @@ MonoBehaviour:
     m_childIndexList: 01000000
     m_canvasRect:
       serializedVersion: 2
-      x: 199.08255
-      y: 19.082565
+      x: 207.32999
+      y: 41.762978
       width: 120
       height: 48
   - m_id:
@@ -270,11 +322,14 @@ MonoBehaviour:
       - m_contentList: []
     - m_actionList:
       - {fileID: 2188061897883298607}
+      - {fileID: -1433891321971963140}
       m_categorizedContentList:
       - m_contentList: []
       - m_contentList: []
       - m_contentList: []
-    - m_actionList: []
+    - m_actionList:
+      - {fileID: 4158434240207981844}
+      - {fileID: 4317710235878305861}
       m_categorizedContentList:
       - m_contentList: []
       - m_contentList: []
@@ -288,8 +343,8 @@ MonoBehaviour:
     m_childIndexList: 02000000
     m_canvasRect:
       serializedVersion: 2
-      x: 198.9011
-      y: 114.37364
+      x: 220.29578
+      y: 135.08667
       width: 120
       height: 48
   - m_id:
@@ -318,6 +373,7 @@ MonoBehaviour:
       - m_contentList: []
     - m_actionList:
       - {fileID: -2755972735098941744}
+      - {fileID: 3363705919652723217}
       m_categorizedContentList:
       - m_contentList: []
       - m_contentList: []
@@ -336,8 +392,8 @@ MonoBehaviour:
     m_childIndexList: 
     m_canvasRect:
       serializedVersion: 2
-      x: 198.9011
-      y: 210.74725
+      x: 211.27423
+      y: 219.73148
       width: 120
       height: 35
   m_goalEntityTypeName: 
@@ -374,6 +430,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_contentList: []
   m_contentListSerializationProxy: []
+--- !u!114 &3363705919652723217
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b99cc2a156c22e46b4fb74b06a4d1e8, type: 3}
+  m_Name: AlertQuestAction
+  m_EditorClassIdentifier: 
+  m_contentList:
+  - {fileID: 5052309995927286180}
+  m_contentListSerializationProxy: []
 --- !u!114 &3538694533734761847
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -388,10 +459,61 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_contentID: -1
   m_bodyText:
-    m_text: There are many obelisks, but only one complete one still remains in the
-      north on a plateau. A ferocious monster took up residence there 100 years ago
-      and nobody had ventured near it since! It must have the answers I am looking
-      for!
+    m_text: 'Gran Gran doesn''t know who you are... in fact, know one does it sounds
+      like. She says they found you unconscious outside the village, and they think
+      your appearance might have something to do with an "Obelisk at the Place of
+      Prophecy". Whatever that means. '
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+--- !u!114 &4158434240207981844
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91aeb75c4f737444f8340d52e5717cc5, type: 3}
+  m_Name: SetCounterValueQuestAction
+  m_EditorClassIdentifier: 
+  m_counterIndex: 0
+  m_operation: 0
+  m_operationValue: 0
+  m_maxValue: 0
+--- !u!114 &4317710235878305861
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b99cc2a156c22e46b4fb74b06a4d1e8, type: 3}
+  m_Name: AlertQuestAction
+  m_EditorClassIdentifier: 
+  m_contentList:
+  - {fileID: 8581515642385015565}
+  m_contentListSerializationProxy: []
+--- !u!114 &5052309995927286180
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ed0c4e68ee98946bb5016adda42373, type: 3}
+  m_Name: BodyTextQuestContent
+  m_EditorClassIdentifier: 
+  m_contentID: -1
+  m_bodyText:
+    m_text: 'am I the problem
+
+'
     m_stringAsset: {fileID: 0}
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
@@ -415,3 +537,36 @@ MonoBehaviour:
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
   m_headingLevel: 1
+--- !u!114 &8581515642385015565
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ed0c4e68ee98946bb5016adda42373, type: 3}
+  m_Name: BodyTextQuestContent
+  m_EditorClassIdentifier: 
+  m_contentID: -1
+  m_bodyText:
+    m_text: node ch 1 became true!
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+--- !u!114 &8879914616517359889
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b99cc2a156c22e46b4fb74b06a4d1e8, type: 3}
+  m_Name: AlertQuestAction
+  m_EditorClassIdentifier: 
+  m_contentList:
+  - {fileID: -4400837222048572530}
+  m_contentListSerializationProxy: []

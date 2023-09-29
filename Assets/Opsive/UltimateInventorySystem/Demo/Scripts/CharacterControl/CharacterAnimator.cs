@@ -31,7 +31,7 @@ namespace Opsive.UltimateInventorySystem.Demo.CharacterControl
         public CharacterAnimator(Animator anim)
         {
             m_Anim = anim;
-            m_Anim.keepAnimatorControllerStateOnDisable = true;
+            m_Anim.keepAnimatorStateOnDisable = true;
         }
 
         /// <summary>
