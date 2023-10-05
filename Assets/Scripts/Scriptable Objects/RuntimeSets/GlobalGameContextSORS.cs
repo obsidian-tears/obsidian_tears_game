@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using GameManagers;
 using PixelCrushers.QuestMachine;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(menuName = "Scriptables/Global Game Context Accessor")]
 public class GlobalGameContextSORS : ScriptableObject
@@ -32,6 +33,7 @@ public class GlobalGameContextSORS : ScriptableObject
 
     public void LoadGameReact()
     {
+        if (SceneManager.GetActiveScene().name == "GranGranFirst") return;
         ReactController.Instance.SignalLoadGame();
     }
 
