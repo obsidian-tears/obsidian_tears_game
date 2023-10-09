@@ -148,15 +148,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_contentID: -1
   m_bodyText:
-    m_text: The Lore Master knows of a powerful artifact that will help you on your
-      journey. However, she needs 3 seperate artifacts returned to her in order to
-      make it. She knows of 1 that is somewhere inside the village. The other 2 she
-      isn't quite sure. She does however, know of a large forgotten Elf Ruins temple
-      in the middle of the forest outside the village walls. Maybe we can find more
-      information there!
+    m_text: The Lore Master knows of a powerful artifact that can help you on your
+      journey. However, tomake it, she needs 3 seperate artifacts. You have already
+      found one, and she needs 2 more. Unfortunately, she doesn't know where they
+      are exactly- only that they lie somewhere outside the safety of the village
+      walls. If you find and bring both back, she will use them to make a legendary
+      artifact.
     m_stringAsset: {fileID: 0}
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
+--- !u!114 &-7195360212104222295
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b99cc2a156c22e46b4fb74b06a4d1e8, type: 3}
+  m_Name: AlertQuestAction
+  m_EditorClassIdentifier: 
+  m_contentList:
+  - {fileID: 5501587080213047138}
+  m_contentListSerializationProxy: []
 --- !u!114 &-5886573195150127939
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -171,10 +186,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_contentID: -1
   m_bodyText:
-    m_text: 'Quest Added: The Lore Master''s Artifacts'
+    m_text: 'Quest Added: The Lore Masters Artifacts'
     m_stringAsset: {fileID: 0}
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
+--- !u!114 &-5214899394540384311
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9840a28297a53d449903f34dc60157bb, type: 3}
+  m_Name: UnityEventQuestAction
+  m_EditorClassIdentifier: 
+  m_onExecute:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &-5097532932468999402
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -213,6 +243,39 @@ MonoBehaviour:
     m_valueType: 0
     m_intValue: 0
     m_stringValue: 
+--- !u!114 &-4384945755753836085
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ed0c4e68ee98946bb5016adda42373, type: 3}
+  m_Name: BodyTextQuestContent
+  m_EditorClassIdentifier: 
+  m_contentID: -1
+  m_bodyText:
+    m_text: 'Quest Complete: Find the Rune of Doom'
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+--- !u!114 &-4017712861469008537
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b99cc2a156c22e46b4fb74b06a4d1e8, type: 3}
+  m_Name: AlertQuestAction
+  m_EditorClassIdentifier: 
+  m_contentList:
+  - {fileID: -4384945755753836085}
+  m_contentListSerializationProxy: []
 --- !u!114 &-3986562284032022361
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -227,6 +290,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_contentList:
   - {fileID: -2840325741911424306}
+  m_contentListSerializationProxy: []
+--- !u!114 &-3736926824765921675
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b99cc2a156c22e46b4fb74b06a4d1e8, type: 3}
+  m_Name: AlertQuestAction
+  m_EditorClassIdentifier: 
+  m_contentList: []
   m_contentListSerializationProxy: []
 --- !u!114 &-3495387641918435582
 MonoBehaviour:
@@ -257,7 +334,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_contentID: -1
   m_bodyText:
-    m_text: Find the Next Artifact
+    m_text: 'Quest Updated: Find the other Artifacts'
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+--- !u!114 &-2835277859150164568
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ed0c4e68ee98946bb5016adda42373, type: 3}
+  m_Name: BodyTextQuestContent
+  m_EditorClassIdentifier: 
+  m_contentID: -1
+  m_bodyText:
+    m_text: 
     m_stringAsset: {fileID: 0}
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
@@ -275,6 +370,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_contentList:
   - {fileID: -301697830435260143}
+  m_contentListSerializationProxy: []
+--- !u!114 &-2098354222996618945
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9840a28297a53d449903f34dc60157bb, type: 3}
+  m_Name: UnityEventQuestAction
+  m_EditorClassIdentifier: 
+  m_onExecute:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &-1417197781476133602
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ed0c4e68ee98946bb5016adda42373, type: 3}
+  m_Name: BodyTextQuestContent
+  m_EditorClassIdentifier: 
+  m_contentID: -1
+  m_bodyText:
+    m_text: I've found the Rune of Doom. Now I need to return to Tana at the Lore
+      Masters Sanctonium.
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+--- !u!114 &-693738782505721172
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b99cc2a156c22e46b4fb74b06a4d1e8, type: 3}
+  m_Name: AlertQuestAction
+  m_EditorClassIdentifier: 
+  m_contentList:
+  - {fileID: -2835277859150164568}
   m_contentListSerializationProxy: []
 --- !u!114 &-615806889167188353
 MonoBehaviour:
@@ -328,7 +472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_contentID: -1
   m_bodyText:
-    m_text: 'The Lore Master''s Artifacts: First Artifact Found!'
+    m_text: 'The Lore Masters Artifacts: Rune of Doom Found!'
     m_stringAsset: {fileID: 0}
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
@@ -342,7 +486,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 641a501636ec3644993211c008d9a8a4, type: 3}
-  m_Name: Main Quest 2
+  m_Name: Tanas Artifacts
   m_EditorClassIdentifier: 
   m_isInstance: 0
   m_originalAsset: {fileID: 0}
@@ -401,7 +545,8 @@ MonoBehaviour:
   - m_actionList: []
     m_categorizedContentList:
     - m_contentList: []
-    - m_contentList: []
+    - m_contentList:
+      - {fileID: 6611441632321869095}
     - m_contentList: []
   - m_actionList: []
     m_categorizedContentList:
@@ -467,8 +612,8 @@ MonoBehaviour:
     m_childIndexList: 01000000
     m_canvasRect:
       serializedVersion: 2
-      x: 203
-      y: 16
+      x: 447.44437
+      y: 51.215973
       width: 120
       height: 48
   - m_id:
@@ -517,11 +662,11 @@ MonoBehaviour:
       m_conditionCountMode: 0
       m_minConditionCount: 0
       m_numTrueConditions: 0
-    m_childIndexList: 02000000
+    m_childIndexList: 05000000
     m_canvasRect:
       serializedVersion: 2
-      x: 202.3132
-      y: 108
+      x: 447.4443
+      y: 119.29828
       width: 120
       height: 48
   - m_id:
@@ -573,8 +718,8 @@ MonoBehaviour:
     m_childIndexList: 03000000
     m_canvasRect:
       serializedVersion: 2
-      x: 200.84749
-      y: 172.03392
+      x: 447.6139
+      y: 255.13416
       width: 120
       height: 48
   - m_id:
@@ -625,8 +770,8 @@ MonoBehaviour:
     m_childIndexList: 04000000
     m_canvasRect:
       serializedVersion: 2
-      x: 202
-      y: 241.93616
+      x: 447.09113
+      y: 323.3585
       width: 120
       height: 48
   - m_id:
@@ -671,12 +816,82 @@ MonoBehaviour:
     m_childIndexList: 
     m_canvasRect:
       serializedVersion: 2
-      x: 203.08258
-      y: 379
+      x: 447.30322
+      y: 396.1922
       width: 120
       height: 35
+  - m_id:
+      m_text: Return to Tana
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_internalName:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_nodeType: 4
+    m_isOptional: 0
+    m_state: 0
+    m_speaker:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_stateInfoList:
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    - m_actionList:
+      - {fileID: -3736926824765921675}
+      - {fileID: 4318600788650143415}
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList:
+        - {fileID: -1417197781476133602}
+        - {fileID: 8398789583370159485}
+      - m_contentList: []
+    - m_actionList:
+      - {fileID: -693738782505721172}
+      - {fileID: -4017712861469008537}
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    m_conditionSet:
+      m_conditionList: []
+      m_conditionCountMode: 1
+      m_minConditionCount: 0
+      m_numTrueConditions: 0
+    m_childIndexList: 02000000
+    m_canvasRect:
+      serializedVersion: 2
+      x: 446.23944
+      y: 188.90681
+      width: 120
+      height: 48
   m_goalEntityTypeName: 
   m_nextContentID: 0
+--- !u!114 &558411912705418728
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b277464c5022454f9aed82391b4c1bd, type: 3}
+  m_Name: AudioClipQuestContent
+  m_EditorClassIdentifier: 
+  m_contentID: -1
+  m_audioClip: {fileID: 0}
+  m_useAudioSourceOn:
+    m_type: 0
+    m_id: 
+  m_audioNameProxy: 
 --- !u!114 &745243390152234771
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -805,15 +1020,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_contentID: -1
   m_bodyText:
-    m_text: The Lore Master knows of a powerful artifact that will help you on your
-      journey. However, she needs 3 seperate artifacts returned to her in order to
-      make it. She knows of 1 that is somewhere inside the village. The other 2 she
-      isn't quite sure. She does however, know of a large forgotten Elf Ruins temple
-      in the middle of the forest outside the village walls. Maybe we can find more
-      information there!
+    m_text: The Lore Master knows of a powerful artifact that can help you on your
+      journey. However, tomake it, she needs 3 seperate artifacts. You have already
+      found one, and she needs 2 more. Unfortunately, she doesn't know where they
+      are exactly- only that they lie somewhere outside the safety of the village
+      walls. If you find and bring both back, she will use them to make a legendary
+      artifact.
     m_stringAsset: {fileID: 0}
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
+--- !u!114 &3806404720085127623
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b99cc2a156c22e46b4fb74b06a4d1e8, type: 3}
+  m_Name: AlertQuestAction
+  m_EditorClassIdentifier: 
+  m_contentList: []
+  m_contentListSerializationProxy: []
 --- !u!114 &4058891963345537781
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -829,6 +1058,39 @@ MonoBehaviour:
   m_contentList:
   - {fileID: 1067281026139518134}
   m_contentListSerializationProxy: []
+--- !u!114 &4318600788650143415
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b99cc2a156c22e46b4fb74b06a4d1e8, type: 3}
+  m_Name: AlertQuestAction
+  m_EditorClassIdentifier: 
+  m_contentList:
+  - {fileID: 8221099199012735900}
+  m_contentListSerializationProxy: []
+--- !u!114 &4719684774543925929
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ed0c4e68ee98946bb5016adda42373, type: 3}
+  m_Name: BodyTextQuestContent
+  m_EditorClassIdentifier: 
+  m_contentID: -1
+  m_bodyText:
+    m_text: 
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
 --- !u!114 &4729140744397289028
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -844,6 +1106,24 @@ MonoBehaviour:
   m_contentList:
   - {fileID: 7551616206813360845}
   m_contentListSerializationProxy: []
+--- !u!114 &5501587080213047138
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ed0c4e68ee98946bb5016adda42373, type: 3}
+  m_Name: BodyTextQuestContent
+  m_EditorClassIdentifier: 
+  m_contentID: -1
+  m_bodyText:
+    m_text: Hi
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
 --- !u!114 &5879777751932446190
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -858,12 +1138,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_contentID: -1
   m_bodyText:
-    m_text: The Lore Master knows of a powerful artifact that will help you on your
-      journey. However, she needs 3 seperate artifacts returned to her in order to
-      make it. She knows of 1 that is somewhere inside the village. The other 2 she
-      isn't quite sure. She does however, know of a large forgotten Elf Ruins temple
-      in the middle of the forest outside the village walls. Maybe we can find more
-      information there!
+    m_text: 'The Lore Master knows of a powerful artifact that will help you on your
+      quest. In order to fabricate it however, she first needs the RUNE OF DOOM to
+      know for certain whether it''s even possible in the first place.
+
+      The
+      Rune of Doom is somewhere underground in the caves, and Tana said the entrance
+      was in the village graveyard, in the Southwest Corner.'
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+--- !u!114 &6611441632321869095
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ed0c4e68ee98946bb5016adda42373, type: 3}
+  m_Name: BodyTextQuestContent
+  m_EditorClassIdentifier: 
+  m_contentID: -1
+  m_bodyText:
+    m_text: 
     m_stringAsset: {fileID: 0}
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
@@ -900,7 +1199,45 @@ MonoBehaviour:
   m_contentID: -1
   m_useQuestTitle: 0
   m_headingText:
-    m_text: Lore Master's Artifacts
+    m_text: Dukor's Blade
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_headingLevel: 1
+--- !u!114 &8221099199012735900
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ed0c4e68ee98946bb5016adda42373, type: 3}
+  m_Name: BodyTextQuestContent
+  m_EditorClassIdentifier: 
+  m_contentID: -1
+  m_bodyText:
+    m_text: 'Quest Updated: Return to Tana'
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+--- !u!114 &8398789583370159485
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c47e1bb9cdd9a474c8d3f5d555d7533a, type: 3}
+  m_Name: HeadingTextQuestContent
+  m_EditorClassIdentifier: 
+  m_contentID: -1
+  m_useQuestTitle: 0
+  m_headingText:
+    m_text: Return to Tana
     m_stringAsset: {fileID: 0}
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
