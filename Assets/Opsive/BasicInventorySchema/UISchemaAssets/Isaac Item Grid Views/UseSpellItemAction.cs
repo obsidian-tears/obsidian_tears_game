@@ -66,7 +66,7 @@ namespace Opsive.UltimateInventorySystem.Demo.ItemActions
                 {
                     if (item.HasAttribute("Mana Needed"))
                     {
-                        if (item.GetAttribute<Attribute<int>>("Mana Needed").GetValue() < character.magicTotal)
+                        if (item.GetAttribute<Attribute<int>>("Mana Needed").GetValue() <= character.magicTotal)
                         {
                             return true;
                         }
