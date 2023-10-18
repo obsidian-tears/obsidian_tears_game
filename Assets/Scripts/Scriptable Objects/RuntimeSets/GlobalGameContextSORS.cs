@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using GameManagers;
+using PixelCrushers;
 using PixelCrushers.QuestMachine;
 using UnityEngine;
 
@@ -32,7 +33,8 @@ public class GlobalGameContextSORS : ScriptableObject
 
     public void LoadGameReact()
     {
-        ReactController.Instance.SignalLoadGame();
+
+        ReactController.Instance.SignalCheckForLoadedGame();
     }
 
     /// <summary>

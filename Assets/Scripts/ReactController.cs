@@ -94,6 +94,10 @@ public class ReactController : MonoSingleton<ReactController>
     {
         yield return new WaitForSecondsRealtime(m_saveLoadScreenShowTime);
         OnLoadGameCheckDone?.Invoke(SaveSystem.HasSavedGameInSlot(m_localSaveSlotNumber));
+        if (SaveSystem.HasSavedGameInSlot(m_localSaveSlotNumber))
+        {
+            SignalLoadGame();
+        }
     }
 
     private IEnumerator ServerCheckLoadGameSimulation()
@@ -107,6 +111,11 @@ public class ReactController : MonoSingleton<ReactController>
     {
         Debug.Log("REACT LOAD GAME CHECKED, HAS BEEN FOUND? " + fromReact);
         OnLoadGameCheckDone(fromReact);
+        if (fromReact)
+        {
+            SignalLoadGame();
+        }       
+        
     }
 
     /// <summary>
@@ -152,6 +161,7 @@ public class ReactController : MonoSingleton<ReactController>
         Debug.Log("LOADING, DATA TO LOAD: " + fromReact);
         SavedGameData gameData = SaveSystem.Deserialize<PixelCrushers.SavedGameData>(fromReact);
         SaveSystem.LoadGame(gameData);
+
     }
 
     /// <summary>

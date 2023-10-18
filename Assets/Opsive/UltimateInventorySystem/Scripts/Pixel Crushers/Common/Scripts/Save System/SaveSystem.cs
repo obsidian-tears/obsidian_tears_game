@@ -391,7 +391,19 @@ namespace PixelCrushers
             }
             else
             {
-                m_currentAsyncOperation = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneName);
+                if (!string.IsNullOrEmpty(sceneName))
+                {
+                    m_currentAsyncOperation = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneName);
+                    Debug.Log("entro al if ++ !string.IsNullOrEmpty(sceneName) ");
+                }
+                else
+                {
+                    m_currentAsyncOperation = null;
+                    sceneTransitionManager.OnLoading(0);
+
+                    Debug.Log("entro al else, yield return ");
+                    yield break;
+                }
             }
             while (m_currentAsyncOperation != null && !m_currentAsyncOperation.isDone)
             {
