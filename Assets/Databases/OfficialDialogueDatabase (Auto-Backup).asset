@@ -10207,8 +10207,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 635.60956
-        y: 527.88385
+        x: 642.26294
+        y: 526.55316
         width: 160
         height: 30
     - id: 12
@@ -10317,8 +10317,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 640.2825
-        y: 642.636
+        x: 674.8801
+        y: 617.3531
         width: 160
         height: 30
     - id: 14
@@ -10344,8 +10344,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Hmmmm... ok then. If you want another one let me know and we might
-          be able to come up with some sort of... arrangement!
+        value: Hmmmm... ok then. I think you're squared away just fine! Have a nice
+          day!
         type: 0
         typeString: 
       - title: Sequence
@@ -10359,19 +10359,7 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 8
-        originDialogueID: 14
-        destinationConversationID: 8
-        destinationDialogueID: 25
-        isConnector: 0
-        priority: 2
-      - originConversationID: 8
-        originDialogueID: 14
-        destinationConversationID: 8
-        destinationDialogueID: 26
-        isConnector: 0
-        priority: 2
+      outgoingLinks: []
       conditionsString: 
       userScript: 
       onExecute:
@@ -10379,8 +10367,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 776.02295
-        y: 726.2039
+        x: 730.77997
+        y: 711.56647
         width: 160
         height: 30
     - id: 15
@@ -10406,8 +10394,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: You don't have a bow??? Your heart must weep for the lack of one.
-          You poor poor poor thing. You help me out and I'll help you out. Deal?
+        value: 'You don''t have a bow??? Your sorrowful heart must weep for the lack
+          of one. What is even the purpose of existence without one? You poor poor
+          poor thing. '
         type: 0
         typeString: 
       - title: Sequence
@@ -10425,7 +10414,7 @@ MonoBehaviour:
       - originConversationID: 8
         originDialogueID: 15
         destinationConversationID: 8
-        destinationDialogueID: 16
+        destinationDialogueID: 27
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -10435,8 +10424,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 324.529
-        y: 644.5039
+        x: 325.85968
+        y: 645.83453
         width: 160
         height: 30
     - id: 16
@@ -10462,8 +10451,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 'I lost my Monster Jaw near the Potions House. Yeah that weird one
-          with the purple roof. *Man the lady creeps me out*. '
+        value: 'I have lost my prized possession, a monster jaw!  It''s a souvenir
+          I won after an EPIC DUEL! '
         type: 0
         typeString: 
       - title: Sequence
@@ -10491,8 +10480,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 324.529
-        y: 703.3647
+        x: 319.20627
+        y: 797.8427
         width: 160
         height: 30
     - id: 17
@@ -10518,8 +10507,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: She lives surrounded by trees... If you happen to find my Monster
-          Jaw, I'll give you a bow to help you SLAY MONSTERS. YAH!
+        value: If you happen to find my Monster Jaw and return it to me, I'll give
+          you a bow to help you SLAY MONSTERS and revive the sorrowful state of your
+          bowless existence! YAH!
         type: 0
         typeString: 
       - title: Sequence
@@ -10541,8 +10531,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 321.08997
-        y: 803.3014
+        x: 325.08194
+        y: 952.3371
         width: 160
         height: 30
     - id: 19
@@ -10602,8 +10592,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 864.0551
-        y: 145.5417
+        x: 837.721
+        y: 144.1557
         width: 160
         height: 30
     - id: 21
@@ -10786,9 +10776,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Don't worry, its not a magic Monster Jaw. It's just a souvenir I kept
-          after an EPIC DUEL. You can find the Potion house in the center of town
-          by the river.
+        value: Unfortunately, I think I lost it somewhere near the Potion Shop. You
+          can find the Potion Shop in the center of town inside of a small forest
+          clearing. It has a bright purple roof. Hard to miss.
         type: 0
         typeString: 
       - title: Sequence
@@ -10809,6 +10799,12 @@ MonoBehaviour:
         destinationDialogueID: 17
         isConnector: 0
         priority: 2
+      - originConversationID: 8
+        originDialogueID: 24
+        destinationConversationID: 8
+        destinationDialogueID: 30
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -10816,11 +10812,11 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 325.529
-        y: 754.3647
+        x: 318.87558
+        y: 850.1734
         width: 160
         height: 30
-    - id: 25
+    - id: 27
       fields:
       - title: Title
         value: 
@@ -10831,11 +10827,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: 1
+        value: 9
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 9
+        value: 1
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -10843,7 +10839,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: I guess I could use another bow.
+        value: I'll tell you what.... you help me out, and I'll help you out with
+          a bow! Deal?
         type: 0
         typeString: 
       - title: Sequence
@@ -10859,9 +10856,15 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 8
-        originDialogueID: 25
+        originDialogueID: 27
         destinationConversationID: 8
-        destinationDialogueID: 15
+        destinationDialogueID: 28
+        isConnector: 0
+        priority: 2
+      - originConversationID: 8
+        originDialogueID: 27
+        destinationConversationID: 8
+        destinationDialogueID: 29
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -10871,11 +10874,11 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 557.0338
-        y: 756.7998
+        x: 327.28412
+        y: 693.0199
         width: 160
         height: 30
-    - id: 26
+    - id: 28
       fields:
       - title: Title
         value: 
@@ -10898,7 +10901,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: No thanks.
+        value: I'm not interested. Thanks though!
         type: 0
         typeString: 
       - title: Sequence
@@ -10920,13 +10923,122 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 954.818
-        y: 776.2039
+        x: 98.40756
+        y: 754.996
+        width: 160
+        height: 30
+    - id: 29
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 9
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Tell me more!
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 8
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 8
+        originDialogueID: 29
+        destinationConversationID: 8
+        destinationDialogueID: 16
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 467.0053
+        y: 752.33453
+        width: 160
+        height: 30
+    - id: 30
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 9
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 'I would go and look for it myself but...
+
+          that potion lady
+          creeps me out.
+
+          And that place smells weird.'
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 8
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 324.1983
+        y: 901.5041
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 75.22139, y: 283.47095}
-    canvasZoom: 0.8714967
+    canvasScrollPosition: {x: 0, y: 266.0346}
+    canvasZoom: 0.63149685
   - id: 9
     fields:
     - title: Title
@@ -18723,8 +18835,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.31
+    canvasScrollPosition: {x: 352.59222, y: 290.41388}
+    canvasZoom: 0.75999975
   - id: 10
     fields:
     - title: Title
@@ -21363,13 +21475,13 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 'Hello there young mysterious vistior-
+        value: 'Hello there young mysterious vistior.
 
-          Welcome to my magical
-          magic shop
+          Welcome to my Potion
+          Shop!
 
-          I sell all sorts of magical items here, from magic
-          spells to potions! Hehe'
+          I sell all sorts of magical items here, from magic spells
+          to potions! Hehe'
         type: 0
         typeString: 
       - title: Sequence
@@ -21512,8 +21624,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.7900003
+    canvasScrollPosition: {x: 0, y: 5.26468}
+    canvasZoom: 0.76000035
   - id: 14
     fields:
     - title: Title
@@ -24088,7 +24200,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: mmmm. Good eatin here! Sorry I just had the last muffin.
+        value: mmmm. Good eatin here! Sorry I just had the last yam if that's what
+          you came in here for.
         type: 0
         typeString: 
       - title: Sequence
@@ -24267,8 +24380,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 214
-        y: 120
+        x: 397.58203
+        y: 111.04477
         width: 160
         height: 30
     - id: 2
@@ -24325,8 +24438,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 325
-        y: 375
+        x: 414.55222
+        y: 349.627
         width: 160
         height: 30
     - id: 3
@@ -24380,8 +24493,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 269.86365
-        y: 235
+        x: 401.20688
+        y: 245.44781
         width: 160
         height: 30
     - id: 4
@@ -24407,8 +24520,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 'Oh sorry, I don''t have any for sale here, sold all of mine to Ardvan
-          the Shop Keeper! Good luck friend!
+        value: 'I wonder where he is now...
 
 '
         type: 0
@@ -24432,13 +24544,13 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 443.74994
-        y: 471.87497
+        x: 419.8694
+        y: 467.39737
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 36.38523, y: 0}
-    canvasZoom: 0.7900001
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.6700002
   - id: 20
     fields:
     - title: Title
@@ -24563,9 +24675,13 @@ MonoBehaviour:
       - title: Dialogue Text
         value: 'Here lies Orz
 
-          Perished 16-05-2021
+          Perished at the hands of a Twiggus after
+          mistaking it for a yam bush.
 
-          Sheesh'
+          May his honest misunderstanding
+          convey a heartfelt lesson for us all -
+
+          Yams don''t grow on bushes.'
         type: 0
         typeString: 
       - title: Sequence
@@ -24587,7 +24703,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 257
+        x: 256
         y: 117
         width: 160
         height: 30
@@ -24890,8 +25006,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 248.30511
-        y: 98.762726
+        x: 255.93222
+        y: 87.74577
         width: 160
         height: 30
     entryGroups: []
@@ -30189,8 +30305,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 110.780685
-        y: 466.7738
+        x: 108.34166
+        y: 470.4323
         width: 160
         height: 30
     - id: 8
@@ -30239,13 +30355,13 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 301.34863
-        y: 468.45538
+        x: 314.00687
+        y: 469.72125
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 57.446808, y: 17.021225}
-    canvasZoom: 0.94
+    canvasScrollPosition: {x: 124.55837, y: 121.693275}
+    canvasZoom: 0.79000014
   - id: 38
     fields:
     - title: Title
@@ -32307,8 +32423,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 543.0569}
-    canvasZoom: 0.8002506
+    canvasScrollPosition: {x: 0, y: 1014.9606}
+    canvasZoom: 0.6802507
   - id: 44
     fields:
     - title: Title
@@ -35340,8 +35456,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 946.81226, y: 0}
-    canvasZoom: 0.48999992
+    canvasScrollPosition: {x: 798.4959, y: 0}
+    canvasZoom: 0.39999992
   syncInfo:
     syncActors: 0
     syncItems: 0
