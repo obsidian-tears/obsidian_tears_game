@@ -205,44 +205,6 @@ MonoBehaviour:
   m_onExecute:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &-5097532932468999402
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5682394e55a192147a020b9edf624e51, type: 3}
-  m_Name: MessageQuestCondition
-  m_EditorClassIdentifier: 
-  m_senderSpecifier: 0
-  m_senderID:
-    m_text: 
-    m_stringAsset: {fileID: 0}
-    m_textTable: {fileID: 0}
-    m_textTableFieldID: 0
-  m_targetSpecifier: 0
-  m_targetID:
-    m_text: 
-    m_stringAsset: {fileID: 0}
-    m_textTable: {fileID: 0}
-    m_textTableFieldID: 0
-  m_message:
-    m_text: VillageKey2
-    m_stringAsset: {fileID: 0}
-    m_textTable: {fileID: 0}
-    m_textTableFieldID: 0
-  m_parameter:
-    m_text: Found
-    m_stringAsset: {fileID: 0}
-    m_textTable: {fileID: 0}
-    m_textTableFieldID: 0
-  m_value:
-    m_valueType: 0
-    m_intValue: 0
-    m_stringValue: 
 --- !u!114 &-4384945755753836085
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -486,13 +448,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 641a501636ec3644993211c008d9a8a4, type: 3}
-  m_Name: Tanas Artifacts
+  m_Name: TanasArtifacts
   m_EditorClassIdentifier: 
   m_isInstance: 0
   m_originalAsset: {fileID: 0}
   m_fileVersion: 1
   m_id:
-    m_text: Main Quest 2
+    m_text: TanasArtifacts
     m_stringAsset: {fileID: 0}
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
@@ -617,7 +579,7 @@ MonoBehaviour:
       width: 120
       height: 48
   - m_id:
-      m_text: Kill the Centipede
+      m_text: VillageKey1
       m_stringAsset: {fileID: 0}
       m_textTable: {fileID: 0}
       m_textTableFieldID: 0
@@ -657,16 +619,14 @@ MonoBehaviour:
     m_conditionSet:
       m_conditionList:
       - {fileID: -615806889167188353}
-      - {fileID: -5097532932468999402}
-      - {fileID: 8695838975487342196}
       m_conditionCountMode: 0
       m_minConditionCount: 0
       m_numTrueConditions: 0
     m_childIndexList: 05000000
     m_canvasRect:
       serializedVersion: 2
-      x: 447.4443
-      y: 119.29828
+      x: 446.4443
+      y: 116.29828
       width: 120
       height: 48
   - m_id:
@@ -719,7 +679,7 @@ MonoBehaviour:
     m_canvasRect:
       serializedVersion: 2
       x: 447.6139
-      y: 255.13416
+      y: 256.13416
       width: 120
       height: 48
   - m_id:
@@ -821,7 +781,7 @@ MonoBehaviour:
       width: 120
       height: 35
   - m_id:
-      m_text: Return to Tana
+      m_text: ReturntoTana
       m_stringAsset: {fileID: 0}
       m_textTable: {fileID: 0}
       m_textTableFieldID: 0
@@ -868,8 +828,8 @@ MonoBehaviour:
     m_childIndexList: 02000000
     m_canvasRect:
       serializedVersion: 2
-      x: 446.23944
-      y: 188.90681
+      x: 447.15686
+      y: 188.12514
       width: 120
       height: 48
   m_goalEntityTypeName: 
@@ -1242,44 +1202,6 @@ MonoBehaviour:
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
   m_headingLevel: 1
---- !u!114 &8695838975487342196
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5682394e55a192147a020b9edf624e51, type: 3}
-  m_Name: MessageQuestCondition
-  m_EditorClassIdentifier: 
-  m_senderSpecifier: 0
-  m_senderID:
-    m_text: 
-    m_stringAsset: {fileID: 0}
-    m_textTable: {fileID: 0}
-    m_textTableFieldID: 0
-  m_targetSpecifier: 0
-  m_targetID:
-    m_text: 
-    m_stringAsset: {fileID: 0}
-    m_textTable: {fileID: 0}
-    m_textTableFieldID: 0
-  m_message:
-    m_text: VillageKey3
-    m_stringAsset: {fileID: 0}
-    m_textTable: {fileID: 0}
-    m_textTableFieldID: 0
-  m_parameter:
-    m_text: Found
-    m_stringAsset: {fileID: 0}
-    m_textTable: {fileID: 0}
-    m_textTableFieldID: 0
-  m_value:
-    m_valueType: 0
-    m_intValue: 0
-    m_stringValue: 
 --- !u!114 &9096404425492632478
 MonoBehaviour:
   m_ObjectHideFlags: 1
