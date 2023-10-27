@@ -1167,29 +1167,29 @@ var tempDouble;
 var tempI64;
 
 var ASM_CONSTS = {
- 3103336: function() {
+ 3104824: function() {
   Module["emscripten_get_now_backup"] = performance.now;
  },
- 3103391: function($0) {
+ 3104879: function($0) {
   performance.now = function() {
    return $0;
   };
  },
- 3103439: function($0) {
+ 3104927: function($0) {
   performance.now = function() {
    return $0;
   };
  },
- 3103487: function() {
+ 3104975: function() {
   performance.now = Module["emscripten_get_now_backup"];
  },
- 3103542: function() {
+ 3105030: function() {
   return Module.webglContextAttributes.premultipliedAlpha;
  },
- 3103603: function() {
+ 3105091: function() {
   return Module.webglContextAttributes.preserveDrawingBuffer;
  },
- 3103667: function() {
+ 3105155: function() {
   return Module.webglContextAttributes.powerPreference;
  }
 };
@@ -2755,10 +2755,6 @@ function _JS_UnityEngineShouldQuit() {
 
 function _LoadGame(objectName) {
  window.dispatchReactUnityEvent("LoadGame", Pointer_stringify(objectName));
-}
-
-function _NewGame(objectName) {
- window.dispatchReactUnityEvent("NewGame", Pointer_stringify(objectName));
 }
 
 function _OpenChest(chestId, objectName) {
@@ -13617,7 +13613,6 @@ var asmLibraryArg = {
  "JS_SystemInfo_HasWebGL": _JS_SystemInfo_HasWebGL,
  "JS_UnityEngineShouldQuit": _JS_UnityEngineShouldQuit,
  "LoadGame": _LoadGame,
- "NewGame": _NewGame,
  "OpenChest": _OpenChest,
  "SaveGame": _SaveGame,
  "__cxa_allocate_exception": ___cxa_allocate_exception,
