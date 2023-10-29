@@ -28,8 +28,7 @@ public class GlobalGameContextSORS : ScriptableObject
 
     public void LoadGameReact()
     {
-
-        ReactController.Instance.SignalCheckForLoadedGame();
+        ReactController.Instance.SignalLoadGame();
     }
 
     /// <summary>

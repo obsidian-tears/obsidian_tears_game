@@ -14,14 +14,14 @@ public class MainMenuController : MonoBehaviour
     private void Awake()
     {
         Debug.Log("AWAKE!");
-        ReactController.Instance.OnLoadGameCheckDone += OnLoadGameCheckDone;
-        ReactController.Instance.SignalCheckForLoadedGame();
-        SetInitScreen(true);
+        // ReactController.Instance.OnLoadGameCheckDone += OnLoadGameCheckDone;
+        // ReactController.Instance.SignalCheckForLoadedGame();
+        // SetInitScreen(true);
     }
 
     private void OnDestroy()
     {
-        ReactController.Instance.OnLoadGameCheckDone -= OnLoadGameCheckDone;
+        // ReactController.Instance.OnLoadGameCheckDone -= OnLoadGameCheckDone;
     }
 
     public void OnLoadGameCheckDone(bool loadGameFound)
