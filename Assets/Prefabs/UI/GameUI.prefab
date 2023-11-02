@@ -36540,10 +36540,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 310027091962278875}
-        m_TargetAssemblyTypeName: Opsive.UltimateInventorySystem.UI.Panels.DisplayPanel,
-          Opsive.UltimateInventorySystem
-        m_MethodName: SmartClose
+      - m_Target: {fileID: 7437543895263559004}
+        m_TargetAssemblyTypeName: GameManagers.GameUIManager, Assembly-CSharp
+        m_MethodName: CloseInventoryWindow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -36551,7 +36550,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!1 &2184514023474679089
 GameObject:
@@ -36918,18 +36917,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Opsive.UltimateInventorySystem.UI.Panels.DisplayPanel,
           Opsive.UltimateInventorySystem
         m_MethodName: SmartToggle
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 699518615452855769}
-        m_TargetAssemblyTypeName: Map, Assembly-CSharp
-        m_MethodName: ButtonMap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -111055,7 +111042,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5909017823384802068, guid: 598c2747c78dd2d449c0bc4037eb4149, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5909017824208358838, guid: 598c2747c78dd2d449c0bc4037eb4149, type: 3}
       propertyPath: m_AnchorMax.x
@@ -111088,17 +111075,6 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 5909017823036529178, guid: 598c2747c78dd2d449c0bc4037eb4149, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 598c2747c78dd2d449c0bc4037eb4149, type: 3}
---- !u!114 &699518615452855769 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7030401061516693592, guid: 598c2747c78dd2d449c0bc4037eb4149, type: 3}
-  m_PrefabInstance: {fileID: 7504176743229193601}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d82bd81cef055e14f88c468e761ccd73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &4189821660890787473 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5909017823384802064, guid: 598c2747c78dd2d449c0bc4037eb4149, type: 3}

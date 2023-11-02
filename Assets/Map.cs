@@ -14,19 +14,23 @@ public class Map : MonoBehaviour
 
     private GameObject map3dP, map3dE, _playerGO;
 
-
-    private void OnEnable()
+    private void Awake()
     {
+
         map3dP = GameObject.Find("MapCenterCoordinates");
         map3dE = GameObject.Find("MapEndCoordinates");
         _playerGO = GameObject.FindWithTag("Player");
 
-        map3dParent = map3dP?.transform;
-        map3dEnd = map3dE?.transform;
+        map3dParent = map3dP.transform;
+        map3dEnd = map3dE.transform;        
+        
+    }
 
+    private void Update()
+    {
         if (map3dParent != null || map3dEnd != null)
         {
-            normalized = Divide(map3dParent.InverseTransformPoint(_playerGO.transform.position), map3dEnd.position - map3dParent.position);
+            normalized = Divide (map3dParent.InverseTransformPoint(_playerGO.transform.position),map3dEnd.position - map3dParent.position);
             //normalized.y = normalized.z;
             mapped = Multiply(normalized, map2dEnd.localPosition);
             mapped.z = 0;
@@ -37,7 +41,12 @@ public class Map : MonoBehaviour
         {
             //button disable.
         }
+
     }
+
+
+
+
 
 
     private static Vector3 Divide(Vector3 a, Vector3 b)
