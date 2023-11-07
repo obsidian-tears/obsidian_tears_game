@@ -21,11 +21,6 @@ public class GlobalGameContextSORS : ScriptableObject
         m_questJournal = m_player.GetComponent<QuestJournal>();
     }
 
-    public void StartNewGameReact()
-    {
-        ReactController.Instance.SignalNewGame();
-    }
-
     public void SaveGameReact()
     {
         ReactController.Instance.SignalSaveGame();
@@ -33,8 +28,7 @@ public class GlobalGameContextSORS : ScriptableObject
 
     public void LoadGameReact()
     {
-
-        ReactController.Instance.SignalCheckForLoadedGame();
+        ReactController.Instance.SignalLoadGame();
     }
 
     /// <summary>

@@ -67,9 +67,6 @@ public class ReactController : MonoSingleton<ReactController>
         string objectName
     );
 
-    [DllImport("__Internal")]
-    private static extern void NewGame(string objectName);
-
     protected override void Init()
     {
         Debug.Log("REACT controller INIT!");
@@ -124,7 +121,7 @@ public class ReactController : MonoSingleton<ReactController>
     public void SignalLoadGame()
     {
         Debug.Log("LOADING START!");
-        GameUIManager.Instance.ShowLoadingIndicator(true, true);
+        // GameUIManager.Instance.ShowLoadingIndicator(true, true);
 
 #if UNITY_WEBGL == true && UNITY_EDITOR == false
         // call react fx
@@ -159,9 +156,10 @@ public class ReactController : MonoSingleton<ReactController>
     public void ListenLoadGame(string fromReact)
     {
         Debug.Log("LOADING, DATA TO LOAD: " + fromReact);
-        SavedGameData gameData = SaveSystem.Deserialize<PixelCrushers.SavedGameData>(fromReact);
-        SaveSystem.LoadGame(gameData);
-
+        if(fromReact != "{}") {
+            SavedGameData gameData = SaveSystem.Deserialize<PixelCrushers.SavedGameData>(fromReact);
+            SaveSystem.LoadGame(gameData);
+        }
     }
 
     /// <summary>
@@ -232,17 +230,6 @@ public class ReactController : MonoSingleton<ReactController>
 #else
         Debug.Log("REACT DEFEAT MONSTER! Now the game should communicate with react!");
 #endif
-    }
-
-    public void SignalNewGame()
-    {
-        Debug.Log("REACT SIGNAL NEW GAME");
-#if UNITY_WEBGL == true && UNITY_EDITOR == false
-        NewGame(gameObject.name);
-#endif
-
-        //freezeSignal.Raise();
-        //loadingIndicator.SetActive(true);
     }
 
     public void ListenBuyItem(string fromReact)
