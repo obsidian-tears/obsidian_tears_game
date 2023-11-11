@@ -808,7 +808,7 @@ MonoBehaviour:
   - id: 36
     fields:
     - title: Name
-      value: 'Crypee '
+      value: Crypee
       type: 0
       typeString: 
     - title: Pictures
@@ -31882,8 +31882,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 237.28735
-        y: 122.39345
+        x: 228.04034
+        y: 127.220474
         width: 160
         height: 30
     - id: 2
@@ -32047,7 +32047,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: GiveQuest("Crypee", "Crypee Test");Variable["TalkAgain"] = "true";
+      userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -32104,16 +32104,16 @@ MonoBehaviour:
         destinationDialogueID: 6
         isConnector: 0
         priority: 2
-      conditionsString: CurrentQuestState("Crypee Test") == "active" AND CurrentQuestState("Crypee's
-        Subterfuge") == "unassigned"
+      conditionsString: CurrentQuestState("Crypee's Subterfuge") == "active"; GetQuestNodeState("Crypee's
+        Subterfuge", "Talk Again") == active
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 532.33405
-        y: 171.51363
+        x: 538.1602
+        y: 168.70198
         width: 160
         height: 30
     - id: 6
@@ -32209,15 +32209,9 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 36
-        originDialogueID: 7
-        destinationConversationID: 36
-        destinationDialogueID: 8
-        isConnector: 0
-        priority: 2
+      outgoingLinks: []
       conditionsString: 
-      userScript: GiveQuest("Crypee", "Crypee's Subterfuge")
+      userScript: SetQuestNodeState("Crypee's Subterfuge", "Find the Hearts", "active")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -32277,7 +32271,8 @@ MonoBehaviour:
         destinationDialogueID: 10
         isConnector: 0
         priority: 2
-      conditionsString: uisGetItemAmount("Dark Beoite Heart", '') >= 4
+      conditionsString: CurrentQuestState("Crypee's Subterfuge") == "success";uisGetItemAmount("Dark
+        Beoite Heart", "") >= 4
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -32697,19 +32692,19 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: GiveQuest("Crypee", "Crypee's Subterfuge");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 431.13678
-        y: 538.3902
+        x: 431.4981
+        y: 538.7515
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.4167495
+    canvasScrollPosition: {x: 40.41871, y: 0}
+    canvasZoom: 0.7115003
   - id: 37
     fields:
     - title: Title
