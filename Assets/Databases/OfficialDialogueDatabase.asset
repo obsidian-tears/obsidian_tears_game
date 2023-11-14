@@ -4532,8 +4532,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 516.59717, y: 61.399384}
-    canvasZoom: 0.38925034
+    canvasScrollPosition: {x: 874.7769, y: 481.32068}
+    canvasZoom: 0.59925026
   - id: 6
     fields:
     - title: Title
@@ -4625,7 +4625,7 @@ MonoBehaviour:
       - originConversationID: 6
         originDialogueID: 0
         destinationConversationID: 6
-        destinationDialogueID: 105
+        destinationDialogueID: 26
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -4684,15 +4684,15 @@ MonoBehaviour:
         destinationDialogueID: 21
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: CurrentQuestState("GranGran1") == "unassigned"
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2008.832
-        y: 85.73105
+        x: 2009.7754
+        y: 84.78764
         width: 160
         height: 30
     - id: 11
@@ -5249,7 +5249,7 @@ MonoBehaviour:
         destinationDialogueID: 28
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: HasQuest("GranGran1")
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -5257,7 +5257,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 804.1511
-        y: 212.01544
+        y: 209.4838
         width: 160
         height: 30
     - id: 27
@@ -5297,7 +5297,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 27
+        destinationConversationID: 6
+        destinationDialogueID: 116
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -5387,9 +5393,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "Good. Whew. \n\nAlso, watch out when you're fighting monsters. You
-          can't see their health. You'll have to get a feel for the size and strength
-          of your opponents over time. "
+        value: 'Good. Whew. I was almost out of breath from the first time!
+
+'
         type: 0
         typeString: 
       - title: Sequence
@@ -5403,25 +5409,7 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 6
-        originDialogueID: 29
-        destinationConversationID: 6
-        destinationDialogueID: 30
-        isConnector: 0
-        priority: 2
-      - originConversationID: 6
-        originDialogueID: 29
-        destinationConversationID: 6
-        destinationDialogueID: 31
-        isConnector: 0
-        priority: 2
-      - originConversationID: 6
-        originDialogueID: 29
-        destinationConversationID: 6
-        destinationDialogueID: 50
-        isConnector: 0
-        priority: 2
+      outgoingLinks: []
       conditionsString: 
       userScript: 
       onExecute:
@@ -5429,8 +5417,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 942.91736
-        y: 379.73032
+        x: 1051.4889
+        y: 382.58746
         width: 160
         height: 30
     - id: 30
@@ -6222,55 +6210,6 @@ MonoBehaviour:
         y: 1459.194
         width: 160
         height: 30
-    - id: 50
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 7
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 6
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 1196.5809
-        y: 601.6605
-        width: 160
-        height: 30
     - id: 51
       fields:
       - title: Title
@@ -6581,7 +6520,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Use your inventory to equip helpful itemsas you find them, and consume
+        value: Use your inventory to equip helpful items as you find them, and consume
           food and potions!
         type: 0
         typeString: 
@@ -6610,7 +6549,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2304.161
+        x: 2302.7322
         y: 902.3922
         width: 160
         height: 30
@@ -7722,55 +7661,6 @@ MonoBehaviour:
         y: 496.4104
         width: 160
         height: 30
-    - id: 105
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 7
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 6
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 2008.7244
-        y: 85.70468
-        width: 160
-        height: 30
     - id: 106
       fields:
       - title: Title
@@ -8334,9 +8224,171 @@ MonoBehaviour:
         y: 453.71423
         width: 160
         height: 30
+    - id: 116
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Press "E" to see the menu. Use your Journal to see quests and tasks
+          that you've set out on!
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 116
+        destinationConversationID: 6
+        destinationDialogueID: 117
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 350.03247
+        y: 421.17078
+        width: 160
+        height: 30
+    - id: 117
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Use your inventory to equip helpful items as you find them, and consume
+          food and potions!
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 117
+        destinationConversationID: 6
+        destinationDialogueID: 118
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 353.73706
+        y: 504.07007
+        width: 160
+        height: 30
+    - id: 118
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Also, as you explore the village, press "Spacebar", to interact with
+          people and interesting objects you run into.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 351.16217
+        y: 604.2584
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 546.82043, y: 91.30444}
-    canvasZoom: 0.45999974
+    canvasScrollPosition: {x: 212.32202, y: 298.36902}
+    canvasZoom: 0.5799997
   - id: 7
     fields:
     - title: Title
@@ -20555,8 +20607,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 903.5665}
-    canvasZoom: 0.55000013
+    canvasScrollPosition: {x: 219.92812, y: 297.98465}
+    canvasZoom: 0.8799998
   - id: 10
     fields:
     - title: Title
