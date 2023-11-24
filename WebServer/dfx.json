@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "dfx": "0.15.0",
+  "dfx": "0.15.1",
   "canisters": {
     "obsidian_unity_frontend": {
       "frontend": {
@@ -21,11 +21,15 @@
   },
   "networks": {
     "staging": {
-      "providers": ["https://icp0.io"],
+      "providers": [
+        "https://icp0.io"
+      ],
       "type": "persistent"
     },
     "beta": {
-      "providers": ["https://icp0.io"],
+      "providers": [
+        "https://icp0.io"
+      ],
       "type": "persistent"
     }
   }
