@@ -50,6 +50,10 @@ public class LevelUpMenu : MonoBehaviour
 
     private Color darkGreen = new Color(0, 0.5f, 0);
 
+    private void Awake()
+    {
+        playerStats = FindObjectOfType<CharStats>();
+    }
 
     // Start is called before the first frame update
     private void OnEnable()
