@@ -37,6 +37,7 @@ namespace GameManagers
         public DisplayPanel SpellMenu;
         public CustomShopMenu ShopMenu;
         public GameObject MenuTabs;
+        public GameObject LevelUpMenu;
         public ItemViewSlotsContainerPanelBinding InventoryPanel;
         public ItemViewSlotsContainerPanelBinding EquipmentPanel;
 
