@@ -2740,7 +2740,7 @@ MonoBehaviour:
         height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.6540005
+    canvasZoom: 0.5340006
   - id: 4
     fields:
     - title: Title
@@ -10066,7 +10066,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 8
@@ -10079,6 +10079,12 @@ MonoBehaviour:
         originDialogueID: 0
         destinationConversationID: 8
         destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      - originConversationID: 8
+        originDialogueID: 0
+        destinationConversationID: 8
+        destinationDialogueID: 31
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -11140,7 +11146,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 837.40155
-        y: 222.61319
+        y: 224.12494
         width: 160
         height: 30
     - id: 23
@@ -11193,7 +11199,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 834.9625
-        y: 296.89392
+        y: 295.3822
         width: 160
         height: 30
     - id: 24
@@ -11479,9 +11485,118 @@ MonoBehaviour:
         y: 901.5041
         width: 160
         height: 30
+    - id: 31
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 9
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 'Thanks for retrieving my monster Jaw for me!
+
+          Here''s another
+          archery tip for you - '
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 8
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 8
+        originDialogueID: 31
+        destinationConversationID: 8
+        destinationDialogueID: 32
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: CurrentQuestState("ArcherMaster1") == "success"
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1353.9921
+        y: 103.112686
+        width: 160
+        height: 30
+    - id: 32
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 9
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: The Lady inside the house right next to us is a master bow maker.
+          If you have the cash, you can buy some from her! Only Rangers can use them
+          though because of how powerful they are. Hehe!
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 8
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1355.5038
+        y: 190.90578
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 266.0346}
-    canvasZoom: 0.63149685
+    canvasScrollPosition: {x: 23.317513, y: 29.521643}
+    canvasZoom: 0.6014969
   - id: 9
     fields:
     - title: Title
@@ -21667,8 +21782,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 1341.1428}
-    canvasZoom: 0.5200004
+    canvasScrollPosition: {x: 257.9992, y: 753.7732}
+    canvasZoom: 0.2500004
   - id: 10
     fields:
     - title: Title
