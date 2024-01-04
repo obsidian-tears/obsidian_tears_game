@@ -37262,7 +37262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GridID: -1
-  m_Canvas: {fileID: 0}
+  m_Canvas: {fileID: 2763691648059227232}
   m_GridSize: {x: 1, y: 5}
   m_SetRealElementCountAsMax: 1
   m_MaxElementCount: 100
@@ -64478,7 +64478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GridID: -1
-  m_Canvas: {fileID: 0}
+  m_Canvas: {fileID: 2763691648059227232}
   m_GridSize: {x: 1, y: 6}
   m_SetRealElementCountAsMax: 1
   m_MaxElementCount: 100
@@ -87630,7 +87630,7 @@ MonoBehaviour:
     m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 4420289958041852290}
+    m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 2
@@ -107005,6 +107005,7 @@ GameObject:
   - component: {fileID: 4404107094970706865}
   - component: {fileID: 5919281489046398701}
   - component: {fileID: 6462871041483300444}
+  - component: {fileID: 3453413207395780512}
   m_Layer: 5
   m_Name: CircleJoystick
   m_TagString: Untagged
@@ -107070,6 +107071,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3453413207395780512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6603876740256839473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73e2f24dbd189b049b25197daa8bce2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalInputName: Horizontal
+  m_VerticalInputName: Vertical
+  m_Joystick: {fileID: 4404107094970706865}
+  m_Radius: 100
+  m_DeadzoneRadius: 5
 --- !u!1 &6740790029788978166
 GameObject:
   m_ObjectHideFlags: 0
@@ -109358,6 +109376,7 @@ GameObject:
   - component: {fileID: 1404951177187556636}
   - component: {fileID: 7935591645223197508}
   - component: {fileID: 7592513841004288352}
+  - component: {fileID: 1289163916325862667}
   m_Layer: 5
   m_Name: BTN_B
   m_TagString: Untagged
@@ -109436,39 +109455,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 9
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 4541092285259220538}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+  m_Delegates: []
+--- !u!114 &1289163916325862667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8008009578298875073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11b07129b6505394286595a777eac99e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ButtonName: B
 --- !u!1 &8045108764734975644
 GameObject:
   m_ObjectHideFlags: 0
@@ -110341,6 +110341,7 @@ GameObject:
   - component: {fileID: 4835736062065197449}
   - component: {fileID: 6822808213035603729}
   - component: {fileID: 740142381734688219}
+  - component: {fileID: 3343335325007613418}
   m_Layer: 5
   m_Name: BTN_A
   m_TagString: Untagged
@@ -110436,6 +110437,19 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+--- !u!114 &3343335325007613418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8691389747322424043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11b07129b6505394286595a777eac99e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ButtonName: A
 --- !u!1 &8692752534890861695
 GameObject:
   m_ObjectHideFlags: 0

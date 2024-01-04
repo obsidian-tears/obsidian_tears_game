@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
 
     [HideInInspector] [SerializeField] public float speed = 3f;
     private float speedMultiplier = 1.0f;
-    Rigidbody2D myRigidbody;
+    public Rigidbody2D myRigidbody;
     public Vector3 change;
     public Animator animator;
     public FloatValue maxHealth;
