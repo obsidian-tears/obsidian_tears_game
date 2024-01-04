@@ -1,12 +1,11 @@
 using Opsive.Shared.Input.VirtualControls;
-using PixelCrushers.LoveHate;
+using PixelCrushers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using static Opsive.UltimateInventorySystem.DatabaseNames.DemoInventoryDatabaseNames;
 
 
 namespace Opsive.Shared.Input
@@ -38,7 +37,10 @@ namespace Opsive.Shared.Input
                 if (m_RunButton != null)
                 {
                     m_RunButton.onClick.AddListener(OnRunButtonPressed);
-                    m_RunButton.onPointerUp.AddListener(OnRunButtonReleased);
+                    if (InputDeviceManager.IsButtonUp("RunButton"))
+                    {
+                        OnRunButtonReleased();
+                    }
 
                 }
 
@@ -47,21 +49,18 @@ namespace Opsive.Shared.Input
         }
 
 
-
-
         void Update()
         {
             Vector3 joystickInput = new Vector3(m_VirtualJoystick.GetAxis("Horizontal"), m_VirtualJoystick.GetAxis("Vertical"), 0f).normalized;
             Move(joystickInput);
             Sprint(running);
 
-
         }
 
 
+
         private void Move(Vector3 direction)
-        {
-            
+        {            
             _player.myRigidbody.MovePosition(transform.position + direction * _player.speed * Time.deltaTime);
             _player.animator.SetFloat("moveX", direction.x);
             _player.animator.SetFloat("moveY", direction.y);
