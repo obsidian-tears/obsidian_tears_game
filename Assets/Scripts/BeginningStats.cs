@@ -9,7 +9,7 @@ using UnityEngine;
 public class BeginningStats : MonoBehaviour
 {
     public GameObject player;
-
+    public Animator animPlayer;
     public int goldAmount;
 
     public int level;
@@ -34,11 +34,19 @@ public class BeginningStats : MonoBehaviour
 
     public float timer;
 
+    private void Awake()
+    {
+        if (player != null)
+        {
+             animPlayer.SetFloat("moveX", 1);
+            // player.transform.Rotate(0, 180, 0); //rota la camara y no sirve
+        }
+    }
 
 
     private void Start()
     {
-        timer = 0f;
+        timer = 0f;        
     }
 
     private void Update()
