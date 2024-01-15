@@ -13,6 +13,14 @@ public class NonPlayableCharacter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // If the Player is near the NPC, don't move
+        Vector3 player = GameObject.Find("Player").transform.position;
+        if (Vector3.Distance(transform.position, player) < 1.5f)
+        {
+            animator.SetBool("moving", false);
+            return;
+        }
+
         timer += Time.deltaTime;
         if (timer < movementPattern[currentPattern].z) 
         {

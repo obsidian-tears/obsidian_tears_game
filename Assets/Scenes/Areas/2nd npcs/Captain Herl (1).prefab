@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 9137816803942577936}
   - component: {fileID: 5429842325212655826}
   - component: {fileID: 8817806677303632664}
+  - component: {fileID: 5952146473878447426}
+  - component: {fileID: 3260067312660828944}
+  - component: {fileID: 4524239394842788651}
   m_Layer: 0
   m_Name: Captain Herl (1)
   m_TagString: Untagged
@@ -29,9 +32,10 @@ Transform:
   m_GameObject: {fileID: 5824575440962434031}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -92.72, y: -18.35, z: 0}
-  m_LocalScale: {x: 5.6834073, y: 5.872854, z: 5.0519176}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7176540874883055066}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -86,7 +90,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!61 &9137816803942577936
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -100,18 +104,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0008594282, y: 0.028493673}
+  m_Offset: {x: 0.00562774, y: 0.06187159}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.19, y: 0.31}
+    oldSize: {x: 1.1875, y: 1.9375}
     newSize: {x: 1.375, y: 1.9375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.124922805, y: 0.09013769}
+  m_Size: {x: 0.18276948, y: 0.15689355}
   m_EdgeRadius: 0
 --- !u!114 &5429842325212655826
 MonoBehaviour:
@@ -229,4 +233,182 @@ MonoBehaviour:
   useConversationTitlePicker: 1
   useBarkTitlePicker: 1
   useQuestNamePicker: 1
-  selectedDatabase: {fileID: 11400000, guid: 28708b6c2815bda4793eb7af4c96b06a, type: 2}
+  selectedDatabase: {fileID: 11400000, guid: be8533d46225d0048a5f2cc784c166d8, type: 2}
+--- !u!95 &5952146473878447426
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5824575440962434031}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4fc57175738d8ac40b91ebf46f39f57a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3260067312660828944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5824575440962434031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2df86d3d2d15a842a0a36f7b28e90c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 5952146473878447426}
+  movementPattern:
+  - {x: -1, y: 0, z: 1}
+  - {x: 0, y: 0, z: 0.5}
+  - {x: 0, y: -0.5, z: 1}
+  - {x: 0, y: 0, z: 0.5}
+  - {x: 1, y: 0, z: 1}
+  - {x: 0, y: 0, z: 0.5}
+  - {x: 0, y: 0.5, z: 1}
+  - {x: 0, y: 0, z: 0.5}
+--- !u!114 &4524239394842788651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5824575440962434031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2185d538298c73f418ba252c3e3e01ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_key: CaptainHerl1_7573814
+  m_appendSaverTypeToKey: 0
+  m_saveAcrossSceneChanges: 1
+  m_restoreStateOnStart: 0
+  m_forwardEventsToListeners: 0
+  m_includeInSavedGameData: 1
+  m_addNewQuestsSinceSavedGame: 0
+  m_questList:
+  - {fileID: 11400000, guid: c9b2392cbf5f4064fae7f7e19fdcce25, type: 2}
+  m_deletedStaticQuests: []
+  m_id:
+    m_text: Captain Herl
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_displayName:
+    m_text: 
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_image: {fileID: 0}
+  m_textTable: {fileID: 0}
+  m_noQuestsUIContents:
+    m_icon: {fileID: 0}
+    m_headingText:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_bodyText:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+  m_offerableQuestsUIContents:
+    m_icon: {fileID: 0}
+    m_headingText:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_bodyText:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+  m_activeQuestsUIContents:
+    m_icon: {fileID: 0}
+    m_headingText:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_bodyText:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+  m_completedQuestDialogueMode: 0
+  m_questDialogueUI: {fileID: 0}
+  m_cooldownCheckFrequency: 0
+--- !u!1001 &2938733709903639160
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1894523777800027941}
+    m_Modifications:
+    - target: {fileID: 2184874631485063853, guid: 682a79f91c9c455489d987ed55cc03ad, type: 3}
+      propertyPath: m_Name
+      value: NPCshadow
+      objectReference: {fileID: 0}
+    - target: {fileID: 5426920401693052834, guid: 682a79f91c9c455489d987ed55cc03ad, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5426920401693052834, guid: 682a79f91c9c455489d987ed55cc03ad, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.057
+      objectReference: {fileID: 0}
+    - target: {fileID: 5426920401693052834, guid: 682a79f91c9c455489d987ed55cc03ad, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5426920401693052834, guid: 682a79f91c9c455489d987ed55cc03ad, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5426920401693052834, guid: 682a79f91c9c455489d987ed55cc03ad, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5426920401693052834, guid: 682a79f91c9c455489d987ed55cc03ad, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5426920401693052834, guid: 682a79f91c9c455489d987ed55cc03ad, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5426920401693052834, guid: 682a79f91c9c455489d987ed55cc03ad, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5426920401693052834, guid: 682a79f91c9c455489d987ed55cc03ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5426920401693052834, guid: 682a79f91c9c455489d987ed55cc03ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5426920401693052834, guid: 682a79f91c9c455489d987ed55cc03ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 682a79f91c9c455489d987ed55cc03ad, type: 3}
+--- !u!4 &7176540874883055066 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5426920401693052834, guid: 682a79f91c9c455489d987ed55cc03ad, type: 3}
+  m_PrefabInstance: {fileID: 2938733709903639160}
+  m_PrefabAsset: {fileID: 0}
