@@ -6,25 +6,28 @@ public class DynamicMusic : MonoBehaviour
 {
     [SerializeField] AudioSource source;
     [SerializeField] Song song;
+    [Range(0.0f, 1.0f)]
+    [SerializeField] float finalVolume = 1.0f;
+
     // Start is called before the first frame update
     void Start()
     {
         EnterSong();
     }
 
-    // Update is called once per frame
     public void EnterSong() {
         source.volume = 0.0f;
         source.clip = song.value;
         source.Play();
-        StartCoroutine(StartFade(source, 2.0f, 1.0f));
+        StartCoroutine(StartFade(source, 2.0f, finalVolume));
     }
-    // Update is called once per frame
+
     public void ExitSong()
     {
-        source.volume = 1.0f;
+        source.volume = finalVolume;
         StartCoroutine(StartFade(source, 1.0f, 0.0f));
     }
+
     public static IEnumerator StartFade(AudioSource audioSource, float duration, float targetVolume)
     {
         float currentTime = 0;
