@@ -7174,7 +7174,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 2302.7283
-        y: 952.6301
+        y: 950.70703
         width: 160
         height: 30
     - id: 70
@@ -8954,8 +8954,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 333.01175, y: 0}
-    canvasZoom: 0.5799997
+    canvasScrollPosition: {x: 146.15381, y: 128.84619}
+    canvasZoom: 0.51999974
   - id: 7
     fields:
     - title: Title
@@ -18674,7 +18674,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "Got ya! \nTurn these into Dukor's blade!"
+        value: 'Ermm, yeah...
+
+          Turn these into Dukor''s blade, I guess'
         type: 0
         typeString: 
       - title: Sequence
@@ -18688,7 +18690,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 9
+        originDialogueID: 166
+        destinationConversationID: 9
+        destinationDialogueID: 169
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -18696,8 +18704,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2700.5422
-        y: 431.20773
+        x: 2701.294
+        y: 430.3602
         width: 160
         height: 30
     - id: 167
@@ -21119,8 +21127,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 275.99988, y: 0}
-    canvasZoom: 0.25000015
+    canvasScrollPosition: {x: 2185.0686, y: 36.216927}
+    canvasZoom: 1.3299994
   - id: 10
     fields:
     - title: Title
