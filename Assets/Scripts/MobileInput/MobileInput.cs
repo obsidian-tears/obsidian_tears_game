@@ -27,21 +27,25 @@ namespace Opsive.Shared.Input
 
         void Start()
         {
+            _player = GetComponent<Player>();
+
             if (CheckMobile.IsMobile)
             {
                 m_VirtualJoystick.enabled = true;
                 _MobileUI.SetActive(true);
 
 
-                if (m_InteractButton != null) m_InteractButton.onClick.AddListener(OnInteractButtonClicked);
+                if (m_InteractButton != null)
+                {
+                    m_InteractButton.onClick.AddListener(OnInteractButtonClicked);
+                    EventManager.StartListening("BotonInteractTocado", OnInteractButtonClicked);
+                }
+
                 if (m_RunButton != null)
                 {
                     m_RunButton.onClick.AddListener(OnRunButtonPressed);
-                    if (InputDeviceManager.IsButtonUp("RunButton"))
-                    {
-                        OnRunButtonReleased();
-                    }
-
+                    EventManager.StartListening("BotonRunTocado", OnRunButtonPressed);
+                    
                 }
 
             }
@@ -52,9 +56,13 @@ namespace Opsive.Shared.Input
         void Update()
         {
             Vector3 joystickInput = new Vector3(m_VirtualJoystick.GetAxis("Horizontal"), m_VirtualJoystick.GetAxis("Vertical"), 0f).normalized;
-            Move(joystickInput);
-            Sprint(running);
+            //Move(joystickInput);          
 
+            if (joystickInput != Vector3.zero)
+            {
+                EventManager.TriggerEvent("JoystickTocado");
+                Move(joystickInput);
+            }
         }
 
 
@@ -69,10 +77,7 @@ namespace Opsive.Shared.Input
         }
 
       
-        private void Sprint(bool isSprinting)
-        {
-            
-        }
+      
 
         private void OnInteractButtonClicked()
         {
@@ -82,12 +87,13 @@ namespace Opsive.Shared.Input
 
         private void OnRunButtonPressed()
         {
-            running = true;
+            _player.HandleRunButtonPressed();
         }
 
+      
         private void OnRunButtonReleased()
         {
-            running = false;
+            _player.HandleRunButtonReleased();
         }
 
 
