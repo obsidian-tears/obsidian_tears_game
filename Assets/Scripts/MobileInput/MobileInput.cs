@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 
 namespace Opsive.Shared.Input
@@ -30,7 +31,8 @@ namespace Opsive.Shared.Input
 
         void Start()
         {
-            _player = GetComponent<Player>();
+            GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+            _player = playerObject.GetComponent<Player>();
 
             if (CheckMobile.IsMobile)
             {
@@ -74,8 +76,8 @@ namespace Opsive.Shared.Input
 
         private void Move(Vector3 direction)
         {
-            _player = GetComponent<Player>();
-            _player.myRigidbody.MovePosition(transform.position + direction * _player.speed * Time.deltaTime);
+           
+            _player.myRigidbody.MovePosition(_player.transform.position + _player.change * _player.speed * Time.deltaTime);
             _player.animator.SetFloat("moveX", direction.x);
             _player.animator.SetFloat("moveY", direction.y);
             _player.animator.SetBool("moving", direction.magnitude > 0);
