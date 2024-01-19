@@ -24,6 +24,9 @@ namespace Opsive.Shared.Input
         [SerializeField] private Player _player;
 
 
+      
+
+
 
         void Start()
         {
@@ -37,6 +40,7 @@ namespace Opsive.Shared.Input
 
                 if (m_InteractButton != null)
                 {
+                    
                     m_InteractButton.onClick.AddListener(OnInteractButtonClicked);
                     EventManager.StartListening("BotonInteractTocado", OnInteractButtonClicked);
                 }
@@ -66,9 +70,11 @@ namespace Opsive.Shared.Input
         }
 
 
+       
 
         private void Move(Vector3 direction)
-        {            
+        {
+            _player = GetComponent<Player>();
             _player.myRigidbody.MovePosition(transform.position + direction * _player.speed * Time.deltaTime);
             _player.animator.SetFloat("moveX", direction.x);
             _player.animator.SetFloat("moveY", direction.y);

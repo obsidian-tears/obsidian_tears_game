@@ -510,6 +510,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  myRigidbody: {fileID: 0}
   change: {x: 0, y: 0, z: 0}
   animator: {fileID: 0}
   maxHealth: {fileID: 11400000, guid: 9895bc1bdc25bb249821654047c4aad1, type: 2}
@@ -522,6 +523,7 @@ MonoBehaviour:
   dialogSignal: {fileID: 11400000, guid: 0aadd252ddfcf6f41ad333d9739d9574, type: 2}
   pauseMenu: {fileID: 0}
   frozen: 0
+  isRunning: 0
 --- !u!95 &2545281804548880165
 Animator:
   serializedVersion: 5

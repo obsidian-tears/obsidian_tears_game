@@ -36,6 +36,8 @@ public class Player : MonoBehaviour
     //[SerializeField] PlayerType playerType = PlayerType.Fighter;
     [SerializeField] bool frozen;
 
+    [SerializeField] private bool isRunning;
+
     void Awake() {
         if (m_globalGameContext != null)
         {
@@ -78,7 +80,16 @@ public class Player : MonoBehaviour
         change.x = Input.GetAxisRaw("Horizontal");
         change.y = Input.GetAxisRaw("Vertical");
 
-        speedMultiplier = Input.GetKey(KeyCode.LeftShift) ? 1.5f : 1.0f;
+        if (CheckMobile.IsMobile) 
+        { 
+             speedMultiplier = Input.GetKey(KeyCode.LeftShift) || isRunning ? 1.5f : 1.0f; // Modificado       
+        
+        }
+        else
+        {
+            speedMultiplier = Input.GetKey(KeyCode.LeftShift) ? 1.5f : 1.0f;
+
+        }
 
         change = change.normalized * speedMultiplier;
         //playerPosition.initialValue.x = transform.position.x;
@@ -140,5 +151,16 @@ public class Player : MonoBehaviour
     }
     public void Unfreeze() {
         frozen = false;
+    }
+
+
+    public void HandleRunButtonPressed()
+    {
+        isRunning = true;
+    }
+
+    public void HandleRunButtonReleased() 
+    {
+        isRunning = false;
     }
 }
