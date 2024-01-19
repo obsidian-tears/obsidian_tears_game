@@ -9,8 +9,8 @@ using UnityEngine.UI;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
 
-namespace Opsive.Shared.Input
-{
+//namespace Opsive.Shared.Input
+//{
 
     public class MobileInput : MonoBehaviour
     {
@@ -19,13 +19,11 @@ namespace Opsive.Shared.Input
         [SerializeField] private Button m_RunButton;
         [SerializeField] GameObject _MobileUI;
 
+        private Vector3 changeMobile;
 
         public bool running;
 
         [SerializeField] private Player _player;
-
-
-      
 
 
 
@@ -72,19 +70,21 @@ namespace Opsive.Shared.Input
         }
 
 
-       
+
 
         private void Move(Vector3 direction)
         {
-           
-            _player.myRigidbody.MovePosition(_player.transform.position + _player.change * _player.speed * Time.deltaTime);
+            changeMobile = Vector3.zero;
+            changeMobile.x = Input.GetAxisRaw("Horizontal");
+            changeMobile.y = Input.GetAxisRaw("Vertical");
+
+            _player.myRigidbody.MovePosition(_player.transform.position + changeMobile * _player.speed * Time.deltaTime);
             _player.animator.SetFloat("moveX", direction.x);
             _player.animator.SetFloat("moveY", direction.y);
             _player.animator.SetBool("moving", direction.magnitude > 0);
 
-        }
 
-      
+        } 
       
 
         private void OnInteractButtonClicked()
@@ -108,4 +108,4 @@ namespace Opsive.Shared.Input
 
 
     }
-}
+//}
