@@ -12331,7 +12331,7 @@ MonoBehaviour:
       - m_Target: {fileID: 362595543776825069}
         m_TargetAssemblyTypeName: Opsive.UltimateInventorySystem.UI.Panels.DisplayPanel,
           Opsive.UltimateInventorySystem
-        m_MethodName: SmartToggle
+        m_MethodName: SmartOpen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -33170,18 +33170,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 362595543776825069}
-        m_TargetAssemblyTypeName: Opsive.UltimateInventorySystem.UI.Panels.DisplayPanel,
-          Opsive.UltimateInventorySystem
-        m_MethodName: SmartClose
-        m_Mode: 1
+      - m_Target: {fileID: 362595543776825067}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &528336960125834277
 GameObject:
@@ -36783,17 +36782,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7437543895263559004}
-        m_TargetAssemblyTypeName: GameManagers.GameUIManager, Assembly-CSharp
-        m_MethodName: CloseInventoryWindow
-        m_Mode: 1
+      - m_Target: {fileID: 3506029798067234983}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &2184514023474679089
 GameObject:
@@ -100466,7 +100465,7 @@ MonoBehaviour:
       - m_Target: {fileID: 310027091962278875}
         m_TargetAssemblyTypeName: Opsive.UltimateInventorySystem.UI.Panels.DisplayPanel,
           Opsive.UltimateInventorySystem
-        m_MethodName: SmartToggle
+        m_MethodName: SmartOpen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
