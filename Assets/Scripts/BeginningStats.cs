@@ -64,19 +64,19 @@ public class BeginningStats : MonoBehaviour
             playerStats.xp = xp;
             playerStats.xpToLevelUp = xpToLevelUp;
             playerStats.pointsRemaining = pointsRemaining;
-            playerStats.healthBase = healthBase;
-            playerStats.healthTotal = healthTotal;
-            playerStats.healthMax = healthMax;
-            playerStats.magicBase = magicBase;
-            playerStats.magicTotal = magicTotal;
-            playerStats.magicMax = magicMax;
-            playerStats.attackBase = attackBase;
+            playerStats.healthBase = healthBase; //  ------------ change playertype 
+            playerStats.healthTotal = healthTotal; 
+            playerStats.healthMax = healthMax; //    ------------ change playertype
+            playerStats.magicBase = magicBase; //    ------------ change playertype
+            playerStats.magicTotal = magicTotal;  
+            playerStats.magicMax = magicMax;  //    ------------- change playertype
+            playerStats.attackBase = attackBase; // ------------- change playertype
             playerStats.attackTotal = attackTotal;
-            playerStats.magicPowerBase = magicPowerBase;
+            playerStats.magicPowerBase = magicPowerBase; // ----- change playertype
             playerStats.magicPowerTotal = magicPowerTotal;
-            playerStats.defenseBase = defenseBase;
+            playerStats.defenseBase = defenseBase; // ----------- change playertype
             playerStats.defenseTotal = defenseTotal;
-            playerStats.speedBase = speedBase;
+            playerStats.speedBase = speedBase;  //   ------------ change playertype
             playerStats.speedTotal = speedTotal;
 
 
@@ -168,4 +168,90 @@ public class BeginningStats : MonoBehaviour
             timer += Time.deltaTime;
         }
     }
+
+
+    public void SetInitiaStats(PlayerType selectedClass)
+    {
+        switch (selectedClass) 
+        {
+            case PlayerType.Fighter:
+                SetFighterStats();
+                break;
+            case PlayerType.Wizard:
+                SetWizardStats();
+                break;
+            case PlayerType.Ranger:
+                SetRangerStats();
+                break;
+            case PlayerType.Barbarian:
+                SetBarbarianStats();
+                break;
+            default:
+                break;
+
+        }
+
+    }
+
+
+
+
+    private void SetFighterStats() 
+    {
+       
+
+        healthBase = 20;
+        healthMax = 100;
+        magicBase = 5;
+        magicMax = 30;
+        attackBase = 5;
+        magicPowerBase = 5;
+        defenseBase = 7;
+        speedBase = 4;
+        criticalHitProbability = 0.5f;
+        
+
+    }
+
+
+
+    private void SetWizardStats() 
+    {
+        healthBase = 12;
+        healthMax = 100;
+        magicBase = 25;
+        magicMax = 100;
+        attackBase = 4;
+        magicPowerBase = 1;
+        defenseBase = 4;
+        speedBase = 5;
+        criticalHitProbability = 0.5f;
+
+        //
+
+
+    }
+
+    private void SetRangerStats() 
+    {
+        healthBase = 15;
+        healthMax = 100;
+        magicBase = 8;
+        magicMax = 40;
+        attackBase = 5;
+        magicPowerBase = 7;
+        defenseBase = 4;
+        speedBase = 6;
+        criticalHitProbability = 0.6f;
+        //bow equipped as primary weapon, have 40% chance to double shoot.
+
+    }
+
+    private void SetBarbarianStats() 
+    {
+    
+    
+    }
+
+
 }

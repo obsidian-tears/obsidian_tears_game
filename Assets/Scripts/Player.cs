@@ -7,7 +7,7 @@ using GameManagers;
 using Opsive.UltimateInventorySystem.Core.InventoryCollections;
 using Opsive.UltimateInventorySystem.Exchange;
 
-public enum PlayerType { Fighter, Wizard, Rogue, Barbarian }
+public enum PlayerType { Fighter, Wizard, Rogue, Barbarian, Ranger }
 public class Player : MonoBehaviour
 {
 
