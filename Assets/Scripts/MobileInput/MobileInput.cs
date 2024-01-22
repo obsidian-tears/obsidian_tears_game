@@ -59,8 +59,13 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
         void Update()
         {
-            Vector3 joystickInput = new Vector3(m_VirtualJoystick.GetAxis("Horizontal"), m_VirtualJoystick.GetAxis("Vertical"), 0f).normalized;
+            Vector3 joystickInput = new Vector3(m_VirtualJoystick.GetAxis("Horizontal"), m_VirtualJoystick.GetAxis("Vertical"), 0f);
             //Move(joystickInput);          
+            
+           // changeMobile = joystickInput;
+           // changeMobile.x = Input.GetAxisRaw("Horizontal");
+           // changeMobile.y = Input.GetAxisRaw("Vertical");
+
 
             if (joystickInput != Vector3.zero)
             {
@@ -74,16 +79,13 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
         private void Move(Vector3 direction)
         {
-            changeMobile = Vector3.zero;
-            changeMobile.x = Input.GetAxisRaw("Horizontal");
-            changeMobile.y = Input.GetAxisRaw("Vertical");
 
-            _player.myRigidbody.MovePosition(_player.transform.position + changeMobile * _player.speed * Time.deltaTime);
+            _player.myRigidbody.MovePosition(_player.transform.position + direction * (_player.speed) * Time.deltaTime);
             _player.animator.SetFloat("moveX", direction.x);
             _player.animator.SetFloat("moveY", direction.y);
             _player.animator.SetBool("moving", direction.magnitude > 0);
 
-
+            //Debug.Log(_player.speed);
         } 
       
 

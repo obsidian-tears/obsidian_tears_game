@@ -82,7 +82,7 @@ public class Player : MonoBehaviour
 
         if (CheckMobile.IsMobile) 
         { 
-             speedMultiplier = Input.GetKey(KeyCode.LeftShift) || isRunning ? 1.5f : 1.0f; // Modificado       
+             speedMultiplier =  isRunning ? 1.5f : 1.0f; // Modificado       
         
         }
         else
