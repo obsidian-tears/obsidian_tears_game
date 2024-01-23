@@ -11,6 +11,8 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private GameObject m_InitScreen;
     [SerializeField] private GameObject m_LoadingScreen;
 
+    [SerializeField] private string url = "https://toniq.io/marketplace/obsidian-tears-items";
+
     private void Awake()
     {
         Debug.Log("AWAKE!");
@@ -50,4 +52,14 @@ public class MainMenuController : MonoBehaviour
             m_LoadingScreen.SetActive(isShown);
         }
     }
+
+    public void OpenItemShop()
+    {
+
+        Application.OpenURL(url);
+
+    }
+
+
+
 }
