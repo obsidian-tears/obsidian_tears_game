@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class CheckMobile : MonoBehaviour
 {
-#if UNITY_ANDROID
-    public static bool IsMobile { get; private set; } = true;
-
-#elif UNITY_EDITOR_WIN
-    public static bool IsMobile { get; private set; } = false;
-#endif
-
+    public static bool IsMobile { get; private set; }
+    // public static bool IsMobile { get; private set; } = false;
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
+
+#if UNITY_ANDROID
+        IsMobile = true;
+#else
+        IsMobile = false;
+#endif
     }
 
 
