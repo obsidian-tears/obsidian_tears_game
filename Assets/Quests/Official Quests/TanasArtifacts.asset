@@ -438,6 +438,26 @@ MonoBehaviour:
     m_stringAsset: {fileID: 0}
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
+--- !u!114 &-28713449484068983
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c47e1bb9cdd9a474c8d3f5d555d7533a, type: 3}
+  m_Name: HeadingTextQuestContent
+  m_EditorClassIdentifier: 
+  m_contentID: -1
+  m_useQuestTitle: 0
+  m_headingText:
+    m_text: Defeat the Scolopendra
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_headingLevel: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -574,8 +594,8 @@ MonoBehaviour:
     m_childIndexList: 01000000
     m_canvasRect:
       serializedVersion: 2
-      x: 273.54327
-      y: 36.523666
+      x: 258.739
+      y: 106.07663
       width: 120
       height: 48
   - m_id:
@@ -625,8 +645,8 @@ MonoBehaviour:
     m_childIndexList: 05000000
     m_canvasRect:
       serializedVersion: 2
-      x: 446.4443
-      y: 115.29828
+      x: 395.85245
+      y: 184.26219
       width: 120
       height: 48
   - m_id:
@@ -678,8 +698,8 @@ MonoBehaviour:
     m_childIndexList: 03000000
     m_canvasRect:
       serializedVersion: 2
-      x: 447.6139
-      y: 256.13416
+      x: 554.6153
+      y: 318.9838
       width: 120
       height: 48
   - m_id:
@@ -728,11 +748,11 @@ MonoBehaviour:
       m_conditionCountMode: 0
       m_minConditionCount: 0
       m_numTrueConditions: 0
-    m_childIndexList: 04000000
+    m_childIndexList: 06000000
     m_canvasRect:
       serializedVersion: 2
-      x: 321.8164
-      y: 324.4574
+      x: 554.6153
+      y: 390.9838
       width: 120
       height: 48
   - m_id:
@@ -777,8 +797,8 @@ MonoBehaviour:
     m_childIndexList: 
     m_canvasRect:
       serializedVersion: 2
-      x: 447.30322
-      y: 396.1922
+      x: 743.07117
+      y: 546.7319
       width: 120
       height: 35
   - m_id:
@@ -829,8 +849,59 @@ MonoBehaviour:
     m_childIndexList: 02000000
     m_canvasRect:
       serializedVersion: 2
-      x: 589.1212
-      y: 188.018
+      x: 392.75967
+      y: 258.32404
+      width: 120
+      height: 48
+  - m_id:
+      m_text: DefeatFinalBoss
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_internalName:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_nodeType: 4
+    m_isOptional: 0
+    m_state: 0
+    m_speaker:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_stateInfoList:
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    - m_actionList:
+      - {fileID: 4358876400121716943}
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList:
+        - {fileID: -28713449484068983}
+        - {fileID: 5443752240898077959}
+      - m_contentList: []
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList:
+        - {fileID: 4447656839962795402}
+        - {fileID: 6528419643954693659}
+      - m_contentList: []
+    m_conditionSet:
+      m_conditionList: []
+      m_conditionCountMode: 1
+      m_minConditionCount: 0
+      m_numTrueConditions: 0
+    m_childIndexList: 04000000
+    m_canvasRect:
+      serializedVersion: 2
+      x: 744.3061
+      y: 462.9838
       width: 120
       height: 48
   m_goalEntityTypeName: 
@@ -1011,6 +1082,24 @@ MonoBehaviour:
     m_stringAsset: {fileID: 0}
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
+--- !u!114 &3768399427198803347
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ed0c4e68ee98946bb5016adda42373, type: 3}
+  m_Name: BodyTextQuestContent
+  m_EditorClassIdentifier: 
+  m_contentID: -1
+  m_bodyText:
+    m_text: 'Quest Updated: Defeat the Scolopendra!'
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
 --- !u!114 &3806404720085127623
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1055,6 +1144,41 @@ MonoBehaviour:
   m_contentList:
   - {fileID: 8221099199012735900}
   m_contentListSerializationProxy: []
+--- !u!114 &4358876400121716943
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b99cc2a156c22e46b4fb74b06a4d1e8, type: 3}
+  m_Name: AlertQuestAction
+  m_EditorClassIdentifier: 
+  m_contentList:
+  - {fileID: 3768399427198803347}
+  m_contentListSerializationProxy: []
+--- !u!114 &4447656839962795402
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c47e1bb9cdd9a474c8d3f5d555d7533a, type: 3}
+  m_Name: HeadingTextQuestContent
+  m_EditorClassIdentifier: 
+  m_contentID: -1
+  m_useQuestTitle: 0
+  m_headingText:
+    m_text: Defeat the Scolopendra
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_headingLevel: 1
 --- !u!114 &4719684774543925929
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1088,6 +1212,27 @@ MonoBehaviour:
   m_contentList:
   - {fileID: 7551616206813360845}
   m_contentListSerializationProxy: []
+--- !u!114 &5443752240898077959
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ed0c4e68ee98946bb5016adda42373, type: 3}
+  m_Name: BodyTextQuestContent
+  m_EditorClassIdentifier: 
+  m_contentID: -1
+  m_bodyText:
+    m_text: You've found all the artifacts and with Tana's help, manufactured the
+      fabled artifact, Dukors Blade! Now iit's time to take on the Scolopendra, and
+      discover what secrets it guards! Tana mentioned that the Scolopendra can be
+      found by the one fully standing obelisk, somewhere outside the village gates.
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
 --- !u!114 &5501587080213047138
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1127,6 +1272,25 @@ MonoBehaviour:
       The
       Rune of Doom is somewhere underground in the caves, and Tana said the entrance
       was in the village graveyard, in the Southwest Corner.'
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+--- !u!114 &6528419643954693659
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ed0c4e68ee98946bb5016adda42373, type: 3}
+  m_Name: BodyTextQuestContent
+  m_EditorClassIdentifier: 
+  m_contentID: -1
+  m_bodyText:
+    m_text: You did it! The Scolopendra is no more! Go back to the village and talk
+      to the Tana to see what she thinks about what you found at the obelisk...
     m_stringAsset: {fileID: 0}
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
