@@ -24031,7 +24031,7 @@ MonoBehaviour:
       - originConversationID: 14
         originDialogueID: 0
         destinationConversationID: 14
-        destinationDialogueID: 1
+        destinationDialogueID: 50
         isConnector: 0
         priority: 2
       - originConversationID: 14
@@ -24043,7 +24043,7 @@ MonoBehaviour:
       - originConversationID: 14
         originDialogueID: 0
         destinationConversationID: 14
-        destinationDialogueID: 50
+        destinationDialogueID: 1
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -24555,7 +24555,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 14
+        originDialogueID: 14
+        destinationConversationID: 14
+        destinationDialogueID: 51
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -24731,8 +24737,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1659.3413
-        y: 247.17844
+        x: 1666.2241
+        y: 246.03134
         width: 160
         height: 30
     - id: 18
@@ -24786,8 +24792,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1665.5435
-        y: 328.47842
+        x: 1668.9849
+        y: 316.09854
         width: 160
         height: 30
     - id: 19
@@ -24940,7 +24946,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 14
+        originDialogueID: 21
+        destinationConversationID: 14
+        destinationDialogueID: 52
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -24948,8 +24960,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1668.7974
-        y: 380.87253
+        x: 1672.2388
+        y: 367.10715
         width: 160
         height: 30
     - id: 22
@@ -25460,7 +25472,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1757.5388
+        x: 1754.5166
         y: 655.2589
         width: 160
         height: 30
@@ -26317,7 +26329,7 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: SetQuestNodeState("AHiddenPath", "Dialogue", "success")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -26395,9 +26407,107 @@ MonoBehaviour:
         y: 143.58989
         width: 160
         height: 30
+    - id: 51
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 15
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: If it doesn't have to do with yams, I'm not interested anyways.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 14
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 923.39355
+        y: 584.93787
+        width: 160
+        height: 30
+    - id: 52
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 15
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Come back if you change your mind!
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 14
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1672.2388
+        y: 417.10715
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 891.997, y: 40.47705}
-    canvasZoom: 0.69175005
+    canvasScrollPosition: {x: 212.57455, y: 34.63803}
+    canvasZoom: 0.72175
   - id: 15
     fields:
     - title: Title
@@ -44432,8 +44542,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 916.324, y: 360.59006}
-    canvasZoom: 0.63999987
+    canvasScrollPosition: {x: 120.50999, y: 9.398428}
+    canvasZoom: 0.7299998
   syncInfo:
     syncActors: 0
     syncItems: 0
