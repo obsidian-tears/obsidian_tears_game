@@ -10,6 +10,7 @@ public class BeginningStats : MonoBehaviour
 {
     public GameObject player;
     public Animator animPlayer;
+    public CharStats charStats;
     public int goldAmount;
 
     public int level;
@@ -33,6 +34,7 @@ public class BeginningStats : MonoBehaviour
     public float criticalHitProbability;
 
     public float timer;
+    private string selectedClass;
 
     private void Awake()
     {
@@ -46,7 +48,13 @@ public class BeginningStats : MonoBehaviour
 
     private void Start()
     {
-        timer = 0f;        
+        timer = 0f;
+
+        CharStats charStats = player.GetComponent<CharStats>();
+        charStats.characterClass = selectedClass;
+
+
+
     }
 
     private void Update()
@@ -172,6 +180,7 @@ public class BeginningStats : MonoBehaviour
 
     public void SetInitiaStats(PlayerType selectedClass)
     {
+
         switch (selectedClass) 
         {
             case PlayerType.Fighter:
