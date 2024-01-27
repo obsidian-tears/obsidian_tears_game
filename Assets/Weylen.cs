@@ -11,7 +11,7 @@ public class Weylen : MonoBehaviour, IMessageHandler
     [SerializeField] BoxCollider2D questCollider;
     private void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(this);
         MessageSystem.AddListener(this, "Quest State Changed", "");
     }
 
