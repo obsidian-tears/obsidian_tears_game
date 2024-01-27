@@ -21149,8 +21149,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 56.973602, y: 329.4098}
-    canvasZoom: 0.6700001
+    canvasScrollPosition: {x: 0, y: 274.72363}
+    canvasZoom: 0.5200002
   - id: 10
     fields:
     - title: Title
@@ -42988,7 +42988,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1716.1033
+        x: 1714.7334
         y: 731.6087
         width: 160
         height: 30
@@ -43088,7 +43088,7 @@ MonoBehaviour:
         priority: 2
       conditionsString: 'GetQuestNodeState("Weylen''s Requirements", "Arm Yourself")
         == "success" '
-      userScript: SetQuestNodeState("Weylen's Requirements", "Dialogue", "success")
+      userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -43639,7 +43639,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 48
+        originDialogueID: 32
+        destinationConversationID: 48
+        destinationDialogueID: 50
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -43689,7 +43695,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 48
+        originDialogueID: 33
+        destinationConversationID: 48
+        destinationDialogueID: 51
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -43697,8 +43709,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 555.57245
-        y: 915.6354
+        x: 556.7489
+        y: 911.8379
         width: 160
         height: 30
     - id: 34
@@ -44541,9 +44553,107 @@ MonoBehaviour:
         y: 350.69708
         width: 160
         height: 30
+    - id: 50
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 47
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 48
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: SetQuestNodeState("Weylen's Requirements", "Dialogue", "success")
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 777.4526
+        y: 943.6985
+        width: 160
+        height: 30
+    - id: 51
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 47
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 48
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: SetQuestNodeState("Weylen's Requirements", "Dialogue", "success")
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 558.1785
+        y: 963.10376
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 120.50999, y: 9.398428}
-    canvasZoom: 0.7299998
+    canvasScrollPosition: {x: 41.791016, y: 285.418}
+    canvasZoom: 0.6699997
   syncInfo:
     syncActors: 0
     syncItems: 0
