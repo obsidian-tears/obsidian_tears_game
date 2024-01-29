@@ -1,5 +1,6 @@
 using GameManagers;
 using Opsive.UltimateInventorySystem.Core;
+using Opsive.UltimateInventorySystem.Core.DataStructures;
 using Opsive.UltimateInventorySystem.Core.InventoryCollections;
 using Opsive.UltimateInventorySystem.Demo.Events;
 using Opsive.UltimateInventorySystem.Demo.UI.Menus.Main.Inventory;
@@ -10,8 +11,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using EventHandler = Opsive.Shared.Events.EventHandler;
 
+
 public class CharStats : MonoBehaviour
 {
+
+    [SerializeField] private ItemCategoryAmount _itemCategoryToBuff;
+    [SerializeField] private float _multiplierDamage;
+
     public Equipper equipper;
     public Inventory inventory;
     //public CharacterStatsDisplay statsDisplay;
@@ -80,7 +86,9 @@ public class CharStats : MonoBehaviour
         {
             healthMax = healthBase + equipmentCollection.GetIntSum("MaxHp");
             magicMax = magicBase + equipmentCollection.GetIntSum("MaxMp");
-            attackTotal = attackBase + equipmentCollection.GetIntSum("Attack");
+            attackTotal = attackBase +
+                           (inventory.GetItemCollection(1).HasItem(_itemCategoryToBuff, true) ? Mathf.RoundToInt(equipmentCollection.GetIntSum("Attack") * _multiplierDamage): equipmentCollection.GetIntSum("Attack"));
+
             defenseTotal = defenseBase + equipmentCollection.GetIntSum("Defense");
             speedTotal = speedBase + equipmentCollection.GetIntSum("Speed");
             criticalHitProbability = equipmentCollection.GetFloatSum("CriticalChance");
