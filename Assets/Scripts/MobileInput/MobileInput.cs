@@ -56,17 +56,18 @@ using UnityEngine.UI;
         }
 
 
-        void Update()
+        void FixedUpdate()
         {
             Vector3 joystickInput = new Vector3(m_VirtualJoystick.GetAxis("Horizontal"), m_VirtualJoystick.GetAxis("Vertical"), 0f);
-            //Move(joystickInput);          
-            
-           // changeMobile = joystickInput;
-           // changeMobile.x = Input.GetAxisRaw("Horizontal");
-           // changeMobile.y = Input.GetAxisRaw("Vertical");
+            joystickInput = joystickInput.magnitude > .75f ? joystickInput.normalized : joystickInput;
+        //Move(joystickInput);          
+
+        // changeMobile = joystickInput;
+        // changeMobile.x = Input.GetAxisRaw("Horizontal");
+        // changeMobile.y = Input.GetAxisRaw("Vertical");
 
 
-            if (joystickInput != Vector3.zero)
+        if (joystickInput != Vector3.zero)
             {
                 EventManager.TriggerEvent("JoystickTocado");
                 Move(joystickInput);
