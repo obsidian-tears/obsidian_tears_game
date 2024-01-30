@@ -373,6 +373,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b9b3b8692bcfeb4c9a091a9662cb926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _itemCategoryToBuff:
+    m_Amount: 0
+    m_ItemCategory: {fileID: 0}
+  _multiplierDamage: 0
   equipper: {fileID: 2545281804548880326}
   inventory: {fileID: 2545281804548880333}
   characterClass: 
@@ -1169,8 +1173,8 @@ MonoBehaviour:
   m_Slots:
   - m_Name: Right Hand
     m_Category:
-      m_Name: Weapons
-      m_ItemCategory: {fileID: 11400000, guid: 8073554c06c8bb84a94980124840782c, type: 2}
+      m_Name: Wand
+      m_ItemCategory: {fileID: 11400000, guid: de85dd76d89cad748b411238b51d09a1, type: 2}
     m_IsSkinnedEquipment: 1
     m_Transform: {fileID: 0}
     m_ItemObject: {fileID: 0}
@@ -1225,40 +1229,40 @@ MonoBehaviour:
     m_HideWhenWearingEquipment: []
   - m_Name: Spell 1
     m_Category:
-      m_Name: Spells
-      m_ItemCategory: {fileID: 11400000, guid: 6b4363021b298c545bcadbc4ee01a3a6, type: 2}
+      m_Name: Spells2
+      m_ItemCategory: {fileID: 11400000, guid: 427ec674a1e4d65429c775a8a5189a56, type: 2}
     m_IsSkinnedEquipment: 0
     m_Transform: {fileID: 0}
     m_ItemObject: {fileID: 0}
     m_HideWhenWearingEquipment: []
   - m_Name: Spell 2
     m_Category:
-      m_Name: Spells
-      m_ItemCategory: {fileID: 11400000, guid: 6b4363021b298c545bcadbc4ee01a3a6, type: 2}
+      m_Name: Spells2
+      m_ItemCategory: {fileID: 11400000, guid: 427ec674a1e4d65429c775a8a5189a56, type: 2}
     m_IsSkinnedEquipment: 0
     m_Transform: {fileID: 0}
     m_ItemObject: {fileID: 0}
     m_HideWhenWearingEquipment: []
   - m_Name: Spell 3
     m_Category:
-      m_Name: Spells
-      m_ItemCategory: {fileID: 11400000, guid: 6b4363021b298c545bcadbc4ee01a3a6, type: 2}
+      m_Name: Spells2
+      m_ItemCategory: {fileID: 11400000, guid: 427ec674a1e4d65429c775a8a5189a56, type: 2}
     m_IsSkinnedEquipment: 0
     m_Transform: {fileID: 0}
     m_ItemObject: {fileID: 0}
     m_HideWhenWearingEquipment: []
   - m_Name: Spell 4
     m_Category:
-      m_Name: Spells
-      m_ItemCategory: {fileID: 11400000, guid: 6b4363021b298c545bcadbc4ee01a3a6, type: 2}
+      m_Name: Spells2
+      m_ItemCategory: {fileID: 11400000, guid: 427ec674a1e4d65429c775a8a5189a56, type: 2}
     m_IsSkinnedEquipment: 0
     m_Transform: {fileID: 0}
     m_ItemObject: {fileID: 0}
     m_HideWhenWearingEquipment: []
   - m_Name: Spell 5
     m_Category:
-      m_Name: Spells
-      m_ItemCategory: {fileID: 11400000, guid: 6b4363021b298c545bcadbc4ee01a3a6, type: 2}
+      m_Name: Spells2
+      m_ItemCategory: {fileID: 11400000, guid: 427ec674a1e4d65429c775a8a5189a56, type: 2}
     m_IsSkinnedEquipment: 0
     m_Transform: {fileID: 0}
     m_ItemObject: {fileID: 0}
@@ -1523,7 +1527,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2379174331303778694
 Transform:
   m_ObjectHideFlags: 0
