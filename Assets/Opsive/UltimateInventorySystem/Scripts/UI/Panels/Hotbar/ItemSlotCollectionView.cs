@@ -38,7 +38,7 @@ namespace Opsive.UltimateInventorySystem.UI.Panels.Hotbar
         public ItemUser ItemUser => Inventory.ItemUser;
         public ItemSlotSet ItemSlotSet {
             get { return m_ItemSlotSet; }
-            internal set { m_ItemSlotSet = value; }
+            /*internal*/ set { m_ItemSlotSet = value; }
         }
         
         protected override ItemViewSlot[] RetrieveItemViewSlots()

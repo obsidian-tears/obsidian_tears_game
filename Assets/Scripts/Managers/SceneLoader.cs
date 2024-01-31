@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Opsive.UltimateInventorySystem.Core;
+using Opsive.UltimateInventorySystem.UI.Panels.Hotbar;
 using PixelCrushers.Wrappers;
 using UnityEngine;
 
@@ -61,7 +62,9 @@ namespace GameManagers
                 Debug.Log("Instantiating GameUI!");
                 if (m_UIPrefab != null)
                 {
-                    Instantiate(m_UIPrefab.gameObject);
+                    var ui = Instantiate(m_UIPrefab.gameObject);
+                    var beginningStats = FindObjectOfType<BeginningStats>();
+                    beginningStats.slotCollectionView = ui.GetComponentInChildren<ItemSlotCollectionView>();
                 }
                 else
                 {

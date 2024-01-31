@@ -4,7 +4,16 @@ using Opsive.UltimateInventorySystem.Core.InventoryCollections;
 using Opsive.UltimateInventorySystem.Exchange;
 using System.Collections;
 using System.Collections.Generic;
+using GameManagers;
+using Opsive.UltimateInventorySystem.UI.Panels.Hotbar;
 using UnityEngine;
+
+public enum InitialClasses
+{
+    MAGE,
+    FIGTHER,
+    RANGER
+}
 
 public class BeginningStats : MonoBehaviour
 {
@@ -35,7 +44,13 @@ public class BeginningStats : MonoBehaviour
 
     public float timer;
     private string selectedClass;
+    
+    
+    [SerializeField] private InitialClasses _initialClass;
+    [SerializeField] private List<ItemSlotCollection> _itemCollection;
+    [SerializeField] private List<ItemSlotSet> _itemSlotSets;
 
+    public ItemSlotCollectionView slotCollectionView;
     private void Awake()
     {
         if (player != null)
@@ -43,9 +58,22 @@ public class BeginningStats : MonoBehaviour
              animPlayer.SetFloat("moveX", 1);
             // player.transform.Rotate(0, 180, 0); //rota la camara y no sirve
         }
+        
+        Inventory startingInventory = gameObject.GetComponent<Inventory>();
+
+        Inventory playerInventory = player.GetComponent<Inventory>();
+        
+        playerInventory.AddItemCollection(_itemCollection[(int)_initialClass]);
+        startingInventory.AddItemCollection(_itemCollection[(int)_initialClass]);
+        
+        playerInventory.UpdateInventory();
+        startingInventory.UpdateInventory();
+
+        slotCollectionView.ItemSlotSet = _itemSlotSets[(int)_initialClass];
+        slotCollectionView.SetItemViewSlotRestrictions();
     }
 
-
+//nice
     private void Start()
     {
         timer = 0f;
