@@ -79,8 +79,8 @@ public class BeginningStats : MonoBehaviour
         timer = 0f;
 
         CharStats charStats = player.GetComponent<CharStats>();
-        charStats.characterClass = selectedClass;
-
+        charStats.characterClass = _initialClass.ToString();
+        Debug.Log(charStats.characterClass);
 
 
     }
