@@ -59,15 +59,15 @@ public class BeginningStats : MonoBehaviour
             // player.transform.Rotate(0, 180, 0); //rota la camara y no sirve
         }
         
-        Inventory startingInventory = gameObject.GetComponent<Inventory>();
+        //Inventory startingInventory = gameObject.GetComponent<Inventory>();
 
         Inventory playerInventory = player.GetComponent<Inventory>();
         
         playerInventory.AddItemCollection(_itemCollection[(int)_initialClass]);
-        startingInventory.AddItemCollection(_itemCollection[(int)_initialClass]);
+      //  startingInventory.AddItemCollection(_itemCollection[(int)_initialClass]);
         
         playerInventory.UpdateInventory();
-        startingInventory.UpdateInventory();
+      //  startingInventory.UpdateInventory();
 
         slotCollectionView.ItemSlotSet = _itemSlotSets[(int)_initialClass];
         slotCollectionView.SetItemViewSlotRestrictions();
