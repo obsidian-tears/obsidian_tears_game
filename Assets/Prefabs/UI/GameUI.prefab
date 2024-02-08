@@ -31852,18 +31852,17 @@ MonoBehaviour:
   m_OnClickEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8169597944018083318}
-        m_TargetAssemblyTypeName: Opsive.UltimateInventorySystem.UI.Panels.DisplayPanel,
-          Opsive.UltimateInventorySystem
-        m_MethodName: SmartToggle
-        m_Mode: 1
+      - m_Target: {fileID: 4189821660890787477}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
   m_OnPointerClickInputButton: 1
   m_SelectOnPointerEnter: 1
@@ -110407,12 +110406,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5439415514719051685, guid: 598c2747c78dd2d449c0bc4037eb4149, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439415514719051685, guid: 598c2747c78dd2d449c0bc4037eb4149, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 8169597944018083318}
+      objectReference: {fileID: 4189821660890787477}
     - target: {fileID: 5439415514719051685, guid: 598c2747c78dd2d449c0bc4037eb4149, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SmartClose
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439415514719051685, guid: 598c2747c78dd2d449c0bc4037eb4149, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439415514719051685, guid: 598c2747c78dd2d449c0bc4037eb4149, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5909017823036529178, guid: 598c2747c78dd2d449c0bc4037eb4149, type: 3}
       propertyPath: m_Color.a
@@ -110566,6 +110577,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5909017823384802064, guid: 598c2747c78dd2d449c0bc4037eb4149, type: 3}
   m_PrefabInstance: {fileID: 7504176743229193601}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4189821660890787477 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5909017823384802068, guid: 598c2747c78dd2d449c0bc4037eb4149, type: 3}
+  m_PrefabInstance: {fileID: 7504176743229193601}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &4189821661239256988 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5909017823036529181, guid: 598c2747c78dd2d449c0bc4037eb4149, type: 3}
@@ -110611,14 +110627,3 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5909017824172612632, guid: 598c2747c78dd2d449c0bc4037eb4149, type: 3}
   m_PrefabInstance: {fileID: 7504176743229193601}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8169597944018083318 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1820596601322332279, guid: 598c2747c78dd2d449c0bc4037eb4149, type: 3}
-  m_PrefabInstance: {fileID: 7504176743229193601}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b66082a767b1a4841927fdfa001813b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
