@@ -82,7 +82,7 @@ public class InventoryCurrencySaver : Saver
 
     public override void ApplyData(string s)
     {
-        if(SceneManager.GetActiveScene().name != startScene)
+        if(GameManager.Instance.inventoryWasInit)
         {
             if (string.IsNullOrEmpty(s)) return;
             var data = SaveSystem.Deserialize<Data>(s);
