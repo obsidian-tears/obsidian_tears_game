@@ -75,6 +75,7 @@ public class BattleSystem : MonoBehaviour
     public UnityEvent onWin;
     public UnityEvent onLose;
 
+    private bool dobleAttack;
 
     void Start()
     {
@@ -210,10 +211,10 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayerAttack()
     {
+
         playerAnimator.SetTrigger("Attack");
 
         VerifyBowEquipped();
-
 
         DamageValue damageValue = CalculateDamage(playerStats.attackTotal, enemyStats.defenseTotal, playerStats.criticalHitProbability);
         bool isDead = enemyStats.TakeDamage(damageValue.damageAmount);
@@ -228,13 +229,18 @@ public class BattleSystem : MonoBehaviour
         dialogueText.text = "Phendrin attacks " + enemyStats.characterName;
 
         yield return new WaitForSeconds(2f);
-
-        
+      
 
         if (isDead)
         {
             state = BattleState.WON;
             StartCoroutine(EndBattle());
+        }
+        else if (dobleAttack)
+        {
+            dobleAttack = false;
+            StartCoroutine(PlayerAttack());
+            yield break;
         }
         else
         {
@@ -369,6 +375,30 @@ public class BattleSystem : MonoBehaviour
 
     }
 
+    private bool VerifyBow()
+    {
+
+        ItemInfo[] pooledArray = new ItemInfo[10];
+
+        var bowcategory = InventorySystemManager.GetItemCategory("Bow");
+        var equippedInventory = inventory.GetItemCollection("Equipped");
+
+        var itemInfoListSlice = equippedInventory.GetItemInfos(ref pooledArray, bowcategory,
+            (candidateItemInfo, category) => category.InherentlyContains(candidateItemInfo.Item));
+
+        if (itemInfoListSlice.Count > 0)
+        {
+            return true;
+
+        }
+        else
+        {
+            return false;
+
+        }
+
+    }
+
 
 
     void PlayerTurn()
@@ -386,7 +416,13 @@ public class BattleSystem : MonoBehaviour
 
         CloseInventory();
         buttonsContainer.SetActive(false);
-        StartCoroutine(PlayerAttack());
+
+        if (VerifyBow() && playerStats.characterClass == "RANGER")
+        {
+            dobleAttack = true;
+            StartCoroutine(PlayerAttack());
+        }
+        
     }
 
     public void OnRunButton()
