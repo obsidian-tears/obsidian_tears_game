@@ -134,6 +134,29 @@ MonoBehaviour:
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
   m_headingLevel: 1
+--- !u!114 &-7653191080973071731
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c14ca0a3639b4a4f8084914f2e7227f, type: 3}
+  m_Name: SetQuestNodeStateQuestAction
+  m_EditorClassIdentifier: 
+  m_questID:
+    m_text: Weylen's Requirements
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_questNodeID:
+    m_text: Permission from Tana
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_state: 2
 --- !u!114 &-7314894061898202006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -624,6 +647,7 @@ MonoBehaviour:
       - m_contentList: []
     - m_actionList:
       - {fileID: -3495387641918435582}
+      - {fileID: -7653191080973071731}
       m_categorizedContentList:
       - m_contentList: []
       - m_contentList:
