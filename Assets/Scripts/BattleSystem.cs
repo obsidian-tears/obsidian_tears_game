@@ -1,18 +1,22 @@
 using GameManagers;
 using Opsive.UltimateInventorySystem.Core;
+using Opsive.UltimateInventorySystem.Core.AttributeSystem;
 using Opsive.UltimateInventorySystem.Core.DataStructures;
 using Opsive.UltimateInventorySystem.Core.InventoryCollections;
 using Opsive.UltimateInventorySystem.Exchange;
+using Opsive.UltimateInventorySystem.ItemActions;
 using Opsive.UltimateInventorySystem.UI.Panels;
 using Opsive.UltimateInventorySystem.UI.Panels.ItemViewSlotContainers;
 using PixelCrushers;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using static Opsive.UltimateInventorySystem.DatabaseNames.DemoInventoryDatabaseNames;
 using EventHandler = Opsive.Shared.Events.EventHandler;
 
 
@@ -27,8 +31,10 @@ public class BattleSystem : MonoBehaviour
 
     public GameObject enemy;
     public GameObject player;
+    public GameObject Arrow;
 
     public TextMeshProUGUI dialogueText;
+
 
     //public ItemViewSlotsContainerPanelBinding charPanelBinding;
     //public ItemViewSlotsContainerPanelBinding invPanelBinding;
@@ -206,6 +212,9 @@ public class BattleSystem : MonoBehaviour
     {
         playerAnimator.SetTrigger("Attack");
 
+        VerifyBowEquipped();
+
+
         DamageValue damageValue = CalculateDamage(playerStats.attackTotal, enemyStats.defenseTotal, playerStats.criticalHitProbability);
         bool isDead = enemyStats.TakeDamage(damageValue.damageAmount);
         
@@ -269,6 +278,7 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
+
     IEnumerator EndBattle()
     {
         //ItemCollection equipmentCollection = inventory.GetItemCollection("Equipped");
@@ -325,6 +335,41 @@ public class BattleSystem : MonoBehaviour
             portal.UsePortal();
         }
     }
+
+
+    private void VerifyBowEquipped()
+    {
+
+        ItemInfo[] pooledArray = new ItemInfo[10];
+
+        var bowcategory = InventorySystemManager.GetItemCategory("Bow");
+        var equippedInventory = inventory.GetItemCollection("Equipped");
+
+        var itemInfoListSlice = equippedInventory.GetItemInfos(ref pooledArray, bowcategory,
+            (candidateItemInfo, category) => category.InherentlyContains(candidateItemInfo.Item));
+
+        if (itemInfoListSlice.Count > 0)
+        {
+            var firstItemInfo = itemInfoListSlice[0];
+            Debug.Log(firstItemInfo);
+
+            if (firstItemInfo != null)
+            {
+                Arrow.SetActive(true);
+                var animarrow  =Arrow.GetComponent<Animator>();
+                animarrow.SetTrigger("StartArrow");
+            }
+
+        }
+        else
+        {
+            return;
+
+        }
+
+    }
+
+
 
     void PlayerTurn()
     {
