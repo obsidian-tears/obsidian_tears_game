@@ -62,9 +62,9 @@ namespace GameManagers
                 Debug.Log("Instantiating GameUI!");
                 if (m_UIPrefab != null)
                 {
-                    var ui = Instantiate(m_UIPrefab.gameObject);
-                    var beginningStats = FindObjectOfType<BeginningStats>();
-                    beginningStats.slotCollectionView = ui.GetComponentInChildren<ItemSlotCollectionView>();
+                    Instantiate(m_UIPrefab.gameObject);
+                    // var beginningStats = FindObjectOfType<BeginningStats>();
+                    // beginningStats.slotCollectionView = ui.GetComponentInChildren<ItemSlotCollectionView>();
                 }
                 else
                 {

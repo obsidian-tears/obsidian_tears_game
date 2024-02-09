@@ -159,6 +159,7 @@ namespace Opsive.UltimateInventorySystem.UI.Panels.Hotbar
         /// </summary>
         protected override void OnInventoryChanged(Inventory previousInventory, Inventory newInventory)
         {
+            Debug.Log(2);
             if (m_Inventory == null) {
                 m_ItemSlotCollection = null;
                 return;
@@ -167,15 +168,15 @@ namespace Opsive.UltimateInventorySystem.UI.Panels.Hotbar
             m_ItemSlotCollection = m_Inventory.GetItemCollection(m_ItemCollectionID) as ItemSlotCollection;
             if (m_ItemSlotCollection == null) {
                 Debug.LogError($"The inventory '{m_Inventory}' does not contain an item slot collection for the ID provided in the ItemSlotCollectionView", gameObject);
-                m_Inventory = null;
+                //m_Inventory = null;
                 return;
             }
 
             if (m_ItemSlotSet != m_ItemSlotCollection.ItemSlotSet) {
                 Debug.LogError($"The item slot collection '{m_ItemSlotCollection}' has an Item Slot Set '{m_ItemSlotCollection.ItemSlotSet}' " +
                                $"which does not match with the Item Slot Set '{m_ItemSlotSet}' provided in the ItemSlotCollectionView", gameObject);
-                m_Inventory = null;
-                m_ItemSlotCollection = null;
+                //m_Inventory = null;
+                //m_ItemSlotCollection = null;
                 return;
             }
         }
