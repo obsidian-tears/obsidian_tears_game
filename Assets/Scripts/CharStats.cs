@@ -87,7 +87,7 @@ public class CharStats : MonoBehaviour
             healthMax = healthBase + equipmentCollection.GetIntSum("MaxHp");
             magicMax = magicBase + equipmentCollection.GetIntSum("MaxMp");
             attackTotal = attackBase +
-                           (inventory.GetItemCollection(1).HasItem(_itemCategoryToBuff, true) ? Mathf.RoundToInt(equipmentCollection.GetIntSum("Attack") * _multiplierDamage): equipmentCollection.GetIntSum("Attack"));
+                           /*(inventory.GetItemCollection(1).HasItem(_itemCategoryToBuff, true) ? Mathf.RoundToInt(equipmentCollection.GetIntSum("Attack") * _multiplierDamage):*/ equipmentCollection.GetIntSum("Attack")/*)*/;
 
             defenseTotal = defenseBase + equipmentCollection.GetIntSum("Defense");
             speedTotal = speedBase + equipmentCollection.GetIntSum("Speed");
