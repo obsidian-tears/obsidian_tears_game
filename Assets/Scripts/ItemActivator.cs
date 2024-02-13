@@ -40,46 +40,26 @@ public class ItemActivator : MonoBehaviour
     {
         List<ActivatorItem> removeList = new List<ActivatorItem>();
 
-        if (activatorItems.Count > 0)
+        foreach (ActivatorItem item in activatorItems)
         {
-            foreach (ActivatorItem item in activatorItems)
+            if (item.item == null)
             {
-                if (Vector3.Distance(player.transform.position, item.itemPos) > distanceFromPlayer)
-                {
-                    if (item.item == null)
-                    {
-                        removeList.Add(item);
-                    }
-                    else
-                    {
-                        item.item.SetActive(false);
-                    }
-                }
-                else
-                {
-                    if (item.item == null)
-                    {
-                        removeList.Add(item);
-                    }
-                    else
-                    {
-                        item.item.SetActive(true);
-                    }
-                }
+                removeList.Add(item);
+                continue;
             }
+
+            item.item.SetActive(Vector3.Distance(player.transform.position, item.itemPos) < distanceFromPlayer);
         }
 
-        yield return new WaitForSeconds(0.01f);
 
-        if (removeList.Count > 0)
+        yield return new WaitForSeconds(0.1f);
+
+        foreach (ActivatorItem item in removeList)
         {
-            foreach (ActivatorItem item in removeList)
-            {
-                activatorItems.Remove(item);
-            }
+            activatorItems.Remove(item);
         }
 
-        yield return new WaitForSeconds(0.01f);
+        yield return new WaitForSeconds(0.1f);
         StartCoroutine("CheckActivation");
     }
 }

@@ -11,7 +11,8 @@ public class Weylen : MonoBehaviour, IMessageHandler
     [SerializeField] BoxCollider2D questCollider;
     private void Start()
     {
-        MessageSystem.AddListener(this, "Quest State Changed", "");
+        MessageSystem.AddListener(this, "Quest State Changed", "Weylen's Requirements");
+        DontDestroyOnLoad(this);
     }
 
     // Unregister when this GameObject is destroyed.
@@ -28,15 +29,15 @@ public class Weylen : MonoBehaviour, IMessageHandler
     
     private void OnMessage(string message, string parameter, object s)
     {
-        if (QuestMachine.GetQuestNodeState("Weylen's Requirements", "Dialogue") == QuestNodeState.True)
-        {
-            FreezePlayer(true);
-            FadeOut();
-            SwapBoxCollider();
-            Teleport();
-            FadeIn();
-            FreezePlayer(false);
-        }
+        if (QuestMachine.GetQuestNodeState("Weylen's Requirements", "Dialogue") != QuestNodeState.True) 
+            return;
+        
+        FreezePlayer(true);
+        FadeOut();
+        SwapBoxCollider();
+        Teleport();
+        FadeIn();
+        FreezePlayer(false);
     }
 
     private void Teleport() {
