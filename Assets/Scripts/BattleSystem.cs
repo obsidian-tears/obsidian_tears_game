@@ -13,8 +13,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security;
 using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.LowLevel;
 using UnityEngine.UI;
 using static Opsive.UltimateInventorySystem.DatabaseNames.DemoInventoryDatabaseNames;
 using EventHandler = Opsive.Shared.Events.EventHandler;
@@ -179,10 +181,25 @@ public class BattleSystem : MonoBehaviour
         playerStats.healthTotal = currentBattle.playerCurrentHealth;
         playerStats.magicBase = currentBattle.playerBaseMagic;
         playerStats.magicTotal = currentBattle.playerCurrentMagic;
+
         playerStats.attackBase = currentBattle.playerAttackBase;
         playerStats.defenseBase = currentBattle.playerDefenseBase;
         playerStats.speedBase = currentBattle.playerSpeedBase;
         playerStats.UpdateStats();
+
+        if (playerStats.characterClass == "FIGHTER")
+        {
+            if (VerifySword())
+            {
+                playerStats.attackTotal = (playerStats.attackBase + Mathf.RoundToInt( 1.2f * ObtainDamageWeaponEquipped())); //Redondea automaticamente
+                Debug.Log(playerStats.attackBase + "attackbase");
+                Debug.Log(playerStats.attackTotal + "attacktotal");
+                Debug.Log(ObtainDamageWeaponEquipped() + "weapon damage");
+
+            }
+
+        }
+
 
         //Enemy setup
         enemyRenderer.sprite = currentBattle.enemy.sprite;
@@ -216,8 +233,10 @@ public class BattleSystem : MonoBehaviour
 
         VerifyBowEquipped();
 
+
         DamageValue damageValue = CalculateDamage(playerStats.attackTotal, enemyStats.defenseTotal, playerStats.criticalHitProbability);
         bool isDead = enemyStats.TakeDamage(damageValue.damageAmount);
+
         
 
         yield return new WaitForSeconds(1f);
@@ -343,7 +362,46 @@ public class BattleSystem : MonoBehaviour
     }
 
 
-    private void VerifyBowEquipped()
+    private bool VerifySword()
+    {
+        ItemInfo[] pooledArray = new ItemInfo[10];
+        var swordCategory = InventorySystemManager.GetItemCategory("Sword");
+        var equippedContainer = inventory.GetItemCollection("Equipped");
+
+        var itemInfoListSlice = equippedContainer.GetItemInfos(ref pooledArray,swordCategory,
+             (candidateItemInfo, category) => category.InherentlyContains(candidateItemInfo.Item));
+
+        if (itemInfoListSlice.Count > 0)
+        {
+            return true;
+        }
+        else { return false; }
+
+    }
+
+    private int ObtainDamageWeaponEquipped()
+    {
+
+        ItemInfo[] pooledArray = new ItemInfo[10];
+
+        var bowcategory = InventorySystemManager.GetItemCategory("Sword");
+        var equippedInventory = inventory.GetItemCollection("Equipped");
+
+        var itemInfoListSlice = equippedInventory.GetItemInfos(ref pooledArray, bowcategory,
+            (candidateItemInfo, category) => category.InherentlyContains(candidateItemInfo.Item));
+
+        if (itemInfoListSlice.Count > 0)
+        {
+            var firstItemInfo = itemInfoListSlice[0];
+            var attackWeapon = firstItemInfo.Item.GetAttribute<Attribute<int>>("Attack").GetValue();
+            return attackWeapon;
+        }
+        else return 0;
+       
+    }
+
+
+    private void VerifyBowEquipped()  // verifico si tengo equipado un bow para hacer su animacion
     {
 
         ItemInfo[] pooledArray = new ItemInfo[10];
@@ -375,7 +433,7 @@ public class BattleSystem : MonoBehaviour
 
     }
 
-    private bool VerifyBow()
+    private bool VerifyBow()  // envia true si tengo equipado un bow
     {
 
         ItemInfo[] pooledArray = new ItemInfo[10];
@@ -417,9 +475,20 @@ public class BattleSystem : MonoBehaviour
         CloseInventory();
         buttonsContainer.SetActive(false);
 
-        if (VerifyBow() && playerStats.characterClass == "RANGER")
+        if (playerStats.characterClass == "RANGER")
         {
-            dobleAttack = true;
+            var chance = UnityEngine.Random.Range(0,10 );
+
+            if (VerifyBow() && chance < 4)
+            {
+                
+                dobleAttack = true;
+                StartCoroutine(PlayerAttack());
+
+            }
+        }
+        else
+        {
             StartCoroutine(PlayerAttack());
         }
         
