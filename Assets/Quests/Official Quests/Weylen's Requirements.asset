@@ -28,6 +28,34 @@ MonoBehaviour:
     m_literalValue: 1
     m_counterIndex: 0
   counterIndex: -1
+--- !u!114 &-4278192224567118417
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 454a224532e98c345b0316cce992f9ec, type: 3}
+  m_Name: UISItemAmountQuestCondition
+  m_EditorClassIdentifier: 
+  itemName:
+    m_text: Extraordinarily Big Stick
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  inventoryName:
+    m_text: 
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  comparisonMode: 0
+  amount:
+    m_valueType: 0
+    m_literalValue: 1
+    m_counterIndex: 0
+  counterIndex: -1
 --- !u!114 &-4002279362316804239
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -68,6 +96,34 @@ MonoBehaviour:
   m_contentList:
   - {fileID: 2385441822026552279}
   m_contentListSerializationProxy: []
+--- !u!114 &-2127739265922455335
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 454a224532e98c345b0316cce992f9ec, type: 3}
+  m_Name: UISItemAmountQuestCondition
+  m_EditorClassIdentifier: 
+  itemName:
+    m_text: Fireblast
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  inventoryName:
+    m_text: 
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  comparisonMode: 0
+  amount:
+    m_valueType: 0
+    m_literalValue: 1
+    m_counterIndex: 0
+  counterIndex: -1
 --- !u!114 &-1253755877975692610
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -335,14 +391,20 @@ MonoBehaviour:
     m_conditionSet:
       m_conditionList:
       - {fileID: -6804998886518840580}
-      m_conditionCountMode: 1
+      - {fileID: 4525924947773105212}
+      - {fileID: -2127739265922455335}
+      - {fileID: -4278192224567118417}
+      - {fileID: 7828305390528084072}
+      - {fileID: 2901556616428317570}
+      - {fileID: 7218328538601397232}
+      m_conditionCountMode: 0
       m_minConditionCount: 0
       m_numTrueConditions: 0
     m_childIndexList: 03000000
     m_canvasRect:
       serializedVersion: 2
-      x: 221.25002
-      y: 204.20868
+      x: 216.03261
+      y: 198.1217
       width: 120
       height: 48
   - m_id:
@@ -497,6 +559,34 @@ MonoBehaviour:
     m_stringAsset: {fileID: 0}
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
+--- !u!114 &2901556616428317570
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 454a224532e98c345b0316cce992f9ec, type: 3}
+  m_Name: UISItemAmountQuestCondition
+  m_EditorClassIdentifier: 
+  itemName:
+    m_text: Splash
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  inventoryName:
+    m_text: 
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  comparisonMode: 0
+  amount:
+    m_valueType: 0
+    m_literalValue: 1
+    m_counterIndex: 0
+  counterIndex: -1
 --- !u!114 &3694532216807239114
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -540,3 +630,87 @@ MonoBehaviour:
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
   m_requiredState: 1
+--- !u!114 &4525924947773105212
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 454a224532e98c345b0316cce992f9ec, type: 3}
+  m_Name: UISItemAmountQuestCondition
+  m_EditorClassIdentifier: 
+  itemName:
+    m_text: Wooden Sword
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  inventoryName:
+    m_text: 
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  comparisonMode: 0
+  amount:
+    m_valueType: 0
+    m_literalValue: 1
+    m_counterIndex: 0
+  counterIndex: -1
+--- !u!114 &7218328538601397232
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 454a224532e98c345b0316cce992f9ec, type: 3}
+  m_Name: UISItemAmountQuestCondition
+  m_EditorClassIdentifier: 
+  itemName:
+    m_text: Bow
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  inventoryName:
+    m_text: 
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  comparisonMode: 0
+  amount:
+    m_valueType: 0
+    m_literalValue: 1
+    m_counterIndex: 0
+  counterIndex: -1
+--- !u!114 &7828305390528084072
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 454a224532e98c345b0316cce992f9ec, type: 3}
+  m_Name: UISItemAmountQuestCondition
+  m_EditorClassIdentifier: 
+  itemName:
+    m_text: Iron Sword
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  inventoryName:
+    m_text: 
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  comparisonMode: 0
+  amount:
+    m_valueType: 0
+    m_literalValue: 1
+    m_counterIndex: 0
+  counterIndex: -1
