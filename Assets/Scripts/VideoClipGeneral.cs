@@ -9,12 +9,14 @@ public class VideoClipGeneral : MonoBehaviour
 {
 
     [SerializeField] private VideoPlayer videoPlayer;
-
-    
+    [SerializeField] private GameObject videoPlayerCanvas;
+    [SerializeField] private GameObject videoClipGameObj;
     public void OnVideoStart(string videoUrl)
     {
 
-        gameObject.SetActive(true);
+        videoPlayerCanvas.gameObject.SetActive(true);
+        videoClipGameObj.gameObject.SetActive(true);
+
         videoPlayer.url = videoUrl;
         videoPlayer.Play();
         videoPlayer.loopPointReached += OnVideoEnd;
@@ -24,7 +26,8 @@ public class VideoClipGeneral : MonoBehaviour
     private void OnVideoEnd(VideoPlayer video)
     {
 
-        gameObject.SetActive(false);
+        videoPlayerCanvas.gameObject.SetActive(false);
+        videoClipGameObj.gameObject.SetActive(false);
 
     }
 }
