@@ -11,6 +11,8 @@ public class VideoClipGeneral : MonoBehaviour
     [SerializeField] private VideoPlayer videoPlayer;
     [SerializeField] private GameObject videoPlayerCanvas;
     [SerializeField] private GameObject videoClipGameObj;
+    private List<GameObject> listGameObj = new List<GameObject>();
+
     public void OnVideoStart(string videoUrl)
     {
 
@@ -28,6 +30,15 @@ public class VideoClipGeneral : MonoBehaviour
 
         videoPlayerCanvas.gameObject.SetActive(false);
         videoClipGameObj.gameObject.SetActive(false);
+
+        foreach (GameObject gameObj in listGameObj) { gameObj.SetActive(true); }
+
+    }
+
+    public void AddGameObject(GameObject gameObj)
+    {
+
+        listGameObj.Add(gameObj);
 
     }
 }
