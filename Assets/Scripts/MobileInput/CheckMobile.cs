@@ -16,7 +16,11 @@ public class CheckMobile : MonoBehaviour
         IsMobile = false;
 #endif
     }
-
+    public void IsMobileTrue()
+    {
+        CheckMobile.IsMobile = true;
+        Debug.Log("se ejecuto la funcion ismobiletrue desde react ");
+    }
 
     public void CheckMobilePlatform(int isMobile)
     {
