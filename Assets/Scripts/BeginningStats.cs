@@ -51,16 +51,6 @@ public class BeginningStats : MonoBehaviour
             return;
         }
 
-        var playerInventory = player.GetComponent<Inventory>();
-
-        playerInventory.RemoveItemCollection(_itemCollection[(int)_initialClass]);
-        playerInventory.AddItemCollection(_itemCollection[(int)_initialClass]);
-        //  startingInventory.AddItemCollection(_itemCollection[(int)_initialClass]);
-
-        playerInventory.RemoveItemCollection(_itemCollection[(int)_initialClass]);
-        playerInventory.UpdateInventory();
-        //  startingInventory.UpdateInventory();
-
         if (slotCollectionView == null && GameUIManager.Exist)
         {
             slotCollectionView = GameUIManager.Instance.gameObject.GetComponentInChildren<ItemSlotCollectionView>();
@@ -68,8 +58,20 @@ public class BeginningStats : MonoBehaviour
 
         slotCollectionView.ItemSlotSet = _itemSlotSets[(int)_initialClass];
         slotCollectionView.SetItemViewSlotRestrictions();
+        
+        var playerInventory = player.GetComponent<Inventory>();
+
+        var equippedCol = playerInventory.GetItemCollection("Equipped");
+        playerInventory.RemoveItemCollection(equippedCol);
+        playerInventory.AddItemCollection(_itemCollection[(int)_initialClass]);
+        //  startingInventory.AddItemCollection(_itemCollection[(int)_initialClass]);
+        
+        playerInventory.UpdateInventory();
+        //  startingInventory.UpdateInventory();
+
 
         GameManager.Instance.inventoryWasInit = true;
+        GameManager.Instance.itemSlotCollection = _itemCollection[(int)_initialClass];
 
         SetInitialStats(_initialClass);
         
