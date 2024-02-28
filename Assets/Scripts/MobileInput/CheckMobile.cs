@@ -10,18 +10,17 @@ public class CheckMobile : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
 
-#if UNITY_ANDROID
-        IsMobile = true;
-#else
-        IsMobile = false;
-#endif
     }
 
 
     public void CheckMobilePlatform(int isMobile)
     {
-        if (isMobile == 1) IsMobile = true;
-
+        if (isMobile == 1) 
+        {
+            IsMobile = true;
+            PlayerPrefs.SetString("IsMobile","true");
+        
+        }
         else IsMobile = false;
     }
 }

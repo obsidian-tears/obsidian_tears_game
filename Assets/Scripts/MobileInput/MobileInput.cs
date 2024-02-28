@@ -31,11 +31,11 @@ using UnityEngine.UI;
             GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
             _player = playerObject.GetComponent<Player>();
 
-            if (CheckMobile.IsMobile)
+            if (CheckMobile.IsMobile || PlayerPrefs.GetString("IsMobile") == "true")
             {
                 m_VirtualJoystick.enabled = true;
                 _MobileUI.SetActive(true);
-
+            Debug.Log("Entre al if de checkmobile");
 
                 if (m_InteractButton != null)
                 {
