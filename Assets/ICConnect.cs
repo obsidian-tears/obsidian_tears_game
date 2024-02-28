@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Newtonsoft;
-using Newtonsoft.Json;
+
 public class ICConnect : MonoBehaviour
 {
     public string characterClass;
@@ -10,9 +9,9 @@ public class ICConnect : MonoBehaviour
 
     public void InitData(string json)
     {
-        JsonResoult characterData = JsonConvert.DeserializeObject<JsonResoult>(json);
-        this.characterClass = characterData.CharacterClass;
-        this.characterUrl = characterData.CharacterUrl;
+        //JsonResoult characterData = JsonConvert.DeserializeObject<JsonResoult>(json);
+        //this.characterClass = characterData.CharacterClass;
+        //this.characterUrl = characterData.CharacterUrl;
     }
       
 }
