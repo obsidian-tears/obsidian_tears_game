@@ -3150,8 +3150,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1129.6637
-        y: 279.83975
+        x: 1138.3688
+        y: 284.19226
         width: 160
         height: 30
     - id: 9
@@ -3443,8 +3443,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1533.8645
-        y: 936.7888
+        x: 1239.9921
+        y: 891.8739
         width: 160
         height: 30
     - id: 21
@@ -3502,8 +3502,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1582.045
-        y: 993.8304
+        x: 1288.1726
+        y: 948.91547
         width: 160
         height: 30
     - id: 22
@@ -3639,9 +3639,10 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "Ope! My apologies, I was caught up in the ramblings and musings of
-          an old guardman.\n If the obelisks are somehow connected to your disappearance
-          - I'm not sure what that could mean. "
+        value: Ope! My apologies, I was caught up in the ramblings and musings of
+          an old guardman. I am reminded of some things of a more... magical... nature
+          that may be relevant to your situation. However, this is a subject in which
+          I am not well versed...
         type: 0
         typeString: 
       - title: Sequence
@@ -3675,8 +3676,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1320.448
-        y: 1165.3776
+        x: 1323.1731
+        y: 1166.768
         width: 160
         height: 30
     - id: 25
@@ -3730,8 +3731,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1171.5464
-        y: 1228.747
+        x: 1177.8557
+        y: 1233.8801
         width: 160
         height: 30
     - id: 26
@@ -3775,7 +3776,7 @@ MonoBehaviour:
       - originConversationID: 5
         originDialogueID: 26
         destinationConversationID: 5
-        destinationDialogueID: 27
+        destinationDialogueID: 53
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -3785,71 +3786,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1444.3496
-        y: 1220.1412
-        width: 160
-        height: 30
-    - id: 27
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 6
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: "Of course! \nI would implore you to go talk to Tana. She specializes
-          in all things pertaining to obelisks, and magical lore. She recides just
-          west of here. Maybe she could give you more information."
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 5
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 5
-        originDialogueID: 27
-        destinationConversationID: 5
-        destinationDialogueID: 30
-        isConnector: 0
-        priority: 2
-      - originConversationID: 5
-        originDialogueID: 27
-        destinationConversationID: 5
-        destinationDialogueID: 31
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 1476.2017
-        y: 1328.9425
+        x: 1460.3914
+        y: 1235.2965
         width: 160
         height: 30
     - id: 28
@@ -3910,8 +3848,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1582.9309
-        y: 1049.9244
+        x: 1289.0585
+        y: 1005.0094
         width: 160
         height: 30
     - id: 29
@@ -3937,10 +3875,10 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "No need to get snappy young man. Always good to keep things civil.
-          \nI would implore you to go talk to Tana. She specializes in all things
-          pertaining to obelisks, and magical lore. She recides just west of here.
-          Maybe she could give you more information."
+        value: 'No need to be snappy young man. Always good to remain civil, I always
+          say!
+
+'
         type: 0
         typeString: 
       - title: Sequence
@@ -3958,13 +3896,7 @@ MonoBehaviour:
       - originConversationID: 5
         originDialogueID: 29
         destinationConversationID: 5
-        destinationDialogueID: 30
-        isConnector: 0
-        priority: 2
-      - originConversationID: 5
-        originDialogueID: 29
-        destinationConversationID: 5
-        destinationDialogueID: 31
+        destinationDialogueID: 53
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -3974,8 +3906,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1192.1414
-        y: 1334.34
+        x: 1175.1361
+        y: 1326.6403
         width: 160
         height: 30
     - id: 30
@@ -4029,57 +3961,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1445.79
-        y: 1495.5436
-        width: 160
-        height: 30
-    - id: 31
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 6
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: Sounds good! I'll go see what she has to say.
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 5
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: GiveQuest("Captain Herl", "Find the Lore Master")
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 1162.8066
-        y: 1503.2338
+        x: 1681.5498
+        y: 1642.1387
         width: 160
         height: 30
     - id: 33
@@ -4134,8 +4017,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1444.6982
-        y: 1557.7367
+        x: 1680.458
+        y: 1704.3318
         width: 160
         height: 30
     - id: 35
@@ -4183,8 +4066,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1448.8237
-        y: 1617.8048
+        x: 1684.5835
+        y: 1764.3999
         width: 160
         height: 30
     - id: 38
@@ -4238,7 +4121,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2192.7524
+        x: 2188.4
         y: 240.5434
         width: 160
         height: 30
@@ -4428,7 +4311,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Did you speak to Tana? I'm curious what wisdom she may have to impart...
+        value: Have you spoken to Tana yet? I'm verycurious what wisdom she may be
+          able to impart...
         type: 0
         typeString: 
       - title: Sequence
@@ -4442,7 +4326,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 5
+        originDialogueID: 42
+        destinationConversationID: 5
+        destinationDialogueID: 56
+        isConnector: 0
+        priority: 2
       conditionsString: CurrentQuestState("Find the Lore Master") == "active"
       userScript: 
       onExecute:
@@ -4450,8 +4340,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1546.3773
-        y: 361.8797
+        x: 1644.222
+        y: 345.3394
         width: 160
         height: 30
     - id: 43
@@ -4505,8 +4395,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1844.12
-        y: 315.7644
+        x: 1972.5024
+        y: 285.76553
         width: 160
         height: 30
     - id: 44
@@ -4560,8 +4450,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1841.3744
-        y: 381.11957
+        x: 1968.1677
+        y: 348.08694
         width: 160
         height: 30
     - id: 45
@@ -4616,8 +4506,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1841.746
-        y: 429.2651
+        x: 1970.0562
+        y: 394.56372
         width: 160
         height: 30
     - id: 46
@@ -4666,8 +4556,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1843.0807
-        y: 481.11963
+        x: 1968.4232
+        y: 446.41824
         width: 160
         height: 30
     - id: 47
@@ -4715,8 +4605,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1458.2721
-        y: 422.33005
+        x: 1404.8854
+        y: 406.31403
         width: 160
         height: 30
     - id: 48
@@ -5003,9 +4893,223 @@ MonoBehaviour:
         y: 745.88605
         width: 160
         height: 30
+    - id: 53
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 6
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: I would implore you to go talk to Tana, our Lore Master. She knows
+          more about magical items, monsters, and Lore than I do. Perhaps she may
+          be more helpful.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 5
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 5
+        originDialogueID: 53
+        destinationConversationID: 5
+        destinationDialogueID: 54
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: GiveQuest("Captain Herl", "Find the Lore Master")
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1325.8741
+        y: 1419.0983
+        width: 160
+        height: 30
+    - id: 54
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 6
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: She resides in the upper-left hand corner of this village. Simply
+          travel directly west of here, and you shouldn't have too many issues finding
+          her. If you get lost, maybe try pulling out your Map! That could help as
+          well.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 5
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 5
+        originDialogueID: 54
+        destinationConversationID: 5
+        destinationDialogueID: 55
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1321.8221
+        y: 1478.1036
+        width: 160
+        height: 30
+    - id: 55
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 6
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Good luck Phendrin! Come back if you have any more questions!
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 5
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1324.4233
+        y: 1539.41
+        width: 160
+        height: 30
+    - id: 56
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 6
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: You can find her by traveling  West from where we are currently. Hopefully
+          she will be able to help more than I have thus far.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 5
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1645.2079
+        y: 404.2769
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 676.40076, y: 599.12305}
-    canvasZoom: 0.7792499
+    canvasScrollPosition: {x: 1009.899, y: 43.894394}
+    canvasZoom: 0.7192497
   - id: 6
     fields:
     - title: Title
@@ -9032,8 +9136,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 103.38379, y: 49.163677}
-    canvasZoom: 0.8199997
+    canvasScrollPosition: {x: 116.85385, y: 61.630093}
+    canvasZoom: 0.87999964
   - id: 8
     fields:
     - title: Title
@@ -11982,8 +12086,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Hello there. Welcome to the Lore Sanctonium. My name is Tana - I oversee
-          most of the arcane studies and relics that reside within our village.
+        value: Hello there visitor. Welcome to the Lore Sanctonium. My name is Tana
+          - I oversee most of the arcane studies and relics that reside within our
+          village.
         type: 0
         typeString: 
       - title: Sequence
@@ -12001,19 +12106,7 @@ MonoBehaviour:
       - originConversationID: 9
         originDialogueID: 14
         destinationConversationID: 9
-        destinationDialogueID: 35
-        isConnector: 0
-        priority: 2
-      - originConversationID: 9
-        originDialogueID: 14
-        destinationConversationID: 9
-        destinationDialogueID: 38
-        isConnector: 0
-        priority: 2
-      - originConversationID: 9
-        originDialogueID: 14
-        destinationConversationID: 9
-        destinationDialogueID: 215
+        destinationDialogueID: 216
         isConnector: 0
         priority: 2
       conditionsString: 'CurrentQuestState("Find the Lore Master") == "active" and
@@ -12026,8 +12119,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 426.66736
-        y: 586.55304
+        x: 420.52048
+        y: 799.76624
         width: 160
         height: 30
     - id: 15
@@ -12927,8 +13020,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 418.57568
-        y: 646.19574
+        x: 3248.7136
+        y: 1288.0204
         width: 160
         height: 30
     - id: 37
@@ -12984,8 +13077,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 414.0249
-        y: 700.5756
+        x: 3244.1628
+        y: 1342.4003
         width: 160
         height: 30
     - id: 38
@@ -13039,8 +13132,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 623.3489
-        y: 590.96783
+        x: 3578.3079
+        y: 1141.4882
         width: 160
         height: 30
     - id: 39
@@ -13102,8 +13195,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 412.60297
-        y: 751.99756
+        x: 3243.828
+        y: 1438.5282
         width: 160
         height: 30
     - id: 40
@@ -13129,7 +13222,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 'I think obelisks might have something to do with me? '
+        value: 'Captain Herl '
         type: 0
         typeString: 
       - title: Sequence
@@ -13157,8 +13250,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 634.03046
-        y: 805.108
+        x: 3454.3887
+        y: 1441.1742
         width: 160
         height: 30
     - id: 41
@@ -13263,8 +13356,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 413.24323
-        y: 936.54706
+        x: 3242.1152
+        y: 1578.3718
         width: 160
         height: 30
     - id: 43
@@ -13326,8 +13419,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 565.46387
-        y: 995.83466
+        x: 3394.336
+        y: 1637.6594
         width: 160
         height: 30
     - id: 44
@@ -13381,8 +13474,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 777.925
-        y: 1040.8396
+        x: 3606.797
+        y: 1682.6643
         width: 160
         height: 30
     - id: 45
@@ -13437,8 +13530,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 828.06665
-        y: 802.31885
+        x: 3656.9387
+        y: 1444.1436
         width: 160
         height: 30
     - id: 46
@@ -13492,8 +13585,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1202.5269
-        y: 809.0825
+        x: 4031.399
+        y: 1450.9072
         width: 160
         height: 30
     - id: 47
@@ -13547,8 +13640,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1203.843
-        y: 745.188
+        x: 4032.7148
+        y: 1387.0127
         width: 160
         height: 30
     - id: 48
@@ -13603,8 +13696,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1395.8677
-        y: 786.7471
+        x: 4224.74
+        y: 1428.5718
         width: 160
         height: 30
     - id: 50
@@ -13658,8 +13751,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 783.2216
-        y: 964.01013
+        x: 3612.0938
+        y: 1605.8348
         width: 160
         height: 30
     - id: 51
@@ -13720,8 +13813,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 822.29736
-        y: 600.36456
+        x: 3651.1694
+        y: 1242.1893
         width: 160
         height: 30
     - id: 52
@@ -13775,8 +13868,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1011.9088
-        y: 601.09283
+        x: 3840.781
+        y: 1244.5569
         width: 160
         height: 30
     - id: 53
@@ -13802,8 +13895,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Well, it sounds like I was found near an obelisk in the forest? Know
-          anything about those?
+        value: Captain Herl sent me. I don't know where to start.
         type: 0
         typeString: 
       - title: Sequence
@@ -13831,8 +13923,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 823.8518
-        y: 685.4202
+        x: 3663.6033
+        y: 1340.7559
         width: 160
         height: 30
     - id: 54
@@ -13892,8 +13984,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1008.4605
-        y: 804.1045
+        x: 3837.3325
+        y: 1445.9292
         width: 160
         height: 30
     - id: 55
@@ -13949,8 +14041,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1197.9983
-        y: 606.3239
+        x: 4026.87
+        y: 1248.1486
         width: 160
         height: 30
     - id: 56
@@ -14008,8 +14100,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1397.4341
-        y: 612.056
+        x: 4237.2646
+        y: 1248.4012
         width: 160
         height: 30
     - id: 58
@@ -14070,8 +14162,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 988.96545
-        y: 962.5741
+        x: 3817.8376
+        y: 1604.3988
         width: 160
         height: 30
     - id: 59
@@ -14132,8 +14224,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 978.52527
-        y: 1039.4038
+        x: 3807.3972
+        y: 1681.2285
         width: 160
         height: 30
     - id: 60
@@ -14187,8 +14279,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1197.9849
-        y: 1032.8245
+        x: 4026.857
+        y: 1674.6492
         width: 160
         height: 30
     - id: 61
@@ -14248,8 +14340,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1196.2705
-        y: 1101.4055
+        x: 4025.1426
+        y: 1743.2302
         width: 160
         height: 30
     - id: 62
@@ -14303,8 +14395,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1191.2798
-        y: 935.42035
+        x: 4020.1519
+        y: 1577.2451
         width: 160
         height: 30
     - id: 63
@@ -14360,8 +14452,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1378.1638
-        y: 959.7023
+        x: 4207.036
+        y: 1601.527
         width: 160
         height: 30
     - id: 65
@@ -14415,8 +14507,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1616.3035
-        y: 960.3675
+        x: 4445.176
+        y: 1602.1921
         width: 160
         height: 30
     - id: 67
@@ -14471,8 +14563,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1405.4431
-        y: 1089.6824
+        x: 4234.3154
+        y: 1731.5071
         width: 160
         height: 30
     - id: 68
@@ -14533,8 +14625,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1607.7578
-        y: 1086.532
+        x: 4436.63
+        y: 1728.3567
         width: 160
         height: 30
     - id: 69
@@ -14589,8 +14681,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1602.7117
-        y: 784.53284
+        x: 4431.584
+        y: 1426.3575
         width: 160
         height: 30
     - id: 70
@@ -14646,8 +14738,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1784.9165
-        y: 784.94086
+        x: 4613.789
+        y: 1426.7655
         width: 160
         height: 30
     - id: 71
@@ -14703,8 +14795,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1780.8076
-        y: 837.72406
+        x: 4609.6797
+        y: 1479.5487
         width: 160
         height: 30
     - id: 72
@@ -14760,8 +14852,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1967.9338
-        y: 782.67554
+        x: 4796.8057
+        y: 1424.5002
         width: 160
         height: 30
     - id: 75
@@ -14816,8 +14908,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1964.3137
-        y: 840.0483
+        x: 4793.1855
+        y: 1481.8729
         width: 160
         height: 30
     - id: 76
@@ -14878,8 +14970,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2140.065
-        y: 783.40576
+        x: 4968.9365
+        y: 1425.2305
         width: 160
         height: 30
     - id: 77
@@ -14933,8 +15025,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2328.6343
-        y: 781.72894
+        x: 5157.506
+        y: 1423.5536
         width: 160
         height: 30
     - id: 78
@@ -14988,8 +15080,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2332.0889
-        y: 923.78436
+        x: 5160.961
+        y: 1565.6091
         width: 160
         height: 30
     - id: 79
@@ -15050,8 +15142,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2550.6982
-        y: 851.04486
+        x: 5379.5703
+        y: 1492.8695
         width: 160
         height: 30
     - id: 80
@@ -15112,8 +15204,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2551.623
-        y: 774.9253
+        x: 5380.495
+        y: 1416.75
         width: 160
         height: 30
     - id: 81
@@ -15167,8 +15259,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2772.2295
-        y: 778.5664
+        x: 5668.1772
+        y: 1409.9243
         width: 160
         height: 30
     - id: 82
@@ -15222,8 +15314,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2769.669
-        y: 856.40356
+        x: 5665.6167
+        y: 1487.7615
         width: 160
         height: 30
     - id: 83
@@ -15278,8 +15370,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2971.4297
-        y: 853.01294
+        x: 5867.3774
+        y: 1484.3708
         width: 160
         height: 30
     - id: 85
@@ -15334,8 +15426,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2971.4297
-        y: 780.199
+        x: 5867.3774
+        y: 1411.5569
         width: 160
         height: 30
     - id: 86
@@ -15393,8 +15485,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 3157.5103
-        y: 778.8967
+        x: 6053.458
+        y: 1410.2546
         width: 160
         height: 30
     - id: 87
@@ -15452,8 +15544,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 3340.3633
-        y: 779.56006
+        x: 6236.311
+        y: 1410.918
         width: 160
         height: 30
     - id: 88
@@ -15511,8 +15603,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 3157.5103
-        y: 852.4158
+        x: 6053.458
+        y: 1483.7737
         width: 160
         height: 30
     - id: 89
@@ -15567,8 +15659,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 3339.2915
-        y: 848.55585
+        x: 6235.2393
+        y: 1479.9137
         width: 160
         height: 30
     - id: 94
@@ -15624,8 +15716,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 3526.2803
-        y: 780.54395
+        x: 6422.228
+        y: 1411.9019
         width: 160
         height: 30
     - id: 95
@@ -15681,8 +15773,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 3526.6597
-        y: 845.0981
+        x: 6422.6074
+        y: 1476.4559
         width: 160
         height: 30
     - id: 96
@@ -15736,8 +15828,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 3711.5115
-        y: 822.898
+        x: 6607.459
+        y: 1454.2559
         width: 160
         height: 30
     - id: 97
@@ -15798,8 +15890,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 3916.7212
-        y: 811.4081
+        x: 6812.669
+        y: 1442.7659
         width: 160
         height: 30
     - id: 99
@@ -15853,8 +15945,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 4130.1045
-        y: 799.7398
+        x: 7026.0522
+        y: 1431.0977
         width: 160
         height: 30
     - id: 100
@@ -15908,8 +16000,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 4133.1704
-        y: 876.36005
+        x: 7029.118
+        y: 1507.7179
         width: 160
         height: 30
     - id: 101
@@ -15964,8 +16056,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 4322.766
-        y: 800.75024
+        x: 4307.112
+        y: 841.8819
         width: 160
         height: 30
     - id: 102
@@ -16019,8 +16111,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 4325.4834
-        y: 875.09424
+        x: 7221.431
+        y: 1506.4521
         width: 160
         height: 30
     - id: 103
@@ -16075,8 +16167,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 4514.6465
-        y: 827.2781
+        x: 4572.8286
+        y: 609.09625
         width: 160
         height: 30
     - id: 104
@@ -20884,13 +20976,1732 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 627.20215
-        y: 643.43286
+        x: 234.98761
+        y: 994.5647
+        width: 160
+        height: 30
+    - id: 216
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 10
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 'It is my specialty to study and  comprehend the mystical arts that
+          guide the existence of Eli''Alan.
+
+          Understandably, this is not
+          always easier done than it is said.'
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 9
+        originDialogueID: 216
+        destinationConversationID: 9
+        destinationDialogueID: 219
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 618.87085
+        y: 803.8526
+        width: 160
+        height: 30
+    - id: 217
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 10
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Nonetheless I make it my life's work to achieve a broader and comprehensive
+          understanding of magic and relics. These obelisks are of a keen interest
+          of mine specifcally.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 9
+        originDialogueID: 217
+        destinationConversationID: 9
+        destinationDialogueID: 218
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 2365.5706
+        y: 1238.2212
+        width: 160
+        height: 30
+    - id: 218
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 10
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 2581.3604
+        y: 1235.5895
+        width: 160
+        height: 30
+    - id: 219
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 10
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: I have especially a keen interest in the history of Eli'Alan and ancient
+          relics.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 9
+        originDialogueID: 219
+        destinationConversationID: 9
+        destinationDialogueID: 220
+        isConnector: 0
+        priority: 2
+      - originConversationID: 9
+        originDialogueID: 219
+        destinationConversationID: 9
+        destinationDialogueID: 221
+        isConnector: 0
+        priority: 2
+      - originConversationID: 9
+        originDialogueID: 219
+        destinationConversationID: 9
+        destinationDialogueID: 222
+        isConnector: 0
+        priority: 2
+      - originConversationID: 9
+        originDialogueID: 219
+        destinationConversationID: 9
+        destinationDialogueID: 223
+        isConnector: 0
+        priority: 2
+      - originConversationID: 9
+        originDialogueID: 219
+        destinationConversationID: 9
+        destinationDialogueID: 215
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 828.0814
+        y: 800.71497
+        width: 160
+        height: 30
+    - id: 220
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 10
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Captain Herl sent me.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 9
+        originDialogueID: 220
+        destinationConversationID: 9
+        destinationDialogueID: 231
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1061.6681
+        y: 684.38947
+        width: 160
+        height: 30
+    - id: 221
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 10
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Eli'Alan?
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 9
+        originDialogueID: 221
+        destinationConversationID: 9
+        destinationDialogueID: 224
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1058.8345
+        y: 841.6921
+        width: 160
+        height: 30
+    - id: 222
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 10
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Ancient relics?
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 9
+        originDialogueID: 222
+        destinationConversationID: 9
+        destinationDialogueID: 226
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1053.7399
+        y: 1027.6304
+        width: 160
+        height: 30
+    - id: 223
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 10
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: I'll come back later.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 595.1489
+        y: 1043.5952
+        width: 160
+        height: 30
+    - id: 224
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 10
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "Eli'Alan? \nAs in our planet? The earth? Where we live? Did you not
+          know what Eli'Alan was?"
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 9
+        originDialogueID: 224
+        destinationConversationID: 9
+        destinationDialogueID: 225
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1269.1222
+        y: 841.34265
+        width: 160
+        height: 30
+    - id: 225
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 10
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: I hope you didn't just come here to ask simple questions. Is there
+          anything else?
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 9
+        originDialogueID: 225
+        destinationConversationID: 9
+        destinationDialogueID: 220
+        isConnector: 0
+        priority: 2
+      - originConversationID: 9
+        originDialogueID: 225
+        destinationConversationID: 9
+        destinationDialogueID: 222
+        isConnector: 0
+        priority: 2
+      - originConversationID: 9
+        originDialogueID: 225
+        destinationConversationID: 9
+        destinationDialogueID: 223
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1480.6422
+        y: 847.22894
+        width: 160
+        height: 30
+    - id: 226
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 10
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Ah, you have an interest in ancient relics? It seems you may be an
+          estudious individual that shares the curiosity of bygone times.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 9
+        originDialogueID: 226
+        destinationConversationID: 9
+        destinationDialogueID: 227
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1255.0311
+        y: 1033.5342
+        width: 160
+        height: 30
+    - id: 227
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 10
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: ' This obelisk shard you see in front of me is a relic of my particular
+          interest.'
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 9
+        originDialogueID: 227
+        destinationConversationID: 9
+        destinationDialogueID: 228
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1435.7056
+        y: 1033.534
+        width: 160
+        height: 30
+    - id: 228
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 10
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: However, now might not be the best time to discuss this. It is a lengthy
+          topic and I am short on time. Did you have any other questions?
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 9
+        originDialogueID: 228
+        destinationConversationID: 9
+        destinationDialogueID: 220
+        isConnector: 0
+        priority: 2
+      - originConversationID: 9
+        originDialogueID: 228
+        destinationConversationID: 9
+        destinationDialogueID: 221
+        isConnector: 0
+        priority: 2
+      - originConversationID: 9
+        originDialogueID: 228
+        destinationConversationID: 9
+        destinationDialogueID: 223
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1635.5411
+        y: 1039.5374
+        width: 160
+        height: 30
+    - id: 230
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 10
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Captain Herl is quite capable and usually can handle things on his
+          own. There is only one reason I can think of why he would send you to me,
+          rather than searching for an answer on his own.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 9
+        originDialogueID: 230
+        destinationConversationID: 9
+        destinationDialogueID: 232
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1885.5238
+        y: 676.5505
+        width: 160
+        height: 30
+    - id: 231
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 10
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Oh you silly. You think I didn't already know!? I have the power to
+          read the magical energy in the room to discern your thoughts! You can hide
+          NOTHING from me. NOTHING!
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 9
+        originDialogueID: 231
+        destinationConversationID: 9
+        destinationDialogueID: 233
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1278.9756
+        y: 680.5434
+        width: 160
+        height: 30
+    - id: 232
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 10
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Tell me, strange visitor, how much do you know about the obelisks?
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 9
+        originDialogueID: 232
+        destinationConversationID: 9
+        destinationDialogueID: 236
+        isConnector: 0
+        priority: 2
+      - originConversationID: 9
+        originDialogueID: 232
+        destinationConversationID: 9
+        destinationDialogueID: 237
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1880.0128
+        y: 731.4627
+        width: 160
+        height: 30
+    - id: 233
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 10
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: '...
+
+
+          ...
+
+
+          .........'
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 9
+        originDialogueID: 233
+        destinationConversationID: 9
+        destinationDialogueID: 234
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1496.2832
+        y: 681.97205
+        width: 160
+        height: 30
+    - id: 234
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 10
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "I'm just kidding. Unfortunately, I haven't quite figured out how
+          to read minds yet. \nActually, one of Herl's guardsman informed me earlier
+          that you would be coming. "
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 9
+        originDialogueID: 234
+        destinationConversationID: 9
+        destinationDialogueID: 235
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1705.8698
+        y: 678.78595
+        width: 160
+        height: 30
+    - id: 235
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 10
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "Jokes aside, I find this entire situation  interesting... and I find
+          YOU even more interesting. \nA mystery that has yet to be solved..."
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 9
+        originDialogueID: 235
+        destinationConversationID: 9
+        destinationDialogueID: 230
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1699.1108
+        y: 736.31256
+        width: 160
+        height: 30
+    - id: 236
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 10
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Everything!
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 9
+        originDialogueID: 236
+        destinationConversationID: 9
+        destinationDialogueID: 238
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 2091.4417
+        y: 651.4627
+        width: 160
+        height: 30
+    - id: 237
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 10
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Not very much.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 9
+        originDialogueID: 237
+        destinationConversationID: 9
+        destinationDialogueID: 239
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 2091.4417
+        y: 794.3199
+        width: 160
+        height: 30
+    - id: 238
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 10
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 'HA! Nice try. I don''t need to be a mind reader to see through that
+          fib, strange visitor. Allow me to explain:'
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 9
+        originDialogueID: 238
+        destinationConversationID: 9
+        destinationDialogueID: 240
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 2291.4414
+        y: 646.8815
+        width: 160
+        height: 30
+    - id: 239
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 10
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 'As I thought would be the case. Allow me to briefly educate you:'
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 9
+        originDialogueID: 239
+        destinationConversationID: 9
+        destinationDialogueID: 240
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 2294.2986
+        y: 791.46277
+        width: 160
+        height: 30
+    - id: 240
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 10
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 'This small shard you see in front of me is a piece of an obelisk
+          that was recovered from outside the village.
+
+          There is a larger
+          one outside this Sanctonium, however it is still broken and incomplete.'
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 9
+        originDialogueID: 240
+        destinationConversationID: 9
+        destinationDialogueID: 241
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 2510.4458
+        y: 722.0382
+        width: 160
+        height: 30
+    - id: 241
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 10
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 'These obelisks scatter the countryside far and wide, and each is
+          imbued with a magical energy that we believe can be used to increase ones
+          physical and magical prowess!
+
+          However, we are unsure exactly
+          how that might work.'
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 9
+        originDialogueID: 241
+        destinationConversationID: 9
+        destinationDialogueID: 242
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 2689.1987
+        y: 716.463
+        width: 160
+        height: 30
+    - id: 242
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 10
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "Additionally, each obelisk has inscribed upon it a unique phrase.
+          When these phrases are combined, they form what seems to be...\n...\n an
+          ancient prophecy."
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 9
+        originDialogueID: 242
+        destinationConversationID: 9
+        destinationDialogueID: 245
+        isConnector: 0
+        priority: 2
+      - originConversationID: 9
+        originDialogueID: 242
+        destinationConversationID: 9
+        destinationDialogueID: 246
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 2882.9446
+        y: 723.0876
+        width: 160
+        height: 30
+    - id: 243
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 10
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "Now the important question! \nWhy is this pertinent?\nAlthough this
+          may be...coincidental... a few of these phrases we have recovered do seem
+          to describe your particular situation. "
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 9
+        originDialogueID: 243
+        destinationConversationID: 9
+        destinationDialogueID: 244
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 3292.9216
+        y: 702.8843
+        width: 160
+        height: 30
+    - id: 244
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 10
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 'This brings '
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 3483.2314
+        y: 707.7295
+        width: 160
+        height: 30
+    - id: 245
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 10
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Ancient prophecy?
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 3063.9575
+        y: 664.2268
+        width: 160
+        height: 30
+    - id: 246
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 10
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 'Physical '
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 9
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 3060.1597
+        y: 779.41675
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 38.533768, y: 626.546}
-    canvasZoom: 0.5500002
+    canvasScrollPosition: {x: 2424.9756, y: 375.0221}
+    canvasZoom: 0.7899997
   - id: 10
     fields:
     - title: Title
