@@ -15,21 +15,28 @@ public class VideoClipGeneral : MonoBehaviour
 
     [SerializeField] private Animator fadeAnim;
     [SerializeField] private GameObject fadeCanvas;
+    private GameObject player;
+    private Player playercomponent;
 
-
-    public void OnVideoStart(string videoUrl)
+   public void OnVideoStart(string videoUrl)
     {
+        
+        player = GameObject.FindWithTag("Player");
+        playercomponent = player.GetComponent<Player>();        
+        playercomponent.enabled = false;
+        foreach (GameObject gameObj in listGameObj) { gameObj.SetActive(true); }
         StartCoroutine(FadeIn(videoUrl));
     }
 
     private void OnVideoEnd(VideoPlayer video)
     {
+        playercomponent.enabled = true;
 
         videoPlayerCanvas.gameObject.SetActive(false);
         videoClipGameObj.gameObject.SetActive(false);
         fadeCanvas.SetActive(false);
-        foreach (GameObject gameObj in listGameObj) { gameObj.SetActive(true); }
-        Time.timeScale = 1;
+        
+        //Time.timeScale = 1;
     }
 
     public void AddGameObject(GameObject gameObj)
@@ -43,18 +50,16 @@ public class VideoClipGeneral : MonoBehaviour
     {
 
         fadeCanvas.SetActive(true);
-        fadeAnim.SetTrigger("Fade");
-        Time.timeScale = 0;
-        yield return new WaitForSeconds(1f);
+        fadeAnim.SetTrigger("FadeIn");
+       // Time.timeScale = 0;
         videoPlayerCanvas.gameObject.SetActive(true);
-        videoClipGameObj.gameObject.SetActive(true);
-        
-
+        videoClipGameObj.gameObject.SetActive(true);        
+        yield return new WaitForSeconds(fadeAnim.GetCurrentAnimatorStateInfo(0).length);
+        fadeAnim.SetTrigger("FadeOut");
         videoPlayer.url = videoUrl;
         videoPlayer.Play();
         videoPlayer.loopPointReached += OnVideoEnd;
     }
-
 
 
 
