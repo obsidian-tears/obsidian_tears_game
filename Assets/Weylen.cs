@@ -7,12 +7,18 @@ using System;
 
 public class Weylen : MonoBehaviour, IMessageHandler
 {
+    [Tooltip("The position that Weylen will be teleported to.")]
     [SerializeField] Vector3 newPosition;
+    [Tooltip("If true, Weylen will be teleported to a position relative to his current position. If false, Weylen will be teleported to the position specified in newPosition.")]
+    [SerializeField] bool useRelativePosition = false;
+    [Tooltip("The BoxCollider2D that will be disabled when Weylen teleports.")]
     [SerializeField] BoxCollider2D questCollider;
+    [Tooltip("How long the transition will last.")]
+    [SerializeField] float transitionTime = 1.0f;
     private void Start()
     {
         MessageSystem.AddListener(this, "Quest State Changed", "Weylen's Requirements");
-        DontDestroyOnLoad(this);
+        // DontDestroyOnLoad(this.GetComponent<Weylen>());
     }
 
     // Unregister when this GameObject is destroyed.
@@ -29,19 +35,29 @@ public class Weylen : MonoBehaviour, IMessageHandler
     
     private void OnMessage(string message, string parameter, object s)
     {
-        if (QuestMachine.GetQuestNodeState("Weylen's Requirements", "Dialogue") != QuestNodeState.True) 
-            return;
-        
+        if (QuestMachine.GetQuestNodeState("Weylen's Requirements", "Dialogue") 
+            == QuestNodeState.True) 
+            StartCoroutine(Go());
+    }
+
+    private IEnumerator Go() {
         FreezePlayer(true);
         FadeOut();
+        yield return new WaitForSeconds(transitionTime);
         SwapBoxCollider();
+        SwapWalkingScripts();
         Teleport();
         FadeIn();
         FreezePlayer(false);
     }
 
+    private void SwapWalkingScripts() {
+       GetComponents<NonPlayableCharacter>()[0].enabled = false;
+       GetComponents<NonPlayableCharacter>()[1].enabled = true;
+    }
+
     private void Teleport() {
-        transform.position = newPosition;
+        transform.position = useRelativePosition ? transform.position + newPosition : newPosition;
     }
 
     private void SwapBoxCollider() {
