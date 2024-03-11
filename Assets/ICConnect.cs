@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class ICConnect : MonoBehaviour
 {
-    public string characterClass;
-    public string characterUrl;
+    public static string characterClass;
+    public static string characterUrl;
 
     public void InitData(string json)
     {
         JsonResoult characterData = JsonConvert.DeserializeObject<JsonResoult>(json);
-        this.characterClass = characterData.CharacterClass;
-        this.characterUrl = characterData.CharacterUrl;
+        characterClass = characterData.CharacterClass;
+        characterUrl = characterData.CharacterUrl;
     }
       
 }

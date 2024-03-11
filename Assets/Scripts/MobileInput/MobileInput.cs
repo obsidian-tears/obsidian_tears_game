@@ -61,6 +61,14 @@ public class MobileInput : MonoBehaviour
         {
             return;
         }
+
+        if (_player = null)
+        {
+            GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+            _player = playerObject.GetComponent<Player>();
+        }
+
+
         _player.animator.SetFloat("moveX", m_VirtualJoystick.GetAxis("Horizontal"));
         _player.animator.SetFloat("moveY", m_VirtualJoystick.GetAxis("Vertical"));
         _player.animator.SetBool("moving", m_VirtualJoystick.GetAxis("Horizontal") != 0 || m_VirtualJoystick.GetAxis("Vertical") != 0);
