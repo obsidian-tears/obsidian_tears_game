@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static Opsive.UltimateInventorySystem.DatabaseNames.DemoInventoryDatabaseNames;
 
 
 //namespace Opsive.Shared.Input
@@ -14,11 +15,12 @@ using UnityEngine.UI;
     public class MobileInput : MonoBehaviour
     {
         [SerializeField] private VirtualJoystick m_VirtualJoystick;
-        [SerializeField] private Button m_InteractButton;
-        [SerializeField] private Button m_RunButton;
+        [SerializeField] private VirtualButton m_InteractButton;
+        [SerializeField] private VirtualButton m_RunButton;
         [SerializeField] GameObject _MobileUI;
 
-        private Vector3 changeMobile;
+        [SerializeField] private VirtualControlsManager controlsManager;
+
 
         public bool running;
 
@@ -35,44 +37,42 @@ using UnityEngine.UI;
             {
                 m_VirtualJoystick.enabled = true;
                 _MobileUI.SetActive(true);
-            Debug.Log("Entre al if de checkmobile");
+                Debug.Log("Entre al if de checkmobile");
 
-                if (m_InteractButton != null)
+                if (controlsManager != null)
                 {
-                    
-                    m_InteractButton.onClick.AddListener(OnInteractButtonClicked);
-                    EventManager.StartListening("BotonInteractTocado", OnInteractButtonClicked);
-                }
 
-                if (m_RunButton != null)
-                {
-                    m_RunButton.onClick.AddListener(OnRunButtonPressed);
-                    EventManager.StartListening("BotonRunTocado", OnRunButtonPressed);
-                    
-                }
+                    if (m_InteractButton != null)
+                    {
+                        controlsManager.RegisterVirtualControl("Interact", m_InteractButton);
+                    }
 
-            }
+
+                }
+    
 
         }
+
+    }
 
 
         void FixedUpdate()
         {
             Vector3 joystickInput = new Vector3(m_VirtualJoystick.GetAxis("Horizontal"), m_VirtualJoystick.GetAxis("Vertical"), 0f);
             joystickInput = joystickInput.magnitude > .75f ? joystickInput.normalized : joystickInput;
-        //Move(joystickInput);          
+            //Move(joystickInput);          
 
-        // changeMobile = joystickInput;
-        // changeMobile.x = Input.GetAxisRaw("Horizontal");
-        // changeMobile.y = Input.GetAxisRaw("Vertical");
+            // changeMobile = joystickInput;
+            // changeMobile.x = Input.GetAxisRaw("Horizontal");
+            // changeMobile.y = Input.GetAxisRaw("Vertical");
 
 
-        if (joystickInput != Vector3.zero)
-            {
-                EventManager.TriggerEvent("JoystickTocado");
-                Move(joystickInput);
+            if (joystickInput != Vector3.zero)
+                {
+                    //EventManager.TriggerEvent("JoystickTocado");
+                    Move(joystickInput);
+                }
             }
-        }
 
 
 
@@ -84,14 +84,16 @@ using UnityEngine.UI;
             _player.animator.SetFloat("moveX", direction.x);
             _player.animator.SetFloat("moveY", direction.y);
             _player.animator.SetBool("moving", direction.magnitude > 0);
+           
 
-            //Debug.Log(_player.speed);
-        } 
+        //Debug.Log(_player.speed);
+    } 
       
 
         private void OnInteractButtonClicked()
         {
-            
+            //interactuar xd
+
         }
 
 

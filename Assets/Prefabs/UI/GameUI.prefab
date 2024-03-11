@@ -61100,9 +61100,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_VirtualJoystick: {fileID: 3453413207395780512}
-  m_InteractButton: {fileID: 412672754966864493}
-  m_RunButton: {fileID: 1549994879761731682}
+  m_InteractButton: {fileID: 1289163916325862667}
+  m_RunButton: {fileID: 3343335325007613418}
   _MobileUI: {fileID: 6582452668155436849}
+  controlsManager: {fileID: 2182507890144056962}
   running: 0
   _player: {fileID: 0}
 --- !u!114 &7297773799199385039
@@ -103666,7 +103667,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6560508856131590104
 RectTransform:
   m_ObjectHideFlags: 0
@@ -107000,7 +107001,7 @@ GameObject:
   - component: {fileID: 1289163916325862667}
   - component: {fileID: 1549994879761731682}
   m_Layer: 5
-  m_Name: BTN_B
+  m_Name: BTN_B_Interact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107090,7 +107091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11b07129b6505394286595a777eac99e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ButtonName: B
+  m_ButtonName: Interact
 --- !u!114 &1549994879761731682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108479,7 +108480,7 @@ GameObject:
   - component: {fileID: 3343335325007613418}
   - component: {fileID: 412672754966864493}
   m_Layer: 5
-  m_Name: BTN_A
+  m_Name: BTN_A_Run
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108585,7 +108586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11b07129b6505394286595a777eac99e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ButtonName: A
+  m_ButtonName: Run
 --- !u!114 &412672754966864493
 MonoBehaviour:
   m_ObjectHideFlags: 0
