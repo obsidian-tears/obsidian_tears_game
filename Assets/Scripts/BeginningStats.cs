@@ -1,8 +1,4 @@
-using Opsive.UltimateInventorySystem.Core;
-using Opsive.UltimateInventorySystem.Core.DataStructures;
 using Opsive.UltimateInventorySystem.Core.InventoryCollections;
-using Opsive.UltimateInventorySystem.Exchange;
-using System.Collections;
 using System.Collections.Generic;
 using GameManagers;
 using Opsive.UltimateInventorySystem.UI.Panels.Hotbar;

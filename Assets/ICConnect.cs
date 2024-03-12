@@ -1,12 +1,10 @@
 using Newtonsoft.Json;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ICConnect : MonoBehaviour
 {
     public static string characterClass;
-    public static string characterUrl;
+    public static string characterUrl; //= "https://pbs.twimg.com/media/EN4EWu4WAAA9t14.png";
 
     public void InitData(string json)
     {
