@@ -38,6 +38,9 @@ public class BeginningStats : MonoBehaviour
 
     private void Awake()
     {
+        string charClass = ICConnect.characterClass;       
+        VerifyClassICConnect(charClass);
+
         if (player != null)
         {
             animPlayer.SetFloat("moveX", 1);
@@ -92,6 +95,25 @@ public class BeginningStats : MonoBehaviour
     {
         var charStats = player.GetComponent<CharStats>();
         charStats.characterClass = _initialClass.ToString();
+    }
+
+
+    private void VerifyClassICConnect(string charClass)
+    {
+        if (charClass == "MAGE") 
+        {
+            _initialClass = InitialClasses.MAGE;            
+        }
+        if (charClass == "FIGTHER")
+        {
+            _initialClass = InitialClasses.FIGTHER;
+        }
+        if (charClass == "RANGER")
+        {
+            _initialClass = InitialClasses.RANGER;
+        }
+
+
     }
 
     private void SetInitialStats(InitialClasses actualClass)

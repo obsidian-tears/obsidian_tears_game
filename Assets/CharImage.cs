@@ -5,20 +5,24 @@ using UnityEngine.Networking;
 
 public class CharImage : MonoBehaviour
 {
-    private SpriteRenderer spriteRenderer;
+    [SerializeField] private SpriteRenderer spriteRenderer;
     private string imageUrl;
+
 
 
     private void Start()
     {
-        string imageUrl = ICConnect.characterUrl;
 
-        StartCoroutine(LoadImage());
+        imageUrl = ICConnect.characterUrl;
+        StartCoroutine(LoadImage(imageUrl));
+
+
     }
 
-    IEnumerator LoadImage()
+
+    IEnumerator LoadImage(string image)
     {
-        using (UnityWebRequest www = UnityWebRequestTexture.GetTexture(imageUrl))
+        using (UnityWebRequest www = UnityWebRequestTexture.GetTexture(image))
         {
             yield return www.SendWebRequest();
 
