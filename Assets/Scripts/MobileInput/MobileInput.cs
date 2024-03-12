@@ -113,13 +113,13 @@ public class MobileInput : MonoBehaviour
     }
 
 
-    private void OnRunButtonPressed()
+    public void OnRunButtonPressed()
     {
         _player.HandleRunButtonPressed();
     }
 
 
-    private void OnRunButtonReleased()
+    public void OnRunButtonReleased()
     {
         _player.HandleRunButtonReleased();
     }
