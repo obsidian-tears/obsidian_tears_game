@@ -15,6 +15,9 @@ public class Weylen : MonoBehaviour, IMessageHandler
     [SerializeField] BoxCollider2D questCollider;
     [Tooltip("How long the transition will last.")]
     [SerializeField] float transitionTime = 1.0f;
+    [Tooltip("The canvas that will be faded in and out during the transition.")]
+    [SerializeField] GameObject sceneFaderCanvas;
+    private int ignoreMessageCount = 0;
     private void Start()
     {
         MessageSystem.AddListener(this, "Quest State Changed", "Weylen's Requirements");
@@ -36,8 +39,19 @@ public class Weylen : MonoBehaviour, IMessageHandler
     private void OnMessage(string message, string parameter, object s)
     {
         if (QuestMachine.GetQuestNodeState("Weylen's Requirements", "Dialogue") 
-            == QuestNodeState.True) 
-            StartCoroutine(Go());
+            == QuestNodeState.True)  {
+                ignoreMessageCount++;
+                Debug.Log("Ding! " + ignoreMessageCount);
+                if (ignoreMessageCount != 3) return;
+                if (!gameObject.GetComponent<WeylenSaver>().didWeylenMove) {
+                    gameObject.GetComponent<WeylenSaver>().didWeylenMove = true;
+                    StartCoroutine(Go());
+                } else {
+                    Teleport();
+                    SwapBoxCollider();
+                    SwapWalkingScripts();
+                }
+            }
     }
 
     private IEnumerator Go() {
@@ -65,7 +79,6 @@ public class Weylen : MonoBehaviour, IMessageHandler
     }
 
     private void FadeOut() {
-        GameObject sceneFaderCanvas = GameObject.Find("SceneFaderCanvas");
         if (sceneFaderCanvas != null) {
             Animator animator = sceneFaderCanvas.GetComponent<Animator>();
             if (animator != null) {
@@ -75,7 +88,6 @@ public class Weylen : MonoBehaviour, IMessageHandler
     }
 
     private void FadeIn() {
-        GameObject sceneFaderCanvas = GameObject.Find("SceneFaderCanvas");
         if (sceneFaderCanvas != null) {
             Animator animator = sceneFaderCanvas.GetComponent<Animator>();
             if (animator != null) {
