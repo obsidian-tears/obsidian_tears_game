@@ -670,7 +670,7 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
+    spritePortrait: {fileID: -1965607508, guid: 73be0a2aba716824c878afd99215763c, type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 30
@@ -780,7 +780,7 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
+    spritePortrait: {fileID: -1965607508, guid: 73be0a2aba716824c878afd99215763c, type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 49
@@ -802,7 +802,7 @@ MonoBehaviour:
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
-    spritePortrait: {fileID: 0}
+    spritePortrait: {fileID: -1965607508, guid: 73be0a2aba716824c878afd99215763c, type: 3}
     alternatePortraits: []
     spritePortraits: []
   - id: 34
@@ -10303,8 +10303,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 377.00378, y: 0}
-    canvasZoom: 0.2799998
+    canvasScrollPosition: {x: 1262.2141, y: 338.1091}
+    canvasZoom: 0.5199998
   - id: 7
     fields:
     - title: Title
@@ -13768,12 +13768,6 @@ MonoBehaviour:
       - originConversationID: 9
         originDialogueID: 0
         destinationConversationID: 9
-        destinationDialogueID: 334
-        isConnector: 0
-        priority: 2
-      - originConversationID: 9
-        originDialogueID: 0
-        destinationConversationID: 9
         destinationDialogueID: 346
         isConnector: 0
         priority: 2
@@ -13975,7 +13969,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 2943.9321
-        y: 487.85452
+        y: 489.2244
         width: 160
         height: 30
     - id: 30
@@ -14027,11 +14021,7 @@ MonoBehaviour:
         destinationDialogueID: 158
         isConnector: 0
         priority: 2
-      conditionsString: 'uisGetItemAmount("Wizard Wand", "") == 1 and uisGetItemAmount("The
-        Chained Orb", "") == 1 and
-
-        uisGetItemAmount("Rune of Doom", "")
-        == 1'
+      conditionsString: 'GetQuestNodeState("TanasArtifacts", "ComeBack") == "active" '
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -14095,7 +14085,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 2944.241
-        y: 234.02118
+        y: 232.92227
         width: 160
         height: 30
     - id: 35
@@ -16546,8 +16536,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 4474.5063
-        y: 1057.7604
+        x: 4463.98
+        y: 1053.813
         width: 160
         height: 30
     - id: 87
@@ -19956,8 +19946,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2948.5176
-        y: 540.21326
+        x: 2933.2234
+        y: 542.56616
         width: 160
         height: 30
     - id: 176
@@ -20134,8 +20124,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 3234.2427
-        y: 216.83499
+        x: 3226.5505
+        y: 208.0438
         width: 160
         height: 30
     - id: 179
@@ -24534,7 +24524,7 @@ MonoBehaviour:
 
           But it
           is guarded by a powerful creature of darkness. One that is woefully beyond
-          our power to combat. '
+          our power to combat. It is called... "The Scolopendra."'
         type: 0
         typeString: 
       - title: Sequence
@@ -26913,7 +26903,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2909.0745
+        x: 2910.294
         y: 953.5523
         width: 160
         height: 30
@@ -27202,8 +27192,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 4065.8188
-        y: 107.16365
+        x: 4070.6968
+        y: 102.2856
         width: 160
         height: 30
     - id: 321
@@ -27756,55 +27746,6 @@ MonoBehaviour:
         serializedVersion: 2
         x: 5703.79
         y: 1080.0614
-        width: 160
-        height: 30
-    - id: 334
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 10
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 9
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 421.25235
-        y: 141.25684
         width: 160
         height: 30
     - id: 335
@@ -28419,7 +28360,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 4074.428
+        x: 4075.744
         y: 705.5162
         width: 160
         height: 30
@@ -28811,8 +28752,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1166.072, y: 0}
-    canvasZoom: 0.19000009
+    canvasScrollPosition: {x: 3408.3953, y: 0}
+    canvasZoom: 0.66999996
   - id: 10
     fields:
     - title: Title
@@ -38168,8 +38109,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 382.71704
-        y: 114.86792
+        x: 364.3684
+        y: 93.767
         width: 160
         height: 30
     - id: 2
@@ -38217,13 +38158,13 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 385.54712
-        y: 171.47173
+        x: 370.86823
+        y: 153.12311
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 91.26973, y: 0}
-    canvasZoom: 1.06
+    canvasScrollPosition: {x: 72.151344, y: 13.871548}
+    canvasZoom: 1.0899999
   - id: 27
     fields:
     - title: Title
@@ -38377,7 +38318,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 292.3471
+        x: 289.04132
         y: 136.22311
         width: 160
         height: 30
@@ -38635,13 +38576,13 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 318.03488
+        x: 317.22842
         y: 160.79413
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 114.192505, y: 21.47026}
-    canvasZoom: 1.3299997
+    canvasScrollPosition: {x: 88.53215, y: 15.364685}
+    canvasZoom: 1.2399998
   - id: 29
     fields:
     - title: Title
@@ -39234,7 +39175,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: The burning desert
+        value: From the depths of despair,
         type: 0
         typeString: 
       - title: Sequence
@@ -39262,8 +39203,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 315
-        y: 140
+        x: 311
+        y: 97
         width: 160
         height: 30
     - id: 2
@@ -39289,7 +39230,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: and the weeping stones
+        value: this beacon shall rise...
         type: 0
         typeString: 
       - title: Sequence
@@ -39317,8 +39258,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 315
-        y: 189
+        x: 312
+        y: 149
         width: 160
         height: 30
     - id: 3
@@ -39344,7 +39285,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: ....The rest is unreadable
+        value: (The rest is unreadable...)
         type: 0
         typeString: 
       - title: Sequence
@@ -39366,13 +39307,13 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 315
-        y: 239
+        x: 311
+        y: 205
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasScrollPosition: {x: 16.466177, y: 4.8288956}
+    canvasZoom: 1.03
   - id: 32
     fields:
     - title: Title
@@ -39632,8 +39573,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 2.3917377, y: 8.979353}
-    canvasZoom: 1
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 1.1499999
   - id: 34
     fields:
     - title: Title
@@ -51094,8 +51035,10 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: I will allow you to pass through, remember, monster could jump out
-          at any moment, so be on your guard!
+        value: 'I will allow you to pass to through!
+
+          Remember, monsters
+          could jump out at any moment, so be on your guard!'
         type: 0
         typeString: 
       - title: Sequence
@@ -51692,7 +51635,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 551.7751
+        x: 553.0409
         y: 863.537
         width: 160
         height: 30
@@ -52576,8 +52519,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 743.3769, y: 123.31091}
-    canvasZoom: 0.63999975
+    canvasScrollPosition: {x: 159.7604, y: 471.09415}
+    canvasZoom: 0.78999954
   - id: 49
     fields:
     - title: Title
@@ -52909,7 +52852,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 'A transient stranger,
+        value: 'A mysterious stranger,
 
 
           walks the land...'
