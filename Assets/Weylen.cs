@@ -57,7 +57,7 @@ public class Weylen : MonoBehaviour, IMessageHandler
     private IEnumerator Go() {
         FreezePlayer(true);
         FadeOut();
-        yield return new WaitForSeconds(transitionTime);
+        yield return new WaitForSecondsRealtime(transitionTime); // Game is paused, RealTime needed
         SwapBoxCollider();
         SwapWalkingScripts();
         Teleport();
@@ -79,6 +79,7 @@ public class Weylen : MonoBehaviour, IMessageHandler
     }
 
     private void FadeOut() {
+        Debug.Log("out");
         if (sceneFaderCanvas != null) {
             Animator animator = sceneFaderCanvas.GetComponent<Animator>();
             if (animator != null) {
@@ -88,6 +89,7 @@ public class Weylen : MonoBehaviour, IMessageHandler
     }
 
     private void FadeIn() {
+        Debug.Log("in");
         if (sceneFaderCanvas != null) {
             Animator animator = sceneFaderCanvas.GetComponent<Animator>();
             if (animator != null) {
