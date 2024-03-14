@@ -38,6 +38,7 @@ namespace GameManagers
         public CustomShopMenu ShopMenu;
         public GameObject MenuTabs;
         public GameObject LevelUpMenu;
+        public GameObject MobileHud;
         public ItemViewSlotsContainerPanelBinding InventoryPanel;
         public ItemViewSlotsContainerPanelBinding EquipmentPanel;
 
@@ -72,6 +73,18 @@ namespace GameManagers
 
             bool isStandardMode = m_currentMode == UIMode.STANDARD;
             PlayerUI.gameObject.SetActive(isStandardMode);
+            if (mode == UIMode.BATTLE)
+            {
+                MobileHud.SetActive(false);
+            }
+            else
+            {
+                if (CheckMobile.IsMobile)
+                {
+                    MobileHud.SetActive(true);
+                }
+            }
+
             foreach (ActionButton btn in ButtonsForBattleHide)
             {
                 btn.gameObject.SetActive(isStandardMode);
