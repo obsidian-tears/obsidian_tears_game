@@ -1167,29 +1167,29 @@ var tempDouble;
 var tempI64;
 
 var ASM_CONSTS = {
- 4540552: function() {
+ 4539272: function() {
   Module["emscripten_get_now_backup"] = performance.now;
  },
- 4540607: function($0) {
+ 4539327: function($0) {
   performance.now = function() {
    return $0;
   };
  },
- 4540655: function($0) {
+ 4539375: function($0) {
   performance.now = function() {
    return $0;
   };
  },
- 4540703: function() {
+ 4539423: function() {
   performance.now = Module["emscripten_get_now_backup"];
  },
- 4540758: function() {
+ 4539478: function() {
   return Module.webglContextAttributes.premultipliedAlpha;
  },
- 4540819: function() {
+ 4539539: function() {
   return Module.webglContextAttributes.preserveDrawingBuffer;
  },
- 4540883: function() {
+ 4539603: function() {
   return Module.webglContextAttributes.powerPreference;
  }
 };
@@ -1303,14 +1303,6 @@ function _DefeatMonster(monsterId, objectName) {
 
 function _EquipItems(itemIds, objectName) {
  window.dispatchReactUnityEvent("EquipItems", Pointer_stringify(itemIds), Pointer_stringify(objectName));
-}
-
-function _GetNFT() {
- try {
-  window.dispatchReactUnityEvent("GetNFT");
- } catch (e) {
-  console.warn("Failed to dispatch event");
- }
 }
 
 var JS_Accelerometer = null;
@@ -3244,28 +3236,12 @@ function _LoadGame(objectName) {
  window.dispatchReactUnityEvent("LoadGame", Pointer_stringify(objectName));
 }
 
-function _LoginIc() {
- try {
-  window.dispatchReactUnityEvent("LoginIc");
- } catch (e) {
-  console.warn("Failed to dispatch event");
- }
-}
-
 function _OpenChest(chestId, objectName) {
  window.dispatchReactUnityEvent("OpenChest", chestId, Pointer_stringify(objectName));
 }
 
 function _SaveGame(gameData, objectName) {
  window.dispatchReactUnityEvent("SaveGame", Pointer_stringify(gameData), Pointer_stringify(objectName));
-}
-
-function _SetUserName(json) {
- try {
-  window.dispatchReactUnityEvent("SetUserName", UTF8ToString(json));
- } catch (e) {
-  console.warn("Failed to dispatch event");
- }
 }
 
 var ExceptionInfoAttrs = {
@@ -14053,7 +14029,6 @@ var asmLibraryArg = {
  "BuyItem": _BuyItem,
  "DefeatMonster": _DefeatMonster,
  "EquipItems": _EquipItems,
- "GetNFT": _GetNFT,
  "JS_Accelerometer_IsRunning": _JS_Accelerometer_IsRunning,
  "JS_Accelerometer_Start": _JS_Accelerometer_Start,
  "JS_Accelerometer_Stop": _JS_Accelerometer_Stop,
@@ -14151,10 +14126,8 @@ var asmLibraryArg = {
  "JS_WebRequest_SetRequestHeader": _JS_WebRequest_SetRequestHeader,
  "JS_WebRequest_SetTimeout": _JS_WebRequest_SetTimeout,
  "LoadGame": _LoadGame,
- "LoginIc": _LoginIc,
  "OpenChest": _OpenChest,
  "SaveGame": _SaveGame,
- "SetUserName": _SetUserName,
  "__cxa_allocate_exception": ___cxa_allocate_exception,
  "__cxa_atexit": ___cxa_atexit,
  "__cxa_begin_catch": ___cxa_begin_catch,
