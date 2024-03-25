@@ -55,6 +55,7 @@ public class BeginningStats : MonoBehaviour
         if (slotCollectionView == null && GameUIManager.Exist)
         {
             slotCollectionView = GameUIManager.Instance.gameObject.GetComponentInChildren<ItemSlotCollectionView>();
+            Debug.Log("hola");
         }
         Debug.Log("_itemSlotSets.Count: " + _itemSlotSets.Count);
 
