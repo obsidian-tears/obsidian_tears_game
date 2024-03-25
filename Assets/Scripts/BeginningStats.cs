@@ -36,6 +36,8 @@ public class BeginningStats : MonoBehaviour
     {
         string charClass = ICConnect.characterClass;       
         VerifyClassICConnect(charClass);
+        Debug.Log(charClass);
+        Debug.Log(_initialClass);
 
         if (player != null)
         {
@@ -54,8 +56,11 @@ public class BeginningStats : MonoBehaviour
         {
             slotCollectionView = GameUIManager.Instance.gameObject.GetComponentInChildren<ItemSlotCollectionView>();
         }
+        Debug.Log("_itemSlotSets.Count: " + _itemSlotSets.Count);
 
         slotCollectionView.ItemSlotSet = _itemSlotSets[(int)_initialClass];
+        Debug.Log("ItemSlotSet assigned: " + slotCollectionView.ItemSlotSet);
+
         slotCollectionView.SetItemViewSlotRestrictions();
         
         var playerInventory = player.GetComponent<Inventory>();
@@ -98,7 +103,8 @@ public class BeginningStats : MonoBehaviour
     {
         if (charClass == "MAGE") 
         {
-            _initialClass = InitialClasses.MAGE;            
+            _initialClass = InitialClasses.MAGE; 
+            
         }
         if (charClass == "FIGTHER")
         {
@@ -108,6 +114,12 @@ public class BeginningStats : MonoBehaviour
         {
             _initialClass = InitialClasses.RANGER;
         }
+        if (charClass == "Default" || charClass == null)
+        {
+            _initialClass = InitialClasses.MAGE;
+        }
+      
+       
 
 
     }
