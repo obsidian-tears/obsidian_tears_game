@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     
     private void Awake()
     {
+        Debug.Log("hola meme");
+
         if (Instance)
         {
             Destroy(gameObject);
@@ -26,17 +28,39 @@ public class GameManager : MonoBehaviour
 
         SceneManager.sceneLoaded += (arg0, mode) =>
         {
+            Debug.Log("hola maine 1");
             if (!inventoryWasInit) return;
-            
+            Debug.Log("hola maine 2");
+
             var playerInventory = FindObjectOfType<Inventory>();
+            Debug.Log("hola maine 3");
 
             if (!playerInventory) return;
+            Debug.Log("hola maine 4");
 
             var equippedCol = playerInventory.GetItemCollection("Equipped");
-            playerInventory.RemoveItemCollection(equippedCol);
+            Debug.Log("hola maine 5");
+
+            if (equippedCol != null)
+            {
+                playerInventory.RemoveItemCollection(equippedCol);
+            }
+            if (playerInventory == null)
+            {
+                Debug.Log("es nulo el playerInventory ");
+
+            }
+
+           // playerInventory.RemoveItemCollection(equippedCol);
+            Debug.Log("hola maine 6");
+
             playerInventory.AddItemCollection(itemSlotCollection);
-            
+            Debug.Log("hola maine 7");
+
             playerInventory.UpdateInventory();
+            Debug.Log("hola maine 8");
+
+
         };
     }
 }
