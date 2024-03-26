@@ -4,7 +4,7 @@ using UnityEngine;
 public class ICConnect : MonoBehaviour
 {
     public static string characterClass;
-    public static string characterUrl; //= "https://pbs.twimg.com/media/EN4EWu4WAAA9t14.png";
+    public static string characterUrl; //= "https://dhyds-jaaaa-aaaao-aaiia-cai.raw.icp0.io/?index=1";
 
     public void InitData(string json)
     {
