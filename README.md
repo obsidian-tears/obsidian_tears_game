@@ -5,6 +5,7 @@ Responsibility: to hold and deploy Unity code. It exposes a Unity WebGL build (s
 ### System Requirements
 - Unity Hub + Editor
 - [Dfinity DFX](https://internetcomputer.org/docs/current/developer-docs/setup/install/)
+- [Git Large File System](https://git-lfs.com/)
 
 After install, you will need to:
 - create an identity,
