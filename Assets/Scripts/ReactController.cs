@@ -234,10 +234,8 @@ public class ReactController : MonoSingleton<ReactController>
 
     public void ListenBuyItem(string fromReact)
     {
-        // TODO WHAT ABOUT SOME HANDLE REWARD HERE?? OR IS IT HANDLED ELSEWHERE?
-        GameUIManager.Instance.ShowLoadingIndicator(false, true);
-
-        Debug.Log("bought item: " + fromReact);
+        // TODO: remove from all callers and then delete event
+        Debug.Log("(event deprecated) buy item: " + fromReact);
     }
 
     public void ListenDefeatMonster(string fromReact)
@@ -250,25 +248,14 @@ public class ReactController : MonoSingleton<ReactController>
 
     public void SignalBuyItem(string shopIndex, string itemDefId, int quantity)
     {
-        Debug.Log("REACT BUY ITEM METHOD, shopIndex, itemDefId, quantity info follows: " + shopIndex + ", " + itemDefId + ", " + quantity);
-#if UNITY_WEBGL == true && UNITY_EDITOR == false
-        BuyItem(int.Parse(shopIndex), itemDefId, quantity, gameObject.name);
-#endif
-
-        freezeSignal.Raise();
-        GameUIManager.Instance.ShowLoadingIndicator(true, false);
+        // TODO: remove from all callers and then delete event
+        Debug.Log("Buy Item - Event Deprecated");        
     }
 
     public void EquipItems()
     {
-        string[] itemIds = new string[] { };
-
-#if UNITY_WEBGL == true && UNITY_EDITOR == false
-        EquipItems(itemIds, gameObject.name);
-#endif
-
-        freezeSignal.Raise();
-        GameUIManager.Instance.ShowLoadingIndicator(true, false);
+        // TODO: remove from all callers and then delete event
+        Debug.Log("EquipItems - Event Deprecated");
     }
 
     // for generic success
