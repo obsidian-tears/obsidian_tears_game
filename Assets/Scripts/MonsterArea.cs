@@ -136,8 +136,7 @@ public class MonsterArea : MonoBehaviour
         scenePortal.UsePortal();
     }
 
-
-    void Start()
+    void Awake()
     {
         probability = 0;
         currentBattle = GameObject.Find("SceneManager").GetComponent<ObjectHolder>().currentBattle;
@@ -156,9 +155,10 @@ public class MonsterArea : MonoBehaviour
         {
             onBattleRan.Invoke();
         }
+    }
 
-
-
+    void Start()
+    {
         scenePortal = gameObject.AddComponent<ScenePortal>();
         scenePortal.requiredTag = "Player";
         scenePortal.destinationSceneName = "Battle";
