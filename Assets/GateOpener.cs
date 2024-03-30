@@ -37,8 +37,7 @@ public class GateOpener : MonoBehaviour, IMessageHandler
     }
 
     public void Open() {
-        GetComponent<SpriteRenderer>().sprite = openGateSprite;
-        gateCollider.enabled = false;
+        OnDestroy(this);
     }
 
 }
