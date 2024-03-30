@@ -37,7 +37,7 @@ public class GateOpener : MonoBehaviour, IMessageHandler
     }
 
     public void Open() {
-        OnDestroy(this);
+        Destroy(this);
     }
 
 }
