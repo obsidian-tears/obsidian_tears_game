@@ -73,6 +73,7 @@ public class CharStats : MonoBehaviour
             equipmentCollection = inventory.GetItemCollection("Equipped");
             EventHandler.RegisterEvent(equipmentCollection, EventNames.c_ItemCollection_OnUpdate, UpdateStats);
             UpdateStats();
+            UpdateUI();
         }
         
     }
@@ -96,14 +97,10 @@ public class CharStats : MonoBehaviour
             speedTotal = speedBase + equipmentCollection.GetIntSum("Speed");
             criticalHitProbability = equipmentCollection.GetFloatSum("CriticalChance");
             magicPowerTotal = magicPowerBase + equipmentCollection.GetIntSum("MagicPower");
-            GameUIManager.Instance.StatsDisplay.Draw(healthMax, magicMax, attackTotal, defenseTotal, speedTotal, healthTotal, magicTotal, magicPowerTotal, healthBase, magicBase, attackBase, defenseBase, speedBase, magicPowerBase, xp, xpToLevelUp);
-        
-            GameUIManager.Instance.SetHealthSlider(healthTotal, healthMax);
-            GameUIManager.Instance.SetMagicSlider(magicTotal, magicMax);
         }
 
         // Note by Jakub - looks like this part of code is never used by enemy
-        //This is an enemy
+        // This is an enemy
         // else
         // {
         //     healthMax = healthBase;
@@ -116,19 +113,22 @@ public class CharStats : MonoBehaviour
         // }
     }
 
-    //Returns true if the player is dead after taking damage
+    void UpdateUI() {
+        GameUIManager.Instance.StatsDisplay.Draw(healthMax, magicMax, attackTotal, defenseTotal, speedTotal, healthTotal, magicTotal, magicPowerTotal, healthBase, magicBase, attackBase, defenseBase, speedBase, magicPowerBase, xp, xpToLevelUp);
+        GameUIManager.Instance.SetHealthSlider(healthTotal, healthMax);
+        GameUIManager.Instance.SetMagicSlider(magicTotal, magicMax);
+    }
+
+    // Returns true if the player is dead after taking damage
     public bool TakeDamage(int dmg)
     {
         healthTotal -= dmg;
-        if(equipper != null && GameUIManager.Instance.StatsDisplay != null)
-            UpdateStats();
 
-        if (healthTotal <= 0)
-        {
-            return true;
-        }
-        else
-            return false;
+        //If is Player
+        if(equipper != null && GameUIManager.Instance.StatsDisplay != null)
+            UpdateUI();
+
+        return healthTotal <= 0;
     }
 
     public void Heal(int healAmt)
@@ -143,7 +143,7 @@ public class CharStats : MonoBehaviour
             healthTotal = 0;
         }
         if (equipper != null && GameUIManager.Instance.StatsDisplay != null)
-            UpdateStats();
+            UpdateUI();
     }
 
     public void AddMana(int manaAmt)
@@ -159,7 +159,7 @@ public class CharStats : MonoBehaviour
         }
         if(equipper != null && GameUIManager.Instance.StatsDisplay != null)
         {
-            UpdateStats();
+            UpdateUI();
         }
     }
 
@@ -168,7 +168,7 @@ public class CharStats : MonoBehaviour
         xp += xPAmt;
         if (equipper != null && GameUIManager.Instance.StatsDisplay != null)
         {
-            UpdateStats();
+            UpdateUI();
         }
     }
 }
