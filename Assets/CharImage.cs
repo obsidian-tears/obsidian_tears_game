@@ -8,11 +8,18 @@ public class CharImage : MonoBehaviour
     [SerializeField] private string imageUrl;
 
 
+    private void Awake()
+    {
+        imageUrl = ICConnect.characterUrl;
+
+    }
+
 
     private void Start()
     {
 
-        imageUrl = ICConnect.characterUrl;
+        //imageUrl = ICConnect.characterUrl;
+
         StartCoroutine(LoadImage(imageUrl, _spriteRenderer));
 
 
@@ -24,7 +31,7 @@ public class CharImage : MonoBehaviour
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
         imagRenderer = playerObject.GetComponent<SpriteRenderer>();
 
-        using (UnityWebRequest www = UnityWebRequestTexture.GetTexture(image))
+        using UnityWebRequest www = UnityWebRequestTexture.GetTexture(image);
         {
             yield return www.SendWebRequest();
 
@@ -33,6 +40,7 @@ public class CharImage : MonoBehaviour
                 Texture2D texture = DownloadHandlerTexture.GetContent(www);
                 Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
                 imagRenderer.sprite = sprite;
+                //Debug.Log("entre al coso e hice el imagrenderer");
             }
           
         }

@@ -4,13 +4,13 @@ using UnityEngine;
 public class ICConnect : MonoBehaviour
 {
     public static string characterClass;
-    public static string characterUrl; //= "https://dhyds-jaaaa-aaaao-aaiia-cai.raw.icp0.io/?index=1";
+    public static string characterUrl;//= "https://buffer.com/library/content/images/size/w1200/2023/10/free-images.jpg"; // 
 
     public void InitData(string json)
     {
         JsonResoult characterData = JsonConvert.DeserializeObject<JsonResoult>(json);
         characterClass = characterData.CharacterClass;
-        characterUrl = characterData.CharacterUrl;
+        characterUrl = characterData.CharacterUrl; // turn off this to test the url and turn on the url of above
     }
       
 }
