@@ -7,7 +7,7 @@ using UnityEngine;
 public enum InitialClasses
 {
     MAGE,
-    FIGTHER,
+    FIGHTER,
     RANGER
 }
 
@@ -109,7 +109,7 @@ public class BeginningStats : MonoBehaviour
         }
         if (charClass == "FIGTHER")
         {
-            _initialClass = InitialClasses.FIGTHER;
+            _initialClass = InitialClasses.FIGHTER;
         }
         if (charClass == "RANGER")
         {
@@ -129,7 +129,7 @@ public class BeginningStats : MonoBehaviour
     {
         switch (actualClass)
         {
-            case InitialClasses.FIGTHER:
+            case InitialClasses.FIGHTER:
                 SetFighterStats();
                 break;
             case InitialClasses.MAGE:

@@ -19,9 +19,9 @@ public class CharImage : MonoBehaviour
     {
 
         //imageUrl = ICConnect.characterUrl;
-
+        Debug.Log(imageUrl);
         StartCoroutine(LoadImage(imageUrl, _spriteRenderer));
-
+        Debug.Log(imageUrl);
 
     }
 
@@ -40,7 +40,9 @@ public class CharImage : MonoBehaviour
                 Texture2D texture = DownloadHandlerTexture.GetContent(www);
                 Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
                 imagRenderer.sprite = sprite;
-                //Debug.Log("entre al coso e hice el imagrenderer");
+               // Debug.Log("entre al coso e hice el imagrenderer");
+               
+
             }
           
         }
