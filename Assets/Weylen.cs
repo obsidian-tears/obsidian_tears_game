@@ -21,7 +21,11 @@ public class Weylen : MonoBehaviour, IMessageHandler
     private void Start()
     {
         MessageSystem.AddListener(this, "Quest State Changed", "Weylen's Requirements");
-        // DontDestroyOnLoad(this.GetComponent<Weylen>());
+        if (gameObject.GetComponent<WeylenSaver>().didWeylenMove) {
+            SwapBoxCollider();
+            SwapWalkingScripts();
+            Teleport();
+        }
     }
 
     // Unregister when this GameObject is destroyed.
