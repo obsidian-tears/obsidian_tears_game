@@ -7,7 +7,7 @@ using System;
 
 public class GateOpener : MonoBehaviour, IMessageHandler
 {
-    [SerializeField] Sprite openGateSprite;
+    [SerializeField] GameObject openGate;
     [SerializeField] BoxCollider2D gateCollider;
 
     private void Start()
@@ -19,6 +19,7 @@ public class GateOpener : MonoBehaviour, IMessageHandler
     // Unregister when this GameObject is destroyed.
     private void OnDestroy()
     {
+        Instantiate(openGate, gameObject.transform.position, Quaternion.identity);
         MessageSystem.RemoveListener(this);
     }
 
@@ -37,7 +38,7 @@ public class GateOpener : MonoBehaviour, IMessageHandler
     }
 
     public void Open() {
-        Destroy(this);
+        Destroy(gameObject);
     }
 
 }
