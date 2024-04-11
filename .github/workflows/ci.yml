@@ -13,8 +13,9 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 18
-      - run: cd WebServer
-      - run: npm clean-install
+      - run: |
+          cd WebServer
+          npm clean-install
       - name: "install dfx"
         uses: dfinity/setup-dfx@main
       - name: "setup identity"
@@ -22,4 +23,6 @@ jobs:
           echo ${{ secrets.STAGING_IDENTITY_PEM }} | base64 -d > ~/.config/dfx/identity/default/identity.pem
           sed -i 's/\\r\\n/\r\n/g' ~/.config/dfx/identity/default/identity.pem
       - name: "deploy staging"
-        run: dfx deploy --network staging
+        run: |
+          cd WebServer
+          dfx deploy --network staging
