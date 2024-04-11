@@ -20,7 +20,6 @@ jobs:
         run: |
           mkdir -p ~/.config/dfx/identity/default  
           echo ${{ secrets.STAGING_IDENTITY_PEM }} | base64 -d > ~/.config/dfx/identity/default/identity.pem
-          sed -i 's/\\r\\n/\r\n/g' ~/.config/dfx/identity/default/identity.pem
       - name: "deploy staging"
         run: |
           cd WebServer
