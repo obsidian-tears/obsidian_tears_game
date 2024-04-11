@@ -1,0 +1,25 @@
+name: "deploy-staging"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-staging:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 18
+      - run: cd WebServer
+      - run: npm clean-install
+      - name: "install dfx"
+        uses: dfinity/setup-dfx@main
+      - name: "setup identity"
+        run: |
+          echo ${{ secrets.STAGING_IDENTITY_PEM }} | base64 -d > ~/.config/dfx/identity/default/identity.pem
+          sed -i 's/\\r\\n/\r\n/g' ~/.config/dfx/identity/default/identity.pem
+      - name: "deploy staging"
+        run: dfx deploy --network staging
