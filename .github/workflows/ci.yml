@@ -10,12 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          lfs: true
       - uses: actions/setup-node@v3
         with:
           node-version: 18
       - run: cd WebServer && npm clean-install
-      - name: "install git-lfs"
-        run: "apt update && apt install git-lfs"
       - name: "install dfx"
         uses: dfinity/setup-dfx@main
       - name: "setup identity"
