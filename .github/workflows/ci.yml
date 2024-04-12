@@ -19,7 +19,9 @@ jobs:
       - name: "setup identity"
         run: |
           mkdir -p ~/.config/dfx/identity/default  
-          echo ${{ secrets.STAGING_IDENTITY_PEM }} > ~/.config/dfx/identity/default/identity.pem
+          echo $DFX_IDENTITY_PEM > ~/.config/dfx/identity/default/identity.pem
+        env:
+          DFX_IDENTITY_PEM: ${{ secrets.STAGING_IDENTITY_PEM }}
       - name: "deploy staging"
         run: |
           cd WebServer
