@@ -24,4 +24,4 @@ jobs:
         env:
           DFX_IDENTITY_PEM: ${{ secrets.STAGING_IDENTITY_PEM }}
       - name: "deploy staging"
-        run: cd WebServer && dfx deploy --network staging
+        run: cd WebServer && dfx deploy obsidian_unity_frontend --no-wallet --yes --network staging
