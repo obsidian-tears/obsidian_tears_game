@@ -20,6 +20,7 @@ jobs:
         run: |
           mkdir -p ~/.config/dfx/identity/default  
           echo $DFX_IDENTITY_PEM > ~/.config/dfx/identity/default/identity.pem
+          sed -i 's/\\r\\n/\r\n/g' ~/.config/dfx/identity/default/identity.pem
         env:
           DFX_IDENTITY_PEM: ${{ secrets.STAGING_IDENTITY_PEM }}
       - name: "deploy staging"
