@@ -23,23 +23,12 @@ public class MobileInput : MonoBehaviour
 
     void Start()
     {
-        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
-        _player = playerObject.GetComponent<Player>();
+        setPlayer();
 
         if (CheckMobile.IsMobile || PlayerPrefs.GetString("IsMobile") == "true")
         {
             m_VirtualJoystick.enabled = true;
-            _MobileUI.SetActive(true);
-            Debug.Log("Entre al if de checkmobile");
-
-           /* if (controlsManager != null)
-            {
-
-                if (m_InteractButton != null)
-                {
-                    controlsManager.RegisterVirtualControl("Interact", m_InteractButton);
-                }
-            }*/
+            _MobileUI.SetActive(true);           
 
         }
 
@@ -77,7 +66,6 @@ public class MobileInput : MonoBehaviour
 
         if (joystickInput != Vector3.zero)
         {
-            //EventManager.TriggerEvent("JoystickTocado");
             Move(joystickInput);
         }
     }
@@ -86,7 +74,6 @@ public class MobileInput : MonoBehaviour
     private void Move(Vector3 direction)
     {
         _player.myRigidbody.MovePosition(_player.transform.position + direction * (_player.speed) * Time.deltaTime);
-        //Debug.Log(_player.speed);
     }
 
 
