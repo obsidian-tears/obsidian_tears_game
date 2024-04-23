@@ -117,7 +117,7 @@ public class BeginningStats : MonoBehaviour
         }
         if (charClass == "Default" || charClass == null)
         {
-            _initialClass = InitialClasses.MAGE;
+            _initialClass = InitialClasses.RANGER;
         }
       
        
