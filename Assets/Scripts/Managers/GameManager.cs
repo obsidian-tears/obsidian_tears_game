@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using GameManagers;
 using Opsive.UltimateInventorySystem.Core.InventoryCollections;
+using Opsive.UltimateInventorySystem.UI.Panels.Hotbar;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,7 +13,9 @@ public class GameManager : MonoBehaviour
     public bool inventoryWasInit = false;
 
     public ItemSlotCollection itemSlotCollection;
-    
+
+    public ItemSlotCollectionView slotCollectionView;
+
     private void Awake()
     {
         Debug.Log("hola meme");
@@ -59,6 +63,16 @@ public class GameManager : MonoBehaviour
 
             playerInventory.UpdateInventory();
             Debug.Log("hola maine 8");
+
+
+            if (slotCollectionView == null && GameUIManager.Exist)
+            {
+                slotCollectionView = GameUIManager.Instance.gameObject.GetComponentInChildren<ItemSlotCollectionView>();
+                Debug.Log("hola");
+            }
+            // Debug.Log("_itemSlotSets.Count: " + _itemSlotSets.Count);
+
+            slotCollectionView.ItemSlotSet = itemSlotCollection.ItemSlotSet;
 
 
         };
