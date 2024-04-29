@@ -44,18 +44,18 @@ public class Weylen : MonoBehaviour, IMessageHandler
     {
         if (QuestMachine.GetQuestNodeState("Weylen's Requirements", "Dialogue") 
             == QuestNodeState.True)  {
-                ignoreMessageCount++;
-                Debug.Log("Ding! " + ignoreMessageCount);
-                if (ignoreMessageCount != 3) return;
-                if (!gameObject.GetComponent<WeylenSaver>().didWeylenMove) {
-                    gameObject.GetComponent<WeylenSaver>().didWeylenMove = true;
-                    StartCoroutine(Go());
-                } else {
-                    Teleport();
-                    SwapBoxCollider();
-                    SwapWalkingScripts();
-                }
+            ignoreMessageCount++;
+            Debug.Log("Ding! " + ignoreMessageCount);
+            if (ignoreMessageCount != 2) return;
+            if (!gameObject.GetComponent<WeylenSaver>().didWeylenMove) {
+                gameObject.GetComponent<WeylenSaver>().didWeylenMove = true;
+                StartCoroutine(Go());
+            } else {
+                SwapBoxCollider();
+                SwapWalkingScripts();
+                Teleport();
             }
+        }
     }
 
     private IEnumerator Go() {
