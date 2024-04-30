@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'WebServer/src/obsidian_unity_frontend/assets/unity/Build/**'
 
 jobs:
   deploy-staging:
