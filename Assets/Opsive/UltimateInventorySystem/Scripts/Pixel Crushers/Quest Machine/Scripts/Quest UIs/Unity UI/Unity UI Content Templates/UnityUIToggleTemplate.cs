@@ -44,7 +44,7 @@ namespace PixelCrushers.QuestMachine
             {
                 if (isVisible)
                 {
-                    toggle.isOn = isOn;
+                    //toggle.isOn = isOn;
                     toggle.onValueChanged.AddListener(OnToggleChanged);
                     onToggleChanged += toggleDelegate;
                 }
