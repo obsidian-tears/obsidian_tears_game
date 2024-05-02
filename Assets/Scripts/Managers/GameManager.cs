@@ -32,18 +32,13 @@ public class GameManager : MonoBehaviour
 
         SceneManager.sceneLoaded += (arg0, mode) =>
         {
-            Debug.Log("hola maine 1");
             if (!inventoryWasInit) return;
-            Debug.Log("hola maine 2");
 
             var playerInventory = FindObjectOfType<Inventory>();
-            Debug.Log("hola maine 3");
 
             if (!playerInventory) return;
-            Debug.Log("hola maine 4");
 
             var equippedCol = playerInventory.GetItemCollection("Equipped");
-            Debug.Log("hola maine 5");
 
             if (equippedCol != null)
             {
@@ -56,7 +51,6 @@ public class GameManager : MonoBehaviour
             }
 
            // playerInventory.RemoveItemCollection(equippedCol);
-            Debug.Log("hola maine 6");
 
             playerInventory.AddItemCollection(itemSlotCollection);
             Debug.Log("hola maine 7");
@@ -65,14 +59,21 @@ public class GameManager : MonoBehaviour
             Debug.Log("hola maine 8");
 
 
-            if (slotCollectionView == null && GameUIManager.Exist)
+            if (slotCollectionView == null  || GameUIManager.Exist)
             {
                 slotCollectionView = GameUIManager.Instance.gameObject.GetComponentInChildren<ItemSlotCollectionView>();
-                Debug.Log("hola");
+                Debug.Log("obtengo el ite slot collection view");
+              
+                    Debug.Log("le asignmo");
+                    slotCollectionView.ItemSlotSet = itemSlotCollection.ItemSlotSet;
+
+                    Debug.Log("slotCollectionView.ItemSlotSet" + slotCollectionView.ItemSlotSet);
+                    Debug.Log("itemSlotCollection.ItemSlotSet" + itemSlotCollection.ItemSlotSet);
+
+               
             }
             // Debug.Log("_itemSlotSets.Count: " + _itemSlotSets.Count);
 
-            slotCollectionView.ItemSlotSet = itemSlotCollection.ItemSlotSet;
 
 
         };
