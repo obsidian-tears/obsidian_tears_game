@@ -113,10 +113,12 @@ public class CharStats : MonoBehaviour
         // }
     }
 
-    void UpdateUI() {
+    public void UpdateUI() 
+    {
         GameUIManager.Instance.StatsDisplay.Draw(healthMax, magicMax, attackTotal, defenseTotal, speedTotal, healthTotal, magicTotal, magicPowerTotal, healthBase, magicBase, attackBase, defenseBase, speedBase, magicPowerBase, xp, xpToLevelUp);
         GameUIManager.Instance.SetHealthSlider(healthTotal, healthMax);
         GameUIManager.Instance.SetMagicSlider(magicTotal, magicMax);
+        GameUIManager.Instance.SetXpSlider(xp, xpToLevelUp);
     }
 
     // Returns true if the player is dead after taking damage
@@ -166,6 +168,7 @@ public class CharStats : MonoBehaviour
     public void AddXP(int xPAmt)
     {
         xp += xPAmt;
+
         if (equipper != null && GameUIManager.Instance.StatsDisplay != null)
         {
             UpdateUI();

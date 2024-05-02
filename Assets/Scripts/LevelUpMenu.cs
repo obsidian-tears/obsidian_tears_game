@@ -217,7 +217,6 @@ public class LevelUpMenu : MonoBehaviour
 
 
             //Update player stats and if it's a level up, set health and magic to max
-            playerStats.UpdateStats();
 
             if (isLevelUp)
             {
@@ -226,9 +225,10 @@ public class LevelUpMenu : MonoBehaviour
                 playerStats.UpdateStats();
             }
 
-            
+            playerStats.UpdateStats();
+            playerStats.UpdateUI();
 
-            
+
 
             //Change other menu options
             pointsFromLevelUp = Int32.Parse(pointsRemainingText.text);

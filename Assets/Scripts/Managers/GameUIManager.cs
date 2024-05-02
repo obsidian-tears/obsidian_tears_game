@@ -47,6 +47,8 @@ namespace GameManagers
         public Image Blocker;
         public Slider HealthSlider;
         public Slider MagicSlider;
+        public Slider XpSlider;
+
         public CharacterStatsDisplay StatsDisplay;
         public ActionButton[] ButtonsForBattleHide;
 
@@ -108,6 +110,17 @@ namespace GameManagers
             MagicSlider.maxValue = magicMax;
             MagicSlider.value = magicTotal;
         }
+
+        public void SetXpSlider(int totalXp, int maxXp)
+        {
+            if (XpSlider == null)
+                return;
+
+            XpSlider.maxValue = maxXp;
+            XpSlider.value = totalXp;
+        }
+
+
 
         public void ToggleBattleInventoryPanel(bool? forceState = null)
         {
