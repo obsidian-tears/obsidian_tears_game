@@ -62,6 +62,7 @@ namespace GameManagers
         protected override void Init()
         {
             MainMenu.OnClose += OnMainMenuClose;
+            Debug.Log("Spawn?");
         }
 
         protected override void OnDestroy() {

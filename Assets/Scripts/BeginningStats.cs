@@ -1,5 +1,6 @@
 using Opsive.UltimateInventorySystem.Core.InventoryCollections;
 using System.Collections.Generic;
+using System.Linq;
 using GameManagers;
 using Opsive.UltimateInventorySystem.UI.Panels.Hotbar;
 using UnityEngine;
@@ -57,7 +58,14 @@ public class BeginningStats : MonoBehaviour
             slotCollectionView = GameUIManager.Instance.gameObject.GetComponentInChildren<ItemSlotCollectionView>();
             Debug.Log("hola");
         }
+        if (slotCollectionView == null)
+        {
+            slotCollectionView = Resources.FindObjectsOfTypeAll<ItemSlotCollectionView>().First();
+            Debug.Log("Null?");
+        }
+        
         Debug.Log("_itemSlotSets.Count: " + _itemSlotSets.Count);
+        Debug.Log("Try To Access");
 
         slotCollectionView.ItemSlotSet = _itemSlotSets[(int)_initialClass];
         Debug.Log("ItemSlotSet assigned: " + slotCollectionView.ItemSlotSet);

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using GameManagers;
 using Opsive.UltimateInventorySystem.Core.InventoryCollections;
 using Opsive.UltimateInventorySystem.UI.Panels.Hotbar;
@@ -18,8 +19,6 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("hola meme");
-
         if (Instance)
         {
             Destroy(gameObject);
@@ -27,7 +26,7 @@ public class GameManager : MonoBehaviour
         }
 
         Instance = this;
-        
+
         DontDestroyOnLoad(this);
 
         SceneManager.sceneLoaded += (arg0, mode) =>
@@ -44,38 +43,33 @@ public class GameManager : MonoBehaviour
             {
                 playerInventory.RemoveItemCollection(equippedCol);
             }
+
             if (playerInventory == null)
             {
                 Debug.Log("es nulo el playerInventory ");
-
             }
-
-           // playerInventory.RemoveItemCollection(equippedCol);
 
             playerInventory.AddItemCollection(itemSlotCollection);
-            Debug.Log("hola maine 7");
 
             playerInventory.UpdateInventory();
-            Debug.Log("hola maine 8");
 
 
-            if (slotCollectionView == null  || GameUIManager.Exist)
+            if (slotCollectionView == null || GameUIManager.Exist)
             {
                 slotCollectionView = GameUIManager.Instance.gameObject.GetComponentInChildren<ItemSlotCollectionView>();
-                Debug.Log("obtengo el ite slot collection view");
-              
-                    Debug.Log("le asignmo");
-                    slotCollectionView.ItemSlotSet = itemSlotCollection.ItemSlotSet;
+                
+                if (slotCollectionView == null)
+                {
+                    slotCollectionView = Resources.FindObjectsOfTypeAll<ItemSlotCollectionView>().First();
+                    Debug.Log("Null?");
+                }
+                
+                slotCollectionView.ItemSlotSet = itemSlotCollection.ItemSlotSet;
 
-                    Debug.Log("slotCollectionView.ItemSlotSet" + slotCollectionView.ItemSlotSet);
-                    Debug.Log("itemSlotCollection.ItemSlotSet" + itemSlotCollection.ItemSlotSet);
-
-               
+                Debug.Log("slotCollectionView.ItemSlotSet" + slotCollectionView.ItemSlotSet);
+                Debug.Log("itemSlotCollection.ItemSlotSet" + itemSlotCollection.ItemSlotSet);
             }
             // Debug.Log("_itemSlotSets.Count: " + _itemSlotSets.Count);
-
-
-
         };
     }
 }
