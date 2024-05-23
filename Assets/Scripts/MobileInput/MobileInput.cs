@@ -73,7 +73,7 @@ public class MobileInput : MonoBehaviour
 
     private void Move(Vector3 direction)
     {
-        _player.myRigidbody.MovePosition(_player.transform.position + direction * (_player.speed) * Time.deltaTime);
+        _player.myRigidbody.MovePosition(_player.transform.position + direction * (_player.speed + 1.5f) * Time.deltaTime);
     }
 
 
