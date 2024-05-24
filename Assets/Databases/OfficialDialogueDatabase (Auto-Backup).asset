@@ -610,7 +610,7 @@ MonoBehaviour:
   - id: 27
     fields:
     - title: Name
-      value: Obelisk
+      value: Obelisk East
       type: 0
       typeString: 
     - title: Pictures
@@ -632,7 +632,7 @@ MonoBehaviour:
   - id: 28
     fields:
     - title: Name
-      value: Obelisk
+      value: Obelisk South
       type: 0
       typeString: 
     - title: Pictures
@@ -654,7 +654,7 @@ MonoBehaviour:
   - id: 29
     fields:
     - title: Name
-      value: Obelisk
+      value: Obelisk Cave
       type: 0
       typeString: 
     - title: Pictures
@@ -676,7 +676,7 @@ MonoBehaviour:
   - id: 30
     fields:
     - title: Name
-      value: Obelisk
+      value: Obelisk Elf Ruines
       type: 0
       typeString: 
     - title: Pictures
@@ -698,7 +698,7 @@ MonoBehaviour:
   - id: 31
     fields:
     - title: Name
-      value: 'Obelisk '
+      value: Obelisk Church
       type: 0
       typeString: 
     - title: Pictures
@@ -720,7 +720,7 @@ MonoBehaviour:
   - id: 32
     fields:
     - title: Name
-      value: Obelisk
+      value: Obelisk Pond
       type: 0
       typeString: 
     - title: Pictures
@@ -764,7 +764,7 @@ MonoBehaviour:
   - id: 48
     fields:
     - title: Name
-      value: Obelisk
+      value: Obelisk Right Village
       type: 0
       typeString: CustomFieldType_Text
     - title: Pictures
@@ -786,7 +786,7 @@ MonoBehaviour:
   - id: 49
     fields:
     - title: Name
-      value: Obelisk
+      value: Obelisk Dark Forest
       type: 0
       typeString: CustomFieldType_Text
     - title: Pictures
@@ -8141,74 +8141,18 @@ MonoBehaviour:
       - originConversationID: 6
         originDialogueID: 64
         destinationConversationID: 6
-        destinationDialogueID: 70
+        destinationDialogueID: 129
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: uisAddItem("Red Potion Full", 7, "", "",-1)
+      userScript: uisAddItem("Red Potion Full", 5, "", "", 68)
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2454.9443
-        y: 1291.0374
-        width: 160
-        height: 30
-    - id: 70
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 7
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: Also, as you explore the village, press "Spacebar", to interact with
-          people and interesting objects you run into.
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 6
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 6
-        originDialogueID: 70
-        destinationConversationID: 6
-        destinationDialogueID: 74
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 2453.6392
-        y: 1340.1711
+        x: 2452.2046
+        y: 1292.4072
         width: 160
         height: 30
     - id: 74
@@ -8262,8 +8206,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2455.479
-        y: 1384.7878
+        x: 2450.841
+        y: 1584.5615
         width: 160
         height: 30
     - id: 75
@@ -8321,8 +8265,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2456.292
-        y: 1432.5111
+        x: 2451.654
+        y: 1632.2848
         width: 160
         height: 30
     - id: 76
@@ -8377,8 +8321,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2444.6401
-        y: 1489.6321
+        x: 2440.0022
+        y: 1689.4058
         width: 160
         height: 30
     - id: 77
@@ -8432,8 +8376,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2442.909
-        y: 1541.906
+        x: 2438.271
+        y: 1741.6797
         width: 160
         height: 30
     - id: 78
@@ -8489,8 +8433,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2440.5317
-        y: 1591.3174
+        x: 2435.8938
+        y: 1791.0911
         width: 160
         height: 30
     - id: 87
@@ -8538,8 +8482,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2439.676
-        y: 1655.5999
+        x: 2435.038
+        y: 1855.3735
         width: 160
         height: 30
     - id: 92
@@ -10302,9 +10246,292 @@ MonoBehaviour:
         y: 635.2929
         width: 160
         height: 30
+    - id: 129
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Now, are you playing on a desktop or a mobile device?
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 129
+        destinationConversationID: 6
+        destinationDialogueID: 130
+        isConnector: 0
+        priority: 2
+      - originConversationID: 6
+        originDialogueID: 129
+        destinationConversationID: 6
+        destinationDialogueID: 131
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 2449.586
+        y: 1354.1095
+        width: 160
+        height: 30
+    - id: 130
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Desktop
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 130
+        destinationConversationID: 6
+        destinationDialogueID: 132
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 2242.768
+        y: 1383.6552
+        width: 160
+        height: 30
+    - id: 131
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Mobile
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 131
+        destinationConversationID: 6
+        destinationDialogueID: 133
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 2667.7678
+        y: 1388.2004
+        width: 160
+        height: 30
+    - id: 132
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Great! Desktop users will press 'Spacebar' to interact with people
+          and items on the map.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 132
+        destinationConversationID: 6
+        destinationDialogueID: 74
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 2359.8135
+        y: 1481.3822
+        width: 160
+        height: 30
+    - id: 133
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Great! Mobile users need only tap on people and objects on the map
+          to interact with them.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 133
+        destinationConversationID: 6
+        destinationDialogueID: 74
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 2552.9954
+        y: 1481.3822
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 377.00378, y: 0}
-    canvasZoom: 0.2799998
+    canvasScrollPosition: {x: 0, y: 201.49396}
+    canvasZoom: 0.1
   - id: 7
     fields:
     - title: Title
@@ -13969,7 +14196,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 2943.9321
-        y: 489.2244
+        y: 490.32327
         width: 160
         height: 30
     - id: 30
@@ -14077,15 +14304,15 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: uisRemoveItem("Wizard Wand", 1, "", ""); uisRemoveItem("The Chained
-        Orb", 1, "", ""); uisRemoveItem("Rune of Doom", 1, "", "")
+      userScript: uisRemoveItem("Shard of Light", 1, "", ""); uisRemoveItem("The
+        Chained Orb", 1, "", ""); uisRemoveItem("Rune of Doom", 1, "", "")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2944.241
-        y: 232.92227
+        x: 2943.142
+        y: 237.31787
         width: 160
         height: 30
     - id: 35
@@ -19264,13 +19491,13 @@ MonoBehaviour:
       - originConversationID: 9
         originDialogueID: 162
         destinationConversationID: 9
-        destinationDialogueID: 163
+        destinationDialogueID: 164
         isConnector: 0
         priority: 2
       - originConversationID: 9
         originDialogueID: 162
         destinationConversationID: 9
-        destinationDialogueID: 164
+        destinationDialogueID: 163
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -19896,7 +20123,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2940.5508
+        x: 2937.2542
         y: 438.2766
         width: 160
         height: 30
@@ -20003,7 +20230,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 3429.9568
-        y: 103.04187
+        y: 101.77606
         width: 160
         height: 30
     - id: 177
@@ -28752,8 +28979,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 3408.3953, y: 0}
-    canvasZoom: 0.66999996
+    canvasScrollPosition: {x: 4569.9277, y: 809.499}
+    canvasZoom: 0.58000004
   - id: 10
     fields:
     - title: Title
@@ -31544,7 +31771,7 @@ MonoBehaviour:
   - id: 14
     fields:
     - title: Title
-      value: Yikkenn NPC
+      value: Yikkenn
       type: 0
       typeString: 
     - title: Description
@@ -32276,8 +32503,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1431.3314
-        y: 145.01367
+        x: 1429.5824
+        y: 148.51172
         width: 160
         height: 30
     - id: 17
@@ -32338,7 +32565,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1666.2241
+        x: 1667.4121
         y: 246.03134
         width: 160
         height: 30
@@ -32448,8 +32675,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1998.8438
-        y: 255.70242
+        x: 1990.5278
+        y: 252.13843
         width: 160
         height: 30
     - id: 20
@@ -32675,8 +32902,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2004.0403
-        y: 389.1824
+        x: 2001.6643
+        y: 390.3704
         width: 160
         height: 30
     - id: 24
@@ -32960,8 +33187,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1886.6304
-        y: 597.06335
+        x: 1884.1666
+        y: 599.52716
         width: 160
         height: 30
     - id: 29
@@ -33067,13 +33294,13 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: GiveQuest("Yikken", "AHiddenPath")
+      userScript: GiveQuest("Yikkenn", "AHiddenPath")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1754.5166
+        x: 1750.8209
         y: 655.2589
         width: 160
         height: 30
@@ -34107,8 +34334,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 212.57455, y: 34.63803}
-    canvasZoom: 0.72175
+    canvasScrollPosition: {x: 910.2449, y: 58.191895}
+    canvasZoom: 0.7217501
   - id: 15
     fields:
     - title: Title
@@ -38109,8 +38336,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 382.71704
-        y: 114.86792
+        x: 364.3684
+        y: 93.767
         width: 160
         height: 30
     - id: 2
@@ -38158,13 +38385,13 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 385.54712
-        y: 171.47173
+        x: 370.86823
+        y: 153.12311
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 91.26973, y: 0}
-    canvasZoom: 1.06
+    canvasScrollPosition: {x: 72.151344, y: 13.871548}
+    canvasZoom: 1.0899999
   - id: 27
     fields:
     - title: Title
@@ -38318,7 +38545,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 292.3471
+        x: 289.04132
         y: 136.22311
         width: 160
         height: 30
@@ -38576,13 +38803,13 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 318.03488
+        x: 317.22842
         y: 160.79413
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 114.192505, y: 21.47026}
-    canvasZoom: 1.3299997
+    canvasScrollPosition: {x: 88.53215, y: 15.364685}
+    canvasZoom: 1.2399998
   - id: 29
     fields:
     - title: Title
@@ -39175,7 +39402,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: The burning desert
+        value: From the depths of despair,
         type: 0
         typeString: 
       - title: Sequence
@@ -39203,8 +39430,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 315
-        y: 140
+        x: 311
+        y: 97
         width: 160
         height: 30
     - id: 2
@@ -39230,7 +39457,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: and the weeping stones
+        value: this beacon shall rise...
         type: 0
         typeString: 
       - title: Sequence
@@ -39258,8 +39485,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 315
-        y: 189
+        x: 312
+        y: 149
         width: 160
         height: 30
     - id: 3
@@ -39285,7 +39512,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: ....The rest is unreadable
+        value: (The rest is unreadable...)
         type: 0
         typeString: 
       - title: Sequence
@@ -39307,13 +39534,13 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 315
-        y: 239
+        x: 311
+        y: 205
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasScrollPosition: {x: 16.466177, y: 4.8288956}
+    canvasZoom: 1.03
   - id: 32
     fields:
     - title: Title
@@ -39573,8 +39800,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 6.8189135, y: 10.202654}
-    canvasZoom: 1.03
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 1.1499999
   - id: 34
     fields:
     - title: Title
@@ -40944,12 +41171,12 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 338.1103
-        y: 315.19165
+        y: 316.29056
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 36.46843, y: 0}
-    canvasZoom: 0.9100001
+    canvasScrollPosition: {x: 44.46467, y: 6.5934}
+    canvasZoom: 0.94000006
   - id: 36
     fields:
     - title: Title
@@ -52852,7 +53079,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 'A transient stranger,
+        value: 'A mysterious stranger,
 
 
           walks the land...'
