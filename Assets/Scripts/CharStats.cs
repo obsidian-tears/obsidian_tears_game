@@ -68,6 +68,11 @@ public class CharStats : MonoBehaviour
     private void Awake()
     {
         Debug.Log("Char Stat Awake");
+        if (inventory == null) inventory = GetComponent<Inventory>();
+        
+        var equippedCol = inventory.GetItemCollection("Equipped");
+        inventory.RemoveItemCollection(equippedCol);
+        inventory.AddItemCollection( GameManager.Instance.itemSlotCollection);
     }
 
     void Start()

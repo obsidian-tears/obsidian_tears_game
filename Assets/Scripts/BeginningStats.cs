@@ -85,6 +85,7 @@ public class BeginningStats : MonoBehaviour
 
         GameManager.Instance.inventoryWasInit = true;
         GameManager.Instance.itemSlotCollection = _itemCollection[(int)_initialClass];
+        GameManager.Instance.ItemSlotSet = _itemSlotSets[(int)_initialClass];;
 
         SetInitialStats(_initialClass);
         
@@ -115,7 +116,7 @@ public class BeginningStats : MonoBehaviour
             _initialClass = InitialClasses.MAGE; 
             
         }
-        if (charClass == "FIGTHER")
+        if (charClass == "FIGHTER")
         {
             _initialClass = InitialClasses.FIGHTER;
         }
