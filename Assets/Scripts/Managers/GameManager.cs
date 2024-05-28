@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public bool inventoryWasInit = false;
 
     public ItemSlotCollection itemSlotCollection;
+    public ItemSlotSet ItemSlotSet;
 
     public ItemSlotCollectionView slotCollectionView;
 
