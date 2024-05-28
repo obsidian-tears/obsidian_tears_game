@@ -65,9 +65,14 @@ public class CharStats : MonoBehaviour
 
     ItemCollection equipmentCollection;
 
+    private void Awake()
+    {
+        Debug.Log("Char Stat Awake");
+    }
 
     void Start()
     {
+        Debug.Log("Char Stat Start");
         if(inventory != null)
         {
             equipmentCollection = inventory.GetItemCollection("Equipped");
