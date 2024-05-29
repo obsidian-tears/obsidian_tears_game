@@ -228,6 +228,7 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayerAttack()
     {
+        Debug.Log("Enumerator Attacl");
 
         playerAnimator.SetTrigger("Attack");
 
@@ -435,7 +436,6 @@ public class BattleSystem : MonoBehaviour
 
     private bool VerifyBow()  // envia true si tengo equipado un bow
     {
-
         ItemInfo[] pooledArray = new ItemInfo[10];
 
         var bowcategory = InventorySystemManager.GetItemCategory("Bow");
@@ -446,11 +446,13 @@ public class BattleSystem : MonoBehaviour
 
         if (itemInfoListSlice.Count > 0)
         {
+
             return true;
 
         }
         else
         {
+
             return false;
 
         }
@@ -467,6 +469,7 @@ public class BattleSystem : MonoBehaviour
 
     public void OnAttackButton()
     {
+
         if (state != BattleState.PLAYERTURN)
         {
             return;
@@ -477,21 +480,18 @@ public class BattleSystem : MonoBehaviour
 
         if (playerStats.characterClass == "RANGER")
         {
-            var chance = UnityEngine.Random.Range(0,10 );
+            int chance = UnityEngine.Random.Range(0,10 );
 
             if (VerifyBow() && chance < 4)
             {
                 
-                dobleAttack = true;
-                StartCoroutine(PlayerAttack());
+                dobleAttack = true; 
 
             }
         }
-        else
-        {
-            StartCoroutine(PlayerAttack());
-        }
-        
+
+        StartCoroutine(PlayerAttack());
+
     }
 
     public void OnRunButton()
