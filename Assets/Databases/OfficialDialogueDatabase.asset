@@ -8122,8 +8122,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 'Speaking of inventory items, here''s some health potions I just cooked
-          up!  A gift from Gran Gran! '
+        value: 'Speaking of inventory items, there''s a chest over there with some
+          potions in them. See it over there, next to the bed? I have no use for
+          them anymore, so it''s better that you take them! '
         type: 0
         typeString: 
       - title: Sequence
@@ -8141,7 +8142,7 @@ MonoBehaviour:
       - originConversationID: 6
         originDialogueID: 64
         destinationConversationID: 6
-        destinationDialogueID: 129
+        destinationDialogueID: 134
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -8151,8 +8152,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2452.2046
-        y: 1292.4072
+        x: 2454.9443
+        y: 1285.558
         width: 160
         height: 30
     - id: 74
@@ -10303,7 +10304,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2449.586
+        x: 2448.0234
         y: 1354.1095
         width: 160
         height: 30
@@ -10496,8 +10497,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Great! Mobile users need only tap on people and objects on the map
-          to interact with them.
+        value: 'Great! Mobile users need only tap on people and objects on the map
+          to interact with them. '
         type: 0
         typeString: 
       - title: Sequence
@@ -10529,9 +10530,65 @@ MonoBehaviour:
         y: 1481.3822
         width: 160
         height: 30
+    - id: 134
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 'Once we''re done talking, feel free to go get it! They will mint
+          automatically into your wallet. '
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 134
+        destinationConversationID: 6
+        destinationDialogueID: 129
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 2638.506
+        y: 1302.6812
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1654.2175, y: 104.47046}
-    canvasZoom: 0.99999964
+    canvasScrollPosition: {x: 1653.3988, y: 955.11816}
+    canvasZoom: 0.72999984
   - id: 7
     fields:
     - title: Title
