@@ -8630,9 +8630,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Hmmm... your brain is still fuzzy? That's a little worrying... there
-          are some monsters out there that are very unforgiving of peoples memories.
-          I wonder...
+        value: Hmmm... your brain is still fuzzy? That's a little worrying... I've
+          heard mention before, only in stories, of certain monsters that affected
+          travelers memories. I wonder...
         type: 0
         typeString: 
       - title: Sequence
@@ -9770,7 +9770,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: I'm definetly a monster.
+        value: I'm definitely a monster.
         type: 0
         typeString: 
       - title: Sequence
@@ -10193,8 +10193,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2157.4204
-        y: 503.74988
+        x: 2199.1926
+        y: 512.61066
         width: 160
         height: 30
     - id: 128
@@ -10530,8 +10530,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 201.49396}
-    canvasZoom: 0.1
+    canvasScrollPosition: {x: 1654.2175, y: 104.47046}
+    canvasZoom: 0.99999964
   - id: 7
     fields:
     - title: Title
@@ -20123,7 +20123,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2937.2542
+        x: 2935.53
         y: 438.2766
         width: 160
         height: 30
@@ -28979,8 +28979,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 4569.9277, y: 809.499}
-    canvasZoom: 0.58000004
+    canvasScrollPosition: {x: 942.29236, y: 534.58606}
+    canvasZoom: 0.2800001
   - id: 10
     fields:
     - title: Title
@@ -31874,6 +31874,12 @@ MonoBehaviour:
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
+      - originConversationID: 14
+        originDialogueID: 0
+        destinationConversationID: 14
+        destinationDialogueID: 68
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -33691,7 +33697,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1937.4203
+        x: 1936.0345
         y: 312.7771
         width: 160
         height: 30
@@ -33718,8 +33724,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: If you bring me more yams, let's say around (5) yams, I'll be sure
-          to make it worth your while! I just love me some sweet succulent tubers.
+        value: If you bring me (1) yams, I'll be sure to make it worth your while!
+          I just love me some sweet succulent tubers.
         type: 0
         typeString: 
       - title: Sequence
@@ -34216,6 +34222,12 @@ MonoBehaviour:
       - originConversationID: 14
         originDialogueID: 50
         destinationConversationID: 14
+        destinationDialogueID: 55
+        isConnector: 0
+        priority: 2
+      - originConversationID: 14
+        originDialogueID: 50
+        destinationConversationID: 14
         destinationDialogueID: 6
         isConnector: 0
         priority: 2
@@ -34228,13 +34240,7 @@ MonoBehaviour:
       - originConversationID: 14
         originDialogueID: 50
         destinationConversationID: 14
-        destinationDialogueID: 22
-        isConnector: 0
-        priority: 2
-      - originConversationID: 14
-        originDialogueID: 50
-        destinationConversationID: 14
-        destinationDialogueID: 55
+        destinationDialogueID: 65
         isConnector: 0
         priority: 2
       conditionsString: CurrentQuestState("AHiddenPath") == "success"
@@ -34420,7 +34426,7 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: Wait a second... I smell the smell of SWEET SUCCULENT TUBERS! You
-          must have at least (5) yams for the smell to be THAT strong!
+          must have at least (10) yams for the smell to be THAT strong!
         type: 0
         typeString: 
       - title: Sequence
@@ -34449,8 +34455,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 851.1006
-        y: 199.24478
+        x: 763.09375
+        y: 139.42201
         width: 160
         height: 30
     - id: 56
@@ -34476,8 +34482,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 'I''ll tell you what mister, if you trade me 10 yams, I''ll give you
-          a surprise! I''ll make it worth your while I promise!
+        value: 'I''ll tell you what mister, if you trade me (10) yams, I''ll give
+          you a surprise! I''ll make it worth your while I promise!
 
           Waddaya
           say?'
@@ -34514,8 +34520,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 849.4387
-        y: 257.5539
+        x: 760.4679
+        y: 210.49075
         width: 160
         height: 30
     - id: 57
@@ -34569,8 +34575,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 946.0137
-        y: 331.7396
+        x: 857.04285
+        y: 304.17746
         width: 160
         height: 30
     - id: 58
@@ -34618,14 +34624,14 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: uisRemoveItem("Yam", 10, "", "")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 760.25806
-        y: 330.45126
+        x: 657.29504
+        y: 302.88913
         width: 160
         height: 30
     - id: 59
@@ -34675,6 +34681,12 @@ MonoBehaviour:
         destinationDialogueID: 61
         isConnector: 0
         priority: 2
+      - originConversationID: 14
+        originDialogueID: 59
+        destinationConversationID: 14
+        destinationDialogueID: 62
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -34682,8 +34694,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 941.8622
-        y: 392.1184
+        x: 852.89136
+        y: 364.55627
         width: 160
         height: 30
     - id: 60
@@ -34709,7 +34721,10 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 
+        value: 'Thank you thank you THANK YOU THANK YOU!
+
+          I will fall asleep
+          tonight with the sweet smell of succulent tubers wafting through my hut.'
         type: 0
         typeString: 
       - title: Sequence
@@ -34723,7 +34738,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 14
+        originDialogueID: 60
+        destinationConversationID: 14
+        destinationDialogueID: 63
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -34731,8 +34752,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 747.80347
-        y: 407.43622
+        x: 645.6963
+        y: 416.37347
         width: 160
         height: 30
     - id: 61
@@ -34780,13 +34801,496 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1008.2866
-        y: 467.02747
+        x: 1044.7024
+        y: 416.7162
+        width: 160
+        height: 30
+    - id: 62
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 15
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Ok... Here you go!
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 14
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 14
+        originDialogueID: 62
+        destinationConversationID: 14
+        destinationDialogueID: 60
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: uisRemoveItem("Yam", 10, "", "")
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 852.8914
+        y: 419.80328
+        width: 160
+        height: 30
+    - id: 63
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 15
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 'As promised, here is your surprise! Hooray! Now that I have more
+          yams, I won''t need this anymore. '
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 14
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 14
+        originDialogueID: 63
+        destinationConversationID: 14
+        destinationDialogueID: 64
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: uisAddCurrency("Gold", 50, "")
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 643.95325
+        y: 497.99487
+        width: 160
+        height: 30
+    - id: 64
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 15
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Come back if you find MORE yams!
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 14
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 641.3949
+        y: 558.22833
+        width: 160
+        height: 30
+    - id: 65
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 15
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Looking for yams!
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 14
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 14
+        originDialogueID: 65
+        destinationConversationID: 14
+        destinationDialogueID: 66
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1075.9806
+        y: 211.17102
+        width: 160
+        height: 30
+    - id: 66
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 15
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 'Ooooo Ooooo OOOOO! Sweet succulent TUBERS!
+
+          If you find
+          ANY you should bring them back to me!'
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 14
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 14
+        originDialogueID: 66
+        destinationConversationID: 14
+        destinationDialogueID: 67
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1074.7487
+        y: 267.33057
+        width: 160
+        height: 30
+    - id: 67
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 15
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: If you bring me (10) yams, I'll be sure to make it worth your while!
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 14
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1071.053
+        y: 321.02628
+        width: 160
+        height: 30
+    - id: 68
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 15
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Heya mister! Did you find that path I mentioned?
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 14
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 14
+        originDialogueID: 68
+        destinationConversationID: 14
+        destinationDialogueID: 69
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: CurrentQuestState("AHiddenPath") == "active"
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1841.0833
+        y: 51.258797
+        width: 160
+        height: 30
+    - id: 69
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 15
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Not yet.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 14
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 14
+        originDialogueID: 69
+        destinationConversationID: 14
+        destinationDialogueID: 70
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 2029.6057
+        y: 49.06874
+        width: 160
+        height: 30
+    - id: 70
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 15
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 'You should definetly go look for it then! I don''t really want to
+          go searching again in the dark monster forest, especially if I don''t know
+          if I''ll find yams or not. '
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 14
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 2210.365
+        y: 50.27471
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 308.89917, y: 157.51233}
-    canvasZoom: 0.5117503
+    canvasScrollPosition: {x: 551.74695, y: 60.300926}
+    canvasZoom: 0.87175
   - id: 15
     fields:
     - title: Title
