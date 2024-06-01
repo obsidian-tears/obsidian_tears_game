@@ -4661,8 +4661,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 5239.7075
-        y: 1261.4714
+        x: 4675.79
+        y: 1200.6466
         width: 160
         height: 30
     - id: 48
@@ -5507,7 +5507,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 1148.7245
-        y: 578.953
+        y: 577.7335
         width: 160
         height: 30
     - id: 70
@@ -5818,8 +5818,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: We've had to resort to more desperate measures to keep them from over
-          running the village.
+        value: We've had to resort to more desperate measures to keep them from overrunning
+          the village.
         type: 0
         typeString: 
       - title: Sequence
@@ -5932,8 +5932,8 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: Present circumstances aside, I need you to tell me who you are, your
-          purpose, or how you got here? Perhaps you have information that could aid
-          us in our trials.
+          purpose, and how you got here? Perhaps you have information that could
+          aid us in our trials.
         type: 0
         typeString: 
       - title: Sequence
@@ -7372,8 +7372,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 857.1059, y: 938.5538}
-    canvasZoom: 0.75999975
+    canvasScrollPosition: {x: 634.1592, y: 640.624}
+    canvasZoom: 0.67
   - id: 6
     fields:
     - title: Title
@@ -7466,6 +7466,12 @@ MonoBehaviour:
         originDialogueID: 0
         destinationConversationID: 6
         destinationDialogueID: 26
+        isConnector: 0
+        priority: 2
+      - originConversationID: 6
+        originDialogueID: 0
+        destinationConversationID: 6
+        destinationDialogueID: 135
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -7614,7 +7620,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Welcoem back deary! Would you like me to repeat some of what I said
+        value: Welcome back deary! Would you like me to repeat some of what I said
           earlier?
         type: 0
         typeString: 
@@ -7642,7 +7648,7 @@ MonoBehaviour:
         destinationDialogueID: 28
         isConnector: 0
         priority: 2
-      conditionsString: HasQuest("GranGran1")
+      conditionsString: CurrentQuestState("GranGran1") == "active"
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -7650,7 +7656,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 804.1511
-        y: 209.4838
+        y: 207.9213
         width: 160
         height: 30
     - id: 27
@@ -8146,7 +8152,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: uisAddItem("Red Potion Full", 5, "", "", 68)
+      userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -9255,7 +9261,7 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: 'Ohhhh I see that look in your eyes. Now that you''re conscious I''m
-          not feeding anymore of them to you. I like them too much. So scrumptions.
+          not feeding anymore of them to you. I like them too much. So scrumptious.
           Can''t feed all my yams to surprise guests. '
         type: 0
         typeString: 
@@ -10586,9 +10592,449 @@ MonoBehaviour:
         y: 1302.6812
         width: 160
         height: 30
+    - id: 135
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Welcome back deary! Would you like me to repeat some of what I said
+          earlier?
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 135
+        destinationConversationID: 6
+        destinationDialogueID: 136
+        isConnector: 0
+        priority: 2
+      - originConversationID: 6
+        originDialogueID: 135
+        destinationConversationID: 6
+        destinationDialogueID: 137
+        isConnector: 0
+        priority: 2
+      conditionsString: CurrentQuestState("GranGran1") == "success"
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 787.53485
+        y: 570.3126
+        width: 160
+        height: 30
+    - id: 136
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Yes please!
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 136
+        destinationConversationID: 6
+        destinationDialogueID: 139
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 662.5631
+        y: 667.8335
+        width: 160
+        height: 30
+    - id: 137
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: No thank you.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 137
+        destinationConversationID: 6
+        destinationDialogueID: 138
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 917.89667
+        y: 671.9431
+        width: 160
+        height: 30
+    - id: 138
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 'Good. Whew. I was almost out of breath from the first time!
+
+'
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1034.8726
+        y: 744.9788
+        width: 160
+        height: 30
+    - id: 139
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Press "E" to see the menu. Use your Journal to see quests and tasks
+          that you've set out on!
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 139
+        destinationConversationID: 6
+        destinationDialogueID: 140
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 338.18744
+        y: 779.9898
+        width: 160
+        height: 30
+    - id: 140
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Use your inventory to equip helpful items as you find them, and consume
+          food and potions!
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 140
+        destinationConversationID: 6
+        destinationDialogueID: 141
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 326.77597
+        y: 850.9441
+        width: 160
+        height: 30
+    - id: 141
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Also, as you explore the village, press "Spacebar", to interact with
+          people and interesting objects you run into.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 141
+        destinationConversationID: 6
+        destinationDialogueID: 142
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 322.47693
+        y: 923.5463
+        width: 160
+        height: 30
+    - id: 142
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: I'm always happy to help, come back if you'd like to hear that again!
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 320.7528
+        y: 997.68427
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1653.3988, y: 955.11816}
-    canvasZoom: 0.72999984
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.42999992
   - id: 7
     fields:
     - title: Title
