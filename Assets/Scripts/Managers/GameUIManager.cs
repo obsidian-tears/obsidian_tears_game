@@ -51,6 +51,7 @@ namespace GameManagers
 
         public CharacterStatsDisplay StatsDisplay;
         public ActionButton[] ButtonsForBattleHide;
+        public MobileInput _mobileInput;
 
         private UIMode m_currentMode = UIMode.STANDARD;
         public UIMode CurrentMode => m_currentMode;
@@ -79,12 +80,14 @@ namespace GameManagers
             if (mode == UIMode.BATTLE)
             {
                 MobileHud.SetActive(false);
+                _mobileInput.enabled = false;
             }
             else
             {
                 if (CheckMobile.IsMobile)
                 {
                     MobileHud.SetActive(true);
+                    _mobileInput.enabled = true;
                 }
             }
 
