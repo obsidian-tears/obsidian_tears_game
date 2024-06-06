@@ -88,7 +88,7 @@ public class CharStats : MonoBehaviour
         {
             equipmentCollection = inventory.GetItemCollection("Equipped");
             EventHandler.RegisterEvent(equipmentCollection, EventNames.c_ItemCollection_OnUpdate, UpdateStats);
-            UpdateStats();
+            UpdateStatsWithHeal();
             UpdateUI();
         }
         
@@ -106,13 +106,13 @@ public class CharStats : MonoBehaviour
             attackTotal = attackBase +
                            /*(inventory.GetItemCollection(1).HasItem(_itemCategoryToBuff, true) ? Mathf.RoundToInt(equipmentCollection.GetIntSum("Attack") * _multiplierDamage):*/ equipmentCollection.GetIntSum("Attack")/*)*/;
 
-            healthTotal = healthMax;
-            magicTotal = magicMax;
-            
+           
             defenseTotal = defenseBase + equipmentCollection.GetIntSum("Defense");
             speedTotal = speedBase + equipmentCollection.GetIntSum("Speed");
             criticalHitProbability = equipmentCollection.GetFloatSum("CriticalChance");
             magicPowerTotal = magicPowerBase + equipmentCollection.GetIntSum("MagicPower");
+
+            UpdateUI();
         }
 
         // Note by Jakub - looks like this part of code is never used by enemy
@@ -127,6 +127,27 @@ public class CharStats : MonoBehaviour
         //     defenseTotal = defenseBase;
         //     speedTotal = speedBase;
         // }
+    }
+
+    public void UpdateStatsWithHeal()
+    {
+        if (equipper != null && GameUIManager.Instance.StatsDisplay != null)
+        {
+            healthMax = healthBase + equipmentCollection.GetIntSum("MaxHp");
+            magicMax = magicBase + equipmentCollection.GetIntSum("MaxMp");
+            attackTotal = attackBase +
+                           /*(inventory.GetItemCollection(1).HasItem(_itemCategoryToBuff, true) ? Mathf.RoundToInt(equipmentCollection.GetIntSum("Attack") * _multiplierDamage):*/ equipmentCollection.GetIntSum("Attack")/*)*/;
+            healthTotal = healthMax;
+            magicTotal = magicMax;
+
+            defenseTotal = defenseBase + equipmentCollection.GetIntSum("Defense");
+            speedTotal = speedBase + equipmentCollection.GetIntSum("Speed");
+            criticalHitProbability = equipmentCollection.GetFloatSum("CriticalChance");
+            magicPowerTotal = magicPowerBase + equipmentCollection.GetIntSum("MagicPower");
+            UpdateUI();
+
+        }    
+
     }
 
     public void UpdateUI() 

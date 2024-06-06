@@ -164,6 +164,7 @@ public class BattleSystem : MonoBehaviour
         yield return null;
 
         hud.SetHUD(playerStats);
+        playerStats.UpdateUI();
         dialogueText.text = "Phendrin uses an item";       
 
         yield return new WaitForSeconds(2f);
