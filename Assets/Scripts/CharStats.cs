@@ -93,6 +93,12 @@ public class CharStats : MonoBehaviour
         }
         
     }
+
+
+    private void Update()
+    {
+        UpdateStats();
+    }
     /// <summary>
     /// Update the character stats.
     /// </summary>
