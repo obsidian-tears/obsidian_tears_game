@@ -39,6 +39,9 @@ public class MonsterArea : MonoBehaviour
 
     private Player player;
 
+    private MobileInput mobileInput;
+   
+
     public void OnTriggerEnter2D(Collider2D collider)
     {
 
@@ -48,6 +51,8 @@ public class MonsterArea : MonoBehaviour
             active = true;
             t = 0;
             probability = Random.Range(minSecondsToBattleStart, maxSecondsToBattleStart);
+            mobileInput = FindObjectOfType<MobileInput>();
+            
         }
     }
     public void OnTriggerExit2D(Collider2D collision)
@@ -62,7 +67,7 @@ public class MonsterArea : MonoBehaviour
     {
         if (player != null)
         {
-            if (active && player.change != Vector3.zero)
+            if (active && player.change != Vector3.zero || mobileInput.joystickInput != Vector3.zero)
             {
                 if (t > probability)
                 {

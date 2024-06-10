@@ -14,7 +14,7 @@ public class MobileInput : MonoBehaviour
     [SerializeField] GameObject _MobileUI;
 
     [SerializeField] private VirtualControlsManager controlsManager;
-
+    public Vector3 joystickInput;
 
     public bool running;
 
@@ -50,7 +50,8 @@ public class MobileInput : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 joystickInput = new Vector3(m_VirtualJoystick.GetAxis("Horizontal"), m_VirtualJoystick.GetAxis("Vertical"), 0f);
+        joystickInput.x = m_VirtualJoystick.GetAxis("Horizontal");
+        joystickInput.y = m_VirtualJoystick.GetAxis("Vertical");
         joystickInput = joystickInput.magnitude > .75f ? joystickInput.normalized : joystickInput;
         //Move(joystickInput);          
 
