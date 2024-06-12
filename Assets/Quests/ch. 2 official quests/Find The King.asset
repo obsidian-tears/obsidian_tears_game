@@ -103,8 +103,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_contentID: -1
   m_bodyText:
-    m_text: Squire needs you to tell the King what has happened. Last Squire saw,
-      he had escaped out the back pass into the Snowy Mountain.
+    m_text: Prince Nahan needs you to tell the King what has happened. The last the
+      prince saw, the King had escaped out the back pass into the Snowy Mountain.
     m_stringAsset: {fileID: 0}
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_contentID: -1
   m_bodyText:
-    m_text: Return the Key to Squire!
+    m_text: Return with the secret words to Prince Nahan!
     m_stringAsset: {fileID: 0}
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
@@ -277,8 +277,8 @@ MonoBehaviour:
     m_childIndexList: 01000000
     m_canvasRect:
       serializedVersion: 2
-      x: 191.96426
-      y: 20
+      x: 190.90045
+      y: 18.936169
       width: 120
       height: 48
   - m_id:
@@ -325,8 +325,8 @@ MonoBehaviour:
     m_childIndexList: 04000000
     m_canvasRect:
       serializedVersion: 2
-      x: 197.14932
-      y: 88.32143
+      x: 198.21317
+      y: 83.32143
       width: 120
       height: 48
   - m_id:
@@ -372,8 +372,8 @@ MonoBehaviour:
     m_childIndexList: 
     m_canvasRect:
       serializedVersion: 2
-      x: 202.0651
-      y: 284.15353
+      x: 209.0651
+      y: 360.15353
       width: 120
       height: 35
   - m_id:
@@ -417,7 +417,7 @@ MonoBehaviour:
       m_conditionCountMode: 1
       m_minConditionCount: 0
       m_numTrueConditions: 0
-    m_childIndexList: 02000000
+    m_childIndexList: 05000000
     m_canvasRect:
       serializedVersion: 2
       x: 209.84744
@@ -467,8 +467,54 @@ MonoBehaviour:
     m_childIndexList: 03000000
     m_canvasRect:
       serializedVersion: 2
-      x: 205.14932
+      x: 204.14932
       y: 149.32143
+      width: 120
+      height: 48
+  - m_id:
+      m_text: Condition 5
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_internalName:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_nodeType: 4
+    m_isOptional: 0
+    m_state: 0
+    m_speaker:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_stateInfoList:
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    m_conditionSet:
+      m_conditionList: []
+      m_conditionCountMode: 1
+      m_minConditionCount: 0
+      m_numTrueConditions: 0
+    m_childIndexList: 02000000
+    m_canvasRect:
+      serializedVersion: 2
+      x: 209.84744
+      y: 284.6311
       width: 120
       height: 48
   m_goalEntityTypeName: 
@@ -485,28 +531,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b99cc2a156c22e46b4fb74b06a4d1e8, type: 3}
   m_Name: AlertQuestAction
   m_EditorClassIdentifier: 
-  m_contentList:
-  - {fileID: 2346330564266566717}
-  - {fileID: 4537405229136870638}
+  m_contentList: []
   m_contentListSerializationProxy: []
---- !u!114 &2346330564266566717
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0ed0c4e68ee98946bb5016adda42373, type: 3}
-  m_Name: BodyTextQuestContent
-  m_EditorClassIdentifier: 
-  m_contentID: -1
-  m_bodyText:
-    m_text: 'Quest Updated: Find the King'
-    m_stringAsset: {fileID: 0}
-    m_textTable: {fileID: 0}
-    m_textTableFieldID: 0
 --- !u!114 &2791279658019442850
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -545,24 +571,6 @@ MonoBehaviour:
     m_valueType: 0
     m_intValue: 0
     m_stringValue: 
---- !u!114 &4537405229136870638
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0ed0c4e68ee98946bb5016adda42373, type: 3}
-  m_Name: BodyTextQuestContent
-  m_EditorClassIdentifier: 
-  m_contentID: -1
-  m_bodyText:
-    m_text: Return the Key to Squire!
-    m_stringAsset: {fileID: 0}
-    m_textTable: {fileID: 0}
-    m_textTableFieldID: 0
 --- !u!114 &7374061445799373503
 MonoBehaviour:
   m_ObjectHideFlags: 1

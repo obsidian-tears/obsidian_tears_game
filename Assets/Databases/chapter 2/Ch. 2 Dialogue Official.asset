@@ -82,7 +82,7 @@ MonoBehaviour:
   - id: 3
     fields:
     - title: Name
-      value: Squire
+      value: Prince Nahan
       type: 0
       typeString: 
     - title: Pictures
@@ -1639,11 +1639,11 @@ MonoBehaviour:
   - id: 2
     fields:
     - title: Title
-      value: Squire
+      value: Prince Nahan
       type: 0
       typeString: 
     - title: Description
-      value: Squire in throne room
+      value: Prince Nahan in throne room
       type: 0
       typeString: 
     - title: Actor
@@ -1798,7 +1798,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 456.3201
+        x: 454.68076
         y: 68.68422
         width: 160
         height: 30
@@ -2109,8 +2109,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: About one week ago the monsters attacked again. But they were more
-          organized than they had ever been. Some malevolent force was guiding them,
+        value: A few days ago the monsters attacked again. But they were more organized
+          than they had ever been. Some malevolent force was guiding them.
         type: 0
         typeString: 
       - title: Sequence
@@ -2781,8 +2781,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: You found the King? And he gave you the Key! Are you sure you want
-          to go ahead with this? Once I open the catacombs there is no going back.
+        value: You found the King? And he gave you the words to open the way! Are
+          you sure you want to go ahead with this? Once I open the catacombs there
+          is no going back.
         type: 0
         typeString: 
       - title: Sequence
@@ -2809,7 +2810,7 @@ MonoBehaviour:
         destinationDialogueID: 32
         isConnector: 0
         priority: 2
-      conditionsString: uisGetItemAmount("Key To The Catacombs", "") >= 1
+      conditionsString: GetQuestNodeState("Find The King", "Condition 5") == active
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -2892,7 +2893,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: I'm ready!
+        value: I'm ready! Just say " ELI' TALWEN GODURENGA"
         type: 0
         typeString: 
       - title: Sequence
@@ -2921,7 +2922,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 862.4266
-        y: 139.59282
+        y: 138.3733
         width: 160
         height: 30
     - id: 32
@@ -2998,8 +2999,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Hahaha. You're cooking today. ON FIRE. I'll do my best to help. We'd
-          better hurry.
+        value: 'Hahaha. You''re cooking today. ON FIRE. '
         type: 0
         typeString: 
       - title: Sequence
@@ -3027,7 +3027,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 861.0567
+        x: 859.83716
         y: 208.77089
         width: 160
         height: 30
@@ -3054,7 +3054,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: RRRRRGH. Keyhole kinda rusty. So hard...to turn...
+        value: RRRRRGH. Never did like magic....Wait, what were the words again? 
+          ELI' TALWEN GODURENGA?
         type: 0
         typeString: 
       - title: Sequence
@@ -3082,7 +3083,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 861.0567
+        x: 862.4266
         y: 258.77087
         width: 160
         height: 30
@@ -3109,7 +3110,63 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Got it!
+        value: 'Haha! I guess that was it!  '
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 2
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 2
+        originDialogueID: 35
+        destinationConversationID: 2
+        destinationDialogueID: 36
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: SetQuestState("Find The King", "success")
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 861.0567
+        y: 308.77087
+        width: 160
+        height: 30
+    - id: 36
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 3
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 'The rest is on you now Phendrin. I''ll stay here and keep monsters
+          from coming down and blocking your escape! '
         type: 0
         typeString: 
       - title: Sequence
@@ -3125,20 +3182,19 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: uisRemoveItem("Key To The Catacombs", 1, "","");SetQuestState("Find
-        The King", "success")
+      userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
         x: 861.0567
-        y: 308.77087
+        y: 358.77087
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 370.02917, y: 401.62503}
-    canvasZoom: 1.0299997
+    canvasScrollPosition: {x: 388.01184, y: 134.19052}
+    canvasZoom: 0.73
   - id: 3
     fields:
     - title: Title
@@ -3383,7 +3439,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Squire is still in the castle. We need your help!
+        value: Prince Nahan is still in the castle. We need your help!
         type: 0
         typeString: 
       - title: Sequence
@@ -4002,7 +4058,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Squire has checked the whole castle and can't find them! They dissapeared.
+        value: Nahan has checked the whole castle and can't find them! They dissapeared.
         type: 0
         typeString: 
       - title: Sequence
@@ -4229,8 +4285,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 'Here, take this key and give it to Squire. I''m afraid I''ll only
-          slow you down. He''ll know what to do with it. '
+        value: Here, you must tell Prince Nahan what the words are to open the catacombs.
+          As one of my blood he'll be able to command the way to open. I'd go with
+          you but I'm afraid I'll only slow you down. The words he must speak are....
         type: 0
         typeString: 
       - title: Sequence
@@ -4248,11 +4305,11 @@ MonoBehaviour:
       - originConversationID: 3
         originDialogueID: 18
         destinationConversationID: 3
-        destinationDialogueID: 19
+        destinationDialogueID: 30
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: uisAddItem("Key To The Catacombs", 1)
+      userScript: SetQuestNodeState("Find The King", "Condition 3", "active")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -4307,8 +4364,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 320.50247
-        y: 921.1205
+        x: 309.52686
+        y: 1062.5837
         width: 160
         height: 30
     - id: 20
@@ -4860,9 +4917,177 @@ MonoBehaviour:
         y: 357.76895
         width: 160
         height: 30
+    - id: 30
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 4
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: They are....                      .... drat...              ...what
+          are they?                           EEli' Go'whipsy! No.... that's not
+          it.                                  Tall Tree!      blast.....
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 3
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 3
+        originDialogueID: 30
+        destinationConversationID: 3
+        destinationDialogueID: 31
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 319.55597
+        y: 914.6031
+        width: 160
+        height: 30
+    - id: 31
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 4
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: ' ELI'' TALWEN GODURENGA!'
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 3
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 3
+        originDialogueID: 31
+        destinationConversationID: 3
+        destinationDialogueID: 32
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 308.58035
+        y: 963.4267
+        width: 160
+        height: 30
+    - id: 32
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 4
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: That's it! Quickly now. My son, your lifelong friend, can help you.
+          Don't forget the words!
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 3
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 3
+        originDialogueID: 32
+        destinationConversationID: 3
+        destinationDialogueID: 19
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 308.58035
+        y: 1014.6031
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 396.68512, y: 8.51062}
-    canvasZoom: 0.9400001
+    canvasScrollPosition: {x: 105.38583, y: 754.1081}
+    canvasZoom: 0.8500001
   syncInfo:
     syncActors: 0
     syncItems: 0
