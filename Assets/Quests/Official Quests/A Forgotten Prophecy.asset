@@ -1,5 +1,97 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4790618186873894391
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb2f2b9c7056cd343a6b11365c05d91a, type: 3}
+  m_Name: QuestNodeStateQuestCondition
+  m_EditorClassIdentifier: 
+  m_requiredQuestID:
+    m_text: AForgottenProphecy
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_requiredQuestNodeID:
+    m_text: Obelisk1
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_requiredState: 2
+--- !u!114 &-3850577934027178907
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb2f2b9c7056cd343a6b11365c05d91a, type: 3}
+  m_Name: QuestNodeStateQuestCondition
+  m_EditorClassIdentifier: 
+  m_requiredQuestID:
+    m_text: AForgottenProphecy
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_requiredQuestNodeID:
+    m_text: Obelisk8
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_requiredState: 2
+--- !u!114 &-3601027967465317754
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb2f2b9c7056cd343a6b11365c05d91a, type: 3}
+  m_Name: QuestNodeStateQuestCondition
+  m_EditorClassIdentifier: 
+  m_requiredQuestID:
+    m_text: AForgottenProphecy
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_requiredQuestNodeID:
+    m_text: Obelisk6
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_requiredState: 2
+--- !u!114 &-2504177488933972295
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb2f2b9c7056cd343a6b11365c05d91a, type: 3}
+  m_Name: QuestNodeStateQuestCondition
+  m_EditorClassIdentifier: 
+  m_requiredQuestID:
+    m_text: AForgottenProphecy
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_requiredQuestNodeID:
+    m_text: Obelisk2
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_requiredState: 2
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,15 +224,15 @@ MonoBehaviour:
       m_conditionCountMode: 0
       m_minConditionCount: 0
       m_numTrueConditions: 0
-    m_childIndexList: 01000000
+    m_childIndexList: 0c000000
     m_canvasRect:
       serializedVersion: 2
-      x: 898.766
-      y: 129.44733
+      x: 790.9374
+      y: 130.81245
       width: 120
       height: 48
   - m_id:
-      m_text: Condition 1
+      m_text: Obelisk1
       m_stringAsset: {fileID: 0}
       m_textTable: {fileID: 0}
       m_textTableFieldID: 0
@@ -178,11 +270,434 @@ MonoBehaviour:
       m_conditionCountMode: 1
       m_minConditionCount: 0
       m_numTrueConditions: 0
-    m_childIndexList: 02000000
+    m_childIndexList: 03000000
     m_canvasRect:
       serializedVersion: 2
-      x: 896.766
-      y: 199.6238
+      x: 190.93738
+      y: 274.81244
+      width: 120
+      height: 48
+  - m_id:
+      m_text: Obelisk2
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_internalName:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_nodeType: 4
+    m_isOptional: 0
+    m_state: 0
+    m_speaker:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_stateInfoList:
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    m_conditionSet:
+      m_conditionList: []
+      m_conditionCountMode: 1
+      m_minConditionCount: 0
+      m_numTrueConditions: 0
+    m_childIndexList: 03000000
+    m_canvasRect:
+      serializedVersion: 2
+      x: 340.93738
+      y: 274.81244
+      width: 120
+      height: 48
+  - m_id:
+      m_text: ProphecyTime
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_internalName:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_nodeType: 4
+    m_isOptional: 0
+    m_state: 0
+    m_speaker:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_stateInfoList:
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    m_conditionSet:
+      m_conditionList:
+      - {fileID: -4790618186873894391}
+      - {fileID: -2504177488933972295}
+      - {fileID: 6265915148351961041}
+      - {fileID: 6837314745423775624}
+      - {fileID: 935025004269925058}
+      - {fileID: -3601027967465317754}
+      - {fileID: 436837925326136154}
+      - {fileID: -3850577934027178907}
+      - {fileID: 4933024263842679764}
+      m_conditionCountMode: 1
+      m_minConditionCount: 0
+      m_numTrueConditions: 0
+    m_childIndexList: 0b000000
+    m_canvasRect:
+      serializedVersion: 2
+      x: 790.9374
+      y: 346.8125
+      width: 120
+      height: 48
+  - m_id:
+      m_text: Obelisk7
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_internalName:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_nodeType: 4
+    m_isOptional: 0
+    m_state: 0
+    m_speaker:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_stateInfoList:
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    m_conditionSet:
+      m_conditionList: []
+      m_conditionCountMode: 1
+      m_minConditionCount: 0
+      m_numTrueConditions: 0
+    m_childIndexList: 03000000
+    m_canvasRect:
+      serializedVersion: 2
+      x: 1090.9375
+      y: 274.81244
+      width: 120
+      height: 48
+  - m_id:
+      m_text: Obelisk3
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_internalName:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_nodeType: 4
+    m_isOptional: 0
+    m_state: 0
+    m_speaker:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_stateInfoList:
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    m_conditionSet:
+      m_conditionList: []
+      m_conditionCountMode: 1
+      m_minConditionCount: 0
+      m_numTrueConditions: 0
+    m_childIndexList: 03000000
+    m_canvasRect:
+      serializedVersion: 2
+      x: 490.93738
+      y: 274.81244
+      width: 120
+      height: 48
+  - m_id:
+      m_text: Obelisk6
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_internalName:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_nodeType: 4
+    m_isOptional: 0
+    m_state: 0
+    m_speaker:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_stateInfoList:
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    m_conditionSet:
+      m_conditionList: []
+      m_conditionCountMode: 1
+      m_minConditionCount: 0
+      m_numTrueConditions: 0
+    m_childIndexList: 03000000
+    m_canvasRect:
+      serializedVersion: 2
+      x: 940.9374
+      y: 274.81244
+      width: 120
+      height: 48
+  - m_id:
+      m_text: Obelisk5
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_internalName:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_nodeType: 4
+    m_isOptional: 0
+    m_state: 0
+    m_speaker:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_stateInfoList:
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    m_conditionSet:
+      m_conditionList: []
+      m_conditionCountMode: 1
+      m_minConditionCount: 0
+      m_numTrueConditions: 0
+    m_childIndexList: 03000000
+    m_canvasRect:
+      serializedVersion: 2
+      x: 790.9374
+      y: 274.81244
+      width: 120
+      height: 48
+  - m_id:
+      m_text: Obelisk4
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_internalName:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_nodeType: 4
+    m_isOptional: 0
+    m_state: 0
+    m_speaker:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_stateInfoList:
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    m_conditionSet:
+      m_conditionList: []
+      m_conditionCountMode: 1
+      m_minConditionCount: 0
+      m_numTrueConditions: 0
+    m_childIndexList: 03000000
+    m_canvasRect:
+      serializedVersion: 2
+      x: 640.9374
+      y: 274.81244
+      width: 120
+      height: 48
+  - m_id:
+      m_text: Obelisk8
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_internalName:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_nodeType: 4
+    m_isOptional: 0
+    m_state: 0
+    m_speaker:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_stateInfoList:
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    m_conditionSet:
+      m_conditionList: []
+      m_conditionCountMode: 1
+      m_minConditionCount: 0
+      m_numTrueConditions: 0
+    m_childIndexList: 03000000
+    m_canvasRect:
+      serializedVersion: 2
+      x: 1240.9375
+      y: 274.81244
+      width: 120
+      height: 48
+  - m_id:
+      m_text: Obelisk9
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_internalName:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_nodeType: 4
+    m_isOptional: 0
+    m_state: 0
+    m_speaker:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_stateInfoList:
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    m_conditionSet:
+      m_conditionList: []
+      m_conditionCountMode: 1
+      m_minConditionCount: 0
+      m_numTrueConditions: 0
+    m_childIndexList: 03000000
+    m_canvasRect:
+      serializedVersion: 2
+      x: 1390.9375
+      y: 274.81244
       width: 120
       height: 48
   - m_id:
@@ -227,9 +742,170 @@ MonoBehaviour:
     m_childIndexList: 
     m_canvasRect:
       serializedVersion: 2
-      x: 891.1711
-      y: 266.40952
+      x: 790.9374
+      y: 418.8125
       width: 120
       height: 35
+  - m_id:
+      m_text: FindRayela
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_internalName:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_nodeType: 4
+    m_isOptional: 0
+    m_state: 0
+    m_speaker:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_stateInfoList:
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    m_conditionSet:
+      m_conditionList: []
+      m_conditionCountMode: 1
+      m_minConditionCount: 0
+      m_numTrueConditions: 0
+    m_childIndexList: 01000000020000000500000008000000070000000600000004000000090000000a000000
+    m_canvasRect:
+      serializedVersion: 2
+      x: 790.9374
+      y: 202.81245
+      width: 120
+      height: 48
   m_goalEntityTypeName: 
   m_nextContentID: 0
+--- !u!114 &436837925326136154
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb2f2b9c7056cd343a6b11365c05d91a, type: 3}
+  m_Name: QuestNodeStateQuestCondition
+  m_EditorClassIdentifier: 
+  m_requiredQuestID:
+    m_text: AForgottenProphecy
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_requiredQuestNodeID:
+    m_text: Obelisk7
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_requiredState: 2
+--- !u!114 &935025004269925058
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb2f2b9c7056cd343a6b11365c05d91a, type: 3}
+  m_Name: QuestNodeStateQuestCondition
+  m_EditorClassIdentifier: 
+  m_requiredQuestID:
+    m_text: AForgottenProphecy
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_requiredQuestNodeID:
+    m_text: Obelisk5
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_requiredState: 2
+--- !u!114 &4933024263842679764
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb2f2b9c7056cd343a6b11365c05d91a, type: 3}
+  m_Name: QuestNodeStateQuestCondition
+  m_EditorClassIdentifier: 
+  m_requiredQuestID:
+    m_text: AForgottenProphecy
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_requiredQuestNodeID:
+    m_text: Obelisk9
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_requiredState: 2
+--- !u!114 &6265915148351961041
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb2f2b9c7056cd343a6b11365c05d91a, type: 3}
+  m_Name: QuestNodeStateQuestCondition
+  m_EditorClassIdentifier: 
+  m_requiredQuestID:
+    m_text: AForgottenProphecy
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_requiredQuestNodeID:
+    m_text: Obelisk3
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_requiredState: 2
+--- !u!114 &6837314745423775624
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb2f2b9c7056cd343a6b11365c05d91a, type: 3}
+  m_Name: QuestNodeStateQuestCondition
+  m_EditorClassIdentifier: 
+  m_requiredQuestID:
+    m_text: AForgottenProphecy
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_requiredQuestNodeID:
+    m_text: Obelisk4
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_requiredState: 2
