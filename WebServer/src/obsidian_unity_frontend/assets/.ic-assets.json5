@@ -51,6 +51,8 @@
       "X-XSS-Protection": "1; mode=block",
     },
     // redirect all requests from .raw.ic0.app to .ic0.app (this redirection is the default)
-    allow_raw_access: false,
+    // Important to be "raw" due to Unity files being big and loaded
+    // in range/batches, which sporadically gives errors on certification
+    allow_raw_access: true,
   },
 ]
