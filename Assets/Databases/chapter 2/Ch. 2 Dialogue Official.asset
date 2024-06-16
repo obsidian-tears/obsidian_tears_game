@@ -6714,7 +6714,8 @@ MonoBehaviour:
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
-      conditionsString: 'CurrentQuestState("The Invisible Maze") == unassigned and '
+      conditionsString: CurrentQuestState("The Invisible Maze") == unassigned and
+        DialogueSystem.GetVariable("maze_complete").AsBool == 1
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -7927,8 +7928,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 220.56624, y: 371.72586}
-    canvasZoom: 0.7299998
+    canvasScrollPosition: {x: 177.83018, y: 0}
+    canvasZoom: 0.48999998
   - id: 6
     fields:
     - title: Title
