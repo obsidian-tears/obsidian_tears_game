@@ -6,6 +6,7 @@ public class NonPlayableCharacter : MonoBehaviour
 {
     [SerializeField] Animator animator;
     [SerializeField] List<Vector3> movementPattern;
+    [SerializeField] float stopRadius = 1.5f;
     int currentPattern = 0;
     float speed = 3f;
     float timer = 0f;
@@ -15,7 +16,7 @@ public class NonPlayableCharacter : MonoBehaviour
     {
         // If the Player is near the NPC, don't move
         Vector3 player = GameObject.Find("Player").transform.position;
-        if (Vector3.Distance(transform.position, player) < 1.5f)
+        if (Vector3.Distance(transform.position, player) < stopRadius)
         {
             animator.SetBool("moving", false);
             return;
