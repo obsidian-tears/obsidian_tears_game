@@ -53,25 +53,6 @@ MonoBehaviour:
     m_valueType: 0
     m_intValue: 0
     m_stringValue: 
---- !u!114 &-4961884335448826817
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0ed0c4e68ee98946bb5016adda42373, type: 3}
-  m_Name: BodyTextQuestContent
-  m_EditorClassIdentifier: 
-  m_contentID: -1
-  m_bodyText:
-    m_text: Somewhere, by a lake of fire, is Roscoe's Fire Wand. If I bring it to
-      him he will tell me the location of a magic chest.
-    m_stringAsset: {fileID: 0}
-    m_textTable: {fileID: 0}
-    m_textTableFieldID: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,7 +222,8 @@ MonoBehaviour:
       m_categorizedContentList:
       - m_contentList: []
       - m_contentList:
-        - {fileID: -4961884335448826817}
+        - {fileID: 6089377560635005869}
+        - {fileID: 442490750722367304}
       - m_contentList: []
     - m_actionList: []
       m_categorizedContentList:
@@ -310,6 +292,25 @@ MonoBehaviour:
       height: 35
   m_goalEntityTypeName: 
   m_nextContentID: 0
+--- !u!114 &442490750722367304
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ed0c4e68ee98946bb5016adda42373, type: 3}
+  m_Name: BodyTextQuestContent
+  m_EditorClassIdentifier: 
+  m_contentID: -1
+  m_bodyText:
+    m_text: Somewhere, by a lake of fire, is Roscoe's Fire Wand. If I bring it to
+      him he will tell me the location of a magic chest.
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
 --- !u!114 &1633197902136952517
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -363,6 +364,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_contentList: []
   m_contentListSerializationProxy: []
+--- !u!114 &6089377560635005869
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c47e1bb9cdd9a474c8d3f5d555d7533a, type: 3}
+  m_Name: HeadingTextQuestContent
+  m_EditorClassIdentifier: 
+  m_contentID: -1
+  m_useQuestTitle: 1
+  m_headingText:
+    m_text: <Quest Title>
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_headingLevel: 1
 --- !u!114 &6315165964735150898
 MonoBehaviour:
   m_ObjectHideFlags: 1
