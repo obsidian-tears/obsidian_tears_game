@@ -13,7 +13,7 @@ namespace Opsive.UltimateInventorySystem.Interactions
     using EventHandler = Opsive.Shared.Events.EventHandler;
 
     public delegate bool InteractionCondition(IInteractor interactor);
-
+    
     /// <summary>
     /// The interactable class allows you to easily select, unselect and interact with an object.
     /// </summary>
@@ -43,6 +43,9 @@ namespace Opsive.UltimateInventorySystem.Interactions
         protected IInteractor m_LastInteractor;
         public IInteractor LastInteractor => m_LastInteractor;
 
+        private bool isMobile = false;
+
+
         /// <summary>
         /// Initialize.
         /// </summary>
@@ -52,6 +55,38 @@ namespace Opsive.UltimateInventorySystem.Interactions
             if (m_InteractableBehavior != null) {
                 m_InteractableBehavior.Initialize(this);
             }
+
+            isMobile = PlayerPrefs.GetString("IsMobile", "true") == "true";
+
+
+        }
+
+        private void Update()
+        {
+            if (isMobile && Input.touchCount > 0)
+            {
+                Touch touch = Input.GetTouch(0);
+                if (touch.phase == TouchPhase.Began && m_LastInteractor != null)
+                {
+                    Vector3 touchWorldPosition = Camera.main.ScreenToWorldPoint(touch.position);
+                    touchWorldPosition.z = 0; 
+
+                    if (IsTouchInCollider(touchWorldPosition))
+                    {
+                        Interact(m_LastInteractor);
+                    }
+                }
+            }
+        }
+
+        private bool IsTouchInCollider(Vector3 touchPosition)
+        {
+            Collider2D collider2D = GetComponent<Collider2D>();
+            if (collider2D != null)
+            {
+                return collider2D.OverlapPoint(touchPosition);
+            }
+            return false;
         }
 
         /// <summary>
@@ -146,8 +181,7 @@ namespace Opsive.UltimateInventorySystem.Interactions
             m_OnSelect.Invoke();
             EventHandler.ExecuteEvent<IInteractor>(gameObject, EventNames.c_Interactable_OnSelect_IInteractor, interactor);
 
-            if (m_AutoInteract) { Interact(interactor); }
-
+            if (m_AutoInteract) { Interact(interactor); }            
             return true;
         }
 
