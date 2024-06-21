@@ -7,23 +7,37 @@ using PixelCrushers;
 
 public class RealQuestStateListener : MonoBehaviour, IMessageHandler
 {
+    [Tooltip("The ID of the quest to listen for.")]
     [SerializeField] private string questId;
+    [Tooltip("The ID of the quest node to optionally listen for.")]
+    [SerializeField] private string nodeId;
+    [Tooltip("What to do when the quest succeeds.")]
     [SerializeField] private UnityEvent onQuestSuccess;
+    [Tooltip("What to do when the quest node becomes true, if specified.")]
+    [SerializeField] private UnityEvent onQuestNodeTrue;
+    private bool alreadyTriggeredQuest = false;
+    private bool alreadyTriggeredNode = false;
+
 
     private void Start()
     {
         MessageSystem.AddListener(this, "Quest State Changed", questId);
-    }   
-
- public void OnMessage(MessageArgs messageArgs)
-    {
-        OnMessage(messageArgs.message, messageArgs.parameter, messageArgs.sender);
     }
-    
-    private void OnMessage(string message, string parameter, object s)
+
+    public void OnMessage(MessageArgs messageArgs)
     {
-        if (QuestMachine.GetQuestState(questId) == QuestState.Successful)   {
+        if (!alreadyTriggeredQuest && QuestMachine.GetQuestState(questId) == QuestState.Successful) {
             onQuestSuccess.Invoke();
+            alreadyTriggeredQuest = true;
+        }
+        if (nodeId != "" && QuestMachine.GetQuestNodeState(questId, nodeId) 
+                == QuestNodeState.True)
+        {
+            onQuestNodeTrue.Invoke();
+            alreadyTriggeredNode = true;
+        }
+        if (alreadyTriggeredQuest && alreadyTriggeredNode) {
+            MessageSystem.RemoveListener(this);
         }
     }
 }
