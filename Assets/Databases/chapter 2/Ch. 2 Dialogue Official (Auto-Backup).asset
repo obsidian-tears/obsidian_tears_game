@@ -8037,7 +8037,7 @@ MonoBehaviour:
       - originConversationID: 6
         originDialogueID: 0
         destinationConversationID: 6
-        destinationDialogueID: 1
+        destinationDialogueID: 5
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -8047,8 +8047,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 552.96204
-        y: 131.20255
+        x: 627.58887
+        y: 114.78467
         width: 160
         height: 30
     - id: 1
@@ -8102,8 +8102,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 555.02386
-        y: 209.0376
+        x: 534.12836
+        y: 328.44055
         width: 160
         height: 30
     - id: 2
@@ -8157,8 +8157,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 555.02386
-        y: 259.0376
+        x: 534.12836
+        y: 378.44055
         width: 160
         height: 30
     - id: 3
@@ -8212,8 +8212,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 555.02386
-        y: 308.00665
+        x: 534.12836
+        y: 428.44052
         width: 160
         height: 30
     - id: 4
@@ -8261,13 +8261,136 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 555.02386
-        y: 358.00665
+        x: 534.12836
+        y: 477.4096
+        width: 160
+        height: 30
+    - id: 5
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: '*Mumble Mumble*
+
+          ...Should I go in? That one monster was
+          pretty big..
+
+          *Mumble*
+
+          ...How could anyone still be
+          alive?...
+
+          *Mumble Mumble*
+
+          ....I hope that big monster
+          doesn''t come out...'
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 5
+        destinationConversationID: 6
+        destinationDialogueID: 6
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 567.8874
+        y: 200.60556
+        width: 160
+        height: 30
+    - id: 6
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 'Oh, didn''t see you there! '
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 6
+        destinationConversationID: 6
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 539.5292
+        y: 272.99362
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 263.8188, y: 55.428783}
-    canvasZoom: 0.9699999
+    canvasScrollPosition: {x: 121.074036, y: 49.253723}
+    canvasZoom: 0.6700002
   - id: 7
     fields:
     - title: Title
@@ -8500,8 +8623,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: You see, chickens are scared creatures. Bobbing their heads, looking
-          for predators. CONSTANTLY
+        value: "You see, chickens are scared creatures. Bobbing their heads, looking
+          for predators. \n                                                                                                                                                      
+          CONSTANTLY!"
         type: 0
         typeString: 
       - title: Sequence
@@ -8556,7 +8680,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Bus
+        value: Businessmen like me know we have to evolve and adapt to the times.
+          Just sayin.
         type: 0
         typeString: 
       - title: Sequence
@@ -8578,7 +8703,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 367.49985
+        x: 365.93735
         y: 321.56244
         width: 160
         height: 30
