@@ -22,7 +22,7 @@ public class Weylen : MonoBehaviour, IMessageHandler
     {
         MessageSystem.AddListener(this, "Quest State Changed", "Weylen's Requirements");
         if (gameObject.GetComponent<WeylenSaver>().didWeylenMove) {
-            SwapBoxCollider();
+            DisableQuestCollider();
             SwapWalkingScripts();
             Teleport();
         }
@@ -51,7 +51,7 @@ public class Weylen : MonoBehaviour, IMessageHandler
                 gameObject.GetComponent<WeylenSaver>().didWeylenMove = true;
                 StartCoroutine(Go());
             } else {
-                SwapBoxCollider();
+                DisableQuestCollider();
                 SwapWalkingScripts();
                 Teleport();
             }
@@ -62,7 +62,7 @@ public class Weylen : MonoBehaviour, IMessageHandler
         FreezePlayer(true);
         FadeOut();
         yield return new WaitForSecondsRealtime(transitionTime); // Game is paused, RealTime needed
-        SwapBoxCollider();
+        DisableQuestCollider();
         SwapWalkingScripts();
         Teleport();
         FadeIn();
@@ -78,7 +78,7 @@ public class Weylen : MonoBehaviour, IMessageHandler
         transform.position = useRelativePosition ? transform.position + newPosition : newPosition;
     }
 
-    private void SwapBoxCollider() {
+    private void DisableQuestCollider() {
         questCollider.enabled = false;
     }
 

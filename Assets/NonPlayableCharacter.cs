@@ -16,7 +16,7 @@ public class NonPlayableCharacter : MonoBehaviour
     {
         // If the Player is near the NPC, don't move
         Vector3 player = GameObject.Find("Player").transform.position;
-        if (Vector3.Distance(transform.position, player) < stopRadius)
+        if (Vector2.Distance(transform.position, player) < stopRadius)
         {
             animator.SetBool("moving", false);
             return;
