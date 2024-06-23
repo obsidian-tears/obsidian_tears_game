@@ -54803,15 +54803,15 @@ MonoBehaviour:
         destinationDialogueID: 32
         isConnector: 0
         priority: 2
-      conditionsString: CurrentQuestState("GranGran1") == "success"
+      conditionsString: CurrentQuestState("FindRayela") == "active"
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1887.569
-        y: 306.16803
+        x: 1875.4143
+        y: 304.19894
         width: 160
         height: 30
     - id: 32
@@ -54937,7 +54937,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1869.2706
+        x: 1874.2706
         y: 487.93744
         width: 160
         height: 30
@@ -55770,8 +55770,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2215.2756
-        y: 335.29175
+        x: 2095.688
+        y: 368.28143
         width: 160
         height: 30
     - id: 49
@@ -55825,8 +55825,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2209.614
-        y: 387.48956
+        x: 2099.3047
+        y: 427.69574
         width: 160
         height: 30
     - id: 50
@@ -55876,8 +55876,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2210.7131
-        y: 440.78622
+        x: 2103.4966
+        y: 480.9924
         width: 160
         height: 30
     - id: 51
@@ -56761,8 +56761,8 @@ MonoBehaviour:
         width: 1
         height: 1
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 734.06067, y: 239.21033}
-    canvasZoom: 0.4
+    canvasScrollPosition: {x: 1475.4785, y: 140.50066}
+    canvasZoom: 0.72999984
   - id: 46
     fields:
     - title: Title
@@ -61635,7 +61635,7 @@ MonoBehaviour:
   - id: 52
     fields:
     - title: Title
-      value: New Conversation 52
+      value: Statue of Lene'iath
       type: 0
       typeString: 
     - title: Description
@@ -61717,7 +61717,7 @@ MonoBehaviour:
       - originConversationID: 52
         originDialogueID: 0
         destinationConversationID: 52
-        destinationDialogueID: 1
+        destinationDialogueID: 3
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -61731,62 +61731,6 @@ MonoBehaviour:
         y: 20
         width: 160
         height: 30
-    - id: 1
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 50
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: 'Welcome child. It has been long since the presence of my pond  has
-          been graced by a visitor. '
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 52
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 52
-        originDialogueID: 1
-        destinationConversationID: 52
-        destinationDialogueID: 2
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 26
-        y: 91
-        width: 160
-        height: 30
     - id: 2
       fields:
       - title: Title
@@ -61798,11 +61742,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: 1
+        value: 50
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 50
+        value: 1
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -61810,7 +61754,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 
+        value: Allow my pond to be a refuge from your worries and sorrows. Here you
+          may find rest.
         type: 0
         typeString: 
       - title: Sequence
@@ -61832,13 +61777,126 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 26
-        y: 141
+        x: 29.279633
+        y: 193.11853
+        width: 160
+        height: 30
+    - id: 3
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 50
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "Welcome wearied traveler, it has been long since my pond has been
+          graced by the presence of a visitor. \nNow remember my words:"
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 52
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 52
+        originDialogueID: 3
+        destinationConversationID: 52
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 31.545456
+        y: 83.32106
+        width: 160
+        height: 30
+    - id: 4
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 50
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: "Grace be on the Lands of Eli\u2019 Alan. Darkness is only but the
+          absence of light. and where light comes from within. \nThere is no place
+          we cannot trod.\n"
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 52
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 52
+        originDialogueID: 4
+        destinationConversationID: 52
+        destinationDialogueID: 2
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 31.545456
+        y: 142.18182
         width: 160
         height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasZoom: 0.7900002
   syncInfo:
     syncActors: 0
     syncItems: 0
