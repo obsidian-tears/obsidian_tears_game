@@ -48,7 +48,7 @@ public class ItemActivator : MonoBehaviour
                 continue;
             }
 
-            item.item.SetActive(Vector3.Distance(player.transform.position, item.itemPos) < distanceFromPlayer);
+            item.item.SetActive(Vector2.Distance(player.transform.position, item.itemPos) < distanceFromPlayer);
         }
 
 
