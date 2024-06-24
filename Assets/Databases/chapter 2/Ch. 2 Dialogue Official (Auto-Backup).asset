@@ -3289,8 +3289,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 529.92664, y: 4.4776}
-    canvasZoom: 0.6700001
+    canvasScrollPosition: {x: 379.80814, y: 0}
+    canvasZoom: 0.67
   - id: 3
     fields:
     - title: Title
@@ -6736,6 +6736,12 @@ MonoBehaviour:
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
+      - originConversationID: 5
+        originDialogueID: 1
+        destinationConversationID: 5
+        destinationDialogueID: 27
+        isConnector: 0
+        priority: 2
       conditionsString: CurrentQuestState("The Invisible Maze") == unassigned and
         DialogueSystem.GetVariable("maze_complete").AsBool == 1
       userScript: 
@@ -7730,7 +7736,7 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: GiveQuest("Godor","The Invisible Maze")
+      userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -7949,9 +7955,60 @@ MonoBehaviour:
         y: 265.7143
         width: 160
         height: 30
+    - id: 27
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 6
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 'Give me the quest for testing
+
+'
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 5
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: GiveQuest("Godor","The Invisible Maze")
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 141.36172
+        y: 194.99345
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 177.83018, y: 0}
-    canvasZoom: 0.48999998
+    canvasScrollPosition: {x: 148.76547, y: 95.635765}
+    canvasZoom: 0.7899997
   - id: 6
     fields:
     - title: Title
