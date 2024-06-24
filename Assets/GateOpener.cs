@@ -19,8 +19,9 @@ public class GateOpener : MonoBehaviour, IMessageHandler
     // Unregister when this GameObject is destroyed.
     private void OnDestroy()
     {
-        Instantiate(openGate, gameObject.transform.position, Quaternion.identity);
         MessageSystem.RemoveListener(this);
+        if(!this.gameObject.scene.isLoaded) return;
+        Instantiate(openGate, gameObject.transform.position, Quaternion.identity);
     }
 
     // Handle messages from Quest Machine.
