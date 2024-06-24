@@ -75,7 +75,7 @@ public class MonsterArea : MonoBehaviour
                 }
                 else
                 {
-                    t += Time.deltaTime;
+                    t += (player.isRunning? 1.5f: 1f) * Time.deltaTime;
                 }
             }
         }
