@@ -58,6 +58,11 @@ public class LevelUpMenu : MonoBehaviour
     // Start is called before the first frame update
     private void OnEnable()
     {
+        if (playerStats == null)
+        {
+            playerStats = FindObjectOfType<CharStats>();
+        }
+       
         ResetMenu();
 
     }
