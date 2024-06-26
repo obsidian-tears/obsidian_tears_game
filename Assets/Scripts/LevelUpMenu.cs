@@ -304,8 +304,8 @@ public class LevelUpMenu : MonoBehaviour
 
     public void SetNewLevels()
     {
-        nextHPText.text = (Int32.Parse(currentHPText.text) + (hpQP.Quantity * 5)).ToString();
-        nextMPText.text = (Int32.Parse(currentMPText.text) + (mpQP.Quantity * 5)).ToString();
+        nextHPText.text = (Int32.Parse(currentHPText.text) + (hpQP.Quantity * 2)).ToString();
+        nextMPText.text = (Int32.Parse(currentMPText.text) + (mpQP.Quantity * 2)).ToString();
         nextAttackText.text = (Int32.Parse(currentAttackText.text) + (attackQP.Quantity)).ToString();
         nextDefenseText.text = (Int32.Parse(currentDefenseText.text) + (defenseQP.Quantity)).ToString();
         nextSpeedText.text = (Int32.Parse(currentSpeedText.text) + (speedQP.Quantity)).ToString();
