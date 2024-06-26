@@ -90,7 +90,7 @@ public class LevelUpMenu : MonoBehaviour
         //If leveling up, determine how many points you get
         pointsFromLevelUp = playerStats.pointsRemaining;
         if (isLevelUp)
-            pointsFromLevelUp += (playerStats.level + 6);
+            pointsFromLevelUp += (playerStats.level + 2);
 
         //Set each number on the screen to the correct value
         currentLevelText.text = playerStats.level.ToString();
@@ -204,6 +204,7 @@ public class LevelUpMenu : MonoBehaviour
                 }
                 else 
                 {
+                    nextXpNeeded = int.MaxValue;
                     Debug.Log("Something went wrong with level up xp calculation");
                 }
 
@@ -303,8 +304,8 @@ public class LevelUpMenu : MonoBehaviour
 
     public void SetNewLevels()
     {
-        nextHPText.text = (Int32.Parse(currentHPText.text) + (hpQP.Quantity * 10)).ToString();
-        nextMPText.text = (Int32.Parse(currentMPText.text) + (mpQP.Quantity * 10)).ToString();
+        nextHPText.text = (Int32.Parse(currentHPText.text) + (hpQP.Quantity * 5)).ToString();
+        nextMPText.text = (Int32.Parse(currentMPText.text) + (mpQP.Quantity * 5)).ToString();
         nextAttackText.text = (Int32.Parse(currentAttackText.text) + (attackQP.Quantity)).ToString();
         nextDefenseText.text = (Int32.Parse(currentDefenseText.text) + (defenseQP.Quantity)).ToString();
         nextSpeedText.text = (Int32.Parse(currentSpeedText.text) + (speedQP.Quantity)).ToString();
