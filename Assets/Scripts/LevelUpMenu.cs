@@ -168,16 +168,43 @@ public class LevelUpMenu : MonoBehaviour
                 int nextXpNeeded;
                 if (playerStats.level == 1)
                 {
-                    nextXpNeeded = 125;
+                    nextXpNeeded = 10;
                 }
                 else if (playerStats.level == 2)
                 {
-                    nextXpNeeded = 225;
+                    nextXpNeeded = 30;
                 }
-                else
+                else if (playerStats.level == 3)
                 {
-                    int tempLevel = 50 * (playerStats.level);
-                    nextXpNeeded = playerStats.xpToLevelUp + tempLevel;
+                    nextXpNeeded = 75;
+                }
+                else if (playerStats.level == 4)
+                {
+                    nextXpNeeded = 150;
+                }
+                else if (playerStats.level == 5)
+                {
+                    nextXpNeeded = 250;
+                }
+                else if (playerStats.level == 6)
+                {
+                    nextXpNeeded = 350;
+                }
+                else if (playerStats.level == 7)
+                {
+                    nextXpNeeded = 500;
+                }
+                else if (playerStats.level == 8)
+                {
+                    nextXpNeeded = 700;
+                }
+                else if (playerStats.level == 9)
+                {
+                    nextXpNeeded = 1000;
+                }
+                else 
+                {
+                    Debug.Log("Something went wrong with level up xp calculation");
                 }
 
                 xpNeededText.text = nextXpNeeded.ToString();
