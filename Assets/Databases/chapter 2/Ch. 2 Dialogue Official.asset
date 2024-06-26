@@ -6742,7 +6742,7 @@ MonoBehaviour:
         destinationDialogueID: 27
         isConnector: 0
         priority: 2
-      conditionsString: CurrentQuestState("The Invisible Maze") == unassigned and
+      conditionsString: CurrentQuestState("The Invisible Maze") == unassigned AND
         DialogueSystem.GetVariable("maze_complete").AsBool == 1
       userScript: 
       onExecute:
@@ -8006,9 +8006,59 @@ MonoBehaviour:
         y: 194.99345
         width: 160
         height: 30
+    - id: 28
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 6
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 'Derek''s condition to see if the chest in the maze  was opened: DialogueSystem.GetVariable("maze_complete").AsBool
+          == 1'
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 5
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 181.91772
+        y: 43.01367
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 148.76547, y: 95.635765}
-    canvasZoom: 0.7899997
+    canvasScrollPosition: {x: 108.262405, y: 0}
+    canvasZoom: 0.6999998
   - id: 6
     fields:
     - title: Title
