@@ -13,6 +13,7 @@ using UnityEngine.UI;
 using Opsive.UltimateInventorySystem.Core.InventoryCollections;
 using Opsive.UltimateInventorySystem.Exchange;
 using Opsive.UltimateInventorySystem.UI.Item.ItemViewModules;
+using TMPro;
 
 namespace GameManagers
 {
@@ -48,6 +49,7 @@ namespace GameManagers
         public Slider HealthSlider;
         public Slider MagicSlider;
         public Slider XpSlider;
+        public TextMeshProUGUI LevelText;
 
         public CharacterStatsDisplay StatsDisplay;
         public ActionButton[] ButtonsForBattleHide;
@@ -124,7 +126,16 @@ namespace GameManagers
             XpSlider.value = totalXp;
         }
 
+        public void SetLevelText(string actualLevel)
+        {
+            if (LevelText == null)
+            {
+                return;
+            }
 
+            LevelText.text = actualLevel;
+
+        }
 
         public void ToggleBattleInventoryPanel(bool? forceState = null)
         {

@@ -162,6 +162,7 @@ public class CharStats : MonoBehaviour
         GameUIManager.Instance.SetHealthSlider(healthTotal, healthMax);
         GameUIManager.Instance.SetMagicSlider(magicTotal, magicMax);
         GameUIManager.Instance.SetXpSlider(xp, xpToLevelUp);
+        GameUIManager.Instance.SetLevelText(level.ToString());
     }
 
     // Returns true if the player is dead after taking damage
