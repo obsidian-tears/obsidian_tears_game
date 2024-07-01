@@ -77,18 +77,25 @@ public class GameManager : Saver
 
 
         var mainCol = JsonConvert.DeserializeObject<IEnumerable<Tuple<string, int>>>(dataBase[0]);
-        var equipCol = JsonConvert.DeserializeObject<IEnumerable<Tuple<string, int>>>(dataBase[1]);
         playerInventory.GetItemCollection(ItemCollectionPurpose.Main).RemoveAll();
-        playerInventory.GetItemCollection(ItemCollectionPurpose.Equipped).RemoveAll();
 
-        foreach (var itemInfo in mainCol)
+        if (mainCol != null)
         {
-            playerInventory.GetItemCollection(ItemCollectionPurpose.Main).AddItem(itemInfo.Item1, itemInfo.Item2);
+            foreach (var itemInfo in mainCol)
+            {
+                playerInventory.GetItemCollection(ItemCollectionPurpose.Main).AddItem(itemInfo.Item1, itemInfo.Item2);
+            }
         }
 
-        foreach (var itemInfo in equipCol)
+        playerInventory.GetItemCollection(ItemCollectionPurpose.Equipped).RemoveAll();
+        var equipCol = JsonConvert.DeserializeObject<IEnumerable<Tuple<string, int>>>(dataBase[1]);
+        if (equipCol != null)
         {
-            playerInventory.GetItemCollection(ItemCollectionPurpose.Equipped).AddItem(itemInfo.Item1, itemInfo.Item2);
+            foreach (var itemInfo in equipCol)
+            {
+                playerInventory.GetItemCollection(ItemCollectionPurpose.Equipped)
+                    .AddItem(itemInfo.Item1, itemInfo.Item2);
+            }
         }
     }
 
@@ -97,18 +104,27 @@ public class GameManager : Saver
         var DataList = new List<string>();
         var playerInventory = FindObjectOfType<Inventory>();
 
-        var dataItems =
-            new ItemInfo[playerInventory.GetItemCollection(ItemCollectionPurpose.Main).GetAllItemStacks().Count];
-        playerInventory.GetItemCollection(ItemCollectionPurpose.Main).GetAllItemInfos(ref dataItems);
-        var itemAmount = dataItems.Select(x => Tuple.Create(x.Item.name, x.Amount));
-        DataList.Add(JsonConvert.SerializeObject(itemAmount));
-        
-        var equippedDataItem =
-            new ItemInfo[playerInventory.GetItemCollection(ItemCollectionPurpose.Equipped).GetAllItemStacks().Count];
-        playerInventory.GetItemCollection(ItemCollectionPurpose.Equipped).GetAllItemInfos(ref equippedDataItem);
-        var equippedItemAmount = equippedDataItem.Select(x => Tuple.Create(x.Item.name, x.Amount));
-        DataList.Add(JsonConvert.SerializeObject(equippedItemAmount));
-        
+        if (playerInventory != null)
+        {
+            var dataItems =
+                new ItemInfo[playerInventory.GetItemCollection(ItemCollectionPurpose.Main).GetAllItemStacks().Count];
+            playerInventory.GetItemCollection(ItemCollectionPurpose.Main).GetAllItemInfos(ref dataItems);
+            var itemAmount = dataItems.Select(x => Tuple.Create(x.Item.name, x.Amount));
+            DataList.Add(JsonConvert.SerializeObject(itemAmount));
+
+            var equippedDataItem =
+                new ItemInfo[playerInventory.GetItemCollection(ItemCollectionPurpose.Equipped).GetAllItemStacks()
+                    .Count];
+            playerInventory.GetItemCollection(ItemCollectionPurpose.Equipped).GetAllItemInfos(ref equippedDataItem);
+            var equippedItemAmount = equippedDataItem.Select(x => Tuple.Create(x.Item.name, x.Amount));
+            DataList.Add(JsonConvert.SerializeObject(equippedItemAmount));
+        }
+        else
+        {
+            DataList.Add(string.Empty);
+            DataList.Add(string.Empty);
+        }
+
         DataList.Add(JsonConvert.SerializeObject(_initialClass));
         return JsonConvert.SerializeObject(DataList);
     }
