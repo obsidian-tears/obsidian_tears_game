@@ -48,7 +48,7 @@ public class BeginningStats : MonoBehaviour
 
         //Inventory startingInventory = gameObject.GetComponent<Inventory>();
         //
-        if (GameManager.Instance.inventoryWasInit)
+       /* if (GameManager.Instance.inventoryWasInit)
         {
             return;
         }
@@ -75,8 +75,8 @@ public class BeginningStats : MonoBehaviour
         var playerInventory = player.GetComponent<Inventory>();
 
         var equippedCol = playerInventory.GetItemCollection("Equipped");
-        playerInventory.RemoveItemCollection(equippedCol);
-        playerInventory.AddItemCollection(_itemCollection[(int)_initialClass]);
+        //playerInventory.RemoveItemCollection(equippedCol);
+       // playerInventory.AddItemCollection(_itemCollection[(int)_initialClass]);
         //  startingInventory.AddItemCollection(_itemCollection[(int)_initialClass]);
         
         playerInventory.UpdateInventory();
@@ -85,7 +85,7 @@ public class BeginningStats : MonoBehaviour
 
         GameManager.Instance.inventoryWasInit = true;
         GameManager.Instance.itemSlotCollection = _itemCollection[(int)_initialClass];
-        GameManager.Instance.ItemSlotSet = _itemSlotSets[(int)_initialClass];;
+        GameManager.Instance.ItemSlotSet = _itemSlotSets[(int)_initialClass];;*/
 
         SetInitialStats(_initialClass);
         

@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6335192399403103017
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6335192399403103019}
+  - component: {fileID: 6335192399403103016}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6335192399403103019
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6335192399403103017}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.2478247, y: -1.1925578, z: 0.034375746}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6335192399403103016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6335192399403103017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d21df8e39e738024bbb3a059c88a5001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_key: 
+  m_appendSaverTypeToKey: 0
+  m_saveAcrossSceneChanges: 1
+  m_restoreStateOnStart: 0
+  inventoryWasInit: 0
+  itemSlotCollection:
+    m_Name: NewItemCollection
+    m_Purpose: 0
+    m_OverflowOptions:
+      m_ReturnOverflow: 0
+      m_InvokeRejectedEvent: 1
+      m_OverflowAction: {fileID: 0}
+    m_DefaultLoadout:
+      m_Array: []
+    m_ItemSlotSet: {fileID: 0}
+    m_NewItemPriority: 0
+    m_TryGivePreviousItemToNewItemCollection: 0
+  ItemSlotSet: {fileID: 0}
+  slotCollectionView: {fileID: 0}
+  _itemCollection:
+  - m_Name: Equipped
+    m_Purpose: 3
+    m_OverflowOptions:
+      m_ReturnOverflow: 0
+      m_InvokeRejectedEvent: 0
+      m_OverflowAction: {fileID: 0}
+    m_DefaultLoadout:
+      m_Array: []
+    m_ItemSlotSet: {fileID: 11400000, guid: 015a81d8bf27bff46a8a2dbf3899169a, type: 2}
+    m_NewItemPriority: 1
+    m_TryGivePreviousItemToNewItemCollection: 0
+  - m_Name: Equipped
+    m_Purpose: 3
+    m_OverflowOptions:
+      m_ReturnOverflow: 0
+      m_InvokeRejectedEvent: 0
+      m_OverflowAction: {fileID: 0}
+    m_DefaultLoadout:
+      m_Array: []
+    m_ItemSlotSet: {fileID: 11400000, guid: 49e1b53cdf4e59e45863d5e051725c2a, type: 2}
+    m_NewItemPriority: 1
+    m_TryGivePreviousItemToNewItemCollection: 0
+  - m_Name: Equipped
+    m_Purpose: 3
+    m_OverflowOptions:
+      m_ReturnOverflow: 0
+      m_InvokeRejectedEvent: 0
+      m_OverflowAction: {fileID: 0}
+    m_DefaultLoadout:
+      m_Array: []
+    m_ItemSlotSet: {fileID: 11400000, guid: f5e76dfe8b1062e4db713608006678c8, type: 2}
+    m_NewItemPriority: 1
+    m_TryGivePreviousItemToNewItemCollection: 0
+  _initialClass: 1

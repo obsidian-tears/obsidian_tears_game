@@ -1,13 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using GameManagers;
+using Newtonsoft.Json;
+using Opsive.Shared.Utility;
+using Opsive.UltimateInventorySystem.Core.DataStructures;
 using Opsive.UltimateInventorySystem.Core.InventoryCollections;
 using Opsive.UltimateInventorySystem.UI.Panels.Hotbar;
+using PixelCrushers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Saver
 {
     public static GameManager Instance;
 
@@ -18,6 +23,96 @@ public class GameManager : MonoBehaviour
 
     public ItemSlotCollectionView slotCollectionView;
 
+    [SerializeField] private List<ItemSlotCollection> _itemCollection;
+
+    [SerializeField] private InitialClasses _initialClass;
+
+
+    public override void ApplyData(string s)
+    {
+        Debug.Log("apply data");
+        var dataBase = JsonConvert.DeserializeObject<List<string>>(s);
+        _initialClass = JsonConvert.DeserializeObject<InitialClasses>(dataBase[2]);
+
+
+        itemSlotCollection = _itemCollection[(int)_initialClass];
+
+
+        var playerInventory = FindObjectOfType<Inventory>();
+
+        if (!playerInventory) return;
+
+        var equippedCol = playerInventory.GetItemCollection("Equipped");
+
+        if (equippedCol != null)
+        {
+            playerInventory.RemoveItemCollection(equippedCol);
+        }
+
+        if (playerInventory == null)
+        {
+            Debug.Log("es nulo el playerInventory ");
+        }
+
+        playerInventory.AddItemCollection(itemSlotCollection);
+
+        playerInventory.UpdateInventory();
+
+
+        if (slotCollectionView == null || GameUIManager.Exist)
+        {
+            slotCollectionView = GameUIManager.Instance.gameObject.GetComponentInChildren<ItemSlotCollectionView>();
+
+            if (slotCollectionView == null)
+            {
+                slotCollectionView = Resources.FindObjectsOfTypeAll<ItemSlotCollectionView>().First();
+                Debug.Log("Null?");
+            }
+
+            slotCollectionView.ItemSlotSet = itemSlotCollection.ItemSlotSet;
+
+            Debug.Log("slotCollectionView.ItemSlotSet" + slotCollectionView.ItemSlotSet);
+            Debug.Log("itemSlotCollection.ItemSlotSet" + itemSlotCollection.ItemSlotSet);
+        }
+
+
+        var mainCol = JsonConvert.DeserializeObject<IEnumerable<Tuple<string, int>>>(dataBase[0]);
+        var equipCol = JsonConvert.DeserializeObject<IEnumerable<Tuple<string, int>>>(dataBase[1]);
+        playerInventory.GetItemCollection(ItemCollectionPurpose.Main).RemoveAll();
+        playerInventory.GetItemCollection(ItemCollectionPurpose.Equipped).RemoveAll();
+
+        foreach (var itemInfo in mainCol)
+        {
+            playerInventory.GetItemCollection(ItemCollectionPurpose.Main).AddItem(itemInfo.Item1, itemInfo.Item2);
+        }
+
+        foreach (var itemInfo in equipCol)
+        {
+            playerInventory.GetItemCollection(ItemCollectionPurpose.Equipped).AddItem(itemInfo.Item1, itemInfo.Item2);
+        }
+    }
+
+    public override string RecordData()
+    {
+        var DataList = new List<string>();
+        var playerInventory = FindObjectOfType<Inventory>();
+
+        var dataItems =
+            new ItemInfo[playerInventory.GetItemCollection(ItemCollectionPurpose.Main).GetAllItemStacks().Count];
+        playerInventory.GetItemCollection(ItemCollectionPurpose.Main).GetAllItemInfos(ref dataItems);
+        var itemAmount = dataItems.Select(x => Tuple.Create(x.Item.name, x.Amount));
+        DataList.Add(JsonConvert.SerializeObject(itemAmount));
+        
+        var equippedDataItem =
+            new ItemInfo[playerInventory.GetItemCollection(ItemCollectionPurpose.Equipped).GetAllItemStacks().Count];
+        playerInventory.GetItemCollection(ItemCollectionPurpose.Equipped).GetAllItemInfos(ref equippedDataItem);
+        var equippedItemAmount = equippedDataItem.Select(x => Tuple.Create(x.Item.name, x.Amount));
+        DataList.Add(JsonConvert.SerializeObject(equippedItemAmount));
+        
+        DataList.Add(JsonConvert.SerializeObject(_initialClass));
+        return JsonConvert.SerializeObject(DataList);
+    }
+
     private void Awake()
     {
         if (Instance)
@@ -26,51 +121,85 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        Debug.Log("awake ");
+
+
+        SaveSystem.RegisterSaver(this);
+
+        string charClass = ICConnect.characterClass;
+
+        VerifyClassICConnect(charClass);
+
+        itemSlotCollection = _itemCollection[(int)_initialClass];
+
         Instance = this;
 
-        DontDestroyOnLoad(this);
+        // if (!inventoryWasInit) return;
 
-        SceneManager.sceneLoaded += (arg0, mode) =>
+        var playerInventory = FindObjectOfType<Inventory>();
+
+        if (!playerInventory) return;
+
+        var equippedCol = playerInventory.GetItemCollection("Equipped");
+
+        if (equippedCol != null)
         {
-            if (!inventoryWasInit) return;
+            playerInventory.RemoveItemCollection(equippedCol);
+        }
 
-            var playerInventory = FindObjectOfType<Inventory>();
+        if (playerInventory == null)
+        {
+            Debug.Log("es nulo el playerInventory ");
+        }
 
-            if (!playerInventory) return;
+        playerInventory.AddItemCollection(itemSlotCollection);
 
-            var equippedCol = playerInventory.GetItemCollection("Equipped");
+        playerInventory.UpdateInventory();
 
-            if (equippedCol != null)
+
+        if (slotCollectionView == null || GameUIManager.Exist)
+        {
+            slotCollectionView = GameUIManager.Instance.gameObject.GetComponentInChildren<ItemSlotCollectionView>();
+
+            if (slotCollectionView == null)
             {
-                playerInventory.RemoveItemCollection(equippedCol);
+                slotCollectionView = Resources.FindObjectsOfTypeAll<ItemSlotCollectionView>().First();
+                Debug.Log("Null?");
             }
 
-            if (playerInventory == null)
-            {
-                Debug.Log("es nulo el playerInventory ");
-            }
+            slotCollectionView.ItemSlotSet = itemSlotCollection.ItemSlotSet;
 
-            playerInventory.AddItemCollection(itemSlotCollection);
+            Debug.Log("slotCollectionView.ItemSlotSet" + slotCollectionView.ItemSlotSet);
+            Debug.Log("itemSlotCollection.ItemSlotSet" + itemSlotCollection.ItemSlotSet);
+        }
+    }
 
-            playerInventory.UpdateInventory();
+    private void OnDestroy()
+    {
+        SaveSystem.UnregisterSaver(this);
+    }
 
 
-            if (slotCollectionView == null || GameUIManager.Exist)
-            {
-                slotCollectionView = GameUIManager.Instance.gameObject.GetComponentInChildren<ItemSlotCollectionView>();
-                
-                if (slotCollectionView == null)
-                {
-                    slotCollectionView = Resources.FindObjectsOfTypeAll<ItemSlotCollectionView>().First();
-                    Debug.Log("Null?");
-                }
-                
-                slotCollectionView.ItemSlotSet = itemSlotCollection.ItemSlotSet;
+    private void VerifyClassICConnect(string charClass)
+    {
+        if (charClass == "MAGE")
+        {
+            _initialClass = InitialClasses.MAGE;
+        }
 
-                Debug.Log("slotCollectionView.ItemSlotSet" + slotCollectionView.ItemSlotSet);
-                Debug.Log("itemSlotCollection.ItemSlotSet" + itemSlotCollection.ItemSlotSet);
-            }
-            // Debug.Log("_itemSlotSets.Count: " + _itemSlotSets.Count);
-        };
+        if (charClass == "FIGHTER")
+        {
+            _initialClass = InitialClasses.FIGHTER;
+        }
+
+        if (charClass == "RANGER")
+        {
+            _initialClass = InitialClasses.RANGER;
+        }
+
+        if (charClass == "Default" || charClass == null)
+        {
+            _initialClass = InitialClasses.FIGHTER;
+        }
     }
 }

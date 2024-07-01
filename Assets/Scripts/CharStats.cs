@@ -71,11 +71,11 @@ public class CharStats : MonoBehaviour
         if (this.gameObject.CompareTag("Player"))
         {
 
-            if (inventory == null) inventory = GetComponent<Inventory>();
+            //if (inventory == null) inventory = GetComponent<Inventory>();
         
-            var equippedCol = inventory.GetItemCollection("Equipped");
-            inventory.RemoveItemCollection(equippedCol);
-            inventory.AddItemCollection( GameManager.Instance.itemSlotCollection);
+           // var equippedCol = inventory.GetItemCollection("Equipped");
+            //inventory.RemoveItemCollection(equippedCol);
+           // inventory.AddItemCollection( GameManager.Instance.itemSlotCollection);
 
         }
     }
