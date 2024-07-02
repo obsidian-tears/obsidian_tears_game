@@ -40,6 +40,7 @@ namespace GameManagers
         public GameObject MenuTabs;
         public GameObject LevelUpMenu;
         public GameObject MobileHud;
+        public GameObject GameSavedSuccess;
         public ItemViewSlotsContainerPanelBinding InventoryPanel;
         public ItemViewSlotsContainerPanelBinding EquipmentPanel;
 
@@ -240,5 +241,37 @@ namespace GameManagers
                 Blocker.gameObject.SetActive(show);
             }
         }
+
+
+        public void ShowGameSavedSuccesfull()
+        {
+            Debug.Log("Entro al shwogamesusccessfull");
+            StartCoroutine(WaitSecondsToFade());
+
+
+        }
+
+
+        private IEnumerator WaitSecondsToFade()
+        {
+            Debug.Log("Entro al enumerator");
+
+            GameSavedSuccess.SetActive(true);
+            Animator canvasAnimator = GameSavedSuccess.GetComponent<Animator>();
+
+            canvasAnimator.SetTrigger("FadeIn");
+
+            yield return new WaitForSecondsRealtime(canvasAnimator.GetCurrentAnimatorStateInfo(0).length);
+
+            yield return new WaitForSecondsRealtime(2);
+
+            canvasAnimator.SetTrigger("FadeOut");
+
+            yield return new WaitForSecondsRealtime(canvasAnimator.GetCurrentAnimatorStateInfo(0).length);
+
+            GameSavedSuccess.SetActive(false);
+
+        }
+
     }
 }
