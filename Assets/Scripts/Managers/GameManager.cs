@@ -83,7 +83,11 @@ public class GameManager : Saver
         {
             foreach (var itemInfo in mainCol)
             {
-                playerInventory.GetItemCollection(ItemCollectionPurpose.Main).AddItem(itemInfo.Item1, itemInfo.Item2);
+                
+                var item = new ItemInfo(itemInfo.Item1, itemInfo.Item2);
+                var itemStack = new ItemStack();
+                playerInventory.GetItemCollection(ItemCollectionPurpose.Main).AddItem(item,itemStack, false);
+
             }
         }
 
@@ -93,8 +97,9 @@ public class GameManager : Saver
         {
             foreach (var itemInfo in equipCol)
             {
-                playerInventory.GetItemCollection(ItemCollectionPurpose.Equipped)
-                    .AddItem(itemInfo.Item1, itemInfo.Item2);
+                var item = new ItemInfo(itemInfo.Item1, itemInfo.Item2);
+                var itemStack = new ItemStack();
+                playerInventory.GetItemCollection(ItemCollectionPurpose.Equipped).AddItem(item, itemStack, false);
             }
         }
     }
@@ -190,6 +195,9 @@ public class GameManager : Saver
         }
     }
 
+
+    
+
     private void OnDestroy()
     {
         SaveSystem.UnregisterSaver(this);
@@ -215,7 +223,7 @@ public class GameManager : Saver
 
         if (charClass == "Default" || charClass == null)
         {
-            _initialClass = InitialClasses.FIGHTER;
+            _initialClass = InitialClasses.RANGER;
         }
     }
 }
