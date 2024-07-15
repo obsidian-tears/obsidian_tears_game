@@ -6,11 +6,22 @@ using UnityEngine;
 using System;
 using Newtonsoft.Json;
 
+[Serializable]
+public class GatesData
+{
+    public bool isOpen = false;
+}
+
 public class GateOpener : Saver, IMessageHandler
 {
     [SerializeField] private GameObject _openGate, _closedGate;
 
-    private bool isOpen = false;
+    private GatesData _gatesData;
+
+    public override void Awake()
+    {
+        _gatesData = new GatesData();
+    }
 
     private void Start()
     {
@@ -25,16 +36,16 @@ public class GateOpener : Saver, IMessageHandler
 
     public override string RecordData()
     {
-        return JsonConvert.SerializeObject(isOpen);
+        return JsonConvert.SerializeObject(_gatesData);
     }
 
     public override void ApplyData(string s)
     {
-        Debug.Log("gates");
-        isOpen = JsonConvert.DeserializeObject<bool>(s);
-        Debug.Log("gates result " + isOpen);
+        Debug.Log("gates" + s);
+        _gatesData = JsonConvert.DeserializeObject<GatesData>(s);
+        Debug.Log("gates result " + _gatesData.isOpen);
 
-        if (isOpen)
+        if (_gatesData.isOpen)
         {
             Open();
         }
