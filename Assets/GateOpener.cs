@@ -18,7 +18,7 @@ public class GateOpener : Saver, IMessageHandler
     }
 
     // Unregister when this GameObject is destroyed.
-    private void OnDestroy()
+    public override void OnDestroy()
     {
         MessageSystem.RemoveListener(this);
     }
@@ -30,7 +30,9 @@ public class GateOpener : Saver, IMessageHandler
 
     public override void ApplyData(string s)
     {
+        Debug.Log("gates");
         isOpen = JsonConvert.DeserializeObject<bool>(s);
+        Debug.Log("gates result " + isOpen);
 
         if (isOpen)
         {
