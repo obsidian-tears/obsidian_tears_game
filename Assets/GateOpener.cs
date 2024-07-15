@@ -4,15 +4,16 @@ using PixelCrushers.QuestMachine;
 using PixelCrushers;
 using UnityEngine;
 using System;
+using Newtonsoft.Json;
 
-public class GateOpener : MonoBehaviour, IMessageHandler
+public class GateOpener : Saver, IMessageHandler
 {
-    [SerializeField] GameObject openGate;
-    [SerializeField] BoxCollider2D gateCollider;
+    [SerializeField] private GameObject _openGate, _closedGate;
+
+    private bool isOpen = false;
 
     private void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
         MessageSystem.AddListener(this, "Quest State Changed", "");
     }
 
@@ -20,8 +21,21 @@ public class GateOpener : MonoBehaviour, IMessageHandler
     private void OnDestroy()
     {
         MessageSystem.RemoveListener(this);
-        if(!this.gameObject.scene.isLoaded) return;
-        Instantiate(openGate, gameObject.transform.position, Quaternion.identity);
+    }
+
+    public override string RecordData()
+    {
+        return JsonConvert.SerializeObject(isOpen);
+    }
+
+    public override void ApplyData(string s)
+    {
+        isOpen = JsonConvert.DeserializeObject<bool>(s);
+
+        if (isOpen)
+        {
+            Open();
+        }
     }
 
     // Handle messages from Quest Machine.
@@ -38,8 +52,10 @@ public class GateOpener : MonoBehaviour, IMessageHandler
         }
     }
 
-    public void Open() {
-        Destroy(gameObject);
+    private void Open() 
+    {
+        _closedGate.SetActive(false);
+        _openGate.SetActive(true);
     }
 
 }
