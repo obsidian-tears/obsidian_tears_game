@@ -41,7 +41,7 @@ public class GateOpener : Saver, IMessageHandler
 
     public override void ApplyData(string s)
     {
-        if (s== string.Empty) return;
+        if (string.IsNullOrEmpty(s)) return;
         
         Debug.Log("gates" + s);
         _gatesData = JsonConvert.DeserializeObject<GatesData>(s);

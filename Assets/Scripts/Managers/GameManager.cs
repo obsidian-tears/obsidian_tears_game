@@ -32,7 +32,11 @@ public class GameManager : Saver
 
     public override void ApplyData(string s)
     {
-        if (s== string.Empty) return;
+        if (string.IsNullOrEmpty(s))
+        {
+            isLoaded = true;
+            return;
+        }
         
         Debug.Log("apply data");
         var dataBase = JsonConvert.DeserializeObject<List<string>>(s);
