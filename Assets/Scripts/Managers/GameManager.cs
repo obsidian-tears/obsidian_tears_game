@@ -32,6 +32,8 @@ public class GameManager : Saver
 
     public override void ApplyData(string s)
     {
+        if (s== string.Empty) return;
+        
         Debug.Log("apply data");
         var dataBase = JsonConvert.DeserializeObject<List<string>>(s);
         _initialClass = JsonConvert.DeserializeObject<InitialClasses>(dataBase[2]);
