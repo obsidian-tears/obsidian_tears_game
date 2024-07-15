@@ -193,6 +193,7 @@ public class ReactController : MonoSingleton<ReactController>
         // TODO show proper save/load screen
         GameUIManager.Instance.ShowLoadingIndicator(false, true);
         Debug.Log("SAVING SUCCESS, GAME DATA:" + fromReact);
+        GameUIManager.Instance.ShowGameSavedSuccesfull(); // this shows message in game that game has been saved so players notice when this is done correctly.
     }
 
     private IEnumerator LocalSaveGameSimulation(SavedGameData gameData, string stringData)
