@@ -190,7 +190,7 @@ public class ReactController : MonoSingleton<ReactController>
     // TODO - show some error message in case something went wrong
     public void ListenSaveGame(string fromReact)
     {
-        //TODO show proper save/load screen
+        // TODO show proper save/load screen
         GameUIManager.Instance.ShowLoadingIndicator(false, true);
         Debug.Log("SAVING SUCCESS, GAME DATA:" + fromReact);
     }
@@ -205,31 +205,32 @@ public class ReactController : MonoSingleton<ReactController>
     // For treasure chests
     public void SignalOpenChest(string treasureIndex)
     {
-        Debug.Log("REACT OPEN CHEST! Treasure index: " + treasureIndex);
-#if UNITY_WEBGL == true && UNITY_EDITOR == false
-        OpenChest((int)Math.Round(double.Parse(treasureIndex)), gameObject.name);
-#endif
+        Debug.Log("Deprecated Signal Open Chest was called");
+        
+        // #if UNITY_WEBGL == true && UNITY_EDITOR == false
+        // OpenChest((int)Math.Round(double.Parse(treasureIndex)), gameObject.name);
+        // #endif
 
-        freezeSignal.Raise();
-        GameUIManager.Instance.ShowLoadingIndicator(true, false);
+        // freezeSignal.Raise();
+        // GameUIManager.Instance.ShowLoadingIndicator(true, false);
     }
 
     public void ListenOpenChest(string fromReact)
     {
-        Debug.Log("REACT OPEN CHEST CALLBACK. Data from react: " + fromReact);
-        handleReward(fromReact);
-        GameUIManager.Instance.ShowLoadingIndicator(false, true);
+        Debug.Log("Deprecated Listen Open Chest was called");
+        // Debug.Log("REACT OPEN CHEST CALLBACK. Data from react: " + fromReact);
+        // handleReward(fromReact);
+        // GameUIManager.Instance.ShowLoadingIndicator(false, true);
     }
 
     public void SignalDefeatMonster(string monsterId)
     {
-#if UNITY_WEBGL == true && UNITY_EDITOR == false
-        DefeatMonster(int.Parse(monsterId), gameObject.name);
-        freezeSignal.Raise();
-        GameUIManager.Instance.ShowLoadingIndicator(true, false);
-#else
-        Debug.Log("REACT DEFEAT MONSTER! Now the game should communicate with react!");
-#endif
+        Debug.Log("REACT DEFEAT MONSTER was called.");
+        // #if UNITY_WEBGL == true && UNITY_EDITOR == false
+        // DefeatMonster(int.Parse(monsterId), gameObject.name);
+        // freezeSignal.Raise();
+        // GameUIManager.Instance.ShowLoadingIndicator(true, false);        
+        // #endif
     }
 
     public void ListenBuyItem(string fromReact)
@@ -240,10 +241,10 @@ public class ReactController : MonoSingleton<ReactController>
 
     public void ListenDefeatMonster(string fromReact)
     {
-        //handleReward(fromReact);
-        GameUIManager.Instance.ShowLoadingIndicator(false, true);
+        // handleReward(fromReact);
+        // GameUIManager.Instance.ShowLoadingIndicator(false, true);
 
-        Debug.Log("defeated monster: " + fromReact);
+        Debug.Log("deprecated defeated monster was reached");
     }
 
     public void SignalBuyItem(string shopIndex, string itemDefId, int quantity)
