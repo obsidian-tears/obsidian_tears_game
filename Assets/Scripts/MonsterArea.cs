@@ -72,7 +72,7 @@ public class MonsterArea : MonoBehaviour
     {
         if (player != null)
         {
-            if (active && player.change != Vector3.zero || mobileInput.joystickInput != Vector3.zero)
+            if (active && player.change != Vector3.zero || (mobileInput && mobileInput.joystickInput != Vector3.zero))
             {
                 if (t > probability)
                 {
@@ -84,7 +84,6 @@ public class MonsterArea : MonoBehaviour
                 }
             }
         }
-
     }
 
     public void OnBattleSignal()
