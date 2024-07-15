@@ -4,6 +4,11 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using PixelCrushers;
+using Opsive.UltimateInventorySystem.Core.DataStructures;
+using Opsive.UltimateInventorySystem.Core;
+using Opsive.UltimateInventorySystem.Core.InventoryCollections;
+using Opsive.UltimateInventorySystem.Exchange;
+using System.Text;
 
 [System.Serializable]
 public class OnBattleStart : UnityEvent { }
@@ -148,6 +153,14 @@ public class MonsterArea : MonoBehaviour
 
         if (currentBattle.monsterAreaObject == monsterAreaUniqueID && currentBattle.wonBattle)
         {
+            var tempPlayer = GameObject.FindWithTag("Player");
+            var inventory = tempPlayer.GetComponent<Inventory>();
+            ItemInfo[] rewards = currentBattle.enemy.itemDrops;
+            foreach(ItemInfo itemInfo in rewards) {
+                var item = InventorySystemManager.CreateItem(itemInfo.Item);
+                inventory.AddItem(item, itemInfo.Amount);
+            }
+
             ReactController.Instance.SignalDefeatMonster(currentBattle.enemy.enemyServerId.ToString());
             onBattleWin.Invoke();
 

@@ -191,9 +191,8 @@ public class ReactController : MonoSingleton<ReactController>
     public void ListenSaveGame(string fromReact)
     {
         //TODO show proper save/load screen
-        GameUIManager.Instance.ShowLoadingIndicator(false, true);        
+        GameUIManager.Instance.ShowLoadingIndicator(false, true);
         Debug.Log("SAVING SUCCESS, GAME DATA:" + fromReact);
-        GameUIManager.Instance.ShowGameSavedSuccesfull();
     }
 
     private IEnumerator LocalSaveGameSimulation(SavedGameData gameData, string stringData)
@@ -241,7 +240,7 @@ public class ReactController : MonoSingleton<ReactController>
 
     public void ListenDefeatMonster(string fromReact)
     {
-        handleReward(fromReact);
+        //handleReward(fromReact);
         GameUIManager.Instance.ShowLoadingIndicator(false, true);
 
         Debug.Log("defeated monster: " + fromReact);

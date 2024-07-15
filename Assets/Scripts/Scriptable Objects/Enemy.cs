@@ -1,5 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Opsive.UltimateInventorySystem.Core;
+using Opsive.UltimateInventorySystem.Core.DataStructures;
+using Opsive.UltimateInventorySystem.Core.InventoryCollections;
+using Opsive.UltimateInventorySystem.Exchange;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Enemy", menuName = "Obsidian Tears/Enemy") ] 
@@ -15,6 +19,8 @@ public class Enemy : ScriptableObject
     public int speed;
 
     public int xpDrop;
+
+    public ItemInfo[] itemDrops;
 
     [Range(0f, 1.0f)]
     public float runSuccessProbability;
