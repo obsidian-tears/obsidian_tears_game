@@ -27,6 +27,8 @@ public class GameManager : Saver
 
     [SerializeField] private InitialClasses _initialClass;
 
+    public bool isLoaded = false;
+
 
     public override void ApplyData(string s)
     {
@@ -83,11 +85,9 @@ public class GameManager : Saver
         {
             foreach (var itemInfo in mainCol)
             {
-                
                 var item = new ItemInfo(itemInfo.Item1, itemInfo.Item2);
                 var itemStack = new ItemStack();
-                playerInventory.GetItemCollection(ItemCollectionPurpose.Main).AddItem(item,itemStack, false);
-
+                playerInventory.GetItemCollection(ItemCollectionPurpose.Main).AddItem(item, itemStack, false);
             }
         }
 
@@ -102,6 +102,9 @@ public class GameManager : Saver
                 playerInventory.GetItemCollection(ItemCollectionPurpose.Equipped).AddItem(item, itemStack, false);
             }
         }
+
+        Debug.Log("Is Loaded");
+        isLoaded = true;
     }
 
     public override string RecordData()
@@ -134,7 +137,7 @@ public class GameManager : Saver
         return JsonConvert.SerializeObject(DataList);
     }
 
-    private void Awake()
+    public override void Awake()
     {
         if (Instance)
         {
@@ -196,9 +199,7 @@ public class GameManager : Saver
     }
 
 
-    
-
-    private void OnDestroy()
+    public override void OnDestroy()
     {
         SaveSystem.UnregisterSaver(this);
     }

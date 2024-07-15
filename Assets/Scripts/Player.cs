@@ -76,9 +76,7 @@ public class Player : MonoBehaviour
 
     private IEnumerator AwaitConfig()
     {
-
-
-        yield return new WaitForSeconds(1);
+        yield return new WaitUntil(()=> GameManager.Instance.isLoaded);
         InventorySystemManager.GetDisplayPanelManager().SetPanelOwner(gameObject);
         Inventory inventory = GetComponent<Inventory>();
         if (inventory != null)
@@ -92,7 +90,6 @@ public class Player : MonoBehaviour
         }
 
         playerHealthSignal.Raise();
-
     }
 
 
