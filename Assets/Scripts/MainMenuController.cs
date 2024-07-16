@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using PixelCrushers;
+using GameManagers;
 
 public class MainMenuController : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class MainMenuController : MonoBehaviour
     [Space(5)]
     [SerializeField] private GameObject m_InitScreen;
     [SerializeField] private GameObject m_LoadingScreen;
-
+    //private GameObject m_GameUi;
     [SerializeField] private string url = "https://toniq.io/marketplace/obsidian-tears-items";
 
     private void Awake()
@@ -19,6 +20,22 @@ public class MainMenuController : MonoBehaviour
         // ReactController.Instance.OnLoadGameCheckDone += OnLoadGameCheckDone;
         // ReactController.Instance.SignalCheckForLoadedGame();
         // SetInitScreen(true);
+    }
+
+
+    private void Start()
+    {
+        GameObject m_GameUi = GameObject.Find("GameUI(Clone)");
+        Debug.Log("gameui" + m_GameUi); 
+        if (m_GameUi != null)
+        {
+
+            m_GameUi.SetActive(false);
+        }
+        else
+        {
+            return;
+        }
     }
 
     private void OnDestroy()
@@ -30,6 +47,7 @@ public class MainMenuController : MonoBehaviour
     {
         m_LoadButton.interactable = loadGameFound;
         SetInitScreen(false);
+
     }
 
     public void QuitGame()
@@ -57,6 +75,15 @@ public class MainMenuController : MonoBehaviour
     {
 
         Application.OpenURL(url);
+
+    }
+
+
+    public void ClickLoadGame()
+    {
+        GameObject m_GameUi = GameObject.Find("GameUI(Clone)");
+        m_GameUi.SetActive(true);
+
 
     }
 
