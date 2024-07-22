@@ -2,6 +2,8 @@
 
 mergeInto(LibraryManager.library, {
   SaveGame: function(gameData, objectName) {
+    console.log(Pointer_stringify(gameData))
+    console.log(Pointer_stringify(objectName))
     window.dispatchReactUnityEvent(
       "SaveGame",
       Pointer_stringify(gameData),
