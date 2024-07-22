@@ -347,6 +347,12 @@ MonoBehaviour:
         destinationDialogueID: 27
         isConnector: 0
         priority: 2
+      - originConversationID: 1
+        originDialogueID: 0
+        destinationConversationID: 1
+        destinationDialogueID: 35
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -1797,14 +1803,14 @@ MonoBehaviour:
         destinationDialogueID: 28
         isConnector: 0
         priority: 2
-      conditionsString: 
+      conditionsString: CurrentQuestState("Phantoms Quest") == unassigned
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1695.838
+        x: 1694.5222
         y: 186.11636
         width: 160
         height: 30
@@ -2049,8 +2055,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Will you clear the town of the strange ghosts in each house? I'd love
-          to sleep in my own bed tonight?
+        value: 'Will you clear the town of the strange ghosts in each house? I''d
+          love to sleep in my own bed tonight. '
         type: 0
         typeString: 
       - title: Sequence
@@ -2072,7 +2078,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: GiveQuest("Grunn","Phantoms Quest")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -2105,8 +2111,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: You need to clear the town of the ghosts! Then we can get to the Castle
-          and maybe sleep in a warm bed without ghosts coming 'round.
+        value: You need to clear the town of the ghosts! Then we can get that creepy
+          fire to go away. Maybe we'll be able to get to the Castle and maybe sleep
+          in a warm bed without ghosts coming 'round.
         type: 0
         typeString: 
       - title: Sequence
@@ -2138,9 +2145,71 @@ MonoBehaviour:
         y: 339.88132
         width: 160
         height: 30
+    - id: 35
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Want to take a look at what I have for sale? It's not much since my
+          shop got taken over...but what can a simple storekeeper like myself do?
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 1
+        originDialogueID: 35
+        destinationConversationID: 1
+        destinationDialogueID: 31
+        isConnector: 0
+        priority: 2
+      - originConversationID: 1
+        originDialogueID: 35
+        destinationConversationID: 1
+        destinationDialogueID: 32
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 2083.0063
+        y: 208.09727
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1349.7314, y: 316.39536}
-    canvasZoom: 0.8199993
+    canvasScrollPosition: {x: 943.6712, y: 0}
+    canvasZoom: 0.33999997
   - id: 2
     fields:
     - title: Title
