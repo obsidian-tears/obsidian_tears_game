@@ -156,6 +156,11 @@ public class GameManager : Saver
 
         SaveSystem.RegisterSaver(this);
 
+        if (SaveChecker.Instance.HasToLoad)
+        {
+            return;
+        }
+
         string charClass = ICConnect.characterClass;
 
         VerifyClassICConnect(charClass);
@@ -202,6 +207,9 @@ public class GameManager : Saver
             Debug.Log("slotCollectionView.ItemSlotSet" + slotCollectionView.ItemSlotSet);
             Debug.Log("itemSlotCollection.ItemSlotSet" + itemSlotCollection.ItemSlotSet);
         }
+
+        SaveChecker.Instance.HasToLoad = true;
+        isLoaded = true;
     }
 
 
