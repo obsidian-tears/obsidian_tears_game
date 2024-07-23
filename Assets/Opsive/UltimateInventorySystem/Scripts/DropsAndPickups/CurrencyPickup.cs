@@ -40,7 +40,7 @@ namespace Opsive.UltimateInventorySystem.DropsAndPickups
 
             var interactorCurrencyOwner = interactorWithInventory.Inventory.GetCurrencyComponent<CurrencyCollection>();
 
-            DialogueManager.ShowAlert("Found " + m_CurrencyOwner.CurrencyAmount + " gold");
+            DialogueManager.ShowAlert("Found " + m_CurrencyOwner.CurrencyAmount);
             interactorCurrencyOwner.AddCurrency(m_CurrencyOwner.CurrencyAmount);
             NotifyPickupSuccess();
         }
