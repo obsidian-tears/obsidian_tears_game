@@ -146,11 +146,11 @@ GameObject:
   - component: {fileID: 3830019983375316031}
   - component: {fileID: 3830019983375316018}
   - component: {fileID: 3830019983375316028}
-  - component: {fileID: 3830019983375316030}
   - component: {fileID: 3830019983375316025}
   - component: {fileID: 3830019983375316017}
   - component: {fileID: 6629342225508471097}
   - component: {fileID: 5979229062995616525}
+  - component: {fileID: 6058662982850536721}
   m_Layer: 0
   m_Name: Pickupable Item
   m_TagString: Untagged
@@ -290,60 +290,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3830019983375316030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3830019983375316024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ae9de52d9898424c9e484d9bb739a9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_DeactivateOnInteract: 1
-  m_ScheduleReactivationTime: -1
-  m_SelectIndicators:
-  - {fileID: 0}
-  m_OnPickupSuccess:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3830019983375316016}
-        m_TargetAssemblyTypeName: Pickupable, Assembly-CSharp
-        m_MethodName: placeOpenedChest
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6629342225508471097}
-        m_TargetAssemblyTypeName: PixelCrushers.QuestMachine.QuestControl, Opsive.UltimateInventorySystem
-        m_MethodName: SendToMessageSystem
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_AudioClip: {fileID: 0}
-  m_AudioConfig: {fileID: 0}
-  m_OnPickupFail:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FailAudioClip: {fileID: 0}
-  m_FailAudioConfig: {fileID: 0}
-  m_AddToItemCollection:
-    m_Name: 
-    m_Purpose: 1
-  m_FailIfFullAmountDoesNotFit: 0
 --- !u!114 &3830019983375316025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,3 +420,45 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!114 &6058662982850536721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3830019983375316024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7be2ae43fcdad473881c4fd8cead5bad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DeactivateOnInteract: 1
+  m_ScheduleReactivationTime: -1
+  m_SelectIndicators: []
+  m_OnPickupSuccess:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3830019983375316016}
+        m_TargetAssemblyTypeName: Pickupable, Assembly-CSharp
+        m_MethodName: placeOpenedChest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_AudioClip: {fileID: 0}
+  m_AudioConfig: {fileID: 0}
+  m_OnPickupFail:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FailAudioClip: {fileID: 0}
+  m_FailAudioConfig: {fileID: 0}
+  m_AddToItemCollection:
+    m_Name: 
+    m_Purpose: 1
+  m_FailIfFullAmountDoesNotFit: 0
+  m_TreasureIndex: 
