@@ -109,7 +109,7 @@ namespace Opsive.UltimateInventorySystem.DropsAndPickups
         protected new virtual void TryAddItemToCollection(ItemCollection itemCollection)
         {
 #if UNITY_WEBGL && !UNITY_EDITOR
-            ReactController.Instance.SignalOpenChest(m_TreasureIndex);
+            //ReactController.Instance.SignalOpenChest(m_TreasureIndex);
 #else
             // only for testing currency
             // GameObject player = GameObject.FindGameObjectWithTag("Player");
