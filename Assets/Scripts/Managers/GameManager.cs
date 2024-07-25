@@ -166,6 +166,7 @@ public class GameManager : Saver
             return;
         }
 
+        isLoaded = false;
         Debug.Log("awake ");
 
 
