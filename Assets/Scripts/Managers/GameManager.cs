@@ -19,7 +19,6 @@ public class GameManager : Saver
     public bool inventoryWasInit = false;
 
     public ItemSlotCollection itemSlotCollection;
-    public ItemSlotSet ItemSlotSet;
 
     public ItemSlotCollectionView slotCollectionView;
 
@@ -32,12 +31,24 @@ public class GameManager : Saver
 
     public override void ApplyData(string s)
     {
+        StartCoroutine(WaitingStart(s));
+    }
+
+    IEnumerator WaitingStart(string s)
+    {
+        var counter = 0;
+        while (counter < 60)
+        {
+            yield return null;
+            counter++;
+        }
+
         if (string.IsNullOrEmpty(s))
         {
             isLoaded = true;
-            return;
+            yield break;
         }
-        
+
         Debug.Log("Data is " + s);
         Debug.Log("apply data");
         var dataBase = JsonConvert.DeserializeObject<List<string>>(s);
@@ -49,7 +60,7 @@ public class GameManager : Saver
 
         var playerInventory = FindObjectOfType<Inventory>();
 
-        if (!playerInventory) return;
+        if (!playerInventory) yield break;
 
         var equippedCol = playerInventory.GetItemCollection("Equipped");
 
