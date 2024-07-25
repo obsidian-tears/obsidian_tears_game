@@ -6,6 +6,7 @@ using Opsive.UltimateInventorySystem.Demo.Events;
 using Opsive.UltimateInventorySystem.Demo.UI.Menus.Main.Inventory;
 using Opsive.UltimateInventorySystem.Equipping;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -65,25 +66,20 @@ public class CharStats : MonoBehaviour
 
     ItemCollection equipmentCollection;
 
-    private void Awake()
-    {
-        Debug.Log("Char Stat Awake");
-        if (this.gameObject.CompareTag("Player"))
-        {
-
-            //if (inventory == null) inventory = GetComponent<Inventory>();
-        
-           // var equippedCol = inventory.GetItemCollection("Equipped");
-            //inventory.RemoveItemCollection(equippedCol);
-           // inventory.AddItemCollection( GameManager.Instance.itemSlotCollection);
-
-        }
-    }
-
     void Start()
     {
         Debug.Log("Char Stat Start");
+        StartCoroutine(WaitConfig());
+    }
 
+    IEnumerator WaitConfig()
+    {
+        yield return new WaitUntil(() => GameManager.Instance.isLoaded);
+        yield return null;
+        yield return null;
+        yield return null;
+        yield return null;
+        
         if(inventory != null)
         {
             equipmentCollection = inventory.GetItemCollection("Equipped");
@@ -91,7 +87,6 @@ public class CharStats : MonoBehaviour
             UpdateStatsWithHeal();
             UpdateUI();
         }
-        
     }
 
 
