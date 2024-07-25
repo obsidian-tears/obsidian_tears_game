@@ -11,11 +11,7 @@ public class CustomCurrencyPickup : CurrencyPickup
 
     protected override void OnInteractInternal(IInteractor interactor)
     {
-#if UNITY_WEBGL && !UNITY_EDITOR
-        ReactController.Instance.SignalOpenChest(m_TreasureIndex);
-#else
         base.OnInteractInternal(interactor);
-#endif
         NotifyPickupSuccess();
     }
 }

@@ -108,18 +108,6 @@ namespace Opsive.UltimateInventorySystem.DropsAndPickups
         /// <param name="itemCollection">The item collection.</param>
         protected new virtual void TryAddItemToCollection(ItemCollection itemCollection)
         {
-#if UNITY_WEBGL && !UNITY_EDITOR
-            //ReactController.Instance.SignalOpenChest(m_TreasureIndex);
-#else
-            // only for testing currency
-            // GameObject player = GameObject.FindGameObjectWithTag("Player");
-            // Inventory inv = player.GetComponent<Inventory>();
-            // CurrencyOwner currencyOwner = inv.GetCurrencyComponent<CurrencyCollection>() as CurrencyOwner;
-            // CurrencyCollection ownerCurrencyCollection = currencyOwner.CurrencyAmount;
-            // Currency gold = InventorySystemManager.GetCurrency("Gold");
-            // ownerCurrencyCollection.AddCurrency(gold, 10);
-
-            // DialogueManager.ShowAlert("Found " + 10 + " gold");
 
             var itemInfo = m_ItemObject.ItemInfo;
             var canAddResult = itemCollection.CanAddItem(itemInfo);
@@ -131,7 +119,7 @@ namespace Opsive.UltimateInventorySystem.DropsAndPickups
                 return;
             }
             itemCollection.AddItem(itemInfo);
-#endif
+
             NotifyPickupSuccess();
         }
 
