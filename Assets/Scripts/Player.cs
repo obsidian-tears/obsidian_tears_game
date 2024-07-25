@@ -80,6 +80,7 @@ public class Player : MonoBehaviour
         yield return new WaitUntil(()=> GameManager.Instance.isLoaded);
         Debug.Log("b");
         yield return null;
+        yield return null;
         Debug.Log("c");
         InventorySystemManager.GetDisplayPanelManager().SetPanelOwner(gameObject);
         Inventory inventory = GetComponent<Inventory>();

@@ -54,6 +54,7 @@ public class GameManager : Saver
 
         if (equippedCol != null)
         {
+            Debug.Log("Se removio");
             playerInventory.RemoveItemCollection(equippedCol);
         }
 
@@ -62,6 +63,7 @@ public class GameManager : Saver
             Debug.Log("es nulo el playerInventory ");
         }
 
+        Debug.Log("Se agrego " + itemSlotCollection);
         playerInventory.AddItemCollection(itemSlotCollection);
 
         playerInventory.UpdateInventory();
@@ -110,6 +112,7 @@ public class GameManager : Saver
         }
 
         Debug.Log("Is Loaded");
+        Debug.Log(playerInventory.GetItemCollection("Equipped"));
         isLoaded = true;
     }
 
