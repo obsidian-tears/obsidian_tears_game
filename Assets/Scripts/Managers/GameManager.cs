@@ -38,6 +38,7 @@ public class GameManager : Saver
             return;
         }
         
+        Debug.Log("Data is " + s);
         Debug.Log("apply data");
         var dataBase = JsonConvert.DeserializeObject<List<string>>(s);
         _initialClass = JsonConvert.DeserializeObject<InitialClasses>(dataBase[2]);
