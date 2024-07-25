@@ -77,7 +77,7 @@ public class Player : MonoBehaviour
     private IEnumerator AwaitConfig()
     {
         Debug.Log("a");
-        yield return new WaitUntil(()=> GameManager.Instance.isLoaded);
+        yield return new WaitUntil(()=> GameManager.Instance != null && GameManager.Instance.isLoaded);
         Debug.Log("b");
         yield return null;
         yield return null;

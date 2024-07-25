@@ -74,7 +74,7 @@ public class CharStats : MonoBehaviour
 
     IEnumerator WaitConfig()
     {
-        yield return new WaitUntil(() => GameManager.Instance.isLoaded);
+        yield return new WaitUntil(() => GameManager.Instance != null && GameManager.Instance.isLoaded);
         yield return null;
         yield return null;
         yield return null;
