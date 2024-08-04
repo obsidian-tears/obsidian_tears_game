@@ -56,32 +56,6 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Register player as the inventory panel owner and register inventory, currency monitor(s)
-        /*InventorySystemManager.GetDisplayPanelManager().SetPanelOwner(gameObject);
-        Inventory inventory = GetComponent<Inventory>();
-        if (inventory != null)
-        {
-            GameUIManager.Instance.SetInventory(inventory);
-            GameUIManager.Instance.SetCurrencyOwner(inventory.GetCurrencyComponent<CurrencyCollection>() as CurrencyOwner);
-        }
-        else
-        {
-            Debug.LogError("FATAL ERROR! Player has no inventory component! Please assign one!");
-        }
-        
-        playerHealthSignal.Raise();*/
-
-        StartCoroutine(AwaitConfig());
-    }
-
-    private IEnumerator AwaitConfig()
-    {
-        Debug.Log("a");
-        yield return new WaitUntil(()=> GameManager.Instance != null && GameManager.Instance.isLoaded);
-        Debug.Log("b");
-        yield return null;
-        yield return null;
-        Debug.Log("c");
         InventorySystemManager.GetDisplayPanelManager().SetPanelOwner(gameObject);
         Inventory inventory = GetComponent<Inventory>();
         if (inventory != null)
@@ -96,8 +70,6 @@ public class Player : MonoBehaviour
 
         playerHealthSignal.Raise();
     }
-
-
 
     // Update is called once per frame
     void Update()

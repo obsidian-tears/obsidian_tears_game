@@ -69,17 +69,6 @@ public class CharStats : MonoBehaviour
     void Start()
     {
         Debug.Log("Char Stat Start");
-        StartCoroutine(WaitConfig());
-    }
-
-    IEnumerator WaitConfig()
-    {
-        yield return new WaitUntil(() => GameManager.Instance != null && GameManager.Instance.isLoaded);
-        yield return null;
-        yield return null;
-        yield return null;
-        yield return null;
-        
         if(inventory != null)
         {
             equipmentCollection = inventory.GetItemCollection("Equipped");
@@ -88,7 +77,6 @@ public class CharStats : MonoBehaviour
             UpdateUI();
         }
     }
-
 
     private void Update()
     {

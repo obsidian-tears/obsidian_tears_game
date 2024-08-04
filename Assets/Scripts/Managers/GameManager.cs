@@ -31,36 +31,24 @@ public class GameManager : Saver
 
     public override void ApplyData(string s)
     {
-        StartCoroutine(WaitingStart(s));
-    }
-
-    IEnumerator WaitingStart(string s)
-    {
-        var counter = 0;
-        while (counter < 60)
-        {
-            yield return null;
-            counter++;
-        }
-
         if (string.IsNullOrEmpty(s))
         {
             isLoaded = true;
-            yield break;
+            return;
         }
 
         Debug.Log("Data is " + s);
         Debug.Log("apply data");
         var dataBase = JsonConvert.DeserializeObject<List<string>>(s);
-        _initialClass = JsonConvert.DeserializeObject<InitialClasses>(dataBase[2]);
+        //_initialClass = JsonConvert.DeserializeObject<InitialClasses>(dataBase[2]);
 
 
-        itemSlotCollection = _itemCollection[(int)_initialClass];
+        //itemSlotCollection = _itemCollection[(int)_initialClass];
 
 
         var playerInventory = FindObjectOfType<Inventory>();
 
-        if (!playerInventory) yield break;
+        if (!playerInventory) return;
 
         var equippedCol = playerInventory.GetItemCollection("Equipped");
 
@@ -168,14 +156,8 @@ public class GameManager : Saver
 
         isLoaded = false;
         Debug.Log("awake ");
-
-
+        
         SaveSystem.RegisterSaver(this);
-
-        if (SaveChecker.Instance.HasToLoad)
-        {
-            return;
-        }
 
         string charClass = ICConnect.characterClass;
 
