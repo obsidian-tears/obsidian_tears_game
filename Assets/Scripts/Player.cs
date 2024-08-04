@@ -38,7 +38,9 @@ public class Player : MonoBehaviour
 
     [SerializeField] public bool isRunning;
 
-    void Awake() {
+    void Awake() 
+    {
+        Debug.Log("Start player Awake");
         if (m_globalGameContext != null)
         {
             m_globalGameContext.RegisterPlayerObject(this);
@@ -51,11 +53,13 @@ public class Player : MonoBehaviour
         frozen = false;
         myRigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        Debug.Log("Finish Player Awake");
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("Start Player Start");
         InventorySystemManager.GetDisplayPanelManager().SetPanelOwner(gameObject);
         Inventory inventory = GetComponent<Inventory>();
         if (inventory != null)
@@ -69,6 +73,7 @@ public class Player : MonoBehaviour
         }
 
         playerHealthSignal.Raise();
+        Debug.Log("Finish Player Start");
     }
 
     // Update is called once per frame

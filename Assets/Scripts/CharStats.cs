@@ -76,6 +76,7 @@ public class CharStats : MonoBehaviour
             UpdateStatsWithHeal();
             UpdateUI();
         }
+        Debug.Log("Finish Char Stat Start");
     }
 
     private void Update()

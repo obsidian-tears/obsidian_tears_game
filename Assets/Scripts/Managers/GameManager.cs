@@ -148,14 +148,16 @@ public class GameManager : Saver
 
     public override void Awake()
     {
+        Debug.Log("Start GameManager Awake");
         if (Instance)
         {
             Destroy(gameObject);
+            Debug.Log("Destroying game manager...");
             return;
         }
 
         isLoaded = false;
-        Debug.Log("awake ");
+        Debug.Log("awake");
         
         SaveSystem.RegisterSaver(this);
 
@@ -208,6 +210,7 @@ public class GameManager : Saver
 
         SaveChecker.Instance.HasToLoad = true;
         isLoaded = true;
+        Debug.Log("Finish GameManager Awake");
     }
 
 

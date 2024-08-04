@@ -35,6 +35,7 @@ public class BeginningStats : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log("Beginning Stats Awake");
         string charClass = ICConnect.characterClass;       
         VerifyClassICConnect(charClass);
         Debug.Log(charClass);
@@ -45,48 +46,7 @@ public class BeginningStats : MonoBehaviour
             animPlayer.SetFloat("moveX", 1);
             // player.transform.Rotate(0, 180, 0); //rota la camara y no sirve
         }
-
-        //Inventory startingInventory = gameObject.GetComponent<Inventory>();
-        //
-       /* if (GameManager.Instance.inventoryWasInit)
-        {
-            return;
-        }
-
-        if (slotCollectionView == null && GameUIManager.Exist)
-        {
-            slotCollectionView = GameUIManager.Instance.gameObject.GetComponentInChildren<ItemSlotCollectionView>();
-            Debug.Log("hola");
-        }
-        if (slotCollectionView == null)
-        {
-            slotCollectionView = Resources.FindObjectsOfTypeAll<ItemSlotCollectionView>().First();
-            Debug.Log("Null?");
-        }
         
-        Debug.Log("_itemSlotSets.Count: " + _itemSlotSets.Count);
-        Debug.Log("Try To Access");
-
-        slotCollectionView.ItemSlotSet = _itemSlotSets[(int)_initialClass];
-        Debug.Log("ItemSlotSet assigned: " + slotCollectionView.ItemSlotSet);
-
-        slotCollectionView.SetItemViewSlotRestrictions();
-        
-        var playerInventory = player.GetComponent<Inventory>();
-
-        var equippedCol = playerInventory.GetItemCollection("Equipped");
-        //playerInventory.RemoveItemCollection(equippedCol);
-       // playerInventory.AddItemCollection(_itemCollection[(int)_initialClass]);
-        //  startingInventory.AddItemCollection(_itemCollection[(int)_initialClass]);
-        
-        playerInventory.UpdateInventory();
-        //  startingInventory.UpdateInventory();
-
-
-        GameManager.Instance.inventoryWasInit = true;
-        GameManager.Instance.itemSlotCollection = _itemCollection[(int)_initialClass];
-        GameManager.Instance.ItemSlotSet = _itemSlotSets[(int)_initialClass];;*/
-
         SetInitialStats(_initialClass);
         
         var playerStats = player.GetComponent<CharStats>();
@@ -100,12 +60,16 @@ public class BeginningStats : MonoBehaviour
         playerStats.defenseBase = defenseBase; // ----------- change playertype
         playerStats.speedBase = speedBase; //   ------------ change playertype
         playerStats.criticalHitProbability = criticalHitProbability; //   ------------ change playertype
+        
+        Debug.Log("Finish Beginning Stats Awake");
     }
 
     private void Start()
     {
+        Debug.Log("Start Beginning Stats Start");
         var charStats = player.GetComponent<CharStats>();
         charStats.characterClass = _initialClass.ToString();
+        Debug.Log("Finish Beginning Stats Start");
     }
 
 
