@@ -38,6 +38,9 @@ public class Player : MonoBehaviour
 
     [SerializeField] public bool isRunning;
 
+    [SerializeField] private CurrencyOwner _currencyOwner;
+    [SerializeField] private Inventory _inventory;
+
     void Awake() 
     {
         Debug.Log("Start player Awake");
@@ -61,11 +64,12 @@ public class Player : MonoBehaviour
     {
         Debug.Log("Start Player Start");
         InventorySystemManager.GetDisplayPanelManager().SetPanelOwner(gameObject);
-        Inventory inventory = GetComponent<Inventory>();
-        if (inventory != null)
+        if (_inventory != null)
         {
-            GameUIManager.Instance.SetInventory(inventory);
-            GameUIManager.Instance.SetCurrencyOwner(inventory.GetCurrencyComponent<CurrencyCollection>() as CurrencyOwner);
+            Debug.Log("Here?");
+            GameUIManager.Instance.SetInventory(_inventory);
+            Debug.Log("Or Here?");
+            GameUIManager.Instance.SetCurrencyOwner(_currencyOwner);
         }
         else
         {
