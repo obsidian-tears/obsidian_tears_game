@@ -205,6 +205,7 @@ public class GameManager : Saver
 
         SaveChecker.Instance.HasToLoad = true;
         isLoaded = true;
+        Debug.Log(playerInventory.GetItemCollection("Equipped"));
         Debug.Log("Finish GameManager Awake");
     }
 
