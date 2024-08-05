@@ -40,50 +40,45 @@ public class GameManager : Saver
         Debug.Log("Data is " + s);
         Debug.Log("apply data");
         var dataBase = JsonConvert.DeserializeObject<List<string>>(s);
-        //_initialClass = JsonConvert.DeserializeObject<InitialClasses>(dataBase[2]);
-
-
-        //itemSlotCollection = _itemCollection[(int)_initialClass];
-
 
         var playerInventory = FindObjectOfType<Inventory>();
 
         if (!playerInventory) return;
 
-        var equippedCol = playerInventory.GetItemCollection("Equipped");
+        // var equippedCol = playerInventory.GetItemCollection("Equipped");
+        //
+        // if (equippedCol != null)
+        // {
+        //     Debug.Log("Se removio");
+        //     playerInventory.RemoveItemCollection(equippedCol);
+        // }
+        //
+        // if (playerInventory == null)
+        // {
+        //     Debug.Log("es nulo el playerInventory ");
+        // }
 
-        if (equippedCol != null)
-        {
-            Debug.Log("Se removio");
-            playerInventory.RemoveItemCollection(equippedCol);
-        }
+        // Debug.Log("Se agrego " + itemSlotCollection);
+        // playerInventory.AddItemCollection(itemSlotCollection);
+        //
+        // playerInventory.UpdateInventory();
 
-        if (playerInventory == null)
-        {
-            Debug.Log("es nulo el playerInventory ");
-        }
-
-        Debug.Log("Se agrego " + itemSlotCollection);
-        playerInventory.AddItemCollection(itemSlotCollection);
-
-        playerInventory.UpdateInventory();
-
-
-        if (slotCollectionView == null || GameUIManager.Exist)
-        {
-            slotCollectionView = GameUIManager.Instance.gameObject.GetComponentInChildren<ItemSlotCollectionView>();
-
-            if (slotCollectionView == null)
-            {
-                slotCollectionView = Resources.FindObjectsOfTypeAll<ItemSlotCollectionView>().First();
-                Debug.Log("Null?");
-            }
-
-            slotCollectionView.ItemSlotSet = itemSlotCollection.ItemSlotSet;
-
-            Debug.Log("slotCollectionView.ItemSlotSet" + slotCollectionView.ItemSlotSet);
-            Debug.Log("itemSlotCollection.ItemSlotSet" + itemSlotCollection.ItemSlotSet);
-        }
+        //
+        // if (slotCollectionView == null || GameUIManager.Exist)
+        // {
+        //     slotCollectionView = GameUIManager.Instance.gameObject.GetComponentInChildren<ItemSlotCollectionView>();
+        //
+        //     if (slotCollectionView == null)
+        //     {
+        //         slotCollectionView = Resources.FindObjectsOfTypeAll<ItemSlotCollectionView>().First();
+        //         Debug.Log("Null?");
+        //     }
+        //
+        //     slotCollectionView.ItemSlotSet = itemSlotCollection.ItemSlotSet;
+        //
+        //     Debug.Log("slotCollectionView.ItemSlotSet" + slotCollectionView.ItemSlotSet);
+        //     Debug.Log("itemSlotCollection.ItemSlotSet" + itemSlotCollection.ItemSlotSet);
+        // }
 
 
         var mainCol = JsonConvert.DeserializeObject<IEnumerable<Tuple<string, int>>>(dataBase[0]);
@@ -112,7 +107,7 @@ public class GameManager : Saver
         }
 
         Debug.Log("Is Loaded");
-        Debug.Log(playerInventory.GetItemCollection("Equipped"));
+        //Debug.Log(playerInventory.GetItemCollection("Equipped"));
         isLoaded = true;
     }
 

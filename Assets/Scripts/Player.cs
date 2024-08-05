@@ -63,7 +63,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         Debug.Log("Start Player Start");
-        InventorySystemManager.GetDisplayPanelManager().SetPanelOwner(gameObject);
+        
         if (_inventory != null)
         {
             Debug.Log("Here?");
@@ -75,7 +75,7 @@ public class Player : MonoBehaviour
         {
             Debug.LogError("FATAL ERROR! Player has no inventory component! Please assign one!");
         }
-
+        InventorySystemManager.GetDisplayPanelManager().SetPanelOwner(gameObject);
         playerHealthSignal.Raise();
         Debug.Log("Finish Player Start");
     }
