@@ -60,10 +60,10 @@ public class Player : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    IEnumerator Start()
     {
         Debug.Log("Start Player Start");
-        
+        yield return null;
         InventorySystemManager.GetDisplayPanelManager()?.SetPanelOwner(gameObject);
         
         if (_inventory != null)
