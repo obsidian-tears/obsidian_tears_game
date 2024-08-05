@@ -60,9 +60,10 @@ public class Player : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    IEnumerator Start()
     {
         Debug.Log("Start Player Start");
+        
         
         if (_inventory != null)
         {
@@ -75,9 +76,15 @@ public class Player : MonoBehaviour
         {
             Debug.LogError("FATAL ERROR! Player has no inventory component! Please assign one!");
         }
-        InventorySystemManager.GetDisplayPanelManager().SetPanelOwner(gameObject);
+        
         playerHealthSignal.Raise();
         Debug.Log("Finish Player Start");
+
+
+        yield return null;
+        yield return null;
+        yield return null;
+        InventorySystemManager.GetDisplayPanelManager()?.SetPanelOwner(gameObject);
     }
 
     // Update is called once per frame

@@ -72,7 +72,13 @@ public class CharStats : MonoBehaviour
         if(inventory != null)
         {
             equipmentCollection = inventory.GetItemCollection("Equipped");
-            //EventHandler.RegisterEvent(equipmentCollection, EventNames.c_ItemCollection_OnUpdate, UpdateStats);
+            
+            if (equipmentCollection == null)
+            {
+                Debug.Log("Equipment null!!!!");
+            }
+            
+            EventHandler.RegisterEvent(equipmentCollection, EventNames.c_ItemCollection_OnUpdate, UpdateStats);
             UpdateStatsWithHeal();
             UpdateUI();
         }
