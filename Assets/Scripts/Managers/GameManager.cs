@@ -86,24 +86,32 @@ public class GameManager : Saver
 
         if (mainCol != null)
         {
+            Debug.Log("Main col");
             foreach (var itemInfo in mainCol)
             {
+                Debug.Log("Add Item");
                 var item = new ItemInfo(itemInfo.Item1, itemInfo.Item2);
                 var itemStack = new ItemStack();
                 playerInventory.GetItemCollection(ItemCollectionPurpose.Main).AddItem(item, itemStack, false);
+                Debug.Log("Finish Item");
             }
+            Debug.Log("Finish Main Col");
         }
 
         playerInventory.GetItemCollection(ItemCollectionPurpose.Equipped).RemoveAll();
         var equipCol = JsonConvert.DeserializeObject<IEnumerable<Tuple<string, int>>>(dataBase[1]);
         if (equipCol != null)
         {
+            Debug.Log("Equipped col");
             foreach (var itemInfo in equipCol)
             {
+                Debug.Log("Add Equipped item");
                 var item = new ItemInfo(itemInfo.Item1, itemInfo.Item2);
                 var itemStack = new ItemStack();
                 playerInventory.GetItemCollection(ItemCollectionPurpose.Equipped).AddItem(item, itemStack, false);
+                Debug.Log("Finish Equipped item");
             }
+            Debug.Log("Finish Equipped Col");
         }
 
         Debug.Log("Is Loaded");
@@ -170,7 +178,7 @@ public class GameManager : Saver
 
         if (!playerInventory) return;
 
-        var equippedCol = playerInventory.GetItemCollection("Equipped");
+        var equippedCol = playerInventory.GetItemCollection(ItemCollectionPurpose.Equipped);
 
         if (equippedCol != null)
         {

@@ -60,10 +60,11 @@ public class Player : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    IEnumerator Start()
+    void Start()
     {
         Debug.Log("Start Player Start");
         
+        InventorySystemManager.GetDisplayPanelManager()?.SetPanelOwner(gameObject);
         
         if (_inventory != null)
         {
@@ -79,12 +80,6 @@ public class Player : MonoBehaviour
         
         playerHealthSignal.Raise();
         Debug.Log("Finish Player Start");
-
-
-        yield return null;
-        yield return null;
-        yield return null;
-        InventorySystemManager.GetDisplayPanelManager()?.SetPanelOwner(gameObject);
     }
 
     // Update is called once per frame
