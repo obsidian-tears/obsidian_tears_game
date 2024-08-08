@@ -11,9 +11,11 @@ namespace PixelCrushers.QuestMachine
     [AddComponentMenu("")] // Use wrapper.
     public class UnityUIQuestNameButtonTemplate : UnityUIContentTemplate
     {
-
         [SerializeField]
         private UnityEngine.UI.Image m_icon;
+
+        [SerializeField]
+        private UnityEngine.UI.Image m_selectedBG;
 
         [SerializeField]
         private UnityUIButtonTemplate m_buttonTemplate;
@@ -25,6 +27,12 @@ namespace PixelCrushers.QuestMachine
         {
             get { return m_icon; }
             set { m_icon = value; }
+        }
+
+        public UnityEngine.UI.Image selectedBG
+        {
+            get { return m_selectedBG; }
+            set { m_selectedBG = value; }
         }
 
         public UnityUIButtonTemplate buttonTemplate

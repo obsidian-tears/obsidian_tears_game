@@ -3,6 +3,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 namespace PixelCrushers.QuestMachine
 {
@@ -76,6 +77,8 @@ namespace PixelCrushers.QuestMachine
         private bool m_showQuestsThatHaveNoContent = true;
         [SerializeField]
         private bool m_showFirstQuestDetailsOnOpen = false;
+        [SerializeField]
+        private bool m_showSelectedBG = true;
         [Tooltip("Show Track toggle button in quest details panel.")]
         [SerializeField]
         private bool m_showTrackButtonInDetails = false;
@@ -121,6 +124,11 @@ namespace PixelCrushers.QuestMachine
         {
             get { return m_showDetailsOnFocus; }
             set { m_showDetailsOnFocus = value; }
+        }
+        public bool showSelectedBG
+        {
+            get { return m_showSelectedBG; }
+            set { m_showSelectedBG = value; }
         }
         public bool showTrackButtonInDetails
         {
@@ -264,7 +272,7 @@ namespace PixelCrushers.QuestMachine
             }
             if (questGroupTemplate != null) questGroupTemplate.gameObject.SetActive(false);
             if (activeQuestNameTemplate != null) activeQuestNameTemplate.gameObject.SetActive(false);
-            if (completedQuestNameTemplate!= null) completedQuestNameTemplate.gameObject.SetActive(false);
+            if (completedQuestNameTemplate != null) completedQuestNameTemplate.gameObject.SetActive(false);
             if (questHeadingTextTemplate != null) questHeadingTextTemplate.gameObject.SetActive(false);
             if (questBodyTextTemplate != null) questBodyTextTemplate.gameObject.SetActive(false);
             if (iconListTemplate != null) iconListTemplate.gameObject.SetActive(false);
@@ -319,7 +327,7 @@ namespace PixelCrushers.QuestMachine
             Repaint();
             m_mustSendCloseMessage = ShouldSendOpenCloseMessage();
             if (ShouldSendOpenCloseMessage()) MessageSystem.SendMessage(this, m_openMessage, string.Empty);
-            if (showFirstQuestDetailsOnOpen) selectedQuest = GetFirstQuest();
+            if (showFirstQuestDetailsOnOpen || selectedQuest == null) selectedQuest = GetFirstQuest();
         }
 
         /// <summary>
@@ -532,7 +540,13 @@ namespace PixelCrushers.QuestMachine
                 questName.Assign(quest, OnToggleTracking);
                 selectionPanelContentManager.Add(questName, questSelectionContentContainer);
                 var target = quest;
-                SetupQuestNameUIEvents(questName.buttonTemplate.button, target);
+                SetupQuestNameUIEvents(questName, target);
+
+                if (showSelectedBG && selectedQuest == quest)
+                {
+                    questName.selectedBG.gameObject.SetActive(true);
+                    lastSelectedBG = questName.selectedBG;
+                }
             }
         }
 
@@ -543,7 +557,7 @@ namespace PixelCrushers.QuestMachine
         }
 
         protected virtual void AddQuestsToUI(List<Quest> quests, string requiredGroupName, RectTransform container, bool onlyAddActive)
-        { 
+        {
             foreach (var quest in quests)
             {
                 if (quest == null) continue;
@@ -572,26 +586,32 @@ namespace PixelCrushers.QuestMachine
             questName.Assign(quest, OnToggleTracking);
             selectionPanelContentManager.Add(questName, container);
             var target = quest;
-            SetupQuestNameUIEvents(questName.buttonTemplate.button, target);
+            SetupQuestNameUIEvents(questName, target);
+
+            if (showSelectedBG && selectedQuest == quest)
+            {
+                questName.selectedBG.gameObject.SetActive(true);
+                lastSelectedBG = questName.selectedBG;
+            }
         }
 
-        private void SetupQuestNameUIEvents(UnityEngine.UI.Button button, Quest target)
+        private void SetupQuestNameUIEvents(UnityUIQuestNameButtonTemplate questName, Quest target)
         {
-            if (button == null || target == null) return;
-            button.onClick.AddListener(() => { OnClickQuest(target); });
+            if (questName.buttonTemplate.button == null || target == null) return;
+            questName.buttonTemplate.button.onClick.AddListener(() => { OnClickQuest(target, questName.selectedBG); });
             if (showDetailsOnFocus)
             {
-                var trigger = button.GetComponent<UnityEngine.EventSystems.EventTrigger>();
-                if (trigger == null) trigger = button.gameObject.AddComponent<UnityEngine.EventSystems.EventTrigger>();
+                var trigger = questName.buttonTemplate.button.GetComponent<UnityEngine.EventSystems.EventTrigger>();
+                if (trigger == null) trigger = questName.buttonTemplate.button.gameObject.AddComponent<UnityEngine.EventSystems.EventTrigger>();
                 // PointerEnter:
                 var entry = new UnityEngine.EventSystems.EventTrigger.Entry();
                 entry.eventID = UnityEngine.EventSystems.EventTriggerType.PointerEnter;
-                entry.callback.AddListener((eventData) => { OnClickQuest(target); });
+                entry.callback.AddListener((eventData) => { OnClickQuest(target, questName.selectedBG); });
                 trigger.triggers.Add(entry);
                 // Select:
                 entry = new UnityEngine.EventSystems.EventTrigger.Entry();
                 entry.eventID = UnityEngine.EventSystems.EventTriggerType.Select;
-                entry.callback.AddListener((eventData) => { OnClickQuest(target); });
+                entry.callback.AddListener((eventData) => { OnClickQuest(target, questName.selectedBG); });
                 trigger.triggers.Add(entry);
             }
         }
@@ -607,13 +627,24 @@ namespace PixelCrushers.QuestMachine
             groupFoldout.ToggleInterior();
         }
 
-        protected virtual void OnClickQuest(Quest quest)
+        Image lastSelectedBG;
+        protected virtual void OnClickQuest(Quest quest, Image selectedBG)
         {
+            if (m_showSelectedBG && lastSelectedBG != selectedBG)
+            {
+                selectedBG.gameObject.SetActive(true);
+
+                if (lastSelectedBG)
+                    lastSelectedBG.gameObject.SetActive(false);
+
+                lastSelectedBG = selectedBG;
+            }
+
             SelectQuest(quest);
         }
 
         public virtual void SelectQuest(Quest quest)
-        { 
+        {
             selectedQuest = quest;
             RepaintSelectedQuest();
         }
@@ -633,11 +664,13 @@ namespace PixelCrushers.QuestMachine
                 var showTrack = showTrackButtonInDetails && isQuestActive && selectedQuest.isTrackable;
                 var showAbandon = isQuestActive && selectedQuest.isAbandonable;
                 if (trackButtonTemplate != null) trackButtonTemplate.gameObject.SetActive(showTrack);
+                if (trackButtonTemplate != null) trackButtonTemplate.gameObject.SetActive(showTrack);
                 if (abandonButtonTemplate != null) abandonButtonTemplate.gameObject.SetActive(showAbandon);
                 if (m_questDetailsButtonContainer != null) m_questDetailsButtonContainer.transform.SetAsLastSibling();
+                if (m_activeQuestNameTemplate)
 
-                if (m_questDetailsButtonContainer == null) m_questDetailsButtonContainer = null; // Silence warning about never assigned.
-                
+                    if (m_questDetailsButtonContainer == null) m_questDetailsButtonContainer = null; // Silence warning about never assigned.
+
                 //{
                 //    var instance = Instantiate<UnityUIButtonTemplate>(abandonButtonTemplate);  //[TODO] Pool.
                 //    detailsPanelContentManager.Add(instance, questDetailsContentContainer);
