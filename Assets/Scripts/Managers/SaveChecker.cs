@@ -1,3 +1,4 @@
+using PixelCrushers.QuestMachine.Demo;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,10 +13,13 @@ public class SaveChecker : MonoBehaviour
     {
         if (Instance != null)
         {
+            Debug.Log("soy el save checker");
             Destroy(gameObject);
             return;
         }
         Instance = this;
+        Debug.Log("soy el save checker 2");
+
     }
 
     public void ChangeLoadState()

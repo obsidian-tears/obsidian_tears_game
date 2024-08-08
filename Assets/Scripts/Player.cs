@@ -69,8 +69,12 @@ public class Player : MonoBehaviour
         if (_inventory != null)
         {
             Debug.Log("Here?");
+            Debug.Log("This is my inventory " +  _inventory);
+
             GameUIManager.Instance.SetInventory(_inventory);
             Debug.Log("Or Here?");
+            Debug.Log("This is my currency " + _currencyOwner);
+
             GameUIManager.Instance.SetCurrencyOwner(_currencyOwner);
         }
         else
