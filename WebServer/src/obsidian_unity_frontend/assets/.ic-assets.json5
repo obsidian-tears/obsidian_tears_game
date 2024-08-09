@@ -55,4 +55,8 @@
     // in range/batches, which sporadically gives errors on certification
     allow_raw_access: true,
   },
+  {
+    match: ".well-known",
+    ignore: false,
+  },
 ]
