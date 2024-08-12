@@ -1109,6 +1109,8 @@ Module.fetchWithProgress = function () {
   return new Promise(function (resolve, reject) {
     if (!Module.SystemInfo.hasWebGL) {
       reject("Your browser does not support WebGL.");
+    } else if (Module.SystemInfo.hasWebGL == 1) {
+      reject("Your browser does not support graphics API \"WebGL 2\" which is required for this content.");
     } else if (!Module.SystemInfo.hasWasm) {
       reject("Your browser does not support WebAssembly.");
     } else {
