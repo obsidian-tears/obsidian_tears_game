@@ -211,7 +211,7 @@ public class GameManager : Saver
             Debug.Log("itemSlotCollection.ItemSlotSet" + itemSlotCollection.ItemSlotSet);
         }
 
-        SaveChecker.Instance.HasToLoad = true;
+        // SaveChecker.Instance.HasToLoad = true;
         isLoaded = true;
         Debug.Log(playerInventory.GetItemCollection("Equipped"));
         Debug.Log("Finish GameManager Awake");

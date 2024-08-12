@@ -9,7 +9,7 @@ public class ItemActivator : MonoBehaviour
     // Variables:
 
     [SerializeField]
-    private int distanceFromPlayer = 50;
+    private int distanceFromPlayer = 20;
 
     private GameObject player;
 
@@ -17,7 +17,7 @@ public class ItemActivator : MonoBehaviour
 
     // --------------------------------------------------
 
-    void Start()
+    void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         activatorItems = new List<ActivatorItem>();
@@ -33,7 +33,6 @@ public class ItemActivator : MonoBehaviour
         {
             activatorItems.Add(new ActivatorItem { item = child.gameObject, itemPos = child.transform.position });
         }
-        
     }
 
     IEnumerator CheckActivation()
