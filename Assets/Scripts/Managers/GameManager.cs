@@ -41,7 +41,7 @@ public class GameManager : Saver
         Debug.Log("apply data");
         var dataBase = JsonConvert.DeserializeObject<List<string>>(s);
 
-        var playerInventory = FindObjectOfType<Inventory>();
+        var playerInventory = GameObject.FindWithTag("Player").GetComponent<Inventory>();
 
         if (!playerInventory) return;
 
@@ -122,7 +122,7 @@ public class GameManager : Saver
     public override string RecordData()
     {
         var DataList = new List<string>();
-        var playerInventory = FindObjectOfType<Inventory>();
+        var playerInventory = GameObject.FindWithTag("Player").GetComponent<Inventory>();
 
         if (playerInventory != null)
         {
@@ -174,7 +174,7 @@ public class GameManager : Saver
 
         // if (!inventoryWasInit) return;
 
-        var playerInventory = FindObjectOfType<Inventory>();
+        var playerInventory = GameObject.FindWithTag("Player").GetComponent<Inventory>();
 
         if (!playerInventory) return;
 
