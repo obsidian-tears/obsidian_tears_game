@@ -93,12 +93,11 @@ public class Player : MonoBehaviour
         change = Vector3.zero;
         change.x = Input.GetAxisRaw("Horizontal");
         change.y = Input.GetAxisRaw("Vertical");
-
+        
         if (!CheckMobile.IsMobile) {
-            isRunning = Input.GetKey(KeyCode.LeftShift) && change != Vector3.zero;
+            isRunning = true && change != Vector3.zero;
         }
         speedMultiplier =  isRunning ? 1.5f : 1.0f;
-
         change = change.normalized * speedMultiplier;
         //playerPosition.initialValue.x = transform.position.x;
         //playerPosition.initialValue.y = transform.position.y;
