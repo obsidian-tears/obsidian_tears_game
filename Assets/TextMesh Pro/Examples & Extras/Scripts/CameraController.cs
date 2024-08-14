@@ -4,7 +4,7 @@ using System.Collections;
 
 namespace TMPro.Examples
 {
-    
+
     public class CameraController : MonoBehaviour
     {
         public enum CameraModes { Follow, Isometric, Free }
@@ -52,10 +52,16 @@ namespace TMPro.Examples
 
         void Awake()
         {
+            //Excerpt from Unity docs: https://docs.unity3d.com/Manual/webgl-performance.html
+            //Set this API to the default value of –1. This allows the browser to adjust the frame rate for the smoothest animation in the browser’s render loop, and might produce better results than Unity trying to do its own main loop timing to match a target frame rate.
+#if UNITY_WEBGL
+            Application.targetFrameRate = -1;
+#else
             if (QualitySettings.vSyncCount > 0)
                 Application.targetFrameRate = 60;
             else
                 Application.targetFrameRate = -1;
+#endif
 
             if (Application.platform == RuntimePlatform.IPhonePlayer || Application.platform == RuntimePlatform.Android)
                 Input.simulateMouseWithTouches = false;

@@ -4,7 +4,7 @@ using System.Collections;
 
 namespace TMPro.Examples
 {
-    
+
     public class TMP_UiFrameRateCounter : MonoBehaviour
     {
         public float UpdateInterval = 5.0f;
@@ -28,7 +28,11 @@ namespace TMPro.Examples
             if (!enabled)
                 return;
 
+#if UNITY_WEBGL
+            Application.targetFrameRate = -1;
+#else
             Application.targetFrameRate = 1000;
+#endif
 
             GameObject frameCounter = new GameObject("Frame Counter");
             m_frameCounter_transform = frameCounter.AddComponent<RectTransform>();
