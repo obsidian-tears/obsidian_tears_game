@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5542774408907530476}
   - component: {fileID: 8252406233579798524}
   - component: {fileID: 2114863977604958866}
+  - component: {fileID: 1007280340}
   m_Layer: 0
   m_Name: Old Man Kerns (1)
   m_TagString: Untagged
@@ -32,7 +33,8 @@ Transform:
   m_LocalPosition: {x: -81.74, y: 2.77, z: 0}
   m_LocalScale: {x: 5.6834073, y: 5.872854, z: 5.0519176}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5426920401590851512}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -87,7 +89,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!114 &546771257737368073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,8 +106,7 @@ MonoBehaviour:
   condition:
     luaConditions: []
     questConditions: []
-    acceptedTags:
-    - Player
+    acceptedTags: []
     acceptedGameObjects:
     - {fileID: 0}
     luaWizardIndex: -1
@@ -125,7 +126,7 @@ MonoBehaviour:
   textTable: {fileID: 0}
   alertDuration: 0
   sendMessages: []
-  barkSource: 2
+  barkSource: 1
   barkConversation: Old Man Kerns
   barkText: '*Grumble Grumble* There goes that no-good outsider. Probably a monster
     in disguise. '
@@ -158,7 +159,7 @@ MonoBehaviour:
   useConversationTitlePicker: 1
   useBarkTitlePicker: 1
   useQuestNamePicker: 1
-  selectedDatabase: {fileID: 11400000, guid: 28708b6c2815bda4793eb7af4c96b06a, type: 2}
+  selectedDatabase: {fileID: 11400000, guid: be8533d46225d0048a5f2cc784c166d8, type: 2}
 --- !u!61 &5542774408907530476
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -172,7 +173,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.020702405, y: 0.034810048}
+  m_Offset: {x: 0.0102975, y: 0.057385888}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -183,7 +184,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.1385952, y: 0.069620095}
+  m_Size: {x: 0.15940501, y: 0.114771776}
   m_EdgeRadius: 0
 --- !u!60 &8252406233579798524
 PolygonCollider2D:
@@ -249,3 +250,89 @@ MonoBehaviour:
     applyColorToPrependedName: 0
     prependActorNameSeparator: ': '
     subtitleColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &1007280340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8605564171403322801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6826db3b75174641a9b58531b63e97c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &102275098
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 708309297657715880}
+    m_Modifications:
+    - target: {fileID: 2184874631485063853, guid: 682a79f91c9c455489d987ed55cc03ad, type: 3}
+      propertyPath: m_Name
+      value: NPCshadow
+      objectReference: {fileID: 0}
+    - target: {fileID: 5426920401693052834, guid: 682a79f91c9c455489d987ed55cc03ad, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5426920401693052834, guid: 682a79f91c9c455489d987ed55cc03ad, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.17595078
+      objectReference: {fileID: 0}
+    - target: {fileID: 5426920401693052834, guid: 682a79f91c9c455489d987ed55cc03ad, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.17027496
+      objectReference: {fileID: 0}
+    - target: {fileID: 5426920401693052834, guid: 682a79f91c9c455489d987ed55cc03ad, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.19794466
+      objectReference: {fileID: 0}
+    - target: {fileID: 5426920401693052834, guid: 682a79f91c9c455489d987ed55cc03ad, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.009
+      objectReference: {fileID: 0}
+    - target: {fileID: 5426920401693052834, guid: 682a79f91c9c455489d987ed55cc03ad, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.021
+      objectReference: {fileID: 0}
+    - target: {fileID: 5426920401693052834, guid: 682a79f91c9c455489d987ed55cc03ad, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5426920401693052834, guid: 682a79f91c9c455489d987ed55cc03ad, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5426920401693052834, guid: 682a79f91c9c455489d987ed55cc03ad, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5426920401693052834, guid: 682a79f91c9c455489d987ed55cc03ad, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5426920401693052834, guid: 682a79f91c9c455489d987ed55cc03ad, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5426920401693052834, guid: 682a79f91c9c455489d987ed55cc03ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5426920401693052834, guid: 682a79f91c9c455489d987ed55cc03ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5426920401693052834, guid: 682a79f91c9c455489d987ed55cc03ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 682a79f91c9c455489d987ed55cc03ad, type: 3}
+--- !u!4 &5426920401590851512 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5426920401693052834, guid: 682a79f91c9c455489d987ed55cc03ad, type: 3}
+  m_PrefabInstance: {fileID: 102275098}
+  m_PrefabAsset: {fileID: 0}

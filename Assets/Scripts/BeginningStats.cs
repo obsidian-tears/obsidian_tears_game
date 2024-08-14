@@ -1,7 +1,5 @@
 using Opsive.UltimateInventorySystem.Core.InventoryCollections;
 using System.Collections.Generic;
-using System.Linq;
-using GameManagers;
 using Opsive.UltimateInventorySystem.UI.Panels.Hotbar;
 using UnityEngine;
 
@@ -16,7 +14,7 @@ public class BeginningStats : MonoBehaviour
 {
     public GameObject player;
     public Animator animPlayer;
-    
+
     public int healthBase;
     public int healthMax;
     public int magicBase;
@@ -36,7 +34,7 @@ public class BeginningStats : MonoBehaviour
     private void Awake()
     {
         Debug.Log("Beginning Stats Awake");
-        string charClass = ICConnect.characterClass;       
+        string charClass = ICConnect.characterClass;
         VerifyClassICConnect(charClass);
         Debug.Log(charClass);
         Debug.Log(_initialClass);
@@ -46,11 +44,11 @@ public class BeginningStats : MonoBehaviour
             animPlayer.SetFloat("moveX", 1);
             // player.transform.Rotate(0, 180, 0); //rota la camara y no sirve
         }
-        
+
         SetInitialStats(_initialClass);
-        
+
         var playerStats = player.GetComponent<CharStats>();
-        
+
         playerStats.healthBase = healthBase; //  ------------ change playertype 
         playerStats.healthMax = healthMax; //    ------------ change playertype
         playerStats.magicBase = magicBase; //    ------------ change playertype
@@ -60,7 +58,7 @@ public class BeginningStats : MonoBehaviour
         playerStats.defenseBase = defenseBase; // ----------- change playertype
         playerStats.speedBase = speedBase; //   ------------ change playertype
         playerStats.criticalHitProbability = criticalHitProbability; //   ------------ change playertype
-        
+
         Debug.Log("Finish Beginning Stats Awake");
     }
 
@@ -72,13 +70,11 @@ public class BeginningStats : MonoBehaviour
         Debug.Log("Finish Beginning Stats Start");
     }
 
-
     private void VerifyClassICConnect(string charClass)
     {
-        if (charClass == "MAGE") 
+        if (charClass == "MAGE")
         {
-            _initialClass = InitialClasses.MAGE; 
-            
+            _initialClass = InitialClasses.MAGE;
         }
         if (charClass == "FIGHTER")
         {
@@ -92,10 +88,6 @@ public class BeginningStats : MonoBehaviour
         {
             _initialClass = InitialClasses.RANGER;
         }
-      
-       
-
-
     }
 
     private void SetInitialStats(InitialClasses actualClass)
@@ -119,7 +111,6 @@ public class BeginningStats : MonoBehaviour
         }
     }
 
-
     private void SetFighterStats()
     {
         healthBase = 20;
@@ -132,7 +123,6 @@ public class BeginningStats : MonoBehaviour
         speedBase = 4;
         criticalHitProbability = 0.5f;
     }
-
 
     private void SetWizardStats()
     {
@@ -158,9 +148,5 @@ public class BeginningStats : MonoBehaviour
         defenseBase = 4;
         speedBase = 6;
         criticalHitProbability = 0.6f;
-    }
-
-    private void SetBarbarianStats()
-    {
     }
 }

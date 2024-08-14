@@ -1,21 +1,12 @@
-using Opsive.UltimateInventorySystem.Demo.UI.Menus.Main.Inventory;
-using Opsive.UltimateInventorySystem.Equipping;
 using PixelCrushers;
 using System;
-using System.Runtime.InteropServices;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class CharStatsSaver : Saver
 {
-
     [Serializable]
     public class Data
     {
-
         public string characterName;
         public string characterClass;
 
@@ -53,29 +44,31 @@ public class CharStatsSaver : Saver
     public override string RecordData()
     {
         var charStats = GetComponent<CharStats>();
-        var data = new Data();
-        data.characterName = charStats.characterName;
-        data.characterClass = charStats.characterClass;
-        data.level = charStats.level;
-        data.xp = charStats.xp;
-        data.xpToLevelUp = charStats.xpToLevelUp;
-        data.pointsRemaining = charStats.pointsRemaining;
-        data.healthBase = charStats.healthBase;
-        data.healthTotal = charStats.healthTotal;
-        data.healthMax = charStats.healthMax;
-        data.magicBase = charStats.magicBase;
-        data.magicTotal = charStats.magicTotal;
-        data.magicMax = charStats.magicMax;
-        data.attackBase = charStats.attackBase;
-        data.attackTotal = charStats.attackTotal;
-        data.magicPowerBase = charStats.magicPowerBase;
-        data.magicPowerTotal = charStats.magicPowerTotal;
-        data.defenseBase = charStats.defenseBase;
-        data.defenseTotal = charStats.defenseTotal;
-        data.speedBase = charStats.speedBase;
-        data.speedTotal = charStats.speedTotal;
-        data.criticalHitProbability = charStats.criticalHitProbability;
-        data.characterEffects = charStats.characterEffects;
+        var data = new Data
+        {
+            characterName = charStats.characterName,
+            characterClass = charStats.characterClass,
+            level = charStats.level,
+            xp = charStats.xp,
+            xpToLevelUp = charStats.xpToLevelUp,
+            pointsRemaining = charStats.pointsRemaining,
+            healthBase = charStats.healthBase,
+            healthTotal = charStats.healthTotal,
+            healthMax = charStats.healthMax,
+            magicBase = charStats.magicBase,
+            magicTotal = charStats.magicTotal,
+            magicMax = charStats.magicMax,
+            attackBase = charStats.attackBase,
+            attackTotal = charStats.attackTotal,
+            magicPowerBase = charStats.magicPowerBase,
+            magicPowerTotal = charStats.magicPowerTotal,
+            defenseBase = charStats.defenseBase,
+            defenseTotal = charStats.defenseTotal,
+            speedBase = charStats.speedBase,
+            speedTotal = charStats.speedTotal,
+            criticalHitProbability = charStats.criticalHitProbability,
+            characterEffects = charStats.characterEffects
+        };
 
         return SaveSystem.Serialize(data);
     }
@@ -85,6 +78,7 @@ public class CharStatsSaver : Saver
         if (SceneManager.GetActiveScene().name != "GranGranFirst")
         {
             if (string.IsNullOrEmpty(s)) return;
+
             var data = SaveSystem.Deserialize<Data>(s);
             if (data == null) return;
 
@@ -113,6 +107,5 @@ public class CharStatsSaver : Saver
             charStats.criticalHitProbability = data.criticalHitProbability;
             charStats.characterEffects = data.characterEffects;
         }
-        
     }
 }

@@ -16,8 +16,6 @@ public class GameManager : Saver
 {
     public static GameManager Instance;
 
-    public bool inventoryWasInit = false;
-
     public ItemSlotCollection itemSlotCollection;
 
     public ItemSlotCollectionView slotCollectionView;
@@ -162,7 +160,7 @@ public class GameManager : Saver
         isLoaded = false;
         Debug.Log("awake");
         
-        SaveSystem.RegisterSaver(this);
+        // SaveSystem.RegisterSaver(this);
 
         string charClass = ICConnect.characterClass;
 
@@ -171,8 +169,6 @@ public class GameManager : Saver
         itemSlotCollection = _itemCollection[(int)_initialClass];
 
         Instance = this;
-
-        // if (!inventoryWasInit) return;
 
         var playerInventory = GameObject.FindWithTag("Player").GetComponent<Inventory>();
 
@@ -217,12 +213,10 @@ public class GameManager : Saver
         Debug.Log("Finish GameManager Awake");
     }
 
-
-    public override void OnDestroy()
-    {
-        SaveSystem.UnregisterSaver(this);
-    }
-
+    // public override void OnDestroy()
+    // {
+    //     SaveSystem.UnregisterSaver(this);
+    // }
 
     private void VerifyClassICConnect(string charClass)
     {
