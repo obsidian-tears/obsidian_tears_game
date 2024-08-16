@@ -352,6 +352,26 @@ MonoBehaviour:
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0
   m_requiredState: 2
+--- !u!114 &-1632688301760106864
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c47e1bb9cdd9a474c8d3f5d555d7533a, type: 3}
+  m_Name: HeadingTextQuestContent
+  m_EditorClassIdentifier: 
+  m_contentID: -1
+  m_useQuestTitle: 0
+  m_headingText:
+    m_text: A Forgotten Prophecy
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+  m_headingLevel: 1
 --- !u!114 &-470896891770578051
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -517,11 +537,11 @@ MonoBehaviour:
       m_conditionCountMode: 0
       m_minConditionCount: 0
       m_numTrueConditions: 0
-    m_childIndexList: 01000000020000000500000008000000070000000600000004000000090000000a000000
+    m_childIndexList: 0d000000
     m_canvasRect:
       serializedVersion: 2
-      x: 993.99664
-      y: 283.02005
+      x: 987.59955
+      y: 215.76375
       width: 120
       height: 48
   - m_id:
@@ -569,8 +589,8 @@ MonoBehaviour:
     m_childIndexList: 03000000
     m_canvasRect:
       serializedVersion: 2
-      x: 388.904
-      y: 367.9451
+      x: 395.72214
+      y: 369.08145
       width: 120
       height: 48
   - m_id:
@@ -863,7 +883,7 @@ MonoBehaviour:
     m_childIndexList: 03000000
     m_canvasRect:
       serializedVersion: 2
-      x: 988.904
+      x: 985.9913
       y: 367.9451
       width: 120
       height: 48
@@ -1102,6 +1122,54 @@ MonoBehaviour:
       serializedVersion: 2
       x: 988.90393
       y: 505.31348
+      width: 120
+      height: 48
+  - m_id:
+      m_text: AcceptQuest
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_internalName:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_nodeType: 4
+    m_isOptional: 0
+    m_state: 0
+    m_speaker:
+      m_text: 
+      m_stringAsset: {fileID: 0}
+      m_textTable: {fileID: 0}
+      m_textTableFieldID: 0
+    m_stateInfoList:
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList:
+        - {fileID: -1632688301760106864}
+        - {fileID: 7165255991398663485}
+      - m_contentList: []
+    - m_actionList: []
+      m_categorizedContentList:
+      - m_contentList: []
+      - m_contentList: []
+      - m_contentList: []
+    m_conditionSet:
+      m_conditionList: []
+      m_conditionCountMode: 1
+      m_minConditionCount: 0
+      m_numTrueConditions: 0
+    m_childIndexList: 01000000020000000500000008000000070000000600000004000000090000000a000000
+    m_canvasRect:
+      serializedVersion: 2
+      x: 984.9636
+      y: 293.73856
       width: 120
       height: 48
   m_goalEntityTypeName: 
@@ -1420,6 +1488,25 @@ MonoBehaviour:
   m_contentID: -1
   m_bodyText:
     m_text: Obelisk Found!
+    m_stringAsset: {fileID: 0}
+    m_textTable: {fileID: 0}
+    m_textTableFieldID: 0
+--- !u!114 &7165255991398663485
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ed0c4e68ee98946bb5016adda42373, type: 3}
+  m_Name: BodyTextQuestContent
+  m_EditorClassIdentifier: 
+  m_contentID: -1
+  m_bodyText:
+    m_text: Rayela was talking to you about obelisks. She said to come back later
+      if you want to learn more!
     m_stringAsset: {fileID: 0}
     m_textTable: {fileID: 0}
     m_textTableFieldID: 0

@@ -5203,13 +5203,13 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: SetQuestNodeState("GranGran1","Success","active")
+      userScript: SetQuestNodeState("GranGran1","Find Captain Herl","success")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1267.145
+        x: 1265.6525
         y: 331.069
         width: 160
         height: 30
@@ -8572,8 +8572,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2180.0576
-        y: 503.6315
+        x: 2235.2817
+        y: 497.6614
         width: 160
         height: 30
     - id: 146
@@ -8622,7 +8622,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2011.0408
+        x: 2012.6033
         y: 491.33276
         width: 160
         height: 30
@@ -8635,8 +8635,8 @@ MonoBehaviour:
         width: 1
         height: 1
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 0, y: 100}
-    canvasZoom: 0.2800001
+    canvasScrollPosition: {x: 1280.1355, y: 128.43088}
+    canvasZoom: 0.5800001
   - id: 6
     fields:
     - title: Title
@@ -54193,6 +54193,12 @@ MonoBehaviour:
       - originConversationID: 45
         originDialogueID: 0
         destinationConversationID: 45
+        destinationDialogueID: 67
+        isConnector: 0
+        priority: 2
+      - originConversationID: 45
+        originDialogueID: 0
+        destinationConversationID: 45
         destinationDialogueID: 31
         isConnector: 0
         priority: 2
@@ -54209,8 +54215,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1888.1381
-        y: 222.00574
+        x: 1878.3821
+        y: 218.34717
         width: 160
         height: 30
     - id: 10
@@ -54694,15 +54700,15 @@ MonoBehaviour:
         destinationDialogueID: 32
         isConnector: 0
         priority: 2
-      conditionsString: CurrentQuestState("FindRayela") == "active"
-      userScript: 
+      conditionsString: 'GetQuestNodeState("GranGran1", "Find Captain Herl") == "success" '
+      userScript: SetQuestNodeState("FindRayela","Success","active")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1875.4143
-        y: 304.19894
+        x: 1875.6028
+        y: 306.63797
         width: 160
         height: 30
     - id: 32
@@ -54932,8 +54938,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1887.3239
-        y: 586.8885
+        x: 1888.8864
+        y: 590.0135
         width: 160
         height: 30
     - id: 37
@@ -55219,7 +55225,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 1978.9874
-        y: 972.8746
+        y: 974.09406
         width: 160
         height: 30
     - id: 42
@@ -55245,7 +55251,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Hmmmmm...
+        value: Hmmmmm... ok then. Come back if you change your mind!
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -55261,14 +55267,14 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: 
+      userScript: GiveQuest("Rayela", "AForgottenProphecy")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1977.9237
-        y: 1024.0511
+        x: 1983.4181
+        y: 1038.3369
         width: 160
         height: 30
     - id: 43
@@ -55317,7 +55323,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: SetQuestNodeState("FindRayela","Success","active")
+      userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -55434,14 +55440,14 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: SetQuestNodeState("AForgottenProphecy","AcceptQuest","success")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1720.0797
-        y: 1155.7684
+        x: 1711.5431
+        y: 1149.6709
         width: 160
         height: 30
     - id: 46
@@ -55606,8 +55612,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2137.1511
-        y: 347.54974
+        x: 2133.7766
+        y: 342.05524
         width: 160
         height: 30
     - id: 49
@@ -55661,8 +55667,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2137.1094
-        y: 408.18356
+        x: 2158.7588
+        y: 421.5856
         width: 160
         height: 30
     - id: 50
@@ -55712,8 +55718,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2143.7402
-        y: 460.2607
+        x: 2136.5237
+        y: 498.40503
         width: 160
         height: 30
     - id: 51
@@ -56528,7 +56534,7 @@ MonoBehaviour:
         destinationDialogueID: 66
         isConnector: 0
         priority: 2
-      conditionsString: CurrentQuestState("AForgottenProphecy") == "active"
+      conditionsString: 'GetQuestNodeState("AForgottenProphecy", "Obelisk9") == "active" '
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -56588,6 +56594,68 @@ MonoBehaviour:
         y: 367.30304
         width: 160
         height: 30
+    - id: 67
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 44
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Hey Phendrin! Did you change your mind about the obelisks?
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 45
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 45
+        originDialogueID: 67
+        destinationConversationID: 45
+        destinationDialogueID: 40
+        isConnector: 0
+        priority: 2
+      - originConversationID: 45
+        originDialogueID: 67
+        destinationConversationID: 45
+        destinationDialogueID: 41
+        isConnector: 0
+        priority: 2
+      conditionsString: 'GetQuestNodeState("AForgottenProphecy", "AcceptQuest") ==
+        "active" '
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 2203.9912
+        y: 791.5181
+        width: 160
+        height: 30
     entryGroups:
     - name: Group
       rect:
@@ -56597,8 +56665,8 @@ MonoBehaviour:
         width: 1
         height: 1
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 899.6798, y: 0}
-    canvasZoom: 0.6699999
+    canvasScrollPosition: {x: 1179.8073, y: 157.06071}
+    canvasZoom: 0.69999987
   - id: 46
     fields:
     - title: Title
