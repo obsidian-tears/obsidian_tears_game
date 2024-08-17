@@ -13659,13 +13659,13 @@ MonoBehaviour:
       - originConversationID: 8
         originDialogueID: 4
         destinationConversationID: 8
-        destinationDialogueID: 6
+        destinationDialogueID: 5
         isConnector: 0
         priority: 2
       - originConversationID: 8
         originDialogueID: 4
         destinationConversationID: 8
-        destinationDialogueID: 5
+        destinationDialogueID: 6
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -14014,8 +14014,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 517.8951
-        y: 533.7839
+        x: 519.32367
+        y: 535.21246
         width: 160
         height: 30
     - id: 12
@@ -14503,7 +14503,8 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: uisGetItemAmount("Monster Jaw", "") == 1
-      userScript: 
+      userScript: SetQuestNodeState("ArcherMaster1","GetTheJaw") == success, and
+        SetQuestNodeState("ArcherMaster1","Return to Tana") == success
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -14675,13 +14676,13 @@ MonoBehaviour:
       - originConversationID: 8
         originDialogueID: 27
         destinationConversationID: 8
-        destinationDialogueID: 28
+        destinationDialogueID: 29
         isConnector: 0
         priority: 2
       - originConversationID: 8
         originDialogueID: 27
         destinationConversationID: 8
-        destinationDialogueID: 29
+        destinationDialogueID: 28
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -15561,7 +15562,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 198.29907, y: 60.199142}
+    canvasScrollPosition: {x: 161.15628, y: 19.99997}
     canvasZoom: 0.6999999
   - id: 9
     fields:
@@ -55300,8 +55301,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Wha.... ...... wha .... what!? You will?! How will you even get past
-          the guards!? We almost always keep the gates closed!
+        value: Wha.... ...... wha .... what!? You will?! I must say I wasn't expecting
+          actually expecting you to say yes...
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -55319,7 +55320,7 @@ MonoBehaviour:
       - originConversationID: 45
         originDialogueID: 43
         destinationConversationID: 45
-        destinationDialogueID: 44
+        destinationDialogueID: 68
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -55389,8 +55390,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1718.6348
-        y: 1091.9365
+        x: 1720.0634
+        y: 1190.5079
         width: 160
         height: 30
     - id: 45
@@ -55417,7 +55418,7 @@ MonoBehaviour:
         typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: Based on my research, there are nine obelisks in total. If you can
-          find all of them and return to me, we will be able to peice together the
+          find all of them and return to me, we will be able to piece together the
           entire prophecy!
         type: 0
         typeString: CustomFieldType_Text
@@ -55446,8 +55447,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1711.5431
-        y: 1149.6709
+        x: 1721.5431
+        y: 1251.0995
         width: 160
         height: 30
     - id: 46
@@ -55745,7 +55746,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: I'm just certain these will all contain the answers we seek.
+        value: I'm just certain these will contain the answers we seek.
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -55759,7 +55760,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 45
+        originDialogueID: 51
+        destinationConversationID: 45
+        destinationDialogueID: 69
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -55767,8 +55774,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1715.1058
-        y: 1207.0343
+        x: 1716.5344
+        y: 1321.32
         width: 160
         height: 30
     - id: 52
@@ -55816,7 +55823,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: GetQuestNodeState("AForgottenProphecy", "ProphecyTime") ==
-        "active"
+        "success"
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -56071,7 +56078,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Ok I've got it! The full complete prophecy!
+        value: 'Ok I''ve got it! The full complete prophecy! '
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -56185,9 +56192,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: '"As darkness'' sword, the world engorged, Dukor''s Blade must be
-          reforged A forgotten castle, encircled tight, their final bastion, in light.
-          "'
+        value: "\"As darkness' sword, the world engorged, Dukor's Blade must be reforged.\n
+          A forgotten castle, encircled tight, their final bastion, in light. \""
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -56355,9 +56361,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: I apologize, I may not be able to talk much anymore. I am going to
-          do nothing but study this prophecy from  here on out. Thank you so much
-          for your help, you have done our village a great service!
+        value: 'I apologize, I may not be able to talk much anymore. I am going to
+          do nothing but study this prophecy from  here on out. '
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -56371,7 +56376,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 45
+        originDialogueID: 62
+        destinationConversationID: 45
+        destinationDialogueID: 70
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: SetQuestNodeState("AForgottenProphecy", "ProphecyTime", "success")
       onExecute:
@@ -56656,6 +56667,224 @@ MonoBehaviour:
         y: 791.5181
         width: 160
         height: 30
+    - id: 68
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 44
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: How will you even get past the guards!? We almost always keep the
+          gates closed!
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 45
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 45
+        originDialogueID: 68
+        destinationConversationID: 45
+        destinationDialogueID: 44
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1730.1566
+        y: 1112.2303
+        width: 160
+        height: 30
+    - id: 69
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 44
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 'Good luck, Phendrin! '
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 45
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1715.1058
+        y: 1392.7485
+        width: 160
+        height: 30
+    - id: 70
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 44
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: This is all so incredible! Thank you so much for your help, you have
+          done our village a great service! I'll be sure to start right away... there's
+          got to be something here!
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 45
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 45
+        originDialogueID: 70
+        destinationConversationID: 45
+        destinationDialogueID: 71
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1230.3956
+        y: 832.81537
+        width: 160
+        height: 30
+    - id: 71
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 44
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: '....
+
+          They must find the place where Obsidian cries...
+
+          ...
+
+          Yes
+          that sounds extremely important. I must begin researching this at once! '
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 45
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1230.3956
+        y: 882.81537
+        width: 160
+        height: 30
     entryGroups:
     - name: Group
       rect:
@@ -56665,7 +56894,7 @@ MonoBehaviour:
         width: 1
         height: 1
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 1179.8073, y: 157.06071}
+    canvasScrollPosition: {x: 888.3786, y: 227.14291}
     canvasZoom: 0.69999987
   - id: 46
     fields:
