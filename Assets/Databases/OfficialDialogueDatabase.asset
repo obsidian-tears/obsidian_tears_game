@@ -14338,8 +14338,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 322.2248
-        y: 957.7702
+        x: 320.79623
+        y: 959.1988
         width: 160
         height: 30
     - id: 19
@@ -14399,7 +14399,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1027.966
+        x: 1025.1086
         y: 134.85324
         width: 160
         height: 30
@@ -14503,14 +14503,13 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: uisGetItemAmount("Monster Jaw", "") == 1
-      userScript: SetQuestNodeState("ArcherMaster1","GetTheJaw") == success, and
-        SetQuestNodeState("ArcherMaster1","Return to Tana") == success
+      userScript: SetQuestNodeState("ArcherMaster1", "FindTheJaw", "success")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1026.367
+        x: 1027.7955
         y: 206.91272
         width: 160
         height: 30
@@ -14560,8 +14559,8 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: SetQuestNodeState("ArcherMaster1","Success","Success");uisAddItem("Bow",
-        1, "", "", 47);uisRemoveItem("Monster Jaw", 1, "", "")
+      userScript: uisAddItem("Bow", 1, "", "", 47);uisRemoveItem("Monster Jaw", 1,
+        "", "")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -15070,7 +15069,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: SetQuestNodeState("ArcherMaster1", "FindArcher", "success")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -15562,7 +15561,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 161.15628, y: 19.99997}
+    canvasScrollPosition: {x: 134.28577, y: 59.99997}
     canvasZoom: 0.6999999
   - id: 9
     fields:
@@ -31749,7 +31748,7 @@ MonoBehaviour:
         width: 1
         height: 1
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 2045.3525, y: 211.61775}
+    canvasScrollPosition: {x: 0, y: 547.8263}
     canvasZoom: 0.45999998
   - id: 10
     fields:
@@ -56192,8 +56191,11 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "\"As darkness' sword, the world engorged, Dukor's Blade must be reforged.\n
-          A forgotten castle, encircled tight, their final bastion, in light. \""
+        value: '"As darkness'' sword, the world engorged, Dukor''s Blade must be
+          reforged.
+
+          A forgotten castle, encircled tight, their final bastion,
+          in light. "'
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
