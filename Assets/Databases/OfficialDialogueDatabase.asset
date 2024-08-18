@@ -4429,7 +4429,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1828.2095
+        x: 1826.647
         y: 494.78433
         width: 160
         height: 30
@@ -7239,7 +7239,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: uisAddItem("Pendant of Memories", 1, "", "","")
+      userScript: uisAddItem("Pendant of Memories", 1, "", "",)
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -8635,8 +8635,8 @@ MonoBehaviour:
         width: 1
         height: 1
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 1280.1355, y: 128.43088}
-    canvasZoom: 0.5800001
+    canvasScrollPosition: {x: 732.679, y: 89.39045}
+    canvasZoom: 0.58000004
   - id: 6
     fields:
     - title: Title
@@ -8722,7 +8722,7 @@ MonoBehaviour:
       - originConversationID: 6
         originDialogueID: 0
         destinationConversationID: 6
-        destinationDialogueID: 1
+        destinationDialogueID: 135
         isConnector: 0
         priority: 2
       - originConversationID: 6
@@ -8734,7 +8734,7 @@ MonoBehaviour:
       - originConversationID: 6
         originDialogueID: 0
         destinationConversationID: 6
-        destinationDialogueID: 135
+        destinationDialogueID: 1
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -8744,7 +8744,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1921.2242
+        x: 1919.5001
         y: 24.767181
         width: 160
         height: 30
@@ -8883,7 +8883,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Welcome back deary! Would you like me to repeat some of what I said
+        value: AWelcome back deary! Would you like me to repeat some of what I said
           earlier?
         type: 0
         typeString: 
@@ -8911,15 +8911,15 @@ MonoBehaviour:
         destinationDialogueID: 28
         isConnector: 0
         priority: 2
-      conditionsString: CurrentQuestState("GranGran1") == "active"
+      conditionsString: GetQuestNodeState("GranGran1", "Find Captain Herl") == "active"
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 804.1511
-        y: 207.9213
+        x: 805.6384
+        y: 207.8039
         width: 160
         height: 30
     - id: 27
@@ -11823,7 +11823,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Welcome back deary! Would you like me to repeat some of what I said
+        value: BWelcome back deary! Would you like me to repeat some of what I said
           earlier?
         type: 0
         typeString: 
@@ -11851,14 +11851,14 @@ MonoBehaviour:
         destinationDialogueID: 137
         isConnector: 0
         priority: 2
-      conditionsString: CurrentQuestState("GranGran1") == "success"
+      conditionsString: GetQuestNodeState("GranGran1", "Find Captain Herl") == "success"
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 787.53485
+        x: 786.10626
         y: 570.3126
         width: 160
         height: 30
@@ -12242,8 +12242,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.1
+    canvasScrollPosition: {x: 677.62866, y: 0}
+    canvasZoom: 0.6099999
   - id: 7
     fields:
     - title: Title
@@ -31748,8 +31748,8 @@ MonoBehaviour:
         width: 1
         height: 1
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 0, y: 547.8263}
-    canvasZoom: 0.45999998
+    canvasScrollPosition: {x: 0, y: 1180.3281}
+    canvasZoom: 0.60999984
   - id: 10
     fields:
     - title: Title
