@@ -86,6 +86,7 @@ public class CharStatsSaver : Saver
 
             charStats.characterName = data.characterName;
             charStats.characterClass = data.characterClass;
+            charStats.SelectItemSlotSets();
             charStats.level = data.level;
             charStats.xp = data.xp;
             charStats.xpToLevelUp = data.xpToLevelUp;

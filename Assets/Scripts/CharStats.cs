@@ -27,7 +27,8 @@ public class CharStats : MonoBehaviour
     // public Slider magicSlider;
 
     public string characterClass;
-    
+    [SerializeField] private List<ItemSlotSet> _itemSlotSets;
+
     public string characterName;
 
     public int level;
@@ -39,12 +40,12 @@ public class CharStats : MonoBehaviour
     public int healthBase;
     public int healthTotal;
     [ReadOnly] public int healthMax;
-    
+
 
     public int magicBase;
     public int magicTotal;
     [ReadOnly] public int magicMax;
-    
+
 
 
     public int attackBase;
@@ -66,18 +67,28 @@ public class CharStats : MonoBehaviour
 
     ItemCollection equipmentCollection;
 
+    public void SelectItemSlotSets()
+    {
+        switch (characterClass)
+        {
+            case "MAGE": GetComponent<Equipper>().ItemSlotSet = _itemSlotSets[0]; break;
+            case "FIGHTER": GetComponent<Equipper>().ItemSlotSet = _itemSlotSets[1]; break;
+            case "RANGER": GetComponent<Equipper>().ItemSlotSet = _itemSlotSets[2]; break;
+        }
+    }
+
     void Start()
     {
         Debug.Log("Char Stat Start");
-        if(inventory != null)
+        if (inventory != null)
         {
             equipmentCollection = inventory.GetItemCollection("Equipped");
-            
+
             if (equipmentCollection == null)
             {
                 Debug.Log("Equipment null!!!!");
             }
-            
+
             EventHandler.RegisterEvent(equipmentCollection, EventNames.c_ItemCollection_OnUpdate, UpdateStats);
             UpdateStatsWithHeal();
             UpdateUI();
@@ -95,14 +106,14 @@ public class CharStats : MonoBehaviour
     public void UpdateStats()
     {
         //This is a player
-        if(equipper != null && GameUIManager.Instance.StatsDisplay != null)
+        if (equipper != null && GameUIManager.Instance.StatsDisplay != null)
         {
             healthMax = healthBase + equipmentCollection.GetIntSum("MaxHp");
             magicMax = magicBase + equipmentCollection.GetIntSum("MaxMp");
             attackTotal = attackBase +
                            /*(inventory.GetItemCollection(1).HasItem(_itemCategoryToBuff, true) ? Mathf.RoundToInt(equipmentCollection.GetIntSum("Attack") * _multiplierDamage):*/ equipmentCollection.GetIntSum("Attack")/*)*/;
 
-           
+
             defenseTotal = defenseBase + equipmentCollection.GetIntSum("Defense");
             speedTotal = speedBase + equipmentCollection.GetIntSum("Speed");
             criticalHitProbability = equipmentCollection.GetFloatSum("CriticalChance");
@@ -142,11 +153,11 @@ public class CharStats : MonoBehaviour
             magicPowerTotal = magicPowerBase + equipmentCollection.GetIntSum("MagicPower");
             UpdateUI();
 
-        }    
+        }
 
     }
 
-    public void UpdateUI() 
+    public void UpdateUI()
     {
         GameUIManager.Instance.StatsDisplay.Draw(healthMax, magicMax, attackTotal, defenseTotal, speedTotal, healthTotal, magicTotal, magicPowerTotal, healthBase, magicBase, attackBase, defenseBase, speedBase, magicPowerBase, xp, xpToLevelUp);
         GameUIManager.Instance.SetHealthSlider(healthTotal, healthMax);
@@ -161,7 +172,7 @@ public class CharStats : MonoBehaviour
         healthTotal -= dmg;
 
         //If is Player
-        if(equipper != null && GameUIManager.Instance.StatsDisplay != null)
+        if (equipper != null && GameUIManager.Instance.StatsDisplay != null)
             UpdateUI();
 
         return healthTotal <= 0;
@@ -170,7 +181,7 @@ public class CharStats : MonoBehaviour
     public void Heal(int healAmt)
     {
         healthTotal += healAmt;
-        if(healthTotal > healthMax)
+        if (healthTotal > healthMax)
         {
             healthTotal = healthMax;
         }
@@ -185,7 +196,7 @@ public class CharStats : MonoBehaviour
     public void AddMana(int manaAmt)
     {
         magicTotal += manaAmt;
-        if(magicTotal > magicMax)
+        if (magicTotal > magicMax)
         {
             magicTotal = magicMax;
         }
@@ -193,7 +204,7 @@ public class CharStats : MonoBehaviour
         {
             magicTotal = 0;
         }
-        if(equipper != null && GameUIManager.Instance.StatsDisplay != null)
+        if (equipper != null && GameUIManager.Instance.StatsDisplay != null)
         {
             UpdateUI();
         }

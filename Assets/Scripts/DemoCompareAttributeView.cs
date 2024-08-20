@@ -29,9 +29,11 @@ namespace Opsive.UltimateInventorySystem.Demo.UI.VisualStructures.AttributeUIs
         [Tooltip("The arrow image that can change color.")]
         [SerializeField] protected Image m_ArrowImage;
 
-        protected CharStats m_PlayerCharacter;
+        // protected CharStats m_PlayerCharacter;
         protected Equipper m_Equipper;
         private GameObject player;
+        private Inventory playerInventory;
+        private CharStats playerStats;
 
         /// <summary>
         /// Set the text.
@@ -39,34 +41,44 @@ namespace Opsive.UltimateInventorySystem.Demo.UI.VisualStructures.AttributeUIs
         /// <param name="info">the attribute info.</param>
         public override void SetValue(AttributeInfo info)
         {
-            if (info.Attribute == null) {
+            if (info.Attribute == null)
+            {
                 Clear();
                 return;
             }
 
             var item = info.ItemInfo.Item;
 
-            if (m_PlayerCharacter == null) { m_PlayerCharacter = info.ItemInfo.Inventory?.gameObject?.GetComponent<CharStats>(); }
-            if (m_PlayerCharacter == null) { m_PlayerCharacter = FindObjectOfType<CharStats>(); }
+            // if (m_PlayerCharacter == null) { m_PlayerCharacter = info.ItemInfo.Inventory?.gameObject?.GetComponent<CharStats>(); }
+            // if (m_PlayerCharacter == null) { m_PlayerCharacter = FindObjectOfType<CharStats>(); }
 
-            if (m_PlayerCharacter == null) {
-                m_Equipper = FindObjectOfType<Equipper>();
-            } else {
-                m_Equipper = m_PlayerCharacter.equipper as Equipper;
-            }
-            
-            if (m_Equipper == null) {
+            // if (m_PlayerCharacter == null) {
+            //     m_Equipper = FindObjectOfType<Equipper>();
+            // } else {
+            //     m_Equipper = m_PlayerCharacter.equipper as Equipper;
+            // }
+
+            if (!player)
+                player = GameObject.FindGameObjectWithTag("Player");
+
+            if (!m_Equipper)
+                m_Equipper = player.GetComponent<Equipper>();
+
+            if (m_Equipper == null)
+            {
                 Debug.LogWarning("Player character or it's equipper was not found for attribute stat comparision.", gameObject);
                 return;
             }
 
             var currentValue = m_Equipper.GetEquipmentStatInt(m_StatName);
             int baseValue = 0;
-            player = GameObject.FindGameObjectWithTag("Player");
-            CharStats playerStats = player.GetComponent<CharStats>();
+
+
+            if (!playerStats)
+                playerStats = player.GetComponent<CharStats>();
+
             if (playerStats != null)
             {
-                
                 if (m_StatName == "Attack")
                 {
                     currentValue = playerStats.attackTotal;
@@ -103,7 +115,7 @@ namespace Opsive.UltimateInventorySystem.Demo.UI.VisualStructures.AttributeUIs
             if (item.TryGetAttributeValue<int>(m_StatName, out var intAttributeValue))
             {
                 statValue = intAttributeValue;
-                if(intAttributeValue == 0)
+                if (intAttributeValue == 0)
                 {
                     gameObject.SetActive(false);
                 }
@@ -118,22 +130,25 @@ namespace Opsive.UltimateInventorySystem.Demo.UI.VisualStructures.AttributeUIs
             }*/
 
             bool isEquipped = false;
-            Inventory inventory = player.GetComponent<Inventory>();
-            ItemCollection equippedItems = inventory.GetItemCollection("Equipped");
+
+            if (!playerInventory)
+                playerInventory = player.GetComponent<Inventory>();
+
+            ItemCollection equippedItems = playerInventory.GetItemCollection("Equipped");
             int otherItemAttributeValues = 0;
             bool foundAccessoryAlready = false;
             foreach (ItemStack itemStack in equippedItems.GetAllItemStacks())
             {
-                if(itemStack.Item == item)
+                if (itemStack.Item == item)
                 {
                     isEquipped = true;
                     break;
                 }
                 else
                 {
-                    if(itemStack.Item.Category.name == item.Category.name)
+                    if (itemStack.Item.Category.name == item.Category.name)
                     {
-                        if(item.Category.name == "Accessory" && !foundAccessoryAlready)
+                        if (item.Category.name == "Accessory" && !foundAccessoryAlready)
                         {
                             if (itemStack.Item.TryGetAttributeValue<int>(m_StatName, out var accessoryAttributeValue))
                             {

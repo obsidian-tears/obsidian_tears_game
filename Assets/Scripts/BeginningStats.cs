@@ -26,10 +26,10 @@ public class BeginningStats : MonoBehaviour
     public float criticalHitProbability;
 
     [SerializeField] private InitialClasses _initialClass;
-    [SerializeField] private List<ItemSlotCollection> _itemCollection;
-    [SerializeField] private List<ItemSlotSet> _itemSlotSets;
+    // [SerializeField] private List<ItemSlotCollection> _itemCollection;
+    // [SerializeField] private List<ItemSlotSet> _itemSlotSets;
 
-    public ItemSlotCollectionView slotCollectionView;
+    // public ItemSlotCollectionView slotCollectionView;
 
     private void Awake()
     {
@@ -67,6 +67,7 @@ public class BeginningStats : MonoBehaviour
         Debug.Log("Start Beginning Stats Start");
         var charStats = player.GetComponent<CharStats>();
         charStats.characterClass = _initialClass.ToString();
+        charStats.SelectItemSlotSets();
         Debug.Log("Finish Beginning Stats Start");
     }
 
