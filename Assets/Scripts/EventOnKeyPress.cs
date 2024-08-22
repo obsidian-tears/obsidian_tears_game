@@ -21,6 +21,10 @@ public class EventOnKeyPress : MonoBehaviour
     {
         if (Input.GetButtonDown(useButton))
         {
+            //Don't open main menu during battle scene as it pauses game without any UI appearing and looks like a bug
+            if (FindObjectOfType<BattleSystem>() != null)
+                return;
+
             onButtonPress.Invoke();
         }
     }

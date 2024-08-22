@@ -13337,8 +13337,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.52000004
+    canvasScrollPosition: {x: 155.97552, y: 0}
+    canvasZoom: 0.63999975
   - id: 8
     fields:
     - title: Title
@@ -47586,11 +47586,11 @@ MonoBehaviour:
       - title: Title
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Description
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Actor
         value: 36
         type: 5
@@ -47602,16 +47602,16 @@ MonoBehaviour:
       - title: Menu Text
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: Won't go away huh? Maybe I should pay some attention to you after
           all, you've clearly got more guts than I first thought.
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Sequence
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       conversationID: 36
       isRoot: 0
       isGroup: 0
@@ -47698,11 +47698,11 @@ MonoBehaviour:
       - title: Title
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Description
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Actor
         value: 36
         type: 5
@@ -47714,16 +47714,16 @@ MonoBehaviour:
       - title: Menu Text
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: 'Alright then, runt. If you can bring me back two hearts of Dark Beoites
+        value: 'Alright then, runt. If you can bring me back 2 hearts of Dark Beoites
           I''ll have a surprise for you. '
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Sequence
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       conversationID: 36
       isRoot: 0
       isGroup: 0
@@ -47739,7 +47739,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: SetQuestNodeState("Crypee's Subterfuge", "Talk Again", "success")
+      userScript: SetQuestNodeState("Crypee's Subterfuge", "Talk Again", "success");
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -47754,11 +47754,11 @@ MonoBehaviour:
       - title: Title
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Description
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Actor
         value: 36
         type: 5
@@ -47770,15 +47770,15 @@ MonoBehaviour:
       - title: Menu Text
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: So... you're back huh? You best not be wasting my time, runt.
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Sequence
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       conversationID: 36
       isRoot: 0
       isGroup: 0
@@ -47816,11 +47816,11 @@ MonoBehaviour:
       - title: Title
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Description
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Actor
         value: 36
         type: 5
@@ -47832,16 +47832,16 @@ MonoBehaviour:
       - title: Menu Text
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: 'And more importantly, you''ve confirmed to me you are the hero spoken
           of in the Elven Prophecy. Master will not be pleased. '
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Sequence
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       conversationID: 36
       isRoot: 0
       isGroup: 0
@@ -47857,7 +47857,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: uisRemoveItem("Dark Beoite Heart", 4, "", "")
+      userScript: uisRemoveItem("Dark Beoite Heart", 2, "", "")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -47872,11 +47872,11 @@ MonoBehaviour:
       - title: Title
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Description
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Actor
         value: 36
         type: 5
@@ -47888,17 +47888,17 @@ MonoBehaviour:
       - title: Menu Text
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Oh what's this? Tut tut, you don't even have two dark beoite hearts.
-          Only come back when you have found four. Don't worry, I'll be sure to make
+        value: Oh what's this? Tut tut, you don't even have 2 dark beoite hearts.
+          Only come back when you have found 2. Don't worry, I'll be sure to make
           it worth your time.
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Sequence
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       conversationID: 36
       isRoot: 0
       isGroup: 0
@@ -47973,7 +47973,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1098.1445
+        x: 1105.9965
         y: 374.75537
         width: 160
         height: 30
@@ -48133,7 +48133,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 413.52744
+        x: 416.8926
         y: 512.8231
         width: 160
         height: 30
@@ -48142,11 +48142,11 @@ MonoBehaviour:
       - title: Title
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Description
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Actor
         value: 36
         type: 5
@@ -48158,15 +48158,15 @@ MonoBehaviour:
       - title: Menu Text
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: Keep OUT of my way and leave me alone!
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Sequence
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       conversationID: 36
       isRoot: 0
       isGroup: 0
@@ -48191,11 +48191,11 @@ MonoBehaviour:
       - title: Title
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Description
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Actor
         value: 36
         type: 5
@@ -48207,15 +48207,15 @@ MonoBehaviour:
       - title: Menu Text
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: Hehe. VERY worth your time.
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Sequence
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       conversationID: 36
       isRoot: 0
       isGroup: 0
@@ -48237,8 +48237,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 835.59924
-        y: 359.46838
+        x: 845.6946
+        y: 358.34668
         width: 160
         height: 30
     - id: 18
@@ -48246,11 +48246,11 @@ MonoBehaviour:
       - title: Title
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Description
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Actor
         value: 36
         type: 5
@@ -48262,16 +48262,16 @@ MonoBehaviour:
       - title: Menu Text
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: 'Hehe. What''s this? You''ve acquired two different dark beoite hearts?
+        value: 'Hehe. What''s this? You''ve acquired 2 different dark beoite hearts?
           It appears I underestimated you. '
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Sequence
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       conversationID: 36
       isRoot: 0
       isGroup: 0
@@ -48287,7 +48287,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: uisGetItemAmount("Dark Beoite Heart", "") >= 2
-      userScript: SetQuestNodeState("Crypee's Subterfuge", "Find the Hearts", "success")
+      userScript: SetQuestNodeState("Crypee's Subterfuge", "ReturnToCrypee", "success")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -48302,11 +48302,11 @@ MonoBehaviour:
       - title: Title
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Description
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Actor
         value: 36
         type: 5
@@ -48318,15 +48318,15 @@ MonoBehaviour:
       - title: Menu Text
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: Now scram, runt!
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       - title: Sequence
         value: 
         type: 0
-        typeString: 
+        typeString: CustomFieldType_Text
       conversationID: 36
       isRoot: 0
       isGroup: 0
@@ -48342,7 +48342,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 836.03284
+        x: 845.0065
         y: 429.61005
         width: 160
         height: 30
@@ -48396,8 +48396,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 250.76968, y: 22.221375}
-    canvasZoom: 0.56150043
+    canvasScrollPosition: {x: 98.71002, y: 13.460449}
+    canvasZoom: 0.8915001
   - id: 37
     fields:
     - title: Title

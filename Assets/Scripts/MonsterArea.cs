@@ -45,7 +45,7 @@ public class MonsterArea : MonoBehaviour
     private Player player;
 
     private MobileInput mobileInput;
-   
+
 
     public void OnTriggerEnter2D(Collider2D collider)
     {
@@ -57,7 +57,7 @@ public class MonsterArea : MonoBehaviour
             t = 0;
             probability = Random.Range(minSecondsToBattleStart, maxSecondsToBattleStart);
             mobileInput = FindObjectOfType<MobileInput>();
-            
+
         }
     }
     public void OnTriggerExit2D(Collider2D collision)
@@ -80,7 +80,7 @@ public class MonsterArea : MonoBehaviour
                 }
                 else
                 {
-                    t += (player.isRunning? 1.5f: 1f) * Time.deltaTime;
+                    t += (player.isRunning ? 1.5f : 1f) * Time.deltaTime;
                 }
             }
         }
@@ -120,7 +120,7 @@ public class MonsterArea : MonoBehaviour
         FlashImage flashImage = (FlashImage)FindObjectOfType(typeof(FlashImage));
         if (flashImage != null)
         {
-            flashImage.StartFlash(2f, 0.99f, Color.white);
+            flashImage.StartFlash(1f, 0.99f, Color.white);
         }
 
 
@@ -140,8 +140,6 @@ public class MonsterArea : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-
-
         scenePortal.UsePortal();
     }
 
@@ -150,28 +148,36 @@ public class MonsterArea : MonoBehaviour
         probability = 0;
         currentBattle = GameObject.Find("SceneManager").GetComponent<ObjectHolder>().currentBattle;
 
-        if (currentBattle.monsterAreaObject == monsterAreaUniqueID && currentBattle.wonBattle)
+        if (currentBattle.monsterAreaObject == monsterAreaUniqueID)
         {
-            var tempPlayer = GameObject.FindWithTag("Player");
-            var inventory = tempPlayer.GetComponent<Inventory>();
-            ItemInfo[] rewards = currentBattle.enemy.itemDrops;
-            foreach(ItemInfo itemInfo in rewards) {
-                var item = InventorySystemManager.CreateItem(itemInfo.Item);
-                inventory.AddItem(item, itemInfo.Amount);
-            }
-
-            ReactController.Instance.SignalDefeatMonster(currentBattle.enemy.enemyServerId.ToString());
-            onBattleWin.Invoke();
-
-            if (isOneTimeBattle)
+            if (currentBattle.wonBattle)
             {
-                Destroy(this.gameObject);
+                var tempPlayer = GameObject.FindWithTag("Player");
+                var inventory = tempPlayer.GetComponent<Inventory>();
+                ItemInfo[] rewards = currentBattle.enemy.itemDrops;
+
+                foreach (ItemInfo itemInfo in rewards)
+                {
+                    var item = InventorySystemManager.CreateItem(itemInfo.Item);
+                    inventory.AddItem(item, itemInfo.Amount);
+                }
+
+                ReactController.Instance.SignalDefeatMonster(currentBattle.enemy.enemyServerId.ToString());
+                onBattleWin.Invoke();
+
+                if (isOneTimeBattle)
+                    Destroy(this.gameObject);
             }
+            else if (currentBattle.ranBattle)
+                StartCoroutine(DelayRun());
         }
-        else if (currentBattle.monsterAreaObject == monsterAreaUniqueID && currentBattle.ranBattle)
-        {
-            onBattleRan.Invoke();
-        }
+    }
+
+    IEnumerator DelayRun()
+    {
+        // Allow SaveSystem script to ApplySavedGameData() before transitioning to next scene; Otherwise empty data is saved and all inventory and quest data is lost.
+        yield return new WaitForSeconds(0.05f);
+        onBattleRan.Invoke();
     }
 
     void Start()
@@ -184,9 +190,6 @@ public class MonsterArea : MonoBehaviour
         currentBattle.ranBattle = false;
         currentBattle.monsterAreaObject = null;
     }
-
-
-
 
     void BattleStarted()
     {
