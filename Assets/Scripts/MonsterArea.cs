@@ -29,14 +29,16 @@ public class MonsterArea : MonoBehaviour
     public Sprite backgroundImage;
     public AudioClip musicClip;
     public bool isOneTimeBattle;
+    [Tooltip("Player must be moving to start the battle")]
+    public bool playerMustMove;
     public List<EnemiesList> enemies;
 
-    private float probability;
-    private bool active;
+    private float battleStartDelay;
+    private bool isTriggerActive;
     private Battle currentBattle;
     private ScenePortal scenePortal;
 
-    private float t;
+    private float timer;
 
     public OnBattleStart onBattleStart;
     public OnBattleWin onBattleWin;
@@ -49,46 +51,42 @@ public class MonsterArea : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collider)
     {
-
         if (collider.CompareTag("Player"))
         {
             player = collider.gameObject.GetComponent<Player>();
-            active = true;
-            t = 0;
-            probability = Random.Range(minSecondsToBattleStart, maxSecondsToBattleStart);
+            timer = 0;
+            battleStartDelay = Random.Range(minSecondsToBattleStart, maxSecondsToBattleStart);
             mobileInput = FindObjectOfType<MobileInput>();
-
+            isTriggerActive = true;
         }
     }
     public void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
-        {
-            active = false;
-        }
+            isTriggerActive = false;
     }
 
     private void FixedUpdate()
     {
-        if (player != null)
+        if (player && isTriggerActive)
         {
-            if (active && player.change != Vector3.zero || (mobileInput && mobileInput.joystickInput != Vector3.zero))
+            var checkBattleProbability = playerMustMove ? player.change != Vector3.zero || (mobileInput && mobileInput.joystickInput != Vector3.zero) : true;
+
+            if (checkBattleProbability)
             {
-                if (t > probability)
+                if (timer > battleStartDelay)
                 {
                     OnBattleSignal();
+                    isTriggerActive = false; //set to false, otherwise calls OnBattleSignal->StartBattle dozens of times before scene is actualy changed
                 }
-                else
-                {
-                    t += (player.isRunning ? 1.5f : 1f) * Time.deltaTime;
-                }
+                else timer += (player.isRunning ? 1.5f : 1f) * Time.deltaTime;
             }
         }
     }
 
     public void OnBattleSignal()
     {
-        if (active)
+        if (isTriggerActive)
         {
             float randVal = Random.value;
             float tempProb = 0.0f;
@@ -115,14 +113,12 @@ public class MonsterArea : MonoBehaviour
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         playerObj.GetComponent<Player>().Freeze();
 
-        probability = 0f;
         onBattleStart.Invoke();
         FlashImage flashImage = (FlashImage)FindObjectOfType(typeof(FlashImage));
         if (flashImage != null)
         {
             flashImage.StartFlash(1f, 0.99f, Color.white);
         }
-
 
         CharStats player = playerObj.GetComponent<CharStats>();
 
@@ -145,7 +141,6 @@ public class MonsterArea : MonoBehaviour
 
     void Awake()
     {
-        probability = 0;
         currentBattle = GameObject.Find("SceneManager").GetComponent<ObjectHolder>().currentBattle;
 
         if (currentBattle.monsterAreaObject == monsterAreaUniqueID)
@@ -195,7 +190,6 @@ public class MonsterArea : MonoBehaviour
     {
         Debug.Log("Battle started");
     }
-
 }
 
 
