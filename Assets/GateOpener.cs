@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using PixelCrushers.QuestMachine;
 using PixelCrushers;
 using UnityEngine;
@@ -42,15 +40,13 @@ public class GateOpener : Saver, IMessageHandler
     public override void ApplyData(string s)
     {
         if (string.IsNullOrEmpty(s)) return;
-        
+
         Debug.Log("gates" + s);
         _gatesData = JsonConvert.DeserializeObject<GatesData>(s);
         Debug.Log("gates result " + _gatesData.isOpen);
 
         if (_gatesData.isOpen)
-        {
             Open();
-        }
     }
 
     // Handle messages from Quest Machine.
@@ -58,19 +54,19 @@ public class GateOpener : Saver, IMessageHandler
     {
         OnMessage(messageArgs.message, messageArgs.parameter, messageArgs.sender);
     }
-    
+
     private void OnMessage(string message, string parameter, object s)
     {
         if (QuestMachine.GetQuestNodeState("TanasArtifacts", "VillageKey2") == QuestNodeState.Active)
         {
+            _gatesData.isOpen = true;
             Open();
         }
     }
 
-    private void Open() 
+    private void Open()
     {
         _closedGate.SetActive(false);
         _openGate.SetActive(true);
     }
-
 }
