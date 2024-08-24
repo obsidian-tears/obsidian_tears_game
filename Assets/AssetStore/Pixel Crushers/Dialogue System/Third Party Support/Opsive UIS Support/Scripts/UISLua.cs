@@ -140,16 +140,16 @@ namespace PixelCrushers.UISSupport
                     itemCollection);
             if (itemCollection != null)
             {
-                // itemCollection.AddItem(itemInfo);
+                itemCollection.AddItem(itemInfo);
             }
             else
             {
-                // inventory.AddItem(itemInfo);
+                inventory.AddItem(itemInfo);
             }
-            if (treasureId >= 0)
-            {
-                ReactController.Instance.SignalOpenChest(treasureId.ToString());
-            }
+            // if (treasureId >= 0)
+            // {
+            //     ReactController.Instance.SignalOpenChest(treasureId.ToString());
+            // }
             // call react controller to add item to inventory
         }
 
@@ -337,10 +337,10 @@ namespace PixelCrushers.UISSupport
             var currencyOwner = GetCurrencyOwner(currencyOwnerName);
             if (currencyOwner == null) return;
             currencyOwner.CurrencyAmount.AddCurrency (currency, amount);
-            if (treasureId >= 0)
-            {
-                ReactController.Instance.SignalOpenChest(treasureId.ToString());
-            }
+            // if (treasureId >= 0)
+            // {
+            //     ReactController.Instance.SignalOpenChest(treasureId.ToString());
+            // }
         }
 
         /// <summary>
