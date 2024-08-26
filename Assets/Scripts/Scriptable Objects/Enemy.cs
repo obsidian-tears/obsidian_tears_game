@@ -20,6 +20,8 @@ public class Enemy : ScriptableObject
 
     public int xpDrop;
 
+    public int goldDrop;
+
     public ItemInfo[] itemDrops;
 
     [Range(0f, 1.0f)]

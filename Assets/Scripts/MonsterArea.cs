@@ -147,17 +147,6 @@ public class MonsterArea : MonoBehaviour
         {
             if (currentBattle.wonBattle)
             {
-                var tempPlayer = GameObject.FindWithTag("Player");
-                var inventory = tempPlayer.GetComponent<Inventory>();
-                ItemInfo[] rewards = currentBattle.enemy.itemDrops;
-
-                foreach (ItemInfo itemInfo in rewards)
-                {
-                    var item = InventorySystemManager.CreateItem(itemInfo.Item);
-                    inventory.AddItem(item, itemInfo.Amount);
-                }
-
-                ReactController.Instance.SignalDefeatMonster(currentBattle.enemy.enemyServerId.ToString());
                 onBattleWin.Invoke();
 
                 if (isOneTimeBattle)
