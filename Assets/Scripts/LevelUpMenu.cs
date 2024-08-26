@@ -90,7 +90,7 @@ public class LevelUpMenu : MonoBehaviour
         //If leveling up, determine how many points you get
         pointsFromLevelUp = playerStats.pointsRemaining;
         if (isLevelUp)
-            pointsFromLevelUp += (playerStats.level + 2);
+            pointsFromLevelUp += (playerStats.level + 3);
 
         //Set each number on the screen to the correct value
         currentLevelText.text = playerStats.level.ToString();
@@ -304,12 +304,12 @@ public class LevelUpMenu : MonoBehaviour
 
     public void SetNewLevels()
     {
-        nextHPText.text = (Int32.Parse(currentHPText.text) + (hpQP.Quantity * 2)).ToString();
-        nextMPText.text = (Int32.Parse(currentMPText.text) + (mpQP.Quantity * 2)).ToString();
-        nextAttackText.text = (Int32.Parse(currentAttackText.text) + (attackQP.Quantity)).ToString();
-        nextDefenseText.text = (Int32.Parse(currentDefenseText.text) + (defenseQP.Quantity)).ToString();
-        nextSpeedText.text = (Int32.Parse(currentSpeedText.text) + (speedQP.Quantity)).ToString();
-        nextMagicPowerText.text = (Int32.Parse(currentMagicPowerText.text) + (magicPowerQP.Quantity)).ToString();
+        nextHPText.text = (Int32.Parse(currentHPText.text) + (hpQP.Quantity * 3)).ToString();
+        nextMPText.text = (Int32.Parse(currentMPText.text) + (mpQP.Quantity * 3)).ToString();
+        nextAttackText.text = (Int32.Parse(currentAttackText.text) + (attackQP.Quantity * 2)).ToString();
+        nextDefenseText.text = (Int32.Parse(currentDefenseText.text) + (defenseQP.Quantity * 2)).ToString();
+        nextSpeedText.text = (Int32.Parse(currentSpeedText.text) + (speedQP.Quantity * 2)).ToString();
+        nextMagicPowerText.text = (Int32.Parse(currentMagicPowerText.text) + (magicPowerQP.Quantity * 2)).ToString();
 
         //Set colors of stats texts based on their differences
         SetColor(nextHPText, currentHPText);
