@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class BattleHUD : MonoBehaviour
 {
+    public TextMeshProUGUI nameText;
     public TextMeshProUGUI levelText;
     public TextMeshProUGUI hpNumber;
     public TextMeshProUGUI mpNumber;
@@ -18,17 +19,28 @@ public class BattleHUD : MonoBehaviour
 
     public void SetHUD(CharStats stats)
     {
-        levelText.text = "LVL " + stats.level;
+        if (nameText)
+            nameText.text = stats.characterName;
+
+        if (levelText)
+            levelText.text = "LVL " + stats.level;
+
+        if (mpNumber)
+            mpNumber.text = stats.magicTotal + "/" + stats.magicMax;
+
         hpNumber.text = stats.healthTotal + "/" + stats.healthMax;
-        mpNumber.text = stats.magicTotal + "/" + stats.magicMax;
-        /*attackNumber.text = stats.attackTotal.ToString();
+
+        attackNumber.text = stats.attackTotal.ToString();
         defenseNumber.text = stats.defenseTotal.ToString();
-        speedNumber.text = stats.speedTotal.ToString();*/
+        // speedNumber.text = stats.speedTotal.ToString();
 
         hpSlider.maxValue = stats.healthMax;
         hpSlider.value = stats.healthTotal;
 
-        mpSlider.maxValue = stats.magicMax;
-        mpSlider.value = stats.magicTotal;
+        if (mpSlider)
+        {
+            mpSlider.maxValue = stats.magicMax;
+            mpSlider.value = stats.magicTotal;
+        }
     }
 }

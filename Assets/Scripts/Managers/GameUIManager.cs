@@ -69,7 +69,8 @@ namespace GameManagers
             Debug.Log("Spawn?");
         }
 
-        protected override void OnDestroy() {
+        protected override void OnDestroy()
+        {
             MainMenu.OnClose -= OnMainMenuClose;
         }
 
@@ -80,14 +81,15 @@ namespace GameManagers
 
             bool isStandardMode = m_currentMode == UIMode.STANDARD;
             PlayerUI.gameObject.SetActive(isStandardMode);
-            if (mode == UIMode.BATTLE)
+
+            if (CheckMobile.IsMobile)
             {
-                MobileHud.SetActive(false);
-                _mobileInput.enabled = false;
-            }
-            else
-            {
-                if (CheckMobile.IsMobile)
+                if (mode == UIMode.BATTLE)
+                {
+                    MobileHud.SetActive(false);
+                    _mobileInput.enabled = false;
+                }
+                else
                 {
                     MobileHud.SetActive(true);
                     _mobileInput.enabled = true;
@@ -95,16 +97,14 @@ namespace GameManagers
             }
 
             foreach (ActionButton btn in ButtonsForBattleHide)
-            {
                 btn.gameObject.SetActive(isStandardMode);
-            }
         }
 
         public void SetHealthSlider(int healthTotal, int healthMax)
         {
             if (HealthSlider == null)
                 return;
-            
+
             HealthSlider.maxValue = healthMax;
             HealthSlider.value = healthTotal;
         }
@@ -113,7 +113,7 @@ namespace GameManagers
         {
             if (MagicSlider == null)
                 return;
-            
+
             MagicSlider.maxValue = magicMax;
             MagicSlider.value = magicTotal;
         }

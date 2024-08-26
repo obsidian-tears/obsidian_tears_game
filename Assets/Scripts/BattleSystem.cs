@@ -22,14 +22,15 @@ using static Opsive.UltimateInventorySystem.DatabaseNames.DemoInventoryDatabaseN
 using EventHandler = Opsive.Shared.Events.EventHandler;
 
 
-public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST, FLEEING}
+public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST, FLEEING }
 public class BattleSystem : MonoBehaviour
 {
     public BattleState state;
 
     public Battle currentBattle;
 
-    public BattleHUD hud;
+    public BattleHUD playerHUD;
+    public BattleHUD enemyHUD;
 
     public GameObject enemy;
     public GameObject player;
@@ -82,11 +83,11 @@ public class BattleSystem : MonoBehaviour
     void Start()
     {
         backgroundImage.sprite = currentBattle.backgroundImage;
-        if(currentBattle.music != null)
+        if (currentBattle.music != null)
         {
             musicSource.clip = currentBattle.music;
             musicSource.Play();
-            
+
         }
 
         if (onWin == null)
@@ -113,7 +114,7 @@ public class BattleSystem : MonoBehaviour
         // PREVIOUS ITEM CALLBACKS
         // ItemCollection equipmentCollection = inventory.GetItemCollection("Equipped");
         // EventHandler.RegisterEvent(equipmentCollection, EventNames.c_ItemCollection_OnUpdate, () => OnItemChange());
-        
+
         // NOTE: we only monitor main collection, as we are not interested to having updates regarding un/equipped stuff
         // Also, un/equipping is already 
         ItemCollection mainCollection = inventory.GetItemCollection("MainItemCollection");
@@ -163,15 +164,15 @@ public class BattleSystem : MonoBehaviour
         // wait one frame until item is applied to the stats
         yield return null;
 
-        hud.SetHUD(playerStats);
-        playerStats.UpdateUI();
-        dialogueText.text = "Phendrin uses an item";       
+        playerHUD.SetHUD(playerStats);
+        // playerStats.UpdateUI();
+        dialogueText.text = "Phendrin uses an item";
 
         yield return new WaitForSeconds(2f);
-        
+
         state = BattleState.ENEMYTURN;
         StartCoroutine(EnemyTurn());
-        hud.SetHUD(playerStats);
+        playerHUD.SetHUD(playerStats);
     }
 
     IEnumerator SetupBattle()
@@ -186,26 +187,23 @@ public class BattleSystem : MonoBehaviour
         playerStats.attackBase = currentBattle.playerAttackBase;
         playerStats.defenseBase = currentBattle.playerDefenseBase;
         playerStats.speedBase = currentBattle.playerSpeedBase;
-        playerStats.UpdateStats();
+        // playerStats.UpdateStats();
 
         if (playerStats.characterClass == "FIGHTER")
         {
             if (VerifySword())
             {
-                playerStats.attackTotal = (playerStats.attackBase + Mathf.RoundToInt( 1.2f * ObtainDamageWeaponEquipped())); //Redondea automaticamente
+                playerStats.attackTotal = (playerStats.attackBase + Mathf.RoundToInt(1.2f * ObtainDamageWeaponEquipped())); //Redondea automaticamente
                 Debug.Log(playerStats.attackBase + "attackbase");
                 Debug.Log(playerStats.attackTotal + "attacktotal");
                 Debug.Log(ObtainDamageWeaponEquipped() + "weapon damage");
-
             }
-
         }
-
 
         //Enemy setup
         enemyRenderer.sprite = currentBattle.enemy.sprite;
         enemyStats.characterName = currentBattle.enemy.enemyName;
-        enemyStats.healthTotal = currentBattle.enemy.hp;
+        enemyStats.healthMax = enemyStats.healthTotal = currentBattle.enemy.hp;
         enemyStats.magicTotal = currentBattle.enemy.mp;
         enemyStats.attackTotal = currentBattle.enemy.attackDamage;
         enemyStats.defenseTotal = currentBattle.enemy.defense;
@@ -214,17 +212,17 @@ public class BattleSystem : MonoBehaviour
 
         //Start battle
         dialogueText.text = enemyStats.characterName + " approaches.";
-        hud.SetHUD(playerStats);
 
-        yield return new WaitForSeconds(2f);
-        hud.SetHUD(playerStats);
+        yield return new WaitForSeconds(1.5f);
+
+        playerHUD.SetHUD(playerStats);
+        enemyHUD.SetHUD(enemyStats);
 
         statsUI.SetActive(true);
         buttonsContainer.SetActive(true);
 
         state = BattleState.PLAYERTURN;
         PlayerTurn();
-
     }
 
     IEnumerator PlayerAttack()
@@ -235,11 +233,8 @@ public class BattleSystem : MonoBehaviour
 
         VerifyBowEquipped();
 
-
         DamageValue damageValue = CalculateDamage(playerStats.attackTotal, enemyStats.defenseTotal, playerStats.criticalHitProbability);
         bool isDead = enemyStats.TakeDamage(damageValue.damageAmount);
-
-        
 
         yield return new WaitForSeconds(1f);
 
@@ -249,8 +244,9 @@ public class BattleSystem : MonoBehaviour
 
         dialogueText.text = "Phendrin attacks " + enemyStats.characterName;
 
+        enemyHUD.SetHUD(enemyStats);
+
         yield return new WaitForSeconds(2f);
-      
 
         if (isDead)
         {
@@ -272,9 +268,9 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator EnemyTurn()
     {
-        hud.SetHUD(playerStats);
+        // playerHUD.SetHUD(playerStats);
         yield return new WaitForSeconds(0.25f);
-        hud.SetHUD(playerStats);
+        // playerHUD.SetHUD(playerStats);
 
         dialogueText.text = enemyStats.characterName + " attacks!";
 
@@ -289,7 +285,7 @@ public class BattleSystem : MonoBehaviour
         flashImage.StartFlash(0.25f, 0.5f, playerHurtFlashColor);
         spawnDamageDisplay(playerNumberSpawnTransform.position, damageValue.damageAmount, damageValue.isCritical);
 
-        hud.SetHUD(playerStats);
+        playerHUD.SetHUD(playerStats);
 
         yield return new WaitForSeconds(1f);
 
@@ -304,7 +300,6 @@ public class BattleSystem : MonoBehaviour
             PlayerTurn();
         }
     }
-
 
     IEnumerator EndBattle()
     {
@@ -321,7 +316,7 @@ public class BattleSystem : MonoBehaviour
             float disappearTimer = 1f;
             SpriteRenderer renderer = enemy.GetComponent<SpriteRenderer>();
             Color rendererColor = renderer.color;
-            while(disappearTimer > 0)
+            while (disappearTimer > 0)
             {
                 rendererColor.a -= Time.deltaTime * 3f;
                 renderer.color = rendererColor;
@@ -331,7 +326,7 @@ public class BattleSystem : MonoBehaviour
             playerStats.xp += currentBattle.enemy.xpDrop;
 
             onWin.Invoke();
-            
+
             /*var currencyOwner = inventory.GetCurrencyComponent<CurrencyCollection>() as CurrencyOwner;
             var ownerCurrencyCollection = currencyOwner.CurrencyAmount;
             var gold = InventorySystemManager.GetCurrency("Gold");
@@ -347,8 +342,8 @@ public class BattleSystem : MonoBehaviour
             musicSource.PlayOneShot(deathSound);
 
             onLose.Invoke();
-            yield return new WaitForSeconds(9f);
-            
+            yield return new WaitForSeconds(5f);
+
             portal.UsePortal();
         }
         else if (state == BattleState.FLEEING)
@@ -370,20 +365,17 @@ public class BattleSystem : MonoBehaviour
         var swordCategory = InventorySystemManager.GetItemCategory("Sword");
         var equippedContainer = inventory.GetItemCollection("Equipped");
 
-        var itemInfoListSlice = equippedContainer.GetItemInfos(ref pooledArray,swordCategory,
+        var itemInfoListSlice = equippedContainer.GetItemInfos(ref pooledArray, swordCategory,
              (candidateItemInfo, category) => category.InherentlyContains(candidateItemInfo.Item));
 
         if (itemInfoListSlice.Count > 0)
-        {
             return true;
-        }
-        else { return false; }
-
+        else
+            return false;
     }
 
     private int ObtainDamageWeaponEquipped()
     {
-
         ItemInfo[] pooledArray = new ItemInfo[10];
 
         var bowcategory = InventorySystemManager.GetItemCategory("Sword");
@@ -399,13 +391,11 @@ public class BattleSystem : MonoBehaviour
             return attackWeapon;
         }
         else return 0;
-       
     }
 
 
     private void VerifyBowEquipped()  // verifico si tengo equipado un bow para hacer su animacion
     {
-
         ItemInfo[] pooledArray = new ItemInfo[10];
 
         var bowcategory = InventorySystemManager.GetItemCategory("Bow");
@@ -422,17 +412,14 @@ public class BattleSystem : MonoBehaviour
             if (firstItemInfo != null)
             {
                 Arrow.SetActive(true);
-                var animarrow  =Arrow.GetComponent<Animator>();
+                var animarrow = Arrow.GetComponent<Animator>();
                 animarrow.SetTrigger("StartArrow");
             }
-
         }
         else
         {
             return;
-
         }
-
     }
 
     private bool VerifyBow()  // envia true si tengo equipado un bow
@@ -446,21 +433,10 @@ public class BattleSystem : MonoBehaviour
             (candidateItemInfo, category) => category.InherentlyContains(candidateItemInfo.Item));
 
         if (itemInfoListSlice.Count > 0)
-        {
-
             return true;
-
-        }
         else
-        {
-
             return false;
-
-        }
-
     }
-
-
 
     void PlayerTurn()
     {
@@ -481,18 +457,15 @@ public class BattleSystem : MonoBehaviour
 
         if (playerStats.characterClass == "RANGER")
         {
-            int chance = UnityEngine.Random.Range(0,10 );
+            int chance = UnityEngine.Random.Range(0, 10);
 
             if (VerifyBow() && chance < 4)
             {
-                
-                dobleAttack = true; 
-
+                dobleAttack = true;
             }
         }
 
         StartCoroutine(PlayerAttack());
-
     }
 
     public void OnRunButton()
@@ -530,31 +503,30 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator UseSpell(int manaNeeded, int magicPowerAdded, float magicPowerMultiplier, int healAmount, bool frostDamage, bool lightningDamage, bool fireDamage, string spellName, GameObject spellAnimation)
     {
-        GameUIManager.Instance.SpellMenu.SmartClose();
+        GameUIManager.Instance.SpellMenu.Close(true);
+        GameUIManager.Instance.CloseSpellWindow();
 
         dialogueText.text = "Phendrin casts " + spellName;
 
-        //playerAnimator.SetTrigger("Attack");
-
+        playerAnimator.SetTrigger("Attack");
+        yield return new WaitForSeconds(0.8f);
         Instantiate(spellAnimation, player.transform, true);
-
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
 
         playerStats.AddMana(-manaNeeded);
         playerStats.Heal(healAmount);
-
+        playerHUD.SetHUD(playerStats);
 
         DamageValue damageValue = CalculateSpellDamage(magicPowerAdded, magicPowerMultiplier, enemyStats.defenseTotal, playerStats.criticalHitProbability, fireDamage, frostDamage, lightningDamage);
-        if(damageValue.damageAmount != 0)
+        if (damageValue.damageAmount != 0)
         {
             bool isDead = enemyStats.TakeDamage(damageValue.damageAmount);
-
-
-            yield return new WaitForSeconds(1f);
 
             enemyAnimator.SetTrigger("Hurt");
             flashImage.StartFlash(0.25f, 0.5f, enemyHurtFlashColor);
             spawnDamageDisplay(enemyNumberSpawnTransform.position, damageValue.damageAmount, damageValue.isCritical);
+
+            enemyHUD.SetHUD(enemyStats);
 
             yield return new WaitForSeconds(2f);
 
@@ -630,7 +602,7 @@ public class BattleSystem : MonoBehaviour
 
         bool isCritical = false;
         //Double if critical hit
-        if(UnityEngine.Random.Range(0f, 1.0f) < criticalHitChance)
+        if (UnityEngine.Random.Range(0f, 1.0f) < criticalHitChance)
         {
             damageAmount = damageAmount * 2;
             isCritical = true;

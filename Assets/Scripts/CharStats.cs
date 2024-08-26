@@ -105,14 +105,12 @@ public class CharStats : MonoBehaviour
     /// </summary>
     public void UpdateStats()
     {
-        //This is a player
         if (equipper != null && GameUIManager.Instance.StatsDisplay != null)
         {
             healthMax = healthBase + equipmentCollection.GetIntSum("MaxHp");
             magicMax = magicBase + equipmentCollection.GetIntSum("MaxMp");
             attackTotal = attackBase +
                            /*(inventory.GetItemCollection(1).HasItem(_itemCategoryToBuff, true) ? Mathf.RoundToInt(equipmentCollection.GetIntSum("Attack") * _multiplierDamage):*/ equipmentCollection.GetIntSum("Attack")/*)*/;
-
 
             defenseTotal = defenseBase + equipmentCollection.GetIntSum("Defense");
             speedTotal = speedBase + equipmentCollection.GetIntSum("Speed");
@@ -121,19 +119,6 @@ public class CharStats : MonoBehaviour
 
             UpdateUI();
         }
-
-        // Note by Jakub - looks like this part of code is never used by enemy
-        // This is an enemy
-        // else
-        // {
-        //     healthMax = healthBase;
-        //     healthTotal = healthMax;
-        //     magicMax = magicBase;
-        //     magicTotal = magicMax;
-        //     attackTotal = attackBase;
-        //     defenseTotal = defenseBase;
-        //     speedTotal = speedBase;
-        // }
     }
 
     public void UpdateStatsWithHeal()
@@ -152,7 +137,6 @@ public class CharStats : MonoBehaviour
             criticalHitProbability = equipmentCollection.GetFloatSum("CriticalChance");
             magicPowerTotal = magicPowerBase + equipmentCollection.GetIntSum("MagicPower");
             UpdateUI();
-
         }
 
     }
@@ -169,7 +153,7 @@ public class CharStats : MonoBehaviour
     // Returns true if the player is dead after taking damage
     public bool TakeDamage(int dmg)
     {
-        healthTotal -= dmg;
+        healthTotal = Mathf.Max(healthTotal - dmg, 0);
 
         //If is Player
         if (equipper != null && GameUIManager.Instance.StatsDisplay != null)

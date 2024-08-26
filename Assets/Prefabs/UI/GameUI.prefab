@@ -16398,7 +16398,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 528336959446299533}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -70486,7 +70486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c44ad8731bc6456495ee0f4e135c4b76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DisplayPanel: {fileID: 0}
+  m_DisplayPanel: {fileID: 310027091962278875}
   m_SelectOnClick: 1
   m_SelectOnHover: 1
 --- !u!114 &3207081151158502336
@@ -74638,7 +74638,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 5309373489775571230}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -80662,6 +80662,7 @@ GameObject:
   - component: {fileID: 4682457153654092018}
   - component: {fileID: 9002619101182703991}
   - component: {fileID: 9055363251086126529}
+  - component: {fileID: 6548515403031419518}
   - component: {fileID: 4945262998652021789}
   m_Layer: 5
   m_Name: Spells Inventory Grid
@@ -80752,6 +80753,21 @@ MonoBehaviour:
   m_SelectableOnOpen: {fileID: 0}
   m_MainContent: {fileID: 7370988893690106755}
   m_Bindings: []
+--- !u!114 &6548515403031419518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7104883889902151893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c44ad8731bc6456495ee0f4e135c4b76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DisplayPanel: {fileID: 9055363251086126529}
+  m_SelectOnClick: 1
+  m_SelectOnHover: 1
 --- !u!114 &4945262998652021789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80771,7 +80787,7 @@ MonoBehaviour:
   m_DrawOnInitialize: 1
   m_ResetDrawOnOpen: 1
   m_DrawOnOpen: 1
-  m_SelectSlotOnOpen: 1
+  m_SelectSlotOnOpen: 0
 --- !u!1 &7181858550422914695
 GameObject:
   m_ObjectHideFlags: 0
@@ -85076,7 +85092,6 @@ GameObject:
   - component: {fileID: 7370988893690106755}
   - component: {fileID: 9037677924383202460}
   - component: {fileID: 8876461480984912322}
-  - component: {fileID: 7149987411564990380}
   m_Layer: 5
   m_Name: PanelContent
   m_TagString: Untagged
@@ -85145,20 +85160,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 0.15
---- !u!114 &7149987411564990380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8871995908685443038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b87e57de23bb4ad2961e4dc1b52a25ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PanelRect: {fileID: 4316156422376033784}
-  m_Panel: {fileID: 9055363251086126529}
 --- !u!1 &8893702983220165512
 GameObject:
   m_ObjectHideFlags: 0
@@ -85197,7 +85198,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 258.45422, y: 238.95673}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 320, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7729065747080771971
@@ -85248,7 +85249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PanelToPlace: {fileID: 0}
-  m_ItemViewSlotContainer: {fileID: 4933577489833471972}
+  m_ItemViewSlotContainer: {fileID: 2832530101492081223}
   m_SetAnchorPosition: 1
   m_AnchorPosition: {x: 0, y: 0.5}
   m_AnchorRelativeOffset: {x: 0.5, y: 0}
