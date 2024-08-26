@@ -36,7 +36,8 @@ namespace Opsive.UltimateInventorySystem.UI.CompoundElements
         public Button NegativeButton => m_NegativeButton;
         public Scrollbar Scrollbar => m_Scrollbar;
 
-        public bool DiscreteSteps {
+        public bool DiscreteSteps
+        {
             get => m_DiscreteSteps;
             set => m_DiscreteSteps = value;
         }
@@ -100,12 +101,14 @@ namespace Opsive.UltimateInventorySystem.UI.CompoundElements
             var previousValue = m_CurrentIndex;
             m_CurrentIndex = Mathf.Clamp(newValue, 0, m_MaxIndex);
 
-            if (setScrollValue) {
+            if (setScrollValue)
+            {
                 var normalizedStep = m_MaxIndex == 0 ? 0 : (float)m_CurrentIndex / m_MaxIndex;
 
                 var newScrollValue = normalizedStep;
 
-                if (keepOffset) {
+                if (keepOffset)
+                {
                     var oneStep = m_MaxIndex == 0 ? 0 : (float)1 / m_MaxIndex;
                     var offset = m_Scrollbar.value % oneStep;
                     newScrollValue += offset;
@@ -130,6 +133,9 @@ namespace Opsive.UltimateInventorySystem.UI.CompoundElements
             m_MaxIndex = maxSize;
             m_Scrollbar.numberOfSteps = m_DiscreteSteps ? m_MaxIndex + 1 : 0;
             m_Scrollbar.size = 1f / (m_MaxIndex + 1);
+
+            //Hide the scrollbar if there isn't enough items to scroll
+            m_Scrollbar.gameObject.SetActive(m_Scrollbar.size < 1);
         }
     }
 }
