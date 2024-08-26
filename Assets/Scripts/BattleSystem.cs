@@ -330,12 +330,23 @@ public class BattleSystem : MonoBehaviour
 
             playerStats.xp += currentBattle.enemy.xpDrop;
 
-            onWin.Invoke();
-            
-            /*var currencyOwner = inventory.GetCurrencyComponent<CurrencyCollection>() as CurrencyOwner;
+            var tempPlayer = GameObject.FindWithTag("Player");
+            var inventory = tempPlayer.GetComponent<Inventory>();
+            var currencyOwner = inventory.GetCurrencyComponent<CurrencyCollection>() as CurrencyOwner;
             var ownerCurrencyCollection = currencyOwner.CurrencyAmount;
             var gold = InventorySystemManager.GetCurrency("Gold");
-            ownerCurrencyCollection.AddCurrency(gold, currentBattle.enemy.goldDrop);*/
+            ownerCurrencyCollection.AddCurrency(gold, currentBattle.enemy.goldDrop);
+
+            ItemInfo[] rewards = currentBattle.enemy.itemDrops;
+            foreach(ItemInfo itemInfo in rewards) {
+                var item = InventorySystemManager.CreateItem(itemInfo.Item);
+                inventory.AddItem(item, itemInfo.Amount);
+            }
+
+            ReactController.Instance.SignalDefeatMonster(currentBattle.enemy.enemyServerId.ToString());
+
+            onWin.Invoke();
+
 
             yield return new WaitForSeconds(2f);
         }
