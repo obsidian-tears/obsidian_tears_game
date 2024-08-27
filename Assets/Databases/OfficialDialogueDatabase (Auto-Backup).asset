@@ -2893,8 +2893,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 115.24808}
-    canvasZoom: 0.5640006
+    canvasScrollPosition: {x: 72.51424, y: 130.24178}
+    canvasZoom: 0.6840005
   - id: 4
     fields:
     - title: Title
@@ -3173,8 +3173,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1256.3508
-        y: 218.47171
+        x: 1272.6299
+        y: 211.49496
         width: 160
         height: 30
     - id: 1
@@ -4490,8 +4490,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2956.7922
-        y: 326.63348
+        x: 2942.0378
+        y: 316.79742
         width: 160
         height: 30
     - id: 44
@@ -8635,8 +8635,8 @@ MonoBehaviour:
         width: 1
         height: 1
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 798.5054, y: 213.80725}
-    canvasZoom: 0.64
+    canvasScrollPosition: {x: 949.43335, y: 0}
+    canvasZoom: 0.43000004
   - id: 6
     fields:
     - title: Title
@@ -8735,6 +8735,12 @@ MonoBehaviour:
         originDialogueID: 0
         destinationConversationID: 6
         destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      - originConversationID: 6
+        originDialogueID: 0
+        destinationConversationID: 6
+        destinationDialogueID: 153
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -8883,7 +8889,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Welcome back deary! Would you like me to repeat some of what I said
+        value: Welcome back Deary! Would you like me to repeat some of what I said
           earlier?
         type: 0
         typeString: 
@@ -8963,7 +8969,7 @@ MonoBehaviour:
       - originConversationID: 6
         originDialogueID: 27
         destinationConversationID: 6
-        destinationDialogueID: 116
+        destinationDialogueID: 144
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -10731,175 +10737,6 @@ MonoBehaviour:
         y: 867.08344
         width: 160
         height: 30
-    - id: 116
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 7
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: Press "E" to see the menu. Use your Journal to see quests and tasks
-          that you've set out on!
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 6
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 6
-        originDialogueID: 116
-        destinationConversationID: 6
-        destinationDialogueID: 117
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 354.8037
-        y: 417.59845
-        width: 160
-        height: 30
-    - id: 117
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 7
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: Use your inventory to equip helpful items as you find them, and consume
-          food and potions!
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 6
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 6
-        originDialogueID: 117
-        destinationConversationID: 6
-        destinationDialogueID: 118
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 343.39224
-        y: 488.55273
-        width: 160
-        height: 30
-    - id: 118
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 7
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: Also, as you explore the village, press "Spacebar", to interact with
-          people and interesting objects you run into. If you are on the mobile experience,
-          tap on the objects or people instead.
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 6
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 6
-        originDialogueID: 118
-        destinationConversationID: 6
-        destinationDialogueID: 128
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 339.0932
-        y: 561.15497
-        width: 160
-        height: 30
     - id: 119
       fields:
       - title: Title
@@ -11411,56 +11248,6 @@ MonoBehaviour:
         y: 512.61066
         width: 160
         height: 30
-    - id: 128
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 7
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: I'm always happy to help. Please come back if you'd like to hear that
-          again!
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 6
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 337.36908
-        y: 635.2929
-        width: 160
-        height: 30
     - id: 129
       fields:
       - title: Title
@@ -11767,7 +11554,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Welcome back deary! Would you like me to repeat some of what I said
+        value: Welcome back Deary! Would you like me to repeat some of what I said
           earlier?
         type: 0
         typeString: 
@@ -11802,8 +11589,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 786.10626
-        y: 570.3126
+        x: 850.0734
+        y: 600.54517
         width: 160
         height: 30
     - id: 136
@@ -11847,7 +11634,7 @@ MonoBehaviour:
       - originConversationID: 6
         originDialogueID: 136
         destinationConversationID: 6
-        destinationDialogueID: 139
+        destinationDialogueID: 144
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -11967,224 +11754,6 @@ MonoBehaviour:
         y: 744.9788
         width: 160
         height: 30
-    - id: 139
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 7
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: Press "E" to see the menu. Use your Journal to see quests and tasks
-          that you've set out on!
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 6
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 6
-        originDialogueID: 139
-        destinationConversationID: 6
-        destinationDialogueID: 140
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 338.18744
-        y: 779.9898
-        width: 160
-        height: 30
-    - id: 140
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 7
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: Use your inventory to equip helpful items as you find them, and consume
-          food and potions!
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 6
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 6
-        originDialogueID: 140
-        destinationConversationID: 6
-        destinationDialogueID: 141
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 326.77597
-        y: 850.9441
-        width: 160
-        height: 30
-    - id: 141
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 7
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: Also, as you explore the village, press "Spacebar", to interact with
-          people and interesting objects you run into. If you are on the mobile experience,
-          tap on the objects or people instead.
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 6
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 6
-        originDialogueID: 141
-        destinationConversationID: 6
-        destinationDialogueID: 142
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 322.47693
-        y: 923.5463
-        width: 160
-        height: 30
-    - id: 142
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 7
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: I'm always happy to help, come back if you'd like to hear that again!
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 6
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 320.7528
-        y: 997.68427
-        width: 160
-        height: 30
     - id: 143
       fields:
       - title: Title
@@ -12298,8 +11867,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 664.78064
-        y: 464.38824
+        x: 228.9216
+        y: 661.83777
         width: 160
         height: 30
     - id: 145
@@ -12353,8 +11922,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 459.52527
-        y: 493.9339
+        x: 104.84614
+        y: 747.37634
         width: 160
         height: 30
     - id: 146
@@ -12408,8 +11977,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 884.525
-        y: 498.4792
+        x: 360.125
+        y: 740.8249
         width: 160
         height: 30
     - id: 147
@@ -12450,7 +12019,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 147
+        destinationConversationID: 6
+        destinationDialogueID: 150
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -12458,8 +12033,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 576.5707
-        y: 591.66095
+        x: 106.31993
+        y: 877.79565
         width: 160
         height: 30
     - id: 148
@@ -12500,7 +12075,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 148
+        destinationConversationID: 6
+        destinationDialogueID: 150
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -12508,8 +12089,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 769.75256
-        y: 590.48444
+        x: 363.4304
+        y: 817.7886
         width: 160
         height: 30
     - id: 149
@@ -12564,13 +12145,226 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 528.8436
-        y: 545.07025
+        x: 107.889305
+        y: 819.6666
+        width: 160
+        height: 30
+    - id: 150
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Use the menu to access your journal to see quests you have and their
+          status, you can also see a map over where you are!
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 150
+        destinationConversationID: 6
+        destinationDialogueID: 151
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 221.96692
+        y: 976.32526
+        width: 160
+        height: 30
+    - id: 151
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Equip new items in you inventory to raise your stats. You can see
+          which items or spells you have equipped on your character profile. To access
+          your character profile, access the menu then click on "Character"
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 6
+        originDialogueID: 151
+        destinationConversationID: 6
+        destinationDialogueID: 152
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 215.44516
+        y: 1065.4556
+        width: 160
+        height: 30
+    - id: 152
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Always a pleasure to help you Deary!
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 213.27124
+        y: 1115.4556
+        width: 160
+        height: 30
+    - id: 153
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Deary, the whole village is buzzing about what you did! I wonder what
+          this could mean for the future!!
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 'GetQuestNodeState("TanasArtifacts", "DefeatFinalBoss") ==
+        "success" '
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 2228.591
+        y: 78.403534
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 178.4131, y: 291.67682}
-    canvasZoom: 0.7899997
+    canvasScrollPosition: {x: 826.0161, y: 40}
+    canvasZoom: 0.54999983
   - id: 7
     fields:
     - title: Title
@@ -15888,7 +15682,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 134.28577, y: 59.99997}
+    canvasScrollPosition: {x: 141.42871, y: 10}
     canvasZoom: 0.6999999
   - id: 9
     fields:
@@ -32075,8 +31869,8 @@ MonoBehaviour:
         width: 1
         height: 1
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 0, y: 724.2025}
-    canvasZoom: 0.6999998
+    canvasScrollPosition: {x: 0, y: 32.19281}
+    canvasZoom: 0.1599999
   - id: 10
     fields:
     - title: Title
@@ -42713,8 +42507,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: You have permission to use anything in here to help you on your quest.
-          Good luck,Phendrin.
+        value: You have permission to use anything in here to help you on your quests.
+          Good luck, Phendrin!
         type: 0
         typeString: 
       - title: Sequence
@@ -42741,8 +42535,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.8200002
+    canvasScrollPosition: {x: 20.870249, y: 15.133014}
+    canvasZoom: 0.8800001
   - id: 22
     fields:
     - title: Title
@@ -42835,6 +42629,12 @@ MonoBehaviour:
         originDialogueID: 0
         destinationConversationID: 22
         destinationDialogueID: 10
+        isConnector: 0
+        priority: 2
+      - originConversationID: 22
+        originDialogueID: 0
+        destinationConversationID: 22
+        destinationDialogueID: 13
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -43376,7 +43176,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Tana sent word ahead to open the gates for you.
+        value: Tana sent word ahead to open the gates for you. Good luck, Phendrin!
         type: 0
         typeString: 
       - title: Sequence
@@ -43397,14 +43197,14 @@ MonoBehaviour:
         destinationDialogueID: 11
         isConnector: 0
         priority: 2
-      conditionsString: 'GetQuestNodeState("TanasArtifacts", "VillageKey2") == "active" '
+      conditionsString: 'GetQuestNodeState("TanasArtifacts", "VillageKey2") == "success" '
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 579.3902
+        x: 580.7601
         y: 90.29268
         width: 160
         height: 30
@@ -43431,7 +43231,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Good luck on your adventures! Try not to die.
+        value: Also, just so ya know, the monsters get more powerful the farther
+          you get from the village. If they get too tough, try leveling up with XP
+          from some of the easier monsters first before venturing farther out.
         type: 0
         typeString: 
       - title: Sequence
@@ -43507,9 +43309,60 @@ MonoBehaviour:
         y: 456.98483
         width: 160
         height: 30
+    - id: 13
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 23
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: WHOA! Did you defeat the Scolopendra! Maybe I can start foraging for
+          yams outside the gates...
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 22
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 'GetQuestNodeState("TanasArtifacts", "DefeatFinalBoss") ==
+        "success" '
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 781.8291
+        y: 89.073166
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 230.71281}
-    canvasZoom: 0.8500002
+    canvasScrollPosition: {x: 71.555504, y: 15.254568}
+    canvasZoom: 0.8200003
   - id: 23
     fields:
     - title: Title
@@ -43759,15 +43612,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 'GetQuestNodeState("TanasArtifacts", "VillageKey2") == "active" '
+      conditionsString: 'GetQuestNodeState("TanasArtifacts", "VillageKey2") == "success" '
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 512.9643
-        y: 110.42857
+        x: 512.96436
+        y: 103.6104
         width: 160
         height: 30
     entryGroups: []
@@ -44006,8 +43859,64 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 'Be careful outside the village! Monsters of all sorts roam around
-          out there. '
+        value: 'Be careful outside the village! Monsters are scary, and the farther
+          you get from the village, the scarier they get! '
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 24
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 24
+        originDialogueID: 3
+        destinationConversationID: 24
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
+      conditionsString: 'GetQuestNodeState("TanasArtifacts", "VillageKey2") == "success" '
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 424
+        y: 113
+        width: 160
+        height: 30
+    - id: 4
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 25
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: If they get too scary, maybe try leveling up with XP from easier monsters
+          first, and then venturing farther out!
         type: 0
         typeString: 
       - title: Sequence
@@ -44022,7 +43931,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 'GetQuestNodeState("TanasArtifacts", "VillageKey2") == "active" '
+      conditionsString: 
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -44030,7 +43939,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 424
-        y: 112
+        y: 163
         width: 160
         height: 30
     entryGroups: []
@@ -46838,8 +46747,10 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: WIll you go find him for me and tell him to come home? I'm really
-          just exhausted from chasing him all the time. If you do, I'll pay you 50
-          gold!
+          just exhausted from chasing him all the time. If you do, make  it worth
+          your time! I was trying to master this spell Fireblast,  but I think its
+          beyond my skill level... so I'll give it you along with 50 gold if you
+          help me out!
         type: 0
         typeString: 
       - title: Sequence
@@ -47132,7 +47043,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: CurrentQuestState("Loincloth Wizard") == success
-      userScript: uisAddCurrency("Gold", 50, "",50)
+      userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -47165,7 +47076,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "Here's your 50 gold! \n\nTell GranGran she's a hottie for me!"
+        value: 'Here''s your 50 gold and the Spell Scroll as promised!
+
+
+          Tell
+          GranGran she''s a hottie for me!'
         type: 0
         typeString: 
       - title: Sequence
@@ -47181,19 +47096,20 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: SetQuestState("Loincloth Wizard", "failure")
+      userScript: SetQuestState("Loincloth Wizard", "failure");uisAddCurrency("Gold",
+        50, "",50);uisAddItem("Fireblast", 1, "", "", 47)
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 666.03143
-        y: 164.97815
+        x: 651.3727
+        y: 190.63089
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.6115008
+    canvasScrollPosition: {x: 76.68878, y: 0}
+    canvasZoom: 1.0015005
   - id: 35
     fields:
     - title: Title

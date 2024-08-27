@@ -2893,8 +2893,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 115.24808}
-    canvasZoom: 0.5640006
+    canvasScrollPosition: {x: 72.51424, y: 130.24178}
+    canvasZoom: 0.6840005
   - id: 4
     fields:
     - title: Title
@@ -3166,6 +3166,12 @@ MonoBehaviour:
         destinationDialogueID: 57
         isConnector: 0
         priority: 0
+      - originConversationID: 5
+        originDialogueID: 0
+        destinationConversationID: 5
+        destinationDialogueID: 147
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -3173,8 +3179,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1256.3508
-        y: 218.47171
+        x: 1272.6299
+        y: 211.49496
         width: 160
         height: 30
     - id: 1
@@ -4490,8 +4496,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2956.7922
-        y: 326.63348
+        x: 2942.0378
+        y: 316.79742
         width: 160
         height: 30
     - id: 44
@@ -8626,6 +8632,58 @@ MonoBehaviour:
         y: 491.33276
         width: 160
         height: 30
+    - id: 147
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 6
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 'Phendrin you''ve done it! The Scolopendra... it''s presence has passed
+          from this world. You should probably tell Tana and Rayela if you haven''t
+          already! '
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 5
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 'GetQuestNodeState("TanasArtifacts", "DefeatFinalBoss") ==
+        "success" '
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1676.7114
+        y: 71.699066
+        width: 160
+        height: 30
     entryGroups:
     - name: Group
       rect:
@@ -8635,8 +8693,8 @@ MonoBehaviour:
         width: 1
         height: 1
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 371.69885, y: 526.0878}
-    canvasZoom: 0.6399999
+    canvasScrollPosition: {x: 918.71655, y: 0}
+    canvasZoom: 0.40000004
   - id: 6
     fields:
     - title: Title
@@ -8735,6 +8793,12 @@ MonoBehaviour:
         originDialogueID: 0
         destinationConversationID: 6
         destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      - originConversationID: 6
+        originDialogueID: 0
+        destinationConversationID: 6
+        destinationDialogueID: 153
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -12305,9 +12369,60 @@ MonoBehaviour:
         y: 1115.4556
         width: 160
         height: 30
+    - id: 153
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 7
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Deary, the whole village is buzzing about what you did! I wonder what
+          this could mean for the future!!
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 6
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 'GetQuestNodeState("TanasArtifacts", "DefeatFinalBoss") ==
+        "success" '
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 2244.9546
+        y: 78.403534
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 264.00012}
-    canvasZoom: 0.24999985
+    canvasScrollPosition: {x: 826.0161, y: 40}
+    canvasZoom: 0.54999983
   - id: 7
     fields:
     - title: Title
@@ -31812,8 +31927,8 @@ MonoBehaviour:
         width: 1
         height: 1
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 0, y: 724.2025}
-    canvasZoom: 0.6999998
+    canvasScrollPosition: {x: 0, y: 32.19281}
+    canvasZoom: 0.1599999
   - id: 10
     fields:
     - title: Title
@@ -32432,6 +32547,12 @@ MonoBehaviour:
         originDialogueID: 0
         destinationConversationID: 12
         destinationDialogueID: 29
+        isConnector: 0
+        priority: 2
+      - originConversationID: 12
+        originDialogueID: 0
+        destinationConversationID: 12
+        destinationDialogueID: 75
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -34684,7 +34805,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 449.9333
-        y: 800.20215
+        y: 798.77356
         width: 160
         height: 30
     - id: 43
@@ -36441,6 +36562,166 @@ MonoBehaviour:
         y: 755.85486
         width: 160
         height: 30
+    - id: 75
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 13
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: So. It is done.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 12
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 12
+        originDialogueID: 75
+        destinationConversationID: 12
+        destinationDialogueID: 76
+        isConnector: 0
+        priority: 2
+      conditionsString: 'GetQuestNodeState("TanasArtifacts", "DefeatFinalBoss") ==
+        "success" '
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 133.75412
+        y: 105.76532
+        width: 160
+        height: 30
+    - id: 76
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 13
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: You've managed to surprise even me... not a feat that is easily managed...
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 12
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 12
+        originDialogueID: 76
+        destinationConversationID: 12
+        destinationDialogueID: 77
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 133.75412
+        y: 162.28705
+        width: 160
+        height: 30
+    - id: 77
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 13
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: I wonder...
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 12
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 133.75412
+        y: 212.28705
+        width: 160
+        height: 30
     entryGroups:
     - name: Group
       rect:
@@ -36450,8 +36731,8 @@ MonoBehaviour:
         width: 1
         height: 1
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 44.49948, y: 0}
-    canvasZoom: 0.46
+    canvasScrollPosition: {x: 244.04079, y: 230.31557}
+    canvasZoom: 0.69999987
   - id: 13
     fields:
     - title: Title
@@ -42450,8 +42731,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: You have permission to use anything in here to help you on your quest.
-          Good luck,Phendrin.
+        value: You have permission to use anything in here to help you on your quests.
+          Good luck, Phendrin!
         type: 0
         typeString: 
       - title: Sequence
@@ -42478,8 +42759,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.8200002
+    canvasScrollPosition: {x: 20.870249, y: 15.133014}
+    canvasZoom: 0.8800001
   - id: 22
     fields:
     - title: Title
@@ -42572,6 +42853,12 @@ MonoBehaviour:
         originDialogueID: 0
         destinationConversationID: 22
         destinationDialogueID: 10
+        isConnector: 0
+        priority: 2
+      - originConversationID: 22
+        originDialogueID: 0
+        destinationConversationID: 22
+        destinationDialogueID: 13
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -43113,7 +43400,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Tana sent word ahead to open the gates for you.
+        value: Tana sent word ahead to open the gates for you. Good luck, Phendrin!
         type: 0
         typeString: 
       - title: Sequence
@@ -43134,14 +43421,14 @@ MonoBehaviour:
         destinationDialogueID: 11
         isConnector: 0
         priority: 2
-      conditionsString: 'GetQuestNodeState("TanasArtifacts", "VillageKey2") == "active" '
+      conditionsString: 'GetQuestNodeState("TanasArtifacts", "VillageKey2") == "success" '
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 579.3902
+        x: 580.7601
         y: 90.29268
         width: 160
         height: 30
@@ -43168,7 +43455,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Good luck on your adventures! Try not to die.
+        value: Also, just so ya know, the monsters get more powerful the farther
+          you get from the village. If they get too tough, try leveling up with XP
+          from some of the easier monsters first before venturing farther out.
         type: 0
         typeString: 
       - title: Sequence
@@ -43244,9 +43533,60 @@ MonoBehaviour:
         y: 456.98483
         width: 160
         height: 30
+    - id: 13
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 23
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: WHOA! Did you defeat the Scolopendra! Maybe I can start foraging for
+          yams outside the gates...
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 22
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 'GetQuestNodeState("TanasArtifacts", "DefeatFinalBoss") ==
+        "success" '
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 781.8291
+        y: 89.073166
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 230.71281}
-    canvasZoom: 0.8500002
+    canvasScrollPosition: {x: 71.555504, y: 15.254568}
+    canvasZoom: 0.8200003
   - id: 23
     fields:
     - title: Title
@@ -43496,15 +43836,15 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 'GetQuestNodeState("TanasArtifacts", "VillageKey2") == "active" '
+      conditionsString: 'GetQuestNodeState("TanasArtifacts", "VillageKey2") == "success" '
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 512.9643
-        y: 110.42857
+        x: 512.96436
+        y: 103.6104
         width: 160
         height: 30
     entryGroups: []
@@ -43743,8 +44083,64 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 'Be careful outside the village! Monsters of all sorts roam around
-          out there. '
+        value: 'Be careful outside the village! Monsters are scary, and the farther
+          you get from the village, the scarier they get! '
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 24
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 24
+        originDialogueID: 3
+        destinationConversationID: 24
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
+      conditionsString: 'GetQuestNodeState("TanasArtifacts", "VillageKey2") == "success" '
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 424
+        y: 113
+        width: 160
+        height: 30
+    - id: 4
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 25
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: If they get too scary, maybe try leveling up with XP from easier monsters
+          first, and then venturing farther out!
         type: 0
         typeString: 
       - title: Sequence
@@ -43759,7 +44155,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 'GetQuestNodeState("TanasArtifacts", "VillageKey2") == "active" '
+      conditionsString: 
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -43767,7 +44163,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 424
-        y: 112
+        y: 163
         width: 160
         height: 30
     entryGroups: []
@@ -46575,8 +46971,10 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: WIll you go find him for me and tell him to come home? I'm really
-          just exhausted from chasing him all the time. If you do, I'll pay you 50
-          gold!
+          just exhausted from chasing him all the time. If you do, make  it worth
+          your time! I was trying to master this spell Fireblast,  but I think its
+          beyond my skill level... so I'll give it you along with 50 gold if you
+          help me out!
         type: 0
         typeString: 
       - title: Sequence
@@ -46869,7 +47267,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: CurrentQuestState("Loincloth Wizard") == success
-      userScript: uisAddCurrency("Gold", 50, "",50)
+      userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -46902,7 +47300,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: "Here's your 50 gold! \n\nTell GranGran she's a hottie for me!"
+        value: 'Here''s your 50 gold and the Spell Scroll as promised!
+
+
+          Tell
+          GranGran she''s a hottie for me!'
         type: 0
         typeString: 
       - title: Sequence
@@ -46918,19 +47320,20 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: SetQuestState("Loincloth Wizard", "failure")
+      userScript: SetQuestState("Loincloth Wizard", "failure");uisAddCurrency("Gold",
+        50, "",50);uisAddItem("Fireblast", 1, "", "", 47)
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 666.03143
-        y: 164.97815
+        x: 651.3727
+        y: 190.63089
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.6115008
+    canvasScrollPosition: {x: 76.68878, y: 0}
+    canvasZoom: 1.0015005
   - id: 35
     fields:
     - title: Title
