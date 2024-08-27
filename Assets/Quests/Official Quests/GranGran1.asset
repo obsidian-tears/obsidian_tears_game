@@ -71,6 +71,23 @@ MonoBehaviour:
   m_contentList:
   - {fileID: 3091939614118424065}
   m_contentListSerializationProxy: []
+--- !u!114 &-486698352367476643
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e4e25cd4dc7a5b4c859b087bdeb27c1, type: 3}
+  m_Name: AudioQuestAction
+  m_EditorClassIdentifier: 
+  m_audioClip: {fileID: 8300000, guid: 5f2b17305905bae45af57ee1118c644f, type: 3}
+  m_useAudioSourceOn:
+    m_type: 0
+    m_id: 
+  m_audioNameProxy: 
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,6 +253,7 @@ MonoBehaviour:
       - m_contentList: []
     - m_actionList:
       - {fileID: 7646809839417827986}
+      - {fileID: 1180490022574322487}
       m_categorizedContentList:
       - m_contentList: []
       - m_contentList:
@@ -257,7 +275,7 @@ MonoBehaviour:
     m_canvasRect:
       serializedVersion: 2
       x: 194
-      y: 103
+      y: 104
       width: 120
       height: 48
   - m_id:
@@ -286,6 +304,7 @@ MonoBehaviour:
       - m_contentList: []
     - m_actionList:
       - {fileID: -2897489728951758575}
+      - {fileID: -486698352367476643}
       m_categorizedContentList:
       - m_contentList: []
       - m_contentList:
@@ -310,6 +329,23 @@ MonoBehaviour:
       height: 35
   m_goalEntityTypeName: 
   m_nextContentID: 0
+--- !u!114 &1180490022574322487
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e4e25cd4dc7a5b4c859b087bdeb27c1, type: 3}
+  m_Name: AudioQuestAction
+  m_EditorClassIdentifier: 
+  m_audioClip: {fileID: 8300000, guid: 5f2b17305905bae45af57ee1118c644f, type: 3}
+  m_useAudioSourceOn:
+    m_type: 0
+    m_id: 
+  m_audioNameProxy: 
 --- !u!114 &1582762772798482005
 MonoBehaviour:
   m_ObjectHideFlags: 1
