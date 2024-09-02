@@ -1,9 +1,11 @@
-#if UNITY_EDITOR
 using UnityEngine;
-using System.IO;
 using System.Collections.Generic;
+
+#if UNITY_EDITOR
+using System.IO;
 using UnityEditor;
 using UnityEditor.SceneManagement;
+#endif
 
 public class SpriteMerger : MonoBehaviour
 {
@@ -13,6 +15,7 @@ public class SpriteMerger : MonoBehaviour
     public float pixelsPerUnit = 16.0f;
     public int edgePadding = 2;
 
+#if UNITY_EDITOR
     private GameObject lastMergedObject;
     private Texture2D lastMergedTexture;
 
@@ -88,11 +91,11 @@ public class SpriteMerger : MonoBehaviour
         var mergedSprite = Sprite.Create(lastMergedTexture, new Rect(0, 0, finalTextureSize.x, finalTextureSize.y), new Vector2(0.5f, 0.5f), pixelsPerUnit);
 
         // Create a sprite from the final texture
-        var name = gameObject.scene.name + "_MergedSprite_" + System.DateTime.UtcNow.ToString("yyyy-MM-dd-T-hh-mm-ss");
+        var name = EditorSceneManager.GetActiveScene().name + "_MergedSprite_" + System.DateTime.UtcNow.ToString("yyyy-MM-dd-T-hh-mm-ss");
         lastMergedObject = new GameObject(name);
         var sceneSR = lastMergedObject.AddComponent<SpriteRenderer>();
 
-        lastMergedObject.transform.position = new Vector3(worldPos.x, worldPos.y, transform.position.z);
+        lastMergedObject.transform.position = new Vector3(worldPos.x, worldPos.y, 0);
         sceneSR.sprite = mergedSprite;
         sceneSR.sortingLayerID = spriteRenderers[0].sortingLayerID;
         sceneSR.sortingOrder = spriteRenderers[0].sortingOrder;
@@ -247,5 +250,6 @@ public class SpriteMerger : MonoBehaviour
         lastMergedObject.GetComponent<SpriteRenderer>().sprite = AssetDatabase.LoadAssetAtPath<Sprite>(relativePath);
         EditorSceneManager.MarkAllScenesDirty();
     }
-}
+
 #endif
+}

@@ -8,6 +8,12 @@ public class SpriteMergerEditor : Editor
 
     public override void OnInspectorGUI()
     {
+        if (EditorUtility.IsPersistent(target))
+        {
+            EditorGUILayout.HelpBox("This object is selected in the Project window. Place it in the scene!", MessageType.Warning);
+            return;
+        }
+
         var spriteMerger = (SpriteMerger)target;
 
         base.OnInspectorGUI();
@@ -27,11 +33,27 @@ public class SpriteMergerEditor : Editor
             spriteMerger.mergeObjects.AddRange(Selection.transforms);
         }
 
+        if (spriteMerger.mergeObjects.Count <= 0)
+            return;
+
         if (GUILayout.Button("Make Sprites Readable", buttonStyle))
             spriteMerger.MakeSpritesReadable();
 
         if (GUILayout.Button("Merge Sprites", buttonStyle))
             spriteMerger.Merge();
+
+
+        if (isOriginalObjectsVisible)
+        {
+            foreach (var obj in spriteMerger.mergeObjects)
+            {
+                if (obj != null)
+                {
+                    isOriginalObjectsVisible = obj.gameObject.activeSelf;
+                    break;
+                }
+            }
+        }
 
         if (GUILayout.Button((isOriginalObjectsVisible ? "Hide" : "Show") + " Original Objects", buttonStyle))
         {
