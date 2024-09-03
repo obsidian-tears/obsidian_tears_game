@@ -3166,6 +3166,12 @@ MonoBehaviour:
         destinationDialogueID: 57
         isConnector: 0
         priority: 0
+      - originConversationID: 5
+        originDialogueID: 0
+        destinationConversationID: 5
+        destinationDialogueID: 147
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -8626,6 +8632,58 @@ MonoBehaviour:
         y: 491.33276
         width: 160
         height: 30
+    - id: 147
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 6
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 'Phendrin you''ve done it! The Scolopendra... it''s presence has passed
+          from this world. You should probably tell Tana and Rayela if you haven''t
+          already! '
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 5
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 'GetQuestNodeState("TanasArtifacts", "DefeatFinalBoss") ==
+        "success" '
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1676.7114
+        y: 71.699066
+        width: 160
+        height: 30
     entryGroups:
     - name: Group
       rect:
@@ -8635,8 +8693,8 @@ MonoBehaviour:
         width: 1
         height: 1
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 949.43335, y: 0}
-    canvasZoom: 0.43000004
+    canvasScrollPosition: {x: 918.71655, y: 0}
+    canvasZoom: 0.40000004
   - id: 6
     fields:
     - title: Title
@@ -12358,13 +12416,13 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 2228.591
+        x: 2244.9546
         y: 78.403534
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 826.0161, y: 40}
-    canvasZoom: 0.54999983
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.27999985
   - id: 7
     fields:
     - title: Title
@@ -32491,6 +32549,12 @@ MonoBehaviour:
         destinationDialogueID: 29
         isConnector: 0
         priority: 2
+      - originConversationID: 12
+        originDialogueID: 0
+        destinationConversationID: 12
+        destinationDialogueID: 75
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -34741,7 +34805,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 449.9333
-        y: 800.20215
+        y: 798.77356
         width: 160
         height: 30
     - id: 43
@@ -36498,6 +36562,166 @@ MonoBehaviour:
         y: 755.85486
         width: 160
         height: 30
+    - id: 75
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 13
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: So. It is done.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 12
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 12
+        originDialogueID: 75
+        destinationConversationID: 12
+        destinationDialogueID: 76
+        isConnector: 0
+        priority: 2
+      conditionsString: 'GetQuestNodeState("TanasArtifacts", "DefeatFinalBoss") ==
+        "success" '
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 133.75412
+        y: 105.76532
+        width: 160
+        height: 30
+    - id: 76
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 13
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: You've managed to surprise even me... not a feat that is easily managed...
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 12
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 12
+        originDialogueID: 76
+        destinationConversationID: 12
+        destinationDialogueID: 77
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 133.75412
+        y: 162.28705
+        width: 160
+        height: 30
+    - id: 77
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 13
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: I wonder...
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 12
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 133.75412
+        y: 212.28705
+        width: 160
+        height: 30
     entryGroups:
     - name: Group
       rect:
@@ -36507,8 +36731,8 @@ MonoBehaviour:
         width: 1
         height: 1
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 44.49948, y: 0}
-    canvasZoom: 0.46
+    canvasScrollPosition: {x: 253.84508, y: 235.97012}
+    canvasZoom: 0.7599998
   - id: 13
     fields:
     - title: Title
@@ -36819,10 +37043,22 @@ MonoBehaviour:
       userScript: 
       onExecute:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 8300000, guid: 43da67afe6386094db9a193d40823d63, type: 3}
+            m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_MethodName: set_name
+            m_Mode: 5
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: Edited Open Chest
+              m_BoolArgument: 0
+            m_CallState: 2
       canvasRect:
         serializedVersion: 2
-        x: 450.55316
+        x: 451.86896
         y: 12.489349
         width: 160
         height: 30
@@ -36937,8 +37173,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 51.315765, y: 0}
-    canvasZoom: 0.76000035
+    canvasScrollPosition: {x: 36.775375, y: 0}
+    canvasZoom: 0.7600003
   - id: 14
     fields:
     - title: Title
@@ -42622,6 +42858,12 @@ MonoBehaviour:
       - originConversationID: 22
         originDialogueID: 0
         destinationConversationID: 22
+        destinationDialogueID: 13
+        isConnector: 0
+        priority: 2
+      - originConversationID: 22
+        originDialogueID: 0
+        destinationConversationID: 22
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
@@ -42629,12 +42871,6 @@ MonoBehaviour:
         originDialogueID: 0
         destinationConversationID: 22
         destinationDialogueID: 10
-        isConnector: 0
-        priority: 2
-      - originConversationID: 22
-        originDialogueID: 0
-        destinationConversationID: 22
-        destinationDialogueID: 13
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -43361,8 +43597,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 71.555504, y: 15.254568}
-    canvasZoom: 0.8200003
+    canvasScrollPosition: {x: 38.354195, y: 14.316538}
+    canvasZoom: 0.76000035
   - id: 23
     fields:
     - title: Title
@@ -43445,6 +43681,12 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
+      - originConversationID: 23
+        originDialogueID: 0
+        destinationConversationID: 23
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
       - originConversationID: 23
         originDialogueID: 0
         destinationConversationID: 23
@@ -43619,8 +43861,58 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 512.96436
-        y: 103.6104
+        x: 514.1007
+        y: 102.474045
+        width: 160
+        height: 30
+    - id: 4
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 24
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 23
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 'GetQuestNodeState("TanasArtifacts", "DefeatFinalBoss") ==
+        "success" '
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 782.3636
+        y: 67.40909
         width: 160
         height: 30
     entryGroups: []
