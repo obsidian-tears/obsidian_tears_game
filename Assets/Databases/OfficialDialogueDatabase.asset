@@ -2076,8 +2076,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: CurrentQuestState("Quin 1") == "unassigned"
-      userScript: GiveQuest( "Quin", "Quin 1"); SetQuestNodeState("Quin 1", "PreQuestSuccess",
-        "success")
+      userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -2183,6 +2182,56 @@ MonoBehaviour:
         serializedVersion: 2
         x: 61
         y: 257
+        width: 160
+        height: 30
+    - id: 11
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 3
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 'The old script I used for the quest: GiveQuest( "Quin", "Quin 1");
+          SetQuestNodeState("Quin 1", "PreQuestSuccess", "success")'
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 2
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 635.7269
+        y: 110.27269
         width: 160
         height: 30
     entryGroups: []
