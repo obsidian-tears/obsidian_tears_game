@@ -3,7 +3,7 @@ guid: 249f7072259c5494495191392b6d174c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -20,7 +20,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -44,7 +44,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 9
   spritePivot: {x: 0.5128899, y: 0.012966129}
   spritePixelsToUnits: 16
@@ -52,7 +52,7 @@ TextureImporter:
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: -1
+  spriteTessellationDetail: 0.2
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -115,8 +116,20 @@ TextureImporter:
   spriteSheet:
     serializedVersion: 2
     sprites: []
-    outline: []
-    physicsShape: []
+    outline:
+    - - {x: 35, y: 17}
+      - {x: 16, y: 44}
+      - {x: -9, y: 44}
+      - {x: -35, y: 24}
+      - {x: -35, y: -16}
+      - {x: -5, y: -44}
+      - {x: 8, y: -44}
+      - {x: 35, y: -17}
+    physicsShape:
+    - - {x: -12, y: -44}
+      - {x: -12, y: -24}
+      - {x: 14, y: -24}
+      - {x: 14, y: -44}
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
     internalID: 1537655665

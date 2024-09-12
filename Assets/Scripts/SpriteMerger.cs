@@ -19,10 +19,10 @@ public class SpriteMerger : MonoBehaviour
     private GameObject lastMergedObject;
     private Texture2D lastMergedTexture;
 
-    //TODO:    private void SortMergeObjectsByYAxis(){}
-
     public void Merge()
     {
+        mergeObjects.Sort((t1, t2) => t2.position.y.CompareTo(t1.position.y));
+
         var spriteRenderers = new List<SpriteRenderer>();
 
         foreach (var child in mergeObjects)
