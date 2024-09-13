@@ -7643,7 +7643,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1360.2915
+        x: 1359.0256
         y: 1935.5924
         width: 160
         height: 30
@@ -7686,7 +7686,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 5
+        originDialogueID: 116
+        destinationConversationID: 5
+        destinationDialogueID: 148
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -7694,7 +7700,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1356.9856
+        x: 1355.7198
         y: 1986.419
         width: 160
         height: 30
@@ -8733,6 +8739,58 @@ MonoBehaviour:
         y: 71.699066
         width: 160
         height: 30
+    - id: 148
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 6
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: After speaking with Rayela I also would implore you to go talk to
+          Tana, our Lore Master. She speciailizes in ancient relics and lore. She
+          will be most eager to meet you. She resides in the Northwest of the village
+          in the temple.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 5
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: GiveQuest("Captain Herl", "Find the Lore Master")
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1355.7198
+        y: 2050.8926
+        width: 160
+        height: 30
     entryGroups:
     - name: Group
       rect:
@@ -8742,8 +8800,8 @@ MonoBehaviour:
         width: 1
         height: 1
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 1149.4386, y: 17.153606}
-    canvasZoom: 0.54999995
+    canvasScrollPosition: {x: 806.65564, y: 345.84665}
+    canvasZoom: 0.39999998
   - id: 6
     fields:
     - title: Title
@@ -43646,7 +43704,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 38.354195, y: 14.316538}
+    canvasScrollPosition: {x: 64.66994, y: 102.4744}
     canvasZoom: 0.76000035
   - id: 23
     fields:

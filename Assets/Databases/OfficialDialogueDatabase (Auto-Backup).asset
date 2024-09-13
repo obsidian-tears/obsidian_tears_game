@@ -2076,8 +2076,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: CurrentQuestState("Quin 1") == "unassigned"
-      userScript: GiveQuest( "Quin", "Quin 1"); SetQuestNodeState("Quin 1", "PreQuestSuccess",
-        "success")
+      userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -2183,6 +2182,56 @@ MonoBehaviour:
         serializedVersion: 2
         x: 61
         y: 257
+        width: 160
+        height: 30
+    - id: 11
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 3
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 'The old script I used for the quest: GiveQuest( "Quin", "Quin 1");
+          SetQuestNodeState("Quin 1", "PreQuestSuccess", "success")'
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 2
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 635.7269
+        y: 110.27269
         width: 160
         height: 30
     entryGroups: []
@@ -3133,6 +3182,12 @@ MonoBehaviour:
       - originConversationID: 5
         originDialogueID: 0
         destinationConversationID: 5
+        destinationDialogueID: 147
+        isConnector: 0
+        priority: 2
+      - originConversationID: 5
+        originDialogueID: 0
+        destinationConversationID: 5
         destinationDialogueID: 38
         isConnector: 0
         priority: 2
@@ -3166,12 +3221,6 @@ MonoBehaviour:
         destinationDialogueID: 57
         isConnector: 0
         priority: 0
-      - originConversationID: 5
-        originDialogueID: 0
-        destinationConversationID: 5
-        destinationDialogueID: 147
-        isConnector: 0
-        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -3179,8 +3228,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1272.6299
-        y: 211.49496
+        x: 1268.9935
+        y: 207.85861
         width: 160
         height: 30
     - id: 1
@@ -8693,8 +8742,8 @@ MonoBehaviour:
         width: 1
         height: 1
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 918.71655, y: 0}
-    canvasZoom: 0.40000004
+    canvasScrollPosition: {x: 1005.41785, y: 1559.5173}
+    canvasZoom: 0.87999964
   - id: 6
     fields:
     - title: Title
@@ -29467,7 +29516,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Yep!
+        value: 'Yep! '
         type: 0
         typeString: 
       - title: Sequence
@@ -29522,7 +29571,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Sure did!
+        value: Sure did! It was nothing really.
         type: 0
         typeString: 
       - title: Sequence
@@ -31927,8 +31976,8 @@ MonoBehaviour:
         width: 1
         height: 1
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 0, y: 32.19281}
-    canvasZoom: 0.1599999
+    canvasScrollPosition: {x: 4770.1353, y: 170.95853}
+    canvasZoom: 0.46000016
   - id: 10
     fields:
     - title: Title
@@ -43888,7 +43937,179 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
+        value: Is it true? Did you defeat the Scolopendra?
+        type: 0
+        typeString: 
+      - title: Sequence
         value: 
+        type: 0
+        typeString: 
+      conversationID: 23
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 23
+        originDialogueID: 4
+        destinationConversationID: 23
+        destinationDialogueID: 5
+        isConnector: 0
+        priority: 2
+      - originConversationID: 23
+        originDialogueID: 4
+        destinationConversationID: 23
+        destinationDialogueID: 6
+        isConnector: 0
+        priority: 2
+      conditionsString: c
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 782.3636
+        y: 66.189575
+        width: 160
+        height: 30
+    - id: 5
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 24
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: You bet!
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 23
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 23
+        originDialogueID: 5
+        destinationConversationID: 23
+        destinationDialogueID: 7
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 701.8758
+        y: 158.87248
+        width: 160
+        height: 30
+    - id: 6
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 24
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: No, I was too scared
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 23
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 23
+        originDialogueID: 6
+        destinationConversationID: 23
+        destinationDialogueID: 8
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 902.1646
+        y: 154.82886
+        width: 160
+        height: 30
+    - id: 7
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 24
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Ha HA! I knew you'd fit in around here! Where's Captain Herl...I've
+          got to go tell him!
         type: 0
         typeString: 
       - title: Sequence
@@ -43903,21 +44124,71 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 'GetQuestNodeState("TanasArtifacts", "DefeatFinalBoss") ==
-        "success" '
+      conditionsString: 
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 782.3636
-        y: 67.40909
+        x: 701.8758
+        y: 220.71458
+        width: 160
+        height: 30
+    - id: 8
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 24
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Don't play jokes with me. I can sense the shift in the forest, hear
+          the birds chirping, and a light in the air. Don't be so modest! I know
+          you took down that big 'ol boy!
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 23
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 920.58563
+        y: 220.61832
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 137.5, y: 0}
-    canvasZoom: 0.8800001
+    canvasScrollPosition: {x: 217.6551, y: 39.374893}
+    canvasZoom: 0.64000034
   - id: 24
     fields:
     - title: Title
@@ -44000,6 +44271,12 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
+      - originConversationID: 24
+        originDialogueID: 0
+        destinationConversationID: 24
+        destinationDialogueID: 5
+        isConnector: 0
+        priority: 2
       - originConversationID: 24
         originDialogueID: 0
         destinationConversationID: 24
@@ -44234,9 +44511,60 @@ MonoBehaviour:
         y: 163
         width: 160
         height: 30
+    - id: 5
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 25
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Hooray! The Scolopendra is dead! Maybe I can leave my post now...I've
+          had to use the bathroom for ages.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 24
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 'GetQuestNodeState("TanasArtifacts", "DefeatFinalBoss") ==
+        "success" '
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 600.4091
+        y: 71.13635
+        width: 160
+        height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasZoom: 0.8800001
   - id: 25
     fields:
     - title: Title
@@ -62448,7 +62776,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 29.279633
-        y: 193.11853
+        y: 198.1818
         width: 160
         height: 30
     - id: 3
@@ -62531,8 +62859,8 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: "Grace be on the Lands of Eli\u2019 Alan. Darkness is only but the
-          absence of light. When light comes from within \nthere is no place we cannot
-          trod."
+          absence of light. \nWhen light comes from within,\nthere is no place we
+          cannot tread."
         type: 0
         typeString: 
       - title: Sequence
@@ -62565,7 +62893,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
+    canvasScrollPosition: {x: 21.152893, y: 4.8807607}
     canvasZoom: 0.7900002
   syncInfo:
     syncActors: 0
