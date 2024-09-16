@@ -20,7 +20,7 @@ using UnityEngine.LowLevel;
 using UnityEngine.UI;
 using static Opsive.UltimateInventorySystem.DatabaseNames.DemoInventoryDatabaseNames;
 using EventHandler = Opsive.Shared.Events.EventHandler;
-
+using PixelCrushers.DialogueSystem;
 
 public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST, FLEEING }
 public class BattleSystem : MonoBehaviour
@@ -312,6 +312,7 @@ public class BattleSystem : MonoBehaviour
         {
             currentBattle.wonBattle = true;
             dialogueText.text = enemyStats.characterName + " has been defeated.";
+            ReactController.Instance.SignalDefeatMonster(currentBattle.enemy.enemyServerId.ToString());
 
             float disappearTimer = 1f;
             SpriteRenderer renderer = enemy.GetComponent<SpriteRenderer>();
@@ -332,18 +333,37 @@ public class BattleSystem : MonoBehaviour
             var gold = InventorySystemManager.GetCurrency("Gold");
             ownerCurrencyCollection.AddCurrency(gold, currentBattle.enemy.goldDrop);
 
-            ItemInfo[] rewards = currentBattle.enemy.itemDrops;
-            foreach(ItemInfo itemInfo in rewards) {
-                var item = InventorySystemManager.CreateItem(itemInfo.Item);
-                inventory.AddItem(item, itemInfo.Amount);
+            if (currentBattle.enemy.itemDrops.Length > 0)
+            {
+                GameUIManager.Instance.PlayerUI.transform.GetChild(0).gameObject.SetActive(false);
+                GameUIManager.Instance.PlayerUI.gameObject.SetActive(true);
+
+                ItemInfo[] rewards = currentBattle.enemy.itemDrops;
+                foreach (ItemInfo itemInfo in rewards)
+                {
+                    var item = InventorySystemManager.CreateItem(itemInfo.Item);
+                    inventory.AddItem(item, itemInfo.Amount);
+                }
+
+                yield return new WaitForSeconds(2.5f);
+
+                GameUIManager.Instance.PlayerUI.gameObject.SetActive(false);
+                GameUIManager.Instance.PlayerUI.transform.GetChild(0).gameObject.SetActive(true);
             }
 
-            ReactController.Instance.SignalDefeatMonster(currentBattle.enemy.enemyServerId.ToString());
+            if (currentBattle.enemy.goldDrop > 0)
+            {
+                DialogueManager.ShowAlert("Collected " + currentBattle.enemy.goldDrop + " Gold", 2f);
+                yield return new WaitForSeconds(2.5f);
+            }
+
+            if (currentBattle.enemy.xpDrop > 0)
+            {
+                DialogueManager.ShowAlert("Gained " + currentBattle.enemy.xpDrop + " XP", 2f);
+                yield return new WaitForSeconds(2.5f);
+            }
 
             onWin.Invoke();
-
-
-            yield return new WaitForSeconds(2f);
         }
         else if (state == BattleState.LOST)
         {
