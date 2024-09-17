@@ -7643,7 +7643,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1360.2915
+        x: 1359.0256
         y: 1935.5924
         width: 160
         height: 30
@@ -7686,7 +7686,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 5
+        originDialogueID: 116
+        destinationConversationID: 5
+        destinationDialogueID: 148
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -7694,7 +7700,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1356.9856
+        x: 1355.7198
         y: 1986.419
         width: 160
         height: 30
@@ -8733,6 +8739,58 @@ MonoBehaviour:
         y: 71.699066
         width: 160
         height: 30
+    - id: 148
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 6
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: After speaking with Rayela I also would implore you to go talk to
+          Tana, our Lore Master. She speciailizes in ancient relics and lore. She
+          will be most eager to meet you. She resides in the Northwest of the village
+          in the temple.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 5
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: GiveQuest("Captain Herl", "Find the Lore Master")
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 1355.7198
+        y: 2050.8926
+        width: 160
+        height: 30
     entryGroups:
     - name: Group
       rect:
@@ -8742,8 +8800,8 @@ MonoBehaviour:
         width: 1
         height: 1
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 1005.41785, y: 1559.5173}
-    canvasZoom: 0.87999964
+    canvasScrollPosition: {x: 806.65564, y: 345.84665}
+    canvasZoom: 0.39999998
   - id: 6
     fields:
     - title: Title
@@ -43646,7 +43704,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 38.354195, y: 14.316538}
+    canvasScrollPosition: {x: 64.66994, y: 102.4744}
     canvasZoom: 0.76000035
   - id: 23
     fields:
@@ -48579,8 +48637,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: 'Alright then, runt. If you can bring me back 2 hearts of Dark Beoites
-          I''ll have a surprise for you. '
+        value: 'Alright then, runt. If you can bring me back two hearts of the Dark
+          Twiggus I''ll have a surprise for you. '
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -48671,7 +48729,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 839.42065
-        y: 216.53302
+        y: 215.23688
         width: 160
         height: 30
     - id: 9
@@ -48720,7 +48778,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: uisRemoveItem("Dark Beoite Heart", 2, "", "")
+      userScript: uisRemoveItem("Dark Twiggus Heart", 2, "", "")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -48753,8 +48811,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Oh what's this? Tut tut, you don't even have 2 dark beoite hearts.
-          Only come back when you have found 2. Don't worry, I'll be sure to make
+        value: Oh what's this? Tut tut, you don't even have two dark twiggus hearts.
+          Only come back when you have found two. Don't worry, I'll be sure to make
           it worth your time.
         type: 0
         typeString: CustomFieldType_Text
@@ -48776,7 +48834,7 @@ MonoBehaviour:
         destinationDialogueID: 17
         isConnector: 0
         priority: 2
-      conditionsString: uisGetItemAmount("Dark Beoite Heart", "") < 2
+      conditionsString: uisGetItemAmount("Dark Twiggus Heart", "") < 2
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -49127,7 +49185,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: 'Hehe. What''s this? You''ve acquired 2 different dark beoite hearts?
+        value: 'Hehe. What''s this? You''ve acquired two different dark twiggus hearts?
           It appears I underestimated you. '
         type: 0
         typeString: CustomFieldType_Text
@@ -49149,7 +49207,7 @@ MonoBehaviour:
         destinationDialogueID: 9
         isConnector: 0
         priority: 2
-      conditionsString: uisGetItemAmount("Dark Beoite Heart", "") >= 2
+      conditionsString: uisGetItemAmount("Dark Twiggus Heart", "") >= 2
       userScript: SetQuestNodeState("Crypee's Subterfuge", "ReturnToCrypee", "success")
       onExecute:
         m_PersistentCalls:
@@ -49259,8 +49317,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 98.71002, y: 13.460449}
-    canvasZoom: 0.8915001
+    canvasScrollPosition: {x: 553.2439, y: 169.79909}
+    canvasZoom: 0.77150023
   - id: 37
     fields:
     - title: Title

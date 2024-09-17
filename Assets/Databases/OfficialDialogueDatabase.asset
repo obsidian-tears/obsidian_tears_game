@@ -8800,7 +8800,7 @@ MonoBehaviour:
         width: 1
         height: 1
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 806.65564, y: 345.84665}
+    canvasScrollPosition: {x: 920.14404, y: 414.45132}
     canvasZoom: 0.39999998
   - id: 6
     fields:
@@ -32034,8 +32034,8 @@ MonoBehaviour:
         width: 1
         height: 1
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 4770.1353, y: 170.95853}
-    canvasZoom: 0.46000016
+    canvasScrollPosition: {x: 1950.3778, y: 2068.63}
+    canvasZoom: 0.87999964
   - id: 10
     fields:
     - title: Title
@@ -42971,13 +42971,13 @@ MonoBehaviour:
       - originConversationID: 22
         originDialogueID: 0
         destinationConversationID: 22
-        destinationDialogueID: 1
+        destinationDialogueID: 10
         isConnector: 0
         priority: 2
       - originConversationID: 22
         originDialogueID: 0
         destinationConversationID: 22
-        destinationDialogueID: 10
+        destinationDialogueID: 1
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -43540,7 +43540,7 @@ MonoBehaviour:
         destinationDialogueID: 11
         isConnector: 0
         priority: 2
-      conditionsString: 'GetQuestNodeState("TanasArtifacts", "VillageKey2") == "success" '
+      conditionsString: GetQuestNodeState("TanasArtifacts", "ReturntoTana") == "success"
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -43548,7 +43548,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 580.7601
-        y: 90.29268
+        y: 92.89319
         width: 160
         height: 30
     - id: 11
@@ -43704,8 +43704,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 64.66994, y: 102.4744}
-    canvasZoom: 0.76000035
+    canvasScrollPosition: {x: 180.0083, y: 0}
+    canvasZoom: 0.7402506
   - id: 23
     fields:
     - title: Title
@@ -43895,8 +43895,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: This is the North Gate. No passage outside the village allowed without
-          clearance.
+        value: 'This is the North Gate. No passage outside the village allowed without
+          clearance from Captain Herl and Tana. '
         type: 0
         typeString: 
       - title: Sequence
@@ -43961,7 +43961,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 'GetQuestNodeState("TanasArtifacts", "VillageKey2") == "success" '
+      conditionsString: GetQuestNodeState("TanasArtifacts", "ReturntoTana") == success
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -44022,14 +44022,15 @@ MonoBehaviour:
         destinationDialogueID: 6
         isConnector: 0
         priority: 2
-      conditionsString: c
+      conditionsString: 'GetQuestNodeState("TanasArtifacts", "DefeatFinalBoss") ==
+        "success" '
       userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 782.3636
+        x: 780.93506
         y: 66.189575
         width: 160
         height: 30
@@ -44245,8 +44246,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 217.6551, y: 39.374893}
-    canvasZoom: 0.64000034
+    canvasScrollPosition: {x: 198.41405, y: 15.5756645}
+    canvasZoom: 0.7000003
   - id: 24
     fields:
     - title: Title
@@ -44437,7 +44438,9 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: This be the western gate. It is currently closed, you can't go any
-          further. Only word from Tana or Captain Herl will get me to open this gate.
+          further. Only word from Tana and Captain Herl will get me to open this
+          gate. You can find Tana in the Lore Sanctonium in the Northwest corner
+          of the village.
         type: 0
         typeString: 
       - title: Sequence
@@ -44508,7 +44511,7 @@ MonoBehaviour:
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
-      conditionsString: 'GetQuestNodeState("TanasArtifacts", "VillageKey2") == "success" '
+      conditionsString: GetQuestNodeState("TanasArtifacts", "ReturntoTana") == "success"
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -44621,7 +44624,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
+    canvasScrollPosition: {x: 205.68176, y: 0}
     canvasZoom: 0.8800001
   - id: 25
     fields:
@@ -56310,7 +56313,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 1720.0634
+        x: 1716.4271
         y: 1190.5079
         width: 160
         height: 30
@@ -57817,8 +57820,8 @@ MonoBehaviour:
         width: 1
         height: 1
       color: {r: 1, g: 1, b: 1, a: 0.5}
-    canvasScrollPosition: {x: 888.3786, y: 227.14291}
-    canvasZoom: 0.69999987
+    canvasScrollPosition: {x: 1491.2007, y: 126.71634}
+    canvasZoom: 0.5799999
   - id: 46
     fields:
     - title: Title
