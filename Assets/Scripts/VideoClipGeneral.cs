@@ -1,67 +1,53 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.Video;
-using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 
 public class VideoClipGeneral : MonoBehaviour
 {
-
     [SerializeField] private VideoPlayer videoPlayer;
-    [SerializeField] private GameObject videoPlayerCanvas;
-    [SerializeField] private GameObject videoClipGameObj;
-    private List<GameObject> listGameObj = new List<GameObject>();
+    [SerializeField] private GameObject videoRawImage;
+    [SerializeField] private Animator screenFader;
 
-    [SerializeField] private Animator fadeAnim;
-    [SerializeField] private GameObject fadeCanvas;
-    private GameObject player;
+    private List<GameObject> listGameObj = new List<GameObject>();
     private Player playercomponent;
 
-   public void OnVideoStart(string videoUrl)
+    public void AddGameObject(GameObject gameObj) => listGameObj.Add(gameObj);
+
+    public void StartVideo(string videoUrl)
     {
-        
-        player = GameObject.FindWithTag("Player");
-        playercomponent = player.GetComponent<Player>();        
+        playercomponent = GameObject.FindWithTag("Player").GetComponent<Player>();
         playercomponent.enabled = false;
-        foreach (GameObject gameObj in listGameObj) { gameObj.SetActive(true); }
+
+        foreach (var gameObj in listGameObj) { gameObj.SetActive(true); }
+
         StartCoroutine(FadeIn(videoUrl));
-    }
-
-    private void OnVideoEnd(VideoPlayer video)
-    {
-        playercomponent.enabled = true;
-
-        videoPlayerCanvas.gameObject.SetActive(false);
-        videoClipGameObj.gameObject.SetActive(false);
-        fadeCanvas.SetActive(false);
-        
-        //Time.timeScale = 1;
-    }
-
-    public void AddGameObject(GameObject gameObj)
-    {
-
-        listGameObj.Add(gameObj);
-
     }
 
     public IEnumerator FadeIn(string videoUrl)
     {
-
-        fadeCanvas.SetActive(true);
-        fadeAnim.SetTrigger("FadeIn");
-       // Time.timeScale = 0;
-        videoPlayerCanvas.gameObject.SetActive(true);
-        videoClipGameObj.gameObject.SetActive(true);        
-        yield return new WaitForSeconds(fadeAnim.GetCurrentAnimatorStateInfo(0).length);
-        fadeAnim.SetTrigger("FadeOut");
+        screenFader.transform.root.gameObject.SetActive(true);
+        screenFader.SetTrigger("FadeIn");
+        yield return new WaitForSeconds(screenFader.GetCurrentAnimatorStateInfo(0).length);
+        videoRawImage.SetActive(true);
+        videoPlayer.gameObject.SetActive(true);
         videoPlayer.url = videoUrl;
         videoPlayer.Play();
         videoPlayer.loopPointReached += OnVideoEnd;
     }
 
+    private void OnVideoEnd(VideoPlayer video)
+    {
+        videoRawImage.SetActive(false);
+        videoPlayer.gameObject.SetActive(false);
+        StartCoroutine(FadeOut());
+    }
 
-
-
+    public IEnumerator FadeOut()
+    {
+        screenFader.SetTrigger("FadeOut");
+        yield return new WaitForSeconds(screenFader.GetCurrentAnimatorStateInfo(0).length);
+        screenFader.transform.root.gameObject.SetActive(false);
+        playercomponent.enabled = true;
+    }
 }

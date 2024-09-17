@@ -38,6 +38,8 @@ namespace PixelCrushers
         [Tooltip("Instantiate this if already destroyed when loading game or scene.")]
         [SerializeField]
         private GameObject m_destroyedVersionPrefab;
+        [SerializeField]
+        private bool m_spawnPrefabImmediately;
 
         private DestructibleData m_data = new DestructibleData();
         private bool m_ignoreOnDestroy = false;
@@ -58,6 +60,12 @@ namespace PixelCrushers
         {
             get { return m_destroyedVersionPrefab; }
             set { m_destroyedVersionPrefab = value; }
+        }
+
+        public bool spawnPrefabImmediately
+        {
+            get { return m_spawnPrefabImmediately; }
+            set { m_spawnPrefabImmediately = value; }
         }
 
         public override void OnBeforeSceneChange()
@@ -84,6 +92,9 @@ namespace PixelCrushers
         {
             if (!m_ignoreOnDestroy && SaveSystem.instance != null)
             {
+                if (destroyedVersionPrefab && spawnPrefabImmediately)
+                    Instantiate(destroyedVersionPrefab, transform.position, transform.rotation);
+
                 m_data.destroyed = true;
                 m_data.position = transform.position;
                 SaveSystem.UpdateSaveData(this, SaveSystem.Serialize(m_data));
@@ -103,10 +114,9 @@ namespace PixelCrushers
             m_data = data;
             if (data.destroyed)
             {
-                if (destroyedVersionPrefab != null)
-                {
+                if (destroyedVersionPrefab)
                     Instantiate(destroyedVersionPrefab, data.position, transform.rotation);
-                }
+
                 switch (destroyMode)
                 {
                     case DestroyMode.Destroy:
