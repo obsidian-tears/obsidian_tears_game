@@ -48637,8 +48637,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: 'Alright then, runt. If you can bring me back 2 hearts of Dark Beoites
-          I''ll have a surprise for you. '
+        value: 'Alright then, runt. If you can bring me back two hearts of the Dark
+          Twiggus I''ll have a surprise for you. '
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
@@ -48729,7 +48729,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 839.42065
-        y: 216.53302
+        y: 215.23688
         width: 160
         height: 30
     - id: 9
@@ -48778,7 +48778,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: uisRemoveItem("Dark Beoite Heart", 2, "", "")
+      userScript: uisRemoveItem("Dark Twiggus Heart", 2, "", "")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -48811,8 +48811,8 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: Oh what's this? Tut tut, you don't even have 2 dark beoite hearts.
-          Only come back when you have found 2. Don't worry, I'll be sure to make
+        value: Oh what's this? Tut tut, you don't even have two dark twiggus hearts.
+          Only come back when you have found two. Don't worry, I'll be sure to make
           it worth your time.
         type: 0
         typeString: CustomFieldType_Text
@@ -48834,7 +48834,7 @@ MonoBehaviour:
         destinationDialogueID: 17
         isConnector: 0
         priority: 2
-      conditionsString: uisGetItemAmount("Dark Beoite Heart", "") < 2
+      conditionsString: uisGetItemAmount("Dark Twiggus Heart", "") < 2
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -49185,7 +49185,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: 'Hehe. What''s this? You''ve acquired 2 different dark beoite hearts?
+        value: 'Hehe. What''s this? You''ve acquired two different dark twiggus hearts?
           It appears I underestimated you. '
         type: 0
         typeString: CustomFieldType_Text
@@ -49207,7 +49207,7 @@ MonoBehaviour:
         destinationDialogueID: 9
         isConnector: 0
         priority: 2
-      conditionsString: uisGetItemAmount("Dark Beoite Heart", "") >= 2
+      conditionsString: uisGetItemAmount("Dark Twiggus Heart", "") >= 2
       userScript: SetQuestNodeState("Crypee's Subterfuge", "ReturnToCrypee", "success")
       onExecute:
         m_PersistentCalls:
@@ -49317,8 +49317,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 98.71002, y: 13.460449}
-    canvasZoom: 0.8915001
+    canvasScrollPosition: {x: 553.2439, y: 169.79909}
+    canvasZoom: 0.77150023
   - id: 37
     fields:
     - title: Title
