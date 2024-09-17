@@ -28,7 +28,7 @@ public class VideoClipGeneral : MonoBehaviour
     {
         screenFader.transform.root.gameObject.SetActive(true);
         screenFader.SetTrigger("FadeIn");
-        yield return new WaitForSeconds(screenFader.GetCurrentAnimatorStateInfo(0).length);
+        yield return new WaitForSecondsRealtime(screenFader.GetCurrentAnimatorStateInfo(0).length);
         videoRawImage.SetActive(true);
         videoPlayer.gameObject.SetActive(true);
         videoPlayer.url = videoUrl;
@@ -46,7 +46,7 @@ public class VideoClipGeneral : MonoBehaviour
     public IEnumerator FadeOut()
     {
         screenFader.SetTrigger("FadeOut");
-        yield return new WaitForSeconds(screenFader.GetCurrentAnimatorStateInfo(0).length);
+        yield return new WaitForSecondsRealtime(screenFader.GetCurrentAnimatorStateInfo(0).length);
         screenFader.transform.root.gameObject.SetActive(false);
         playercomponent.enabled = true;
     }
