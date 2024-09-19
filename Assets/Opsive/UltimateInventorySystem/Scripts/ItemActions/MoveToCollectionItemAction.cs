@@ -46,7 +46,8 @@ namespace Opsive.UltimateInventorySystem.ItemActions
             var item = itemInfo.Item;
             var inventory = itemInfo.Inventory;
 
-            if (inventory == null) {
+            if (inventory == null)
+            {
                 return false;
             }
 
@@ -54,10 +55,13 @@ namespace Opsive.UltimateInventorySystem.ItemActions
 
             if (secondCollection == null) { return false; }
 
-            if (secondCollection.HasItem((1, item))) {
+            if (secondCollection.HasItem((1, item)))
+            {
                 m_MoveFromFirstToSecond = false;
                 m_Name = m_MoveFromSecondToFirstActionName;
-            } else {
+            }
+            else
+            {
                 m_MoveFromFirstToSecond = true;
                 m_Name = m_MoveFromFirstToSecondActionName;
             }
@@ -85,37 +89,51 @@ namespace Opsive.UltimateInventorySystem.ItemActions
 
             var originalItem = originalCollection.RemoveItem(itemInfo);
             var movedItemInfo = ItemInfo.None;
-            
-            if (destinationCollection is ItemSlotCollection itemSlotCollection) {
+
+            if (destinationCollection is ItemSlotCollection itemSlotCollection)
+            {
                 var slotIndex = itemSlotCollection.GetTargetSlotIndex(item);
-                if (slotIndex != -1) {
+                if (slotIndex != -1)
+                {
                     var previousItemInSlot = itemSlotCollection.GetItemInfoAtSlot(slotIndex);
 
-                    if (previousItemInSlot.Item != null) {
+                    if (previousItemInSlot.Item != null)
+                    {
                         //If the previous item is stackable don't remove it.
-                        if (previousItemInSlot.Item.StackableEquivalentTo(originalItem.Item)) {
+                        if (previousItemInSlot.Item.StackableEquivalentTo(originalItem.Item))
+                        {
                             previousItemInSlot = ItemInfo.None;
-                        } else {
-                            previousItemInSlot = itemSlotCollection.RemoveItem(slotIndex); 
+                        }
+                        else
+                        {
+                            previousItemInSlot = itemSlotCollection.RemoveItem(slotIndex);
                         }
                     }
-            
+
                     movedItemInfo = itemSlotCollection.AddItem(originalItem, slotIndex);
 
-                    if (previousItemInSlot.Item != null) {
+                    if (previousItemInSlot.Item != null)
+                    {
                         firstCollection.AddItem(previousItemInSlot);
                     }
                 }
-            } else {
+            }
+            else
+            {
                 movedItemInfo = destinationCollection.AddItem(originalItem);
             }
 
             //Not all the item was added, return the items to the default collection.
-            if (movedItemInfo.Amount != originalItem.Amount) {
+            if (movedItemInfo.Amount != originalItem.Amount)
+            {
                 var amountToReturn = originalItem.Amount - movedItemInfo.Amount;
-                firstCollection.AddItem((ItemInfo) (amountToReturn, originalItem));
+                firstCollection.AddItem((ItemInfo)(amountToReturn, originalItem));
+
+                string characterClass;
+                originalItem.Item.TryGetAttributeValue("Class", out characterClass);
+                CantEquipItemNote.Instance.ShowNote(characterClass);
             }
-            
+
         }
     }
 }
