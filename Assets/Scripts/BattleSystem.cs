@@ -339,14 +339,44 @@ public class BattleSystem : MonoBehaviour
                 GameUIManager.Instance.PlayerUI.transform.GetChild(1).gameObject.SetActive(false);
                 GameUIManager.Instance.PlayerUI.gameObject.SetActive(true);
 
-                ItemInfo[] rewards = currentBattle.enemy.itemDrops;
+                var rewards = new List<ItemInfo>();
+                var randomRewards = new List<ItemInfo>();
+
+                foreach (var item in currentBattle.enemy.itemDrops)
+                {
+                    if (item.probability >= 100)
+                        rewards.Add(item);
+                    else
+                        randomRewards.Add(item);
+                }
+
+                if (randomRewards.Count > 0)
+                {
+                    var totalProbability = 0;
+                    foreach (var item in randomRewards)
+                        totalProbability += item.probability;
+
+                    var randomValue = UnityEngine.Random.Range(0, totalProbability);
+
+                    var cumulativeProbability = 0;
+                    foreach (var item in randomRewards)
+                    {
+                        cumulativeProbability += item.probability;
+                        if (randomValue <= cumulativeProbability)
+                        {
+                            rewards.Add(item);
+                            break;
+                        }
+                    }
+                }
+
                 foreach (ItemInfo itemInfo in rewards)
                 {
                     var item = InventorySystemManager.CreateItem(itemInfo.Item);
                     inventory.AddItem(item, itemInfo.Amount);
                 }
 
-                yield return new WaitForSeconds(2.5f);
+                yield return new WaitForSeconds(rewards.Count * 0.5f + 2);
 
                 GameUIManager.Instance.PlayerUI.gameObject.SetActive(false);
                 GameUIManager.Instance.PlayerUI.transform.GetChild(0).gameObject.SetActive(true);

@@ -20,13 +20,16 @@ public class Autosave : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name != "GranGranFirst" && !haveAsked)
+        if (!haveAsked && scene.name != "GranGranFirst" && scene.name != "Battle")
             StartCoroutine(AskForAutosave());
     }
 
     void Start()
     {
-        if (SceneManager.GetActiveScene().name != "GranGranFirst" && !haveAsked)
+        if (haveAsked) return;
+
+        var sceneName = SceneManager.GetActiveScene().name;
+        if (sceneName != "GranGranFirst" && sceneName != "Battle")
             StartCoroutine(AskForAutosave());
     }
 

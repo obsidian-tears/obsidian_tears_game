@@ -16,6 +16,8 @@ namespace Opsive.UltimateInventorySystem.Core.DataStructures
     [Serializable]
     public struct ItemInfo : IEquatable<ItemInfo>
     {
+        [Range(0, 100)]public int probability;
+
         public static ItemInfo None => new ItemInfo();
 
         [Tooltip("The item amount.")]
@@ -43,6 +45,7 @@ namespace Opsive.UltimateInventorySystem.Core.DataStructures
             m_ItemAmount = itemAmount;
             m_ItemStack = itemStack;
             m_ItemCollection = itemCollection;
+            probability = 100;
         }
 
         /// <summary>
@@ -55,6 +58,7 @@ namespace Opsive.UltimateInventorySystem.Core.DataStructures
             m_ItemAmount = itemAmount;
             m_ItemCollection = itemCollection;
             m_ItemStack = null;
+            probability = 100;
         }
 
         /// <summary>
@@ -67,6 +71,7 @@ namespace Opsive.UltimateInventorySystem.Core.DataStructures
             m_ItemAmount = itemAmount;
             m_ItemCollection = otherItemInfo.ItemCollection;
             m_ItemStack = otherItemInfo.ItemStack;
+            probability = 100;
         }
 
         /// <summary>
@@ -78,8 +83,9 @@ namespace Opsive.UltimateInventorySystem.Core.DataStructures
             m_ItemAmount = itemAmount;
             m_ItemCollection = null;
             m_ItemStack = null;
+            probability = 100;
         }
-        
+
         /// <summary>
         /// ItemInfo constructor, copy the item info and change the item amount.
         /// </summary>
@@ -90,8 +96,9 @@ namespace Opsive.UltimateInventorySystem.Core.DataStructures
             m_ItemAmount = new ItemAmount(otherItemInfo.Item, amount);
             m_ItemCollection = otherItemInfo.ItemCollection;
             m_ItemStack = otherItemInfo.ItemStack;
+            probability = 100;
         }
-        
+
         /// <summary>
         /// ItemInfo constructor, copy the item info and change the item amount.
         /// </summary>
@@ -102,6 +109,7 @@ namespace Opsive.UltimateInventorySystem.Core.DataStructures
             m_ItemAmount = new ItemAmount(otherItemInfo.Item, amount);
             m_ItemCollection = otherItemInfo.ItemCollection;
             m_ItemStack = otherItemInfo.ItemStack;
+            probability = 100;
         }
 
         /// <summary>
@@ -114,8 +122,9 @@ namespace Opsive.UltimateInventorySystem.Core.DataStructures
             m_ItemAmount = (item, amount);
             m_ItemCollection = null;
             m_ItemStack = null;
+            probability = 100;
         }
-        
+
         /// <summary>
         /// ItemInfo constructor.
         /// </summary>
@@ -126,6 +135,7 @@ namespace Opsive.UltimateInventorySystem.Core.DataStructures
             m_ItemAmount = (item, amount);
             m_ItemCollection = null;
             m_ItemStack = null;
+            probability = 100;
         }
 
         /// <summary>
@@ -138,8 +148,9 @@ namespace Opsive.UltimateInventorySystem.Core.DataStructures
             m_ItemAmount = (InventorySystemManager.CreateItem(itemDefinition), amount);
             m_ItemCollection = null;
             m_ItemStack = null;
+            probability = 100;
         }
-        
+
         /// <summary>
         /// ItemInfo constructor.
         /// </summary>
@@ -150,6 +161,7 @@ namespace Opsive.UltimateInventorySystem.Core.DataStructures
             m_ItemAmount = (InventorySystemManager.CreateItem(itemDefinition), amount);
             m_ItemCollection = null;
             m_ItemStack = null;
+            probability = 100;
         }
 
         /// <summary>
@@ -162,8 +174,9 @@ namespace Opsive.UltimateInventorySystem.Core.DataStructures
             m_ItemAmount = (InventorySystemManager.CreateItem(itemName), amount);
             m_ItemCollection = null;
             m_ItemStack = null;
+            probability = 100;
         }
-        
+
         /// <summary>
         /// ItemInfo constructor.
         /// </summary>
@@ -174,6 +187,7 @@ namespace Opsive.UltimateInventorySystem.Core.DataStructures
             m_ItemAmount = (InventorySystemManager.CreateItem(itemName), amount);
             m_ItemCollection = null;
             m_ItemStack = null;
+            probability = 100;
         }
 
         /// <summary>
@@ -182,17 +196,20 @@ namespace Opsive.UltimateInventorySystem.Core.DataStructures
         /// <param name="itemStack">The item stack where the item comes from within the item collection.</param>
         public ItemInfo(ItemStack itemStack)
         {
-            if (itemStack == null) {
+            if (itemStack == null)
+            {
                 m_ItemAmount = ItemAmount.None;
                 m_ItemStack = null;
                 m_ItemCollection = null;
+                probability = 100;
                 return;
             }
             m_ItemAmount = itemStack.ItemAmount;
             m_ItemStack = itemStack;
             m_ItemCollection = itemStack.ItemCollection;
+            probability = 100;
         }
-        
+
         /// <summary>
         /// ItemInfo constructor.
         /// </summary>
@@ -200,16 +217,19 @@ namespace Opsive.UltimateInventorySystem.Core.DataStructures
         /// <param name="itemStack">The item stack where the item comes from within the item collection.</param>
         public ItemInfo(int itemAmount, ItemStack itemStack)
         {
-            if (itemStack == null) {
+            if (itemStack == null)
+            {
                 m_ItemAmount = ItemAmount.None;
                 m_ItemStack = null;
                 m_ItemCollection = null;
+                probability = 100;
                 return;
             }
-            
+
             m_ItemAmount = (itemAmount, itemStack.Item);
             m_ItemStack = itemStack;
             m_ItemCollection = itemStack.ItemCollection;
+            probability = 100;
         }
 
         public static implicit operator ItemInfo((ItemAmount, ItemCollection, ItemStack) x)
@@ -241,7 +261,7 @@ namespace Opsive.UltimateInventorySystem.Core.DataStructures
 
         public static explicit operator ItemInfo(ItemStack x)
             => new ItemInfo(x);
-        
+
         public static explicit operator ItemInfo((int, ItemStack) x)
             => new ItemInfo(x.Item1, x.Item2);
 
@@ -260,7 +280,8 @@ namespace Opsive.UltimateInventorySystem.Core.DataStructures
         /// <returns>The readable format for an Item Info.</returns>
         public override string ToString()
         {
-            if (this == ItemInfo.None) {
+            if (this == ItemInfo.None)
+            {
                 return "None ItemInfo";
             }
 
