@@ -10,7 +10,8 @@ public class Autosave : MonoBehaviour
     public GameObject DialoguePanel;
 
     bool haveAsked;
-    bool isEnabled;
+    [HideInInspector]
+    public bool isEnabled;
     Coroutine autosaveCoroutine;
 
     void Awake() => Instance = this;
@@ -64,6 +65,9 @@ public class Autosave : MonoBehaviour
         while (SceneManager.GetActiveScene().name == "Battle")
             yield return new WaitForSeconds(20);
 
-        ReactController.Instance.SignalSaveGame();
+        if (SaveLoadConfirmation.Instance.showSaveConfirmation)
+            SaveLoadConfirmation.Instance.ShowSaveConfirmationPanel();
+        else
+            ReactController.Instance.SignalSaveGame();
     }
 }

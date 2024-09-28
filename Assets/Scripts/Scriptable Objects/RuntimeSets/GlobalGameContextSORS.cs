@@ -23,12 +23,18 @@ public class GlobalGameContextSORS : ScriptableObject
 
     public void SaveGameReact()
     {
-        ReactController.Instance.SignalSaveGame();
+        if (SaveLoadConfirmation.Instance && SaveLoadConfirmation.Instance.showSaveConfirmation)
+            SaveLoadConfirmation.Instance.ShowSaveConfirmationPanel();
+        else
+            ReactController.Instance.SignalSaveGame();
     }
 
     public void LoadGameReact()
     {
-        ReactController.Instance.SignalLoadGame();
+        if (SaveLoadConfirmation.Instance && SaveLoadConfirmation.Instance.showLoadConfirmation)
+            SaveLoadConfirmation.Instance.ShowLoadConfirmationPanel();
+        else
+            ReactController.Instance.SignalLoadGame();
     }
 
     /// <summary>
@@ -51,7 +57,7 @@ public class GlobalGameContextSORS : ScriptableObject
         // Journal is not present in the battle
         if (GameUIManager.Instance.CurrentMode == UIMode.BATTLE)
             return;
-        
+
         if (CheckForJournal())
         {
             m_questJournal.ToggleJournalUI();
@@ -63,7 +69,7 @@ public class GlobalGameContextSORS : ScriptableObject
         // Journal is not present in the battle
         if (GameUIManager.Instance.CurrentMode == UIMode.BATTLE)
             return;
-        
+
         if (CheckForJournal())
         {
             m_questJournal.HideJournalUI();

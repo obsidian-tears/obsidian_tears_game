@@ -36,7 +36,7 @@ public class ReactController : MonoSingleton<ReactController>
     MySignal unfreezeSignal;
 
     public event Action<bool> OnLoadGameCheckDone;
-    
+
     // TODO Uncomment this for cooperation with react script!
     // [DllImport("__Internal")]
     // private static extern void CheckForLoadGame();
@@ -111,8 +111,8 @@ public class ReactController : MonoSingleton<ReactController>
         if (fromReact)
         {
             SignalLoadGame();
-        }       
-        
+        }
+
     }
 
     /// <summary>
@@ -156,7 +156,8 @@ public class ReactController : MonoSingleton<ReactController>
     public void ListenLoadGame(string fromReact)
     {
         Debug.Log("LOADING, DATA TO LOAD: " + fromReact);
-        if(fromReact != "{}") {
+        if (fromReact != "{}")
+        {
             SavedGameData gameData = SaveSystem.Deserialize<PixelCrushers.SavedGameData>(fromReact);
             SaveSystem.LoadGame(gameData);
         }
@@ -169,7 +170,9 @@ public class ReactController : MonoSingleton<ReactController>
     {
         // freeze
         GameUIManager.Instance.ShowLoadingIndicator(true, true);
-        Autosave.Instance.RestartAutosaveCoroutine();
+        
+        if (Autosave.Instance && Autosave.Instance.isEnabled)
+            Autosave.Instance.RestartAutosaveCoroutine();
 
         // get saved game data
         SavedGameData gameData = SaveSystem.RecordSavedGameData();
@@ -208,7 +211,7 @@ public class ReactController : MonoSingleton<ReactController>
     public void SignalOpenChest(string treasureIndex)
     {
         Debug.Log("Deprecated Signal Open Chest was called");
-        
+
         // #if UNITY_WEBGL == true && UNITY_EDITOR == false
         // OpenChest((int)Math.Round(double.Parse(treasureIndex)), gameObject.name);
         // #endif
@@ -252,7 +255,7 @@ public class ReactController : MonoSingleton<ReactController>
     public void SignalBuyItem(string shopIndex, string itemDefId, int quantity)
     {
         // TODO: remove from all callers and then delete event
-        Debug.Log("Buy Item - Event Deprecated");        
+        Debug.Log("Buy Item - Event Deprecated");
     }
 
     public void EquipItems()
