@@ -11116,7 +11116,7 @@ MonoBehaviour:
       - m_Target: {fileID: 362595543776825069}
         m_TargetAssemblyTypeName: Opsive.UltimateInventorySystem.UI.Panels.DisplayPanel,
           Opsive.UltimateInventorySystem
-        m_MethodName: SmartOpen
+        m_MethodName: SmartToggle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -25368,8 +25368,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3012373156006014666}
-  m_Father: {fileID: 6560508856131590104}
-  m_RootOrder: 1
+  m_Father: {fileID: 2763691646933398064}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.7606581, y: 0.8855587}
   m_AnchorMax: {x: 0.8250802, y: 0.9403486}
@@ -25461,7 +25461,7 @@ MonoBehaviour:
       - m_Target: {fileID: 4541092285259220539}
         m_TargetAssemblyTypeName: Opsive.UltimateInventorySystem.UI.Panels.DisplayPanel,
           Opsive.UltimateInventorySystem
-        m_MethodName: SmartOpen
+        m_MethodName: SmartToggle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -29916,10 +29916,11 @@ MonoBehaviour:
   m_OnClickEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4189821660890787477}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 8169597944018083318}
+        m_TargetAssemblyTypeName: Opsive.UltimateInventorySystem.UI.Panels.DisplayPanel,
+          Opsive.UltimateInventorySystem
+        m_MethodName: SmartToggle
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -51007,6 +51008,7 @@ RectTransform:
   m_Children:
   - {fileID: 2763691648292339165}
   - {fileID: 2763691647829940561}
+  - {fileID: 4398821304235649928}
   m_Father: {fileID: 2763691647764247982}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -74407,7 +74409,7 @@ MonoBehaviour:
       - m_Target: {fileID: 310027091962278875}
         m_TargetAssemblyTypeName: Opsive.UltimateInventorySystem.UI.Panels.DisplayPanel,
           Opsive.UltimateInventorySystem
-        m_MethodName: SmartOpen
+        m_MethodName: SmartToggle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -80168,7 +80170,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 966483315936347776}
-  - {fileID: 4398821304235649928}
   m_Father: {fileID: 2763691648059227239}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -87212,3 +87213,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5909017824172612632, guid: 598c2747c78dd2d449c0bc4037eb4149, type: 3}
   m_PrefabInstance: {fileID: 7504176743229193601}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8169597944018083318 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1820596601322332279, guid: 598c2747c78dd2d449c0bc4037eb4149, type: 3}
+  m_PrefabInstance: {fileID: 7504176743229193601}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4189821660890787477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b66082a767b1a4841927fdfa001813b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
