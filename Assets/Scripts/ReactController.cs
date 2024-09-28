@@ -169,6 +169,7 @@ public class ReactController : MonoSingleton<ReactController>
     {
         // freeze
         GameUIManager.Instance.ShowLoadingIndicator(true, true);
+        Autosave.Instance.RestartAutosaveCoroutine();
 
         // get saved game data
         SavedGameData gameData = SaveSystem.RecordSavedGameData();
