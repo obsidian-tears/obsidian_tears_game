@@ -336,6 +336,7 @@ public class BattleSystem : MonoBehaviour
             if (currentBattle.enemy.itemDrops.Length > 0)
             {
                 GameUIManager.Instance.PlayerUI.transform.GetChild(0).gameObject.SetActive(false);
+                GameUIManager.Instance.PlayerUI.transform.GetChild(1).gameObject.SetActive(false);
                 GameUIManager.Instance.PlayerUI.gameObject.SetActive(true);
 
                 ItemInfo[] rewards = currentBattle.enemy.itemDrops;
@@ -349,6 +350,7 @@ public class BattleSystem : MonoBehaviour
 
                 GameUIManager.Instance.PlayerUI.gameObject.SetActive(false);
                 GameUIManager.Instance.PlayerUI.transform.GetChild(0).gameObject.SetActive(true);
+                GameUIManager.Instance.PlayerUI.transform.GetChild(1).gameObject.SetActive(true);
             }
 
             if (currentBattle.enemy.goldDrop > 0)
