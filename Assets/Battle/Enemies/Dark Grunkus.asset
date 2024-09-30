@@ -15,14 +15,24 @@ MonoBehaviour:
   enemyName: Dark Grunkus
   enemyServerId: 7
   sprite: {fileID: 21300000, guid: 700a205482b48b64dadfd9abcaeba92c, type: 3}
-  hp: 40
+  hp: 60
   mp: 0
   attackDamage: 50
   defense: 5
   speed: 5
-  xpDrop: 43
-  goldDrop: 3
-  itemDrops: []
+  xpDrop: 50
+  goldDrop: 10
+  itemDrops:
+  - probability: 100
+    m_ItemAmount:
+      m_Amount: 1
+      m_Item:
+        m_ID: 0
+        m_Name: 
+        m_ItemDefinitionID: 0
+        m_ItemDefinition: {fileID: 11400000, guid: 577a7b5096ba0e442a0309de62fa45b2, type: 2}
+        m_ItemAttributeCollection:
+          m_AttributeCollectionData: []
   runSuccessProbability: 0.182
   criticalHitProbability: 0.1
   fireSusceptibility: 0.177

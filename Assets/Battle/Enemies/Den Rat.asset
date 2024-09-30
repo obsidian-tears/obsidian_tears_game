@@ -21,8 +21,18 @@ MonoBehaviour:
   defense: 5
   speed: 6
   xpDrop: 18
-  goldDrop: 1
-  itemDrops: []
+  goldDrop: 2
+  itemDrops:
+  - probability: 0
+    m_ItemAmount:
+      m_Amount: 0
+      m_Item:
+        m_ID: 0
+        m_Name: 
+        m_ItemDefinitionID: 0
+        m_ItemDefinition: {fileID: 0}
+        m_ItemAttributeCollection:
+          m_AttributeCollectionData: []
   runSuccessProbability: 0.78
   criticalHitProbability: 0.3
   fireSusceptibility: 0.2

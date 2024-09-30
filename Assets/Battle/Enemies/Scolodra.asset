@@ -22,7 +22,17 @@ MonoBehaviour:
   speed: 12
   xpDrop: 40
   goldDrop: 3
-  itemDrops: []
+  itemDrops:
+  - probability: 50
+    m_ItemAmount:
+      m_Amount: 1
+      m_Item:
+        m_ID: 0
+        m_Name: 
+        m_ItemDefinitionID: 0
+        m_ItemDefinition: {fileID: 11400000, guid: 5c27c2bed0222d64590f73e1260b5b8f, type: 2}
+        m_ItemAttributeCollection:
+          m_AttributeCollectionData: []
   runSuccessProbability: 0.405
   criticalHitProbability: 0.12
   fireSusceptibility: 0.01
