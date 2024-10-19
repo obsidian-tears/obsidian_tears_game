@@ -139,29 +139,43 @@ public class MonsterArea : MonoBehaviour
         scenePortal.UsePortal();
     }
 
+    Collider2D myCollider;
     void Awake()
     {
         currentBattle = GameObject.Find("SceneManager").GetComponent<ObjectHolder>().currentBattle;
+        myCollider = GetComponent<Collider2D>();
 
         if (currentBattle.monsterAreaObject == monsterAreaUniqueID)
         {
             if (currentBattle.wonBattle)
-            {
-                onBattleWin.Invoke();
-
-                if (isOneTimeBattle)
-                    Destroy(this.gameObject);
-            }
+                StartCoroutine(DelayWin());
             else if (currentBattle.ranBattle)
                 StartCoroutine(DelayRun());
         }
     }
 
+    IEnumerator DelayWin()
+    {
+        if (isOneTimeBattle)
+            myCollider.enabled = false;
+
+        // Allow SaveSystem script to ApplySavedGameData() before transitioning to next scene; Otherwise empty data is saved and all inventory and quest data is lost.
+        yield return new WaitForSeconds(0.05f);
+        onBattleWin.Invoke();
+
+        if (isOneTimeBattle)
+            Destroy(gameObject);
+    }
+
     IEnumerator DelayRun()
     {
+        myCollider.enabled = false;
+
         // Allow SaveSystem script to ApplySavedGameData() before transitioning to next scene; Otherwise empty data is saved and all inventory and quest data is lost.
         yield return new WaitForSeconds(0.05f);
         onBattleRan.Invoke();
+
+        myCollider.enabled = true;
     }
 
     void Start()
