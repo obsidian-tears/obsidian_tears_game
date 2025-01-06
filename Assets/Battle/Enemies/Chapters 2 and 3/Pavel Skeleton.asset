@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bde99beda8667474d921978d03e01e06, type: 3}
+  m_Name: Pavel Skeleton
+  m_EditorClassIdentifier: 
+  enemyName: Skeleton
+  enemyServerId: 26
+  sprite: {fileID: 21300000, guid: 7b52389ffe23de449ab3284a1f1a2542, type: 3}
+  hp: 75
+  mp: 0
+  attackDamage: 35
+  defense: 30
+  speed: 8
+  xpDrop: 35
+  goldDrop: 5
+  itemDrops:
+  - probability: 100
+    m_ItemAmount:
+      m_Amount: 1
+      m_Item:
+        m_ID: 0
+        m_Name: 
+        m_ItemDefinitionID: 0
+        m_ItemDefinition: {fileID: 11400000, guid: aafef87a5ad635c428b5bdb6bbc1812c, type: 2}
+        m_ItemAttributeCollection:
+          m_AttributeCollectionData: []
+  runSuccessProbability: 0.059
+  criticalHitProbability: 0.302
+  fireSusceptibility: 0
+  frostSusceptibility: 0
+  shockSusceptibility: 0.434
