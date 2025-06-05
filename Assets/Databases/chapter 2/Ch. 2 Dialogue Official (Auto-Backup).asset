@@ -368,6 +368,20 @@ MonoBehaviour:
       value: 
       type: 0
       typeString: 
+  - id: 2
+    fields:
+    - title: Name
+      value: necromonologue
+      type: 0
+      typeString: 
+    - title: Initial Value
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    - title: Description
+      value: 
+      type: 0
+      typeString: 
   conversations:
   - id: 1
     fields:
@@ -12499,12 +12513,6 @@ MonoBehaviour:
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
-      - originConversationID: 13
-        originDialogueID: 0
-        destinationConversationID: 13
-        destinationDialogueID: 8
-        isConnector: 0
-        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -12513,7 +12521,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 147
-        y: 21
+        y: 19.630142
         width: 160
         height: 30
     - id: 1
@@ -12561,14 +12569,14 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: SetQuestState("Necro Boss", "active")
+      userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 145
-        y: 83
+        x: 143.50748
+        y: 84.49252
         width: 160
         height: 30
     - id: 2
@@ -12739,7 +12747,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 144
-        y: 233
+        y: 235.53165
         width: 160
         height: 30
     - id: 5
@@ -12900,71 +12908,19 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: SetQuestNodeState("Necro Boss", "Success", "active")
+      userScript: 
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 140.80504
-        y: 386.125
-        width: 160
-        height: 30
-    - id: 8
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 14
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: 'AUGAHSAH
-
-
-          I PAsS InTO The da...rk...'
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 13
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: CurrentQuestState("Necro Boss") == success
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 363.4383
-        y: 81.95891
+        x: 135.32555
+        y: 391.60443
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 33.30129}
-    canvasZoom: 0.73000026
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.5200005
   syncInfo:
     syncActors: 0
     syncItems: 0
