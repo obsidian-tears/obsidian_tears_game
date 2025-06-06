@@ -2115,7 +2115,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
-        value: OpenShop()
+        value: 
         type: 0
         typeString: 
       conversationID: 1
@@ -2362,8 +2362,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 732.5655, y: 0}
-    canvasZoom: 0.3400002
+    canvasScrollPosition: {x: 1057.4556, y: 60.030678}
+    canvasZoom: 0.61000013
   - id: 2
     fields:
     - title: Title
@@ -4900,7 +4900,7 @@ MonoBehaviour:
       - title: Dialogue Text
         value: An old system of caves and tunnels exits beneath the castle. The entrance 
           was sealed off a hundred years ago after a terrible accident. Not all of
-          the catacombs were explored and dark monsters lived in the depths.
+          the catacombs were explored and dark monsters live in the depths.
         type: 0
         typeString: 
       - title: Sequence
@@ -4986,7 +4986,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 320.50247
+        x: 321.8723
         y: 821.1205
         width: 160
         height: 30
@@ -5290,8 +5290,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Helping? The castle was overrun! What was I to do? Squire went back
-          in. I need news from him. Have you seen him?
+        value: Helping? The castle was overrun! What was I to do? Prince Nahan went
+          back in. I need news from him. Have you seen him?
         type: 0
         typeString: 
       - title: Sequence
@@ -5370,7 +5370,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 840.14844
+        x: 838.77856
         y: 207.76895
         width: 160
         height: 30
@@ -5814,8 +5814,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 105.38583, y: 754.1081}
-    canvasZoom: 0.8500001
+    canvasScrollPosition: {x: 130.47794, y: 587.2207}
+    canvasZoom: 0.73000014
   - id: 4
     fields:
     - title: Title
@@ -9866,9 +9866,8 @@ MonoBehaviour:
         typeString: 
       - title: Dialogue Text
         value: The power of the Necromancer restored me to a semblance of life. But
-          alas, never received the power to walk. Not that I want that. But staring
-          att this stone ceiling did get old. I want to be free! You must stop the
-          Necromancer!
+          alas, I never received the power to walk... not that I wanted that. I want
+          to be free! You must stop the Necromancer!
         type: 0
         typeString: 
       - title: Sequence
@@ -10034,9 +10033,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 'I fear even now he moves to his ancient lair, deep in the North Mountain.
-          YOU MUST STOP HIM BEFORE THE NEXT FULL MOON! Else he will gain tremendous
-          power. '
+        value: I fear even now he moves to his ancient lair, deep in the North Mountain.
+          YOU MUST STOP HIM! there is a threat even worse than he....the Demon King.
         type: 0
         typeString: 
       - title: Sequence
@@ -10057,6 +10055,12 @@ MonoBehaviour:
         destinationDialogueID: 10
         isConnector: 0
         priority: 2
+      - originConversationID: 8
+        originDialogueID: 9
+        destinationConversationID: 8
+        destinationDialogueID: 18
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -10064,8 +10068,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 108.06186
-        y: 417.6598
+        x: 109.12569
+        y: 420.85132
         width: 160
         height: 30
     - id: 10
@@ -10499,9 +10503,59 @@ MonoBehaviour:
         y: 161.72726
         width: 160
         height: 30
+    - id: 18
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 9
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 'If he can, he will wake the lord of monsters. The same demon my ancient
+          friends tried their best to beat: THE DEMON KING. Stop the necromancer! '
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 8
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 320.82785
+        y: 445.3194
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 57.666286, y: 406.8849}
-    canvasZoom: 0.73
+    canvasScrollPosition: {x: 0, y: 441.25574}
+    canvasZoom: 0.90999985
   - id: 9
     fields:
     - title: Title
